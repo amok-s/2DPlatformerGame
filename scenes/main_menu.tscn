@@ -1,0 +1,156 @@
+[gd_scene load_steps=9 format=3 uid="uid://3kqxe67swqec"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_1md1s"]
+[ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://Pink.png" id="1_pdk5x"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://Jersey10-Regular.ttf" id="4_e02m3"]
+[ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://tap.wav" id="5_qbull"]
+[ext_resource type="Shader" path="res://scenes/scroll.gdshader" id="6_dfjqx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifu7e"]
+shader = ExtResource("6_dfjqx")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lbxg"]
+bg_color = Color(0.776471, 0.513726, 0.588235, 0.360784)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nrut"]
+draw_center = false
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_1md1s")
+
+[node name="Background" type="TextureRect" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_ifu7e")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_pdk5x")
+stretch_mode = 1
+
+[node name="TapSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qbull")
+
+[node name="level buttons" type="Node" parent="."]
+
+[node name="level1" type="Button" parent="level buttons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = 26.0
+offset_right = -3.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_pressed_color = Color(0.898039, 0.764706, 0.494118, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_e02m3")
+theme_override_font_sizes/font_size = 45
+text = "> level 1"
+flat = true
+
+[node name="level2" type="Button" parent="level buttons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.5
+offset_top = 88.0
+offset_right = -3.5
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_pressed_color = Color(0.898039, 0.764706, 0.494118, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_e02m3")
+theme_override_font_sizes/font_size = 45
+text = "> level 2"
+flat = true
+
+[node name="level3" type="Button" parent="level buttons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.5
+offset_top = 151.0
+offset_right = -3.5
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_pressed_color = Color(0.898039, 0.764706, 0.494118, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("4_e02m3")
+theme_override_font_sizes/font_size = 45
+text = "> level 3"
+flat = true
+
+[node name="Footer" type="Panel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3lbxg")
+
+[node name="Footer text" type="Label" parent="Footer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 29.0
+offset_top = -17.5
+offset_right = 265.0
+offset_bottom = 14.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("4_e02m3")
+text = "assets used: Pixel Adventure by Pixel Frog
+made with Coco Code tutorial"
+
+[node name="TitleBox" type="Panel" parent="."]
+offset_left = 338.0
+offset_top = 104.0
+offset_right = 670.0
+offset_bottom = 305.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8nrut")
+
+[node name="TitleText" type="Label" parent="TitleBox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 62.0
+offset_top = -109.5
+offset_right = 376.0
+offset_bottom = 94.5
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 7
+theme_override_constants/shadow_outline_size = 10
+theme_override_constants/line_spacing = -15
+theme_override_fonts/font = ExtResource("4_e02m3")
+theme_override_font_sizes/font_size = 72
+text = "2D
+Platformer 
+Game"
+
+[connection signal="pressed" from="level buttons/level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="level buttons/level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="level buttons/level3" to="." method="_on_level_3_pressed"]
