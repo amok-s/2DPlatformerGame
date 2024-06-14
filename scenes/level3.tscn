@@ -1,16 +1,16 @@
 [gd_scene load_steps=12 format=3 uid="uid://g2n5jyw07p28"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_5mk3q"]
-[ext_resource type="Texture2D" uid="uid://cnyn0rkovklk8" path="res://Purple.png" id="2_rqjqm"]
-[ext_resource type="Texture2D" uid="uid://b6s27ymrxjikq" path="res://Terrain (16x16).png" id="3_0lt7n"]
+[ext_resource type="Texture2D" uid="uid://cnyn0rkovklk8" path="res://assets/Purple.png" id="2_f8kfg"]
+[ext_resource type="Texture2D" uid="uid://b6s27ymrxjikq" path="res://assets/Terrain (16x16).png" id="3_q6cvl"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="4_0kn3p"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="5_4gn3q"]
 [ext_resource type="PackedScene" uid="uid://1flprlq4mpfh" path="res://scenes/finish.tscn" id="6_dfc8q"]
 [ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="7_bmg1e"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://Jersey10-Regular.ttf" id="8_ojwlw"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/Jersey10-Regular.ttf" id="8_1iu3f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3rac"]
-texture = ExtResource("3_0lt7n")
+texture = ExtResource("3_q6cvl")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -598,7 +598,7 @@ offset_right = -558.0
 offset_bottom = 1877.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_rqjqm")
+texture = ExtResource("2_f8kfg")
 stretch_mode = 1
 
 [node name="TileMap" type="TileMap" parent="Scene Objects"]
@@ -712,7 +712,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("8_ojwlw")
+theme_override_fonts/font = ExtResource("8_1iu3f")
 theme_override_font_sizes/font_size = 45
 text = "Points:"
 vertical_alignment = 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnyn0rkovklk8"
-path="res://.godot/imported/Purple.png-3b93a7f8b5ec59ba9c22152d9a19d80d.ctex"
+uid="uid://b6s27ymrxjikq"
+path="res://.godot/imported/Terrain (16x16).png-08440d825000be5cd6a24cdf2c2e8ddf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Purple.png"
-dest_files=["res://.godot/imported/Purple.png-3b93a7f8b5ec59ba9c22152d9a19d80d.ctex"]
+source_file="res://assets/Terrain (16x16).png"
+dest_files=["res://.godot/imported/Terrain (16x16).png-08440d825000be5cd6a24cdf2c2e8ddf.ctex"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://3kqxe67swqec"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_1md1s"]
-[ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://Pink.png" id="1_pdk5x"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://Jersey10-Regular.ttf" id="4_e02m3"]
-[ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://tap.wav" id="5_qbull"]
+[ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="3_5d73i"]
+[ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://assets/sounds/tap.wav" id="4_ubdrv"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/Jersey10-Regular.ttf" id="5_qhanw"]
 [ext_resource type="Shader" path="res://scenes/scroll.gdshader" id="6_dfjqx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifu7e"]
@@ -26,11 +26,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_pdk5x")
+texture = ExtResource("3_5d73i")
 stretch_mode = 1
 
 [node name="TapSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_qbull")
+stream = ExtResource("4_ubdrv")
 
 [node name="level buttons" type="Node" parent="."]
 
@@ -49,7 +49,7 @@ grow_vertical = 2
 theme_override_colors/font_pressed_color = Color(0.898039, 0.764706, 0.494118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("4_e02m3")
+theme_override_fonts/font = ExtResource("5_qhanw")
 theme_override_font_sizes/font_size = 45
 text = "> level 1"
 flat = true
@@ -69,7 +69,7 @@ grow_vertical = 2
 theme_override_colors/font_pressed_color = Color(0.898039, 0.764706, 0.494118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("4_e02m3")
+theme_override_fonts/font = ExtResource("5_qhanw")
 theme_override_font_sizes/font_size = 45
 text = "> level 2"
 flat = true
@@ -89,7 +89,7 @@ grow_vertical = 2
 theme_override_colors/font_pressed_color = Color(0.898039, 0.764706, 0.494118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("4_e02m3")
+theme_override_fonts/font = ExtResource("5_qhanw")
 theme_override_font_sizes/font_size = 45
 text = "> level 3"
 flat = true
@@ -118,7 +118,7 @@ theme_override_colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_constants/line_spacing = -4
-theme_override_fonts/font = ExtResource("4_e02m3")
+theme_override_fonts/font = ExtResource("5_qhanw")
 text = "assets used: Pixel Adventure by Pixel Frog
 made with Coco Code tutorial"
 
@@ -145,7 +145,7 @@ theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 7
 theme_override_constants/shadow_outline_size = 10
 theme_override_constants/line_spacing = -15
-theme_override_fonts/font = ExtResource("4_e02m3")
+theme_override_fonts/font = ExtResource("5_qhanw")
 theme_override_font_sizes/font_size = 72
 text = "2D
 Platformer 
