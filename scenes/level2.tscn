@@ -561,7 +561,7 @@ position_smoothing_speed = 6.0
 [node name="Collectables group" type="Node" parent="Scene Objects"]
 
 [node name="Collectable" parent="Scene Objects/Collectables group" instance=ExtResource("5_air3g")]
-position = Vector2(102, -10)
+position = Vector2(118, -11)
 
 [node name="Collectable2" parent="Scene Objects/Collectables group" instance=ExtResource("5_air3g")]
 position = Vector2(163, 431)
