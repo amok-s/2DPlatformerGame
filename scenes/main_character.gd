@@ -12,6 +12,12 @@ const JUMP_VELOCITY = -840.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func jump():
+	velocity.y = -550
+	
+func jump_side(x):
+	velocity.y = -550
+	velocity.x = x
 
 func _physics_process(delta):
 	#Animations
@@ -44,6 +50,4 @@ func _physics_process(delta):
 	var isLeft = velocity.x < 0
 	sprite_2d.flip_h = isLeft
 	
-	if Input.is_action_just_pressed("escape"):
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 

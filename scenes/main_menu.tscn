@@ -119,7 +119,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_constants/line_spacing = -4
 theme_override_fonts/font = ExtResource("5_qhanw")
-text = "assets used: Pixel Adventure by Pixel Frog
+text = "using assets by: Pixel Frog, Disven
 made with Coco Code tutorial"
 
 [node name="TitleBox" type="Panel" parent="."]
