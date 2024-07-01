@@ -1,6 +1,11 @@
 extends Node
 @onready var tap_sound = $TapSound
+@onready var menu_music = $MenuMusic
 
+func _ready():
+	menu_music.play(0.5)
+func _on_menu_music_finished():
+	menu_music.play(0.3)
 
 func _on_level_1_pressed():
 	tap_sound.play(0)
@@ -27,6 +32,9 @@ func _on_level_3_pressed():
 
 func scrolling_menu():
 	var direction = Input.get_axis("left", "right")
+
+
+
 
 
 
