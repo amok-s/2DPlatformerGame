@@ -22,6 +22,12 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="2d Platformer game"
 
+[file_customization]
+
+folder_colors={
+"res://assets/sounds/": "pink"
+}
+
 [input]
 
 left={

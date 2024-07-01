@@ -1,17 +1,20 @@
 extends RigidBody2D
 @onready var game_manager = %GameManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var collision_shape_2d = $CollisionShape2D
+@onready var bump_sound = $Bump
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
+		
+
 
 
 func _on_area_2d_body_entered(body):
@@ -22,8 +25,12 @@ func _on_area_2d_body_entered(body):
 			print (y_delta)
 			print ("Destroy enemy")
 			body.jump()
+			bump_sound.play(0)
 			animated_sprite_2d.play("hit")
-			await get_tree().create_timer(0.35).timeout
+			var random_x = randf_range(-150, 150)
+			set_axis_velocity(Vector2(random_x, -190))
+			collision_shape_2d.queue_free()
+			await get_tree().create_timer(2).timeout
 			queue_free()
 		else:
 			print ("Decrease player health")

@@ -5,7 +5,8 @@ const SPEED = 350.0
 const JUMP_VELOCITY = -840.0
 @onready var sprite_2d = $Sprite2D
 @onready var jump_sound = $JumpSound
-@onready var pick_up = $PickUp
+@onready var pick_up = $PickUp 
+
 
 
 
@@ -15,7 +16,7 @@ var jump_count = 0
 var taking_damage = false
 
 func jump():
-	velocity.y = -550
+	velocity.y = -350
 	
 func jump_side(x):
 	velocity.y = -550
@@ -36,12 +37,15 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		# More animations(velocity.y < 0)
-		if (jump_count == 1):
-			sprite_2d.animation = "jumping"
-		if (jump_count == 2):
-			sprite_2d.play("double_jumping")
-		if (velocity.y > 0) and (jump_count == 1):
+		if (velocity.y > 0) and (jump_count == 0):
 			sprite_2d.animation = "fall"
+		else:
+			if (jump_count == 1):
+				sprite_2d.animation = "jumping"
+			if (jump_count == 2):
+				sprite_2d.play("double_jumping")
+			if (velocity.y > 0) and (jump_count == 1):
+				sprite_2d.animation = "fall"
 	
 		
 		
