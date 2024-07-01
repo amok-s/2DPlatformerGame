@@ -9,7 +9,7 @@ extends Area2D
 
 func _on_body_entered(body):
 	if (body.name == "CharacterBody2D"):
-		animated_sprite_2d.animation= "collected"
+		animated_sprite_2d.animation = "collected"
 		game_manager.add_point()
 		pick_up.play(0)
 		collision_shape_2d.queue_free()

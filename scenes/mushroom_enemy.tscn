@@ -1,7 +1,28 @@
-[gd_scene load_steps=20 format=3 uid="uid://tsl01q3acwmc"]
+[gd_scene load_steps=26 format=3 uid="uid://tsl01q3acwmc"]
 
 [ext_resource type="Texture2D" uid="uid://dk3uogutcdk88" path="res://assets/Mushroom/Idle (32x32).png" id="1_ga28d"]
 [ext_resource type="Script" path="res://scenes/mushroom_enemy.gd" id="1_rq5co"]
+[ext_resource type="Texture2D" uid="uid://s4ar6ipcmify" path="res://assets/Mushroom/Hit.png" id="2_3awl1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms4sq"]
+atlas = ExtResource("2_3awl1")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxs1n"]
+atlas = ExtResource("2_3awl1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyedd"]
+atlas = ExtResource("2_3awl1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ardjg"]
+atlas = ExtResource("2_3awl1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktiyr"]
+atlas = ExtResource("2_3awl1")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wpuia"]
 atlas = ExtResource("1_ga28d")
@@ -63,6 +84,26 @@ region = Rect2(416, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ms4sq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxs1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyedd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ardjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktiyr")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wpuia")
 }, {
 "duration": 1.0,
@@ -106,7 +147,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 12.0
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gh048"]
@@ -123,9 +164,9 @@ texture_filter = 1
 position = Vector2(674.25, 433.75)
 scale = Vector2(2.92187, 2.92187)
 sprite_frames = SubResource("SpriteFrames_lbj60")
-animation = &"idle"
+animation = &"hit"
 autoplay = "idle"
-frame_progress = 0.981383
+frame_progress = 0.849816
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(674.5, 452)
@@ -138,4 +179,5 @@ position = Vector2(672, 452)
 position = Vector2(2.5, -1.5)
 shape = SubResource("RectangleShape2D_yo0e5")
 
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

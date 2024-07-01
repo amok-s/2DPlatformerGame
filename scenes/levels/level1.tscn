@@ -66,14 +66,17 @@ texture = ExtResource("3_lem1l")
 17:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:0/0/physics_layer_0/angular_velocity = 0.0
 17:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.5, -8, -8, 8, -8, 8, -2.625)
+17:0/0/physics_layer_0/polygon_0/one_way = true
 18:0/0 = 0
 18:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:0/0/physics_layer_0/angular_velocity = 0.0
 18:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.5, -8, -8, 8, -8, 8, -2.625)
+18:0/0/physics_layer_0/polygon_0/one_way = true
 19:0/0 = 0
 19:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:0/0/physics_layer_0/angular_velocity = 0.0
 19:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.5, -8, -8, 8, -8, 8, -2.625)
+19:0/0/physics_layer_0/polygon_0/one_way = true
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
@@ -125,14 +128,17 @@ texture = ExtResource("3_lem1l")
 17:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:1/0/physics_layer_0/angular_velocity = 0.0
 17:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.5, -8, -8, 8, -8, 8, -2.625)
+17:1/0/physics_layer_0/polygon_0/one_way = true
 18:1/0 = 0
 18:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:1/0/physics_layer_0/angular_velocity = 0.0
 18:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.5, -8, -8, 8, -8, 8, -2.625)
+18:1/0/physics_layer_0/polygon_0/one_way = true
 19:1/0 = 0
 19:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:1/0/physics_layer_0/angular_velocity = 0.0
-19:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -2.5, -8, -8, 8, -8, 8, -2.625)
+19:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -3, -8, -3)
+19:1/0/physics_layer_0/polygon_0/one_way = true
 0:2/0 = 0
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
@@ -501,11 +507,12 @@ corner_radius_bottom_left = 8
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
 unique_name_in_owner = true
 script = ExtResource("1_wryh3")
-hearts = [NodePath("../UI/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart3")]
+hearts = [NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart3")]
 
 [node name="Scene Objects" type="Node" parent="."]
 
 [node name="Background" type="TextureRect" parent="Scene Objects"]
+visible = false
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -536,6 +543,10 @@ limit_right = 2399
 limit_bottom = 672
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.17
+drag_vertical_offset = -0.06
 
 [node name="Collectables group" type="Node" parent="Scene Objects"]
 
@@ -609,6 +620,19 @@ position = Vector2(675, -197)
 [node name="MushroomEnemy4" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
 position = Vector2(1436, -146)
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Scene Objects"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Scene Objects/ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.4)
+motion_mirroring = Vector2(1024, 1024)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("2_0r8cn")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 1024)
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="CoinsPanel" type="Panel" parent="UI"]
@@ -636,17 +660,15 @@ theme_override_font_sizes/font_size = 45
 text = "Points:"
 vertical_alignment = 1
 
-[node name="HeartsPanel" type="Panel" parent="UI"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -160.0
-offset_top = 10.0
-offset_right = -8.0
-offset_bottom = 58.0
-grow_horizontal = 0
+[node name="HeartsPanel" type="Panel" parent="UI/CoinsPanel"]
+layout_mode = 0
+offset_left = 981.0
+offset_top = -5.0
+offset_right = 1133.0
+offset_bottom = 44.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pe8tn")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/HeartsPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CoinsPanel/HeartsPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -660,19 +682,19 @@ offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Heart" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+[node name="Heart" type="TextureRect" parent="UI/CoinsPanel/HeartsPanel/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("9_axadg")
 expand_mode = 2
 
-[node name="Heart2" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+[node name="Heart2" type="TextureRect" parent="UI/CoinsPanel/HeartsPanel/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("9_axadg")
 expand_mode = 2
 
-[node name="Heart3" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+[node name="Heart3" type="TextureRect" parent="UI/CoinsPanel/HeartsPanel/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("9_axadg")
