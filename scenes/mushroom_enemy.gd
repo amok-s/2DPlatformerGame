@@ -3,6 +3,8 @@ extends RigidBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var bump_sound = $Bump
+@onready var player_dead_sound = $PlayerDead
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -35,6 +37,8 @@ func _on_area_2d_body_entered(body):
 		else:
 			print ("Decrease player health")
 			game_manager.decrease_health()
+			if (game_manager.lives == 0):
+				player_dead_sound.play(0)
 			print (x_delta)
 			if (x_delta < 600): #if player touch enemy from the left
 				print ("w lewo")

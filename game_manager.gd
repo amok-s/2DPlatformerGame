@@ -5,6 +5,8 @@ extends Node
 @export var hearts : Array[Node]
 
 
+
+
 var points = 0
 var lives = 3
 
@@ -22,6 +24,7 @@ func decrease_health():
 		else:
 			hearts[h].hide()
 	if (lives == 0):
+		await get_tree().create_timer(0.5).timeout
 		get_tree().reload_current_scene()
 	
 

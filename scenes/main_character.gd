@@ -6,6 +6,9 @@ const JUMP_VELOCITY = -840.0
 @onready var sprite_2d = $Sprite2D
 @onready var jump_sound = $JumpSound
 @onready var pick_up = $PickUp 
+@onready var game_manager = %GameManager
+@onready var being_hit = $BeingHit
+@onready var dead_sound = $DeadSound
 
 
 
@@ -21,11 +24,27 @@ func jump():
 func jump_side(x):
 	velocity.y = -550
 	velocity.x = x
-
+	if (game_manager.lives != 0):
+		taking_damage = true
+		being_hit.play(0)
+		await get_tree().create_timer(0.3).timeout
+		taking_damage = false
 	
+	
+func dead():
+	if (game_manager.lives == 0):
+		dead_sound.play(0)
+		print ("dead")
 
 func _physics_process(delta):
 	#Gravity and animations
+	if (taking_damage == true):
+		sprite_2d.play("hit")
+	
+	if (game_manager.lives == 0):
+		sprite_2d.play("dead")
+		await get_tree().create_timer(0.6).timeout
+	
 	if is_on_floor():
 		jump_count = 0
 	
@@ -60,7 +79,7 @@ func _physics_process(delta):
  
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
-	if direction:
+	if direction and (taking_damage == false):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, 12)
