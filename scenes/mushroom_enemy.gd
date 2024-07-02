@@ -23,8 +23,8 @@ func _on_area_2d_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		var y_delta = position.y - body.position.y
 		var x_delta = body.position.x - position.x
-		if (y_delta > -247):
-			print (y_delta)
+		#print (y_delta)
+		if (y_delta > -400):
 			print ("Destroy enemy")
 			body.jump()
 			bump_sound.play(0)
@@ -39,8 +39,8 @@ func _on_area_2d_body_entered(body):
 			game_manager.decrease_health()
 			if (game_manager.lives == 0):
 				player_dead_sound.play(0)
-			print (x_delta)
-			if (x_delta < 600): #if player touch enemy from the left
+			#print (x_delta)
+			if (x_delta < 660): #if player touch enemy from the left
 				print ("w lewo")
 				body.jump_side(-500) 
 			else: #approaching ftom the right
