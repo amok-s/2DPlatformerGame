@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://brnrrjstww3s4"]
+[gd_scene load_steps=60 format=3 uid="uid://brnrrjstww3s4"]
 
 [ext_resource type="Script" path="res://scenes/main_character.gd" id="1_nvhje"]
 [ext_resource type="PackedScene" uid="uid://c502i23w0xg1k" path="res://scenes/particle.tscn" id="2_ivyyf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://5qbud7u2tixs" path="res://assets/MainCharacter/Hit (32x32).png" id="5_4042q"]
 [ext_resource type="Texture2D" uid="uid://62py5vgap5qa" path="res://assets/MainCharacter/Run (32x32).png" id="5_kivnf"]
 [ext_resource type="AudioStream" uid="uid://dan582oirr1yg" path="res://assets/sounds/jump.mp3" id="6_1k6s1"]
+[ext_resource type="AudioStream" uid="uid://ddk83bkx0rghe" path="res://assets/sounds/pick_up.mp3" id="12_32mua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hhlo"]
 atlas = ExtResource("2_v0qms")
@@ -398,3 +399,8 @@ pitch_scale = 3.0
 
 [node name="DeadSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1k6s1")
+
+[node name="AppearSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_32mua")
+volume_db = -10.0
+pitch_scale = 1.5

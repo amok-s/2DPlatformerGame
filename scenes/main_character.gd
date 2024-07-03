@@ -3,12 +3,17 @@ extends CharacterBody2D
 
 const SPEED = 350.0
 const JUMP_VELOCITY = -840.0
+
 @onready var sprite_2d = $Sprite2D
-@onready var jump_sound = $JumpSound
 @onready var pick_up = $PickUp 
 @onready var game_manager = %GameManager
+
+#sound effects
 @onready var being_hit = $BeingHit
 @onready var dead_sound = $DeadSound
+@onready var appear_sound = $AppearSound
+@onready var jump_sound = $JumpSound
+
 @export var particle : PackedScene
 @export var appearing : PackedScene
 
@@ -33,12 +38,20 @@ func jump_side(x):
 		sides_input_blockage = true
 		taking_damage = true
 		being_hit.play(0)
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.2).timeout
 		sides_input_blockage = false
 		taking_damage = false
 	
-	
-
+func hit_by_spikes(x, y):
+	taking_damage = true
+	sides_input_blockage = true
+	being_hit.play(0)
+	velocity.y = y
+	velocity.x = x
+	await get_tree().create_timer(0.3).timeout
+	sides_input_blockage = false
+	await get_tree().create_timer(0.2).timeout
+	taking_damage = false
 	
 
 func _physics_process(delta):
@@ -54,15 +67,12 @@ func _physics_process(delta):
 		get_parent().add_child(appearing_node)
 		starting_anim = false
 		await get_tree().create_timer(0.68).timeout
+		appear_sound.play(0)
 		appearing_node.queue_free()
 		sprite_2d.show()
 		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 		sides_input_blockage = false
 		jump_input_blockage = false
-		
-		
-	
-	
 	
 	#Gravity and animations
 	if (taking_damage == true):
