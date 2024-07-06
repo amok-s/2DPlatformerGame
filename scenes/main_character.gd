@@ -53,6 +53,16 @@ func hit_by_spikes(x, y):
 	await get_tree().create_timer(0.2).timeout
 	taking_damage = false
 	
+func hit_by_plant():
+	#game_manager.decrease_health()
+	sides_input_blockage = true
+	taking_damage = true
+	being_hit.play(0)
+	velocity.y = -500
+	await get_tree().create_timer(0.3).timeout
+	sides_input_blockage = false
+	await get_tree().create_timer(0.2).timeout
+	taking_damage = false
 
 func _physics_process(delta):
 	
@@ -77,6 +87,7 @@ func _physics_process(delta):
 	#Gravity and animations
 	if (taking_damage == true):
 		sprite_2d.play("hit")
+	
 	
 	if (game_manager.lives == 0):
 		sprite_2d.play("dead")

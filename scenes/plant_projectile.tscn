@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://3nlbckrm8tst"]
+
+[ext_resource type="Script" path="res://scenes/plant projectile.gd" id="1_dm646"]
+[ext_resource type="Texture2D" uid="uid://crebppdwbhbq2" path="res://assets/Plant/Bullet.png" id="1_mgbue"]
+[ext_resource type="Texture2D" uid="uid://bhfswe43jryse" path="res://assets/Plant/Bullet Pieces.png" id="2_ueoex"]
+
+[sub_resource type="Animation" id="Animation_gw3r0"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../blades/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_2c3ja"]
+resource_name = "spinning"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5708, -3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../blades/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.5708, -3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w1v02"]
+_data = {
+"RESET": SubResource("Animation_gw3r0"),
+"spinning": SubResource("Animation_2c3ja")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pnot"]
+size = Vector2(24, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bcmr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ols7u"]
+size = Vector2(8, 8)
+
+[node name="plant projectile" type="Node2D"]
+
+[node name="plant projectile" type="StaticBody2D" parent="."]
+script = ExtResource("1_dm646")
+
+[node name="Sprite2D" type="Sprite2D" parent="plant projectile"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_mgbue")
+
+[node name="Sprite2D" type="Sprite2D" parent="plant projectile/Sprite2D"]
+texture = ExtResource("2_ueoex")
+
+[node name="spinning animation" type="AnimationPlayer" parent="plant projectile"]
+reset_on_save = false
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_w1v02")
+}
+autoplay = "spinning"
+speed_scale = 2.3
+
+[node name="blades" type="Area2D" parent="plant projectile"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plant projectile/blades"]
+rotation = 3.14159
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_8pnot")
+
+[node name="core" type="Area2D" parent="plant projectile"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plant projectile/core"]
+shape = SubResource("CircleShape2D_1bcmr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plant projectile"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ols7u")
+
+[connection signal="body_entered" from="plant projectile/blades" to="plant projectile" method="_on_blades_body_entered"]
+[connection signal="body_entered" from="plant projectile/core" to="plant projectile" method="_on_core_body_entered"]

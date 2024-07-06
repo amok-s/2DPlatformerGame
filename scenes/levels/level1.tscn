@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5xx170pjn46l"]
+[gd_scene load_steps=19 format=3 uid="uid://c5xx170pjn46l"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_wryh3"]
 [ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="2_0r8cn"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://scenes/fall_area.gd" id="9_xajej"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="12_763tj"]
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/spikes_2.tscn" id="14_as4xu"]
+[ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="15_upxvc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3rac"]
 texture = ExtResource("3_lem1l")
@@ -524,7 +525,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 1215.0
-offset_bottom = 23.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_0r8cn")
@@ -601,6 +602,28 @@ position = Vector2(2030, -8)
 [node name="Collectable15" parent="Scene Objects/Collectables group" instance=ExtResource("5_bqg58")]
 position = Vector2(1697, 232)
 
+[node name="Enemies group" type="Node" parent="Scene Objects"]
+
+[node name="MushroomEnemy2" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
+position = Vector2(-109, -289)
+
+[node name="MushroomEnemy3" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
+position = Vector2(675, -197)
+
+[node name="MushroomEnemy4" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
+position = Vector2(1436, -146)
+
+[node name="Traps group" type="Node" parent="Scene Objects"]
+
+[node name="spikes2" parent="Scene Objects/Traps group" instance=ExtResource("14_as4xu")]
+position = Vector2(202, 265)
+
+[node name="spikes3" parent="Scene Objects/Traps group" instance=ExtResource("14_as4xu")]
+position = Vector2(422, 554)
+
+[node name="spikes4" parent="Scene Objects/Traps group" instance=ExtResource("14_as4xu")]
+position = Vector2(1895, 409)
+
 [node name="Finish" parent="Scene Objects" instance=ExtResource("6_hc14g")]
 position = Vector2(2276, 555)
 target_level = ExtResource("7_0sxed")
@@ -611,20 +634,6 @@ script = ExtResource("9_xajej")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/WorldBoundary"]
 shape = SubResource("WorldBoundaryShape2D_kime1")
-
-[node name="Enemies group" type="Node" parent="Scene Objects"]
-
-[node name="MushroomEnemy" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
-position = Vector2(222, 2)
-
-[node name="MushroomEnemy2" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
-position = Vector2(-109, -289)
-
-[node name="MushroomEnemy3" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
-position = Vector2(675, -197)
-
-[node name="MushroomEnemy4" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
-position = Vector2(1436, -146)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Scene Objects"]
 
@@ -762,14 +771,8 @@ theme_override_fonts/font = ExtResource("8_l5rmh")
 theme_override_font_sizes/font_size = 67
 text = "back to main menu"
 
-[node name="spikes2" parent="." instance=ExtResource("14_as4xu")]
-position = Vector2(202, 265)
-
-[node name="spikes3" parent="." instance=ExtResource("14_as4xu")]
-position = Vector2(422, 554)
-
-[node name="spikes4" parent="." instance=ExtResource("14_as4xu")]
-position = Vector2(1895, 409)
+[node name="Plant" parent="." instance=ExtResource("15_upxvc")]
+position = Vector2(912, 438)
 
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
