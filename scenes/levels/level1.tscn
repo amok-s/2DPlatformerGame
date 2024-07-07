@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5xx170pjn46l"]
+[gd_scene load_steps=20 format=3 uid="uid://c5xx170pjn46l"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_wryh3"]
 [ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="2_0r8cn"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="8_r8qe0"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/heart.png" id="9_axadg"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="9_xajej"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="11_l36i0"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="12_763tj"]
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/spikes_2.tscn" id="14_as4xu"]
 [ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="15_upxvc"]
@@ -613,6 +614,10 @@ position = Vector2(675, -197)
 [node name="MushroomEnemy4" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
 position = Vector2(1436, -146)
 
+[node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("15_upxvc")]
+position = Vector2(824, 430)
+player = NodePath("../../CharacterBody2D")
+
 [node name="Traps group" type="Node" parent="Scene Objects"]
 
 [node name="spikes2" parent="Scene Objects/Traps group" instance=ExtResource("14_as4xu")]
@@ -648,7 +653,10 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2048, 1024)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "game_manager")]
+script = ExtResource("11_l36i0")
+player = NodePath("../Scene Objects/CharacterBody2D")
+game_manager = NodePath("../GameManager")
 
 [node name="CoinsPanel" type="Panel" parent="UI"]
 offset_left = 6.0
@@ -770,9 +778,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("8_l5rmh")
 theme_override_font_sizes/font_size = 67
 text = "back to main menu"
-
-[node name="Plant" parent="." instance=ExtResource("15_upxvc")]
-position = Vector2(824, 430)
 
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
