@@ -155,9 +155,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aiabk"]
 size = Vector2(60, 70)
 
-[node name="Plant" type="RigidBody2D"]
+[node name="Plant" type="RigidBody2D" node_paths=PackedStringArray("sprite", "spawn_projectile_sound")]
 script = ExtResource("1_ga77x")
-particle = ExtResource("2_qoxeu")
+bullet = ExtResource("2_qoxeu")
+sprite = NodePath("PlantSprite")
+spawn_projectile_sound = NodePath("SpawnProjectileSound")
 
 [node name="PlantSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -174,9 +176,3 @@ shape = SubResource("RectangleShape2D_aiabk")
 stream = ExtResource("5_6dm7m")
 volume_db = -10.0
 pitch_scale = 1.2
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

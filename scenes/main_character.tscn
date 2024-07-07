@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://62py5vgap5qa" path="res://assets/MainCharacter/sprites/Run (32x32).png" id="10_ub3is"]
 [ext_resource type="AudioStream" uid="uid://ddk83bkx0rghe" path="res://assets/sounds/pick_up.mp3" id="12_32mua"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/FSM.gd" id="13_2y0p8"]
-[ext_resource type="Script" path="res://assets/MainCharacter/scripts/idle_state.gd" id="14_3q4sw"]
+[ext_resource type="Script" path="res://assets/MainCharacter/scripts/movement_state.gd" id="15_veihb"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/taking_damage_state.gd" id="16_01nmg"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/jump_state.gd" id="16_sx83y"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/spawn_state.gd" id="17_823os"]
@@ -426,7 +426,7 @@ sprite = NodePath("../../Sprite2D")
 appearing = ExtResource("3_mu7bk")
 
 [node name="Movement" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "sprite")]
-script = ExtResource("14_3q4sw")
+script = ExtResource("15_veihb")
 player = NodePath("../..")
 sprite = NodePath("../../Sprite2D")
 
