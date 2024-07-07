@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://tsl01q3acwmc"]
 
 [ext_resource type="Texture2D" uid="uid://dk3uogutcdk88" path="res://assets/Mushroom/Idle (32x32).png" id="1_ga28d"]
-[ext_resource type="Script" path="res://scenes/mushroom_enemy.gd" id="1_rq5co"]
+[ext_resource type="Script" path="res://Scripts/mushroom_enemy.gd" id="1_rq5co"]
 [ext_resource type="Texture2D" uid="uid://s4ar6ipcmify" path="res://assets/Mushroom/Hit.png" id="2_3awl1"]
 [ext_resource type="AudioStream" uid="uid://8w8d8qiv13b8" path="res://assets/sounds/bump.mp3" id="4_6b27f"]
 [ext_resource type="AudioStream" uid="uid://ddk83bkx0rghe" path="res://assets/sounds/pick_up.mp3" id="5_svrgx"]

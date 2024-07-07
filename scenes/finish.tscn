@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://1flprlq4mpfh"]
 
-[ext_resource type="Script" path="res://scenes/finish.gd" id="1_gsyey"]
+[ext_resource type="Script" path="res://Scripts/finish.gd" id="1_gsyey"]
 [ext_resource type="Texture2D" uid="uid://bj37i1voc6wgt" path="res://assets/End (Idle).png" id="2_c4jw5"]
 [ext_resource type="Texture2D" uid="uid://gmm8x6a1w7l7" path="res://assets/End (Pressed) (64x64).png" id="3_gjs0a"]
 [ext_resource type="AudioStream" uid="uid://bs3t5cwnoe1nw" path="res://assets/sounds/level_finish.mp3" id="4_fiqlb"]

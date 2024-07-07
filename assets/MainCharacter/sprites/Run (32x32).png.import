@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dit5i5pshv57q"
-path="res://.godot/imported/Desappearing (96x96).png-1f9d7504458bdb38e715b118e8896799.ctex"
+uid="uid://62py5vgap5qa"
+path="res://.godot/imported/Run (32x32).png-f448d51949050e29a6f41d4ebad9b12c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/MainCharacter/Desappearing (96x96).png"
-dest_files=["res://.godot/imported/Desappearing (96x96).png-1f9d7504458bdb38e715b118e8896799.ctex"]
+source_file="res://assets/MainCharacter/sprites/Run (32x32).png"
+dest_files=["res://.godot/imported/Run (32x32).png-f448d51949050e29a6f41d4ebad9b12c.ctex"]
 
 [params]
 

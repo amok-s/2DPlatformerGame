@@ -11,6 +11,7 @@ var particles = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	pass # Replace with function body.
 
 
@@ -18,12 +19,11 @@ func timer():
 	var random = randf_range(4, 6)
 	await get_tree().create_timer(random).timeout
 	shooting = true
+
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	
 	
 	if (shooting == true):
 		shooting = false

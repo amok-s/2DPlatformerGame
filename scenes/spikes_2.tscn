@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://1xltmv55jant"]
 
-[ext_resource type="Script" path="res://scenes/spikes_2.gd" id="1_673xp"]
+[ext_resource type="Script" path="res://Scripts/spikes_2.gd" id="1_673xp"]
 [ext_resource type="Texture2D" uid="uid://cwpavr3mkxln6" path="res://assets/spikes.png" id="1_v6xnn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p2wo"]

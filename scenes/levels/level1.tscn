@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c5xx170pjn46l"]
 
-[ext_resource type="Script" path="res://game_manager.gd" id="1_wryh3"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_wryh3"]
 [ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="2_0r8cn"]
 [ext_resource type="Texture2D" uid="uid://b6s27ymrxjikq" path="res://assets/Terrain (16x16).png" id="3_lem1l"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="4_8j1k4"]
@@ -10,7 +10,7 @@
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/Jersey10-Regular.ttf" id="8_l5rmh"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="8_r8qe0"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/heart.png" id="9_axadg"]
-[ext_resource type="Script" path="res://scenes/fall_area.gd" id="9_xajej"]
+[ext_resource type="Script" path="res://Scripts/fall_area.gd" id="9_xajej"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="12_763tj"]
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/spikes_2.tscn" id="14_as4xu"]
 [ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="15_upxvc"]

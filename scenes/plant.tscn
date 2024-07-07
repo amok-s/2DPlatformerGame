@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://cit07k07hqplf"]
 
 [ext_resource type="Texture2D" uid="uid://drsq8bl0g2ikr" path="res://assets/Plant/Attack (44x42).png" id="1_e6lxl"]
-[ext_resource type="Script" path="res://scenes/plant.gd" id="1_ga77x"]
+[ext_resource type="Script" path="res://Scripts/plant.gd" id="1_ga77x"]
 [ext_resource type="PackedScene" uid="uid://3nlbckrm8tst" path="res://scenes/plant_projectile.tscn" id="2_qoxeu"]
 [ext_resource type="Texture2D" uid="uid://c7l6qqpaq1uj4" path="res://assets/Plant/Idle (44x42).png" id="2_rvkjw"]
 [ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://assets/sounds/tap.wav" id="5_6dm7m"]

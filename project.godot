@@ -25,7 +25,9 @@ project/assembly_name="2d Platformer game"
 [file_customization]
 
 folder_colors={
+"res://Scripts/": "green",
 "res://assets/MainCharacter/": "teal",
+"res://assets/MainCharacter/scripts/": "yellow",
 "res://assets/sounds/": "pink",
 "res://scenes/": "red"
 }

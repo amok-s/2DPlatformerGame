@@ -24,7 +24,7 @@ func decrease_health():
 		else:
 			hearts[h].hide()
 	if (lives == 0):
-		await get_tree().create_timer(0.6).timeout
+		await get_tree().create_timer(0.65).timeout
 		get_tree().reload_current_scene()
 	
 
