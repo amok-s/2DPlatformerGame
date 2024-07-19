@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cx6d1dsn20yf6"]
+
+[ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/MinimalPixel v2.ttf" id="1_176ki"]
+[ext_resource type="Texture2D" uid="uid://dh21o4nlduyio" path="res://assets/GUI.png" id="1_t4bpv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngq6l"]
+texture = ExtResource("1_t4bpv")
+region_rect = Rect2(113, 113, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7co1"]
+texture = ExtResource("1_t4bpv")
+region_rect = Rect2(113, 81, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p2t16"]
+texture = ExtResource("1_t4bpv")
+region_rect = Rect2(113, 81, 30, 14)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l2r5b"]
+texture = ExtResource("1_t4bpv")
+region_rect = Rect2(113, 98, 30, 13)
+
+[resource]
+default_font = ExtResource("1_176ki")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_176ki")
+Button/styles/disabled = SubResource("StyleBoxTexture_ngq6l")
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxTexture_n7co1")
+Button/styles/normal = SubResource("StyleBoxTexture_p2t16")
+Button/styles/pressed = SubResource("StyleBoxTexture_l2r5b")

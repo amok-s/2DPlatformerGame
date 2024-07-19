@@ -8,6 +8,8 @@ extends RigidBody2D
 @export var player: CharacterBody2D
 
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var area_2d = $Area2D
+
 
 
 var shooting = false
@@ -60,12 +62,14 @@ func _on_area_2d_body_entered(body):
 		print (y_delta)
 		if (y_delta > 30):
 			#print ("Destroy enemy")
+			collision_shape_2d.queue_free()
+			area_2d.queue_free()
+			shooting = false
 			body.jump()
 			kill_sound.play(0)
 			sprite.play("hit")
 			var random_x = randf_range(-150, 150)
 			set_axis_velocity(Vector2(random_x, -190))
-			collision_shape_2d.queue_free()
 			await get_tree().create_timer(2).timeout
 			queue_free()
 		else:
