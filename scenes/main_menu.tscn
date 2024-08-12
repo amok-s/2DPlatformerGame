@@ -311,6 +311,7 @@ texture = ExtResource("13_arhh8")
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="finished" from="MenuMusic" to="." method="_on_menu_music_finished"]
 [connection signal="pressed" from="Menu/MenuBox/VBoxContainer/Play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/MenuBox/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="level buttons/VBoxContainer/level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="level buttons/VBoxContainer/level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="level buttons/VBoxContainer/level3" to="." method="_on_level_3_pressed"]

@@ -15,7 +15,7 @@ func Enter():
 func Update(_delta:float):
 	
 	
-	if player.is_on_floor:
+	if player.is_on_floor():
 		if (player.velocity.x > 1 || player.velocity.x < -1):
 			sprite.animation = "run"
 		else:
