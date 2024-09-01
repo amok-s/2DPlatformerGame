@@ -10,10 +10,7 @@ extends RigidBody2D
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var area_2d = $Area2D
 
-
-
 var shooting = false
-
 
 func timer():
 	var random = randf_range(0, 4)
@@ -23,7 +20,6 @@ func timer():
 func _ready():
 	timer()
 	pass 
-
 
 func _process(delta):
 	
@@ -44,15 +40,13 @@ func shoot():
 		var b = bullet.instantiate()
 		b.position = position + Vector2(55, -8)
 		b.rotate(PI)
-		get_parent().add_child(b)
+		get_parent().get_parent().add_child(b)
 	else:
 		var b = bullet.instantiate()
 		b.position = position + Vector2(-55, -8)
-		get_parent().add_child(b)
+		get_parent().get_parent().add_child(b)
 
 	spawn_projectile_sound.play(0)
-
-
 
 func _on_area_2d_body_entered(body):
 	if (body.name == "CharacterBody2D"):
@@ -60,7 +54,6 @@ func _on_area_2d_body_entered(body):
 		var x_delta = body.position.x - position.x
 		print (y_delta)
 		if (y_delta > 30):
-			#print ("Destroy enemy")
 			collision_shape_2d.queue_free()
 			area_2d.queue_free()
 			shooting = false
@@ -69,12 +62,12 @@ func _on_area_2d_body_entered(body):
 			sprite.play("hit")
 			var random_x = randf_range(-150, 150)
 			set_axis_velocity(Vector2(random_x, -190))
-			await get_tree().create_timer(2).timeout
+			await get_tree().create_timer(4).timeout
 			queue_free()
 		else:
 			print ("Decrease player health")
 			player.game_manager.decrease_health()
-			#print (x_delta)
+			print (x_delta)
 			if (x_delta < 5): #if player touch enemy from the left
 				print ("w lewo")
 				body.jump_side(-380) 

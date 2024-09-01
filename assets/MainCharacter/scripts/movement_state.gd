@@ -10,7 +10,7 @@ class_name PlayerMovement
 
 # Called when the node enters the scene tree for the first time.
 func Enter():
-	pass
+	sprite.animation = "default"
 
 func Update(_delta:float):
 	if player.is_on_floor():

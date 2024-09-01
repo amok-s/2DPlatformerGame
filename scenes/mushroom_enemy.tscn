@@ -274,19 +274,20 @@ animations = [{
 size = Vector2(79, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yo0e5"]
-size = Vector2(83, 61)
+size = Vector2(83, 56.0001)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kqlu0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_27d70"]
 
 [node name="MushroomEnemy" type="RigidBody2D"]
+position = Vector2(1, 0)
 linear_velocity = Vector2(10, 0)
 script = ExtResource("1_rq5co")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(674.25, 433.75)
+position = Vector2(0.74992, -18.2501)
 scale = Vector2(2.92187, 2.92187)
 sprite_frames = SubResource("SpriteFrames_lbj60")
 animation = &"run"
@@ -294,27 +295,26 @@ autoplay = "idle"
 frame_progress = 0.879596
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(674.5, 452)
+position = Vector2(0.99992, -8.01086e-05)
 shape = SubResource("RectangleShape2D_gh048")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(672, 452)
+position = Vector2(-1.50008, -8.01086e-05)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2.5, -0.5)
+position = Vector2(2.5, -2.99996)
 shape = SubResource("RectangleShape2D_yo0e5")
 
 [node name="LeftLedgeDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLedgeDetector"]
-position = Vector2(631, 476)
+position = Vector2(-42.5001, 23.9999)
 shape = SubResource("CircleShape2D_kqlu0")
 
 [node name="RightLedgeDetector" type="Area2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RightLedgeDetector"]
-position = Vector2(718, 476)
+position = Vector2(44.4999, 23.9999)
 shape = SubResource("CircleShape2D_27d70")
 
 [node name="Bump" type="AudioStreamPlayer" parent="."]
@@ -328,6 +328,7 @@ volume_db = -6.0
 pitch_scale = 2.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="LeftLedgeDetector" to="." method="_on_left_ledge_detector_body_entered"]
 [connection signal="body_exited" from="LeftLedgeDetector" to="." method="_on_left_ledge_detector_body_exited"]
 [connection signal="body_entered" from="RightLedgeDetector" to="." method="_on_right_ledge_detector_body_entered"]

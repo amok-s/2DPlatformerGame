@@ -128,13 +128,13 @@ position = Vector2(1697, 232)
 [node name="Enemies group" type="Node" parent="Scene Objects"]
 
 [node name="MushroomEnemy2" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
-position = Vector2(-109, -289)
+position = Vector2(577, 157)
 
 [node name="MushroomEnemy3" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
-position = Vector2(675, -197)
+position = Vector2(1336, 257)
 
 [node name="MushroomEnemy4" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
-position = Vector2(1436, -146)
+position = Vector2(2112, 301)
 
 [node name="Plant2" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("15_upxvc")]
 position = Vector2(1597, 196)
