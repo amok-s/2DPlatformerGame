@@ -51,7 +51,6 @@ func shoot():
 		get_parent().add_child(b)
 
 	spawn_projectile_sound.play(0)
-	print ("adding plant projectile")
 
 
 
@@ -79,6 +78,6 @@ func _on_area_2d_body_entered(body):
 			if (x_delta < 5): #if player touch enemy from the left
 				print ("w lewo")
 				body.jump_side(-380) 
-			else: #approaching ftom the right
+			else: #approaching from the right
 				print ("w prawo") 
 				body.jump_side(380)

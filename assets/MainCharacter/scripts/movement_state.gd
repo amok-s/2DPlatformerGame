@@ -13,15 +13,12 @@ func Enter():
 	pass
 
 func Update(_delta:float):
-	
-	
 	if player.is_on_floor():
 		if (player.velocity.x > 1 || player.velocity.x < -1):
 			sprite.animation = "run"
 		else:
 			sprite.animation = "default"
 		
-			
 	
 	if not player.is_on_floor():
 		if (player.velocity.y < 0):
@@ -29,8 +26,6 @@ func Update(_delta:float):
 		elif (player.velocity.y > 0):
 			sprite.animation = "fall"
 			
-	
-	
 	
 	if Input.is_action_just_pressed("jump"):
 		state_transition.emit(self, "Jump")

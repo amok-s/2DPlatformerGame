@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://tsl01q3acwmc"]
+[gd_scene load_steps=45 format=3 uid="uid://tsl01q3acwmc"]
 
 [ext_resource type="Texture2D" uid="uid://dk3uogutcdk88" path="res://assets/Mushroom/Idle (32x32).png" id="1_ga28d"]
 [ext_resource type="Script" path="res://Scripts/mushroom_enemy.gd" id="1_rq5co"]
@@ -274,14 +274,9 @@ animations = [{
 size = Vector2(79, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yo0e5"]
-size = Vector2(83, 61)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kqlu0"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_27d70"]
+size = Vector2(83, 59)
 
 [node name="MushroomEnemy" type="RigidBody2D"]
-linear_velocity = Vector2(10, 0)
 script = ExtResource("1_rq5co")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -302,20 +297,9 @@ shape = SubResource("RectangleShape2D_gh048")
 position = Vector2(672, 452)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2.5, -0.5)
+visible = false
+position = Vector2(2.5, -1.5)
 shape = SubResource("RectangleShape2D_yo0e5")
-
-[node name="LeftLedgeDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLedgeDetector"]
-position = Vector2(631, 476)
-shape = SubResource("CircleShape2D_kqlu0")
-
-[node name="RightLedgeDetector" type="Area2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RightLedgeDetector"]
-position = Vector2(718, 476)
-shape = SubResource("CircleShape2D_27d70")
 
 [node name="Bump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6b27f")
@@ -328,7 +312,3 @@ volume_db = -6.0
 pitch_scale = 2.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="LeftLedgeDetector" to="." method="_on_left_ledge_detector_body_entered"]
-[connection signal="body_exited" from="LeftLedgeDetector" to="." method="_on_left_ledge_detector_body_exited"]
-[connection signal="body_entered" from="RightLedgeDetector" to="." method="_on_right_ledge_detector_body_entered"]
-[connection signal="body_exited" from="RightLedgeDetector" to="." method="_on_right_ledge_detector_body_exited"]
