@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bal0h2q0v27io"
-path="res://.godot/imported/Melon.png-e11d95fbb854347fc255e60eca141b1a.ctex"
+uid="uid://b1o7hxc7bmbcl"
+path="res://.godot/imported/Kiwi.png-801df33fce482f44a99ccaacbf10b94b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Melon.png"
-dest_files=["res://.godot/imported/Melon.png-e11d95fbb854347fc255e60eca141b1a.ctex"]
+source_file="res://assets/Collectables/Kiwi.png"
+dest_files=["res://.godot/imported/Kiwi.png-801df33fce482f44a99ccaacbf10b94b.ctex"]
 
 [params]
 

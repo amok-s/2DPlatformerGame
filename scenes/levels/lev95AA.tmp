@@ -80,6 +80,7 @@ drag_horizontal_offset = 0.17
 drag_vertical_offset = -0.06
 
 [node name="Collectables group" type="Node" parent="Scene Objects"]
+unique_name_in_owner = true
 
 [node name="Collectable" parent="Scene Objects/Collectables group" instance=ExtResource("5_bqg58")]
 position = Vector2(-61, 88)
@@ -189,7 +190,7 @@ game_manager = NodePath("../GameManager")
 [node name="CoinsPanel" type="Panel" parent="UI"]
 offset_left = 6.0
 offset_top = 11.0
-offset_right = 218.0
+offset_right = 158.0
 offset_bottom = 60.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pe8tn")
 
@@ -208,7 +209,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("8_l5rmh")
 theme_override_font_sizes/font_size = 45
-text = "Fruits: "
+text = "Points:"
 vertical_alignment = 1
 
 [node name="HeartsPanel" type="Panel" parent="UI/CoinsPanel"]
