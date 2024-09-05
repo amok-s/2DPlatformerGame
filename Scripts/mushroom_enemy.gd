@@ -5,6 +5,7 @@ extends RigidBody2D
 @onready var bump_sound = $Bump
 @onready var ledge_detector = $LedgeDetector/CollisionShape2D
 @export var isStacionary: bool = false
+@onready var collision_shape_2d2 = $Area2D/CollisionShape2D
 
 var being_hit = false
 var go_right = false
@@ -67,6 +68,8 @@ func _on_area_2d_body_entered(body):
 		var x_delta = body.position.x - position.x
 		#print (y_delta)
 		if (y_delta > 56): #Destroying the enemy
+			collision_shape_2d.queue_free()
+			collision_shape_2d2.queue_free()
 			being_hit = true
 			print ("Destroy enemy")
 			body.jump()
@@ -74,7 +77,6 @@ func _on_area_2d_body_entered(body):
 			animated_sprite_2d.play("hit")
 			var random_x = randf_range(-150, 150)
 			set_axis_velocity(Vector2(random_x, -190))
-			collision_shape_2d.queue_free()
 			await get_tree().create_timer(2).timeout
 			queue_free()
 		else:                #Hurting the player

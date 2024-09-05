@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5xx170pjn46l"]
+[gd_scene load_steps=19 format=3 uid="uid://c5xx170pjn46l"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_wryh3"]
 [ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="2_0r8cn"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="3_jdj7y"]
+[ext_resource type="AudioStream" uid="uid://c31wo40iw47d0" path="res://assets/sounds/healpop-46004.mp3" id="3_ud3ol"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="4_8j1k4"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="5_bqg58"]
 [ext_resource type="PackedScene" uid="uid://1flprlq4mpfh" path="res://scenes/finish.tscn" id="6_hc14g"]
@@ -39,6 +40,9 @@ unique_name_in_owner = true
 script = ExtResource("1_wryh3")
 hearts = [NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart3")]
 next_level = ExtResource("7_0sxed")
+
+[node name="finish" type="AudioStreamPlayer2D" parent="GameManager"]
+stream = ExtResource("3_ud3ol")
 
 [node name="Scene Objects" type="Node" parent="."]
 
@@ -307,6 +311,7 @@ theme_override_fonts/font = ExtResource("8_l5rmh")
 theme_override_font_sizes/font_size = 67
 text = "back to main menu"
 
+[connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]

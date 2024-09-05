@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=3 uid="uid://bgofhyubxfncd"]
+[gd_scene load_steps=157 format=3 uid="uid://bgofhyubxfncd"]
 
 [ext_resource type="Script" path="res://Scripts/collectable.gd" id="1_63lk2"]
 [ext_resource type="Texture2D" uid="uid://iifnunrgse17" path="res://assets/Collectables/Pineapple.png" id="2_2v108"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bal0h2q0v27io" path="res://assets/Collectables/Melon.png" id="8_iq7j7"]
 [ext_resource type="Texture2D" uid="uid://cl2ut0aq7kdr4" path="res://assets/Collectables/Orange.png" id="9_mc76g"]
 [ext_resource type="Texture2D" uid="uid://d085kr8lcr822" path="res://assets/Collectables/Strawberry.png" id="10_i68mf"]
+[ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="12_dtgt6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8qg7"]
 atlas = ExtResource("2_2v108")
@@ -1076,6 +1077,10 @@ shape = SubResource("CircleShape2D_cn2fq")
 stream = ExtResource("4_55e3t")
 volume_db = -3.0
 
+[node name="Healed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_dtgt6")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="finished" from="PickUp" to="." method="_on_pick_up_finished"]
+[connection signal="finished" from="Healed" to="." method="_on_healed_finished"]

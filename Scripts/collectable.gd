@@ -3,6 +3,8 @@ extends Area2D
 @onready var game_manager = %GameManager
 @onready var pick_up = $PickUp
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var healed = $Healed
+
 
 @export_enum("ananas", "apple", "banana", "cherry", "kiwi", "melon", "orange", "strawberry") var fruit: String = "Rebecca"
 @export var random_fruit: bool = true
@@ -20,9 +22,18 @@ func _on_body_entered(body):
 		animated_sprite_2d.animation = "collected"
 		game_manager.add_point()
 		game_manager.add_fruit()
-		pick_up.play(0)
+		
+		if (game_manager.fruits_count == 10 || game_manager.fruits_count == 20) and (game_manager.lives < 3):
+			healed.play(0)
+		else:
+			if (game_manager.fruits_count != game_manager.fruits_amount):
+				pick_up.play(0)
 		collision_shape_2d.queue_free()
 
 
 func _on_pick_up_finished():
+	queue_free()
+
+
+func _on_healed_finished():
 	queue_free()

@@ -26,7 +26,12 @@ func add_fruit():
 	if fruits_count == 10:
 		add_health()
 	if fruits_count == fruits_amount:
-		get_tree().change_scene_to_packed(next_level)
+		get_node("finish").play(0)
+		
+
+func _on_finish_finished():
+	await get_tree().create_timer(0.1).timeout
+	get_tree().change_scene_to_packed(next_level)
 
 func decrease_health():
 	lives -= 1
@@ -48,3 +53,5 @@ func add_health():
 			hearts[h].show()
 		else:
 			hearts[h].hide()
+
+
