@@ -6,9 +6,15 @@ class_name PlayerSpawn
 @export var sprite : AnimatedSprite2D
 @export var appearing : PackedScene
 
+
 # Called when the node enters the scene tree for the first time.
 func Enter():
-	#player.get_node("Camera2D").zoom = Vector2(3,3)
+	var original_camera = player.get_node("Camera2D").zoom
+	player.get_node("Camera2D").zoom = Vector2(3,3.25)
+	var tween = get_tree().create_tween()
+	tween.tween_property(player.get_node("Camera2D"), "zoom", Vector2(original_camera), 0.8).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	
+	
 	sprite.hide()
 	player.gravity = 0
 	player.sides_input_blockage = true

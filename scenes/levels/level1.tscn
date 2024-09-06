@@ -36,9 +36,10 @@ corner_detail = 1
 
 [node name="Node" type="Node"]
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "hearts")]
 unique_name_in_owner = true
 script = ExtResource("1_wryh3")
+player = NodePath("../Scene Objects/CharacterBody2D")
 hearts = [NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart3")]
 next_level = ExtResource("7_0sxed")
 
@@ -74,6 +75,7 @@ layer_0/tile_data = PackedInt32Array(851968, 458752, 0, 851969, 458752, 0, 85197
 position = Vector2(327, 383)
 
 [node name="Camera2D" type="Camera2D" parent="Scene Objects/CharacterBody2D"]
+unique_name_in_owner = true
 position = Vector2(-1, 0)
 zoom = Vector2(1.455, 1.455)
 limit_left = -48

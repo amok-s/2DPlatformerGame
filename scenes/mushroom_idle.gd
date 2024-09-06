@@ -9,7 +9,8 @@ var can_go = false
 func Enter():
 	print("grzyb stoi")
 	sprite.animation = "idle"
-	idle_timer()
+	if character.isStacionary == false:
+		idle_timer()
 	
 func Update(_delta:float):
 	if character.being_hit == true:

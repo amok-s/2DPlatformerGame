@@ -4,6 +4,7 @@ extends Node
 @onready var pick_up = $PickUp
 @onready var fruits_node = $"../Scene Objects/Collectables group"
 
+@export var player : CharacterBody2D
 @export var hearts : Array[Node]
 @export var next_level : PackedScene
 
@@ -26,11 +27,12 @@ func add_fruit():
 	if fruits_count == 10:
 		add_health()
 	if fruits_count == fruits_amount:
-		get_node("finish").play(0)
+		finish_level()
 		
 
 func _on_finish_finished():
 	await get_tree().create_timer(0.1).timeout
+	Engine.time_scale = 1
 	get_tree().change_scene_to_packed(next_level)
 
 func decrease_health():
@@ -55,4 +57,9 @@ func add_health():
 		else:
 			hearts[h].hide()
 
+func finish_level():
+	$finish.play(0)
+	Engine.time_scale = 0.6
+	var tween = get_tree().create_tween()
+	tween.tween_property(%Camera2D, "zoom", Vector2(2, 2), 3).set_ease(Tween.EASE_IN)
 

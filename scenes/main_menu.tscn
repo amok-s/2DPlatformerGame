@@ -252,6 +252,7 @@ layer_0/tile_data = PackedInt32Array(786462, 393216, 0, 851998, 393216, 1, 91753
 
 [node name="MushroomEnemy" parent="bg_elements" instance=ExtResource("9_wy3pa")]
 position = Vector2(915, 324)
+isStacionary = true
 
 [node name="character" type="AnimatedSprite2D" parent="bg_elements"]
 texture_filter = 1
