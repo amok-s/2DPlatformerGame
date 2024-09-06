@@ -1,6 +1,7 @@
-[gd_scene load_steps=65 format=3 uid="uid://brnrrjstww3s4"]
+[gd_scene load_steps=66 format=3 uid="uid://brnrrjstww3s4"]
 
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/main_character.gd" id="1_wmnck"]
+[ext_resource type="PackedScene" uid="uid://dbv2i65qlfd4s" path="res://scenes/dust_particle.tscn" id="2_6x1t6"]
 [ext_resource type="PackedScene" uid="uid://c502i23w0xg1k" path="res://scenes/particle.tscn" id="2_ivyyf"]
 [ext_resource type="PackedScene" uid="uid://csujpumpyvh0n" path="res://scenes/appearing.tscn" id="3_mu7bk"]
 [ext_resource type="Texture2D" uid="uid://dit5i5pshv57q" path="res://assets/MainCharacter/sprites/Desappearing (96x96).png" id="4_2tq2v"]
@@ -378,7 +379,8 @@ size = Vector2(44, 60)
 script = ExtResource("1_wmnck")
 sprite = NodePath("Sprite2D")
 jump_sound = NodePath("JumpSound")
-particle = ExtResource("2_ivyyf")
+jump_particle = ExtResource("2_ivyyf")
+dust_particle = ExtResource("2_6x1t6")
 appearing = ExtResource("3_mu7bk")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]

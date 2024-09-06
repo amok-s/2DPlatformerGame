@@ -5,7 +5,8 @@ extends CharacterBody2D
 @export var sprite : AnimatedSprite2D
 @export var jump_sound : AudioStreamPlayer
 
-@export var particle : PackedScene
+@export var jump_particle : PackedScene
+@export var dust_particle: PackedScene
 @export var appearing : PackedScene
 
 
@@ -17,6 +18,7 @@ var jump_count = 0
 var sides_input_blockage = false
 var jump_input_blockage = false
 var taking_damage = false
+var is_grounded = true
 
 func jump():
 	velocity.y = -350
@@ -42,17 +44,29 @@ func hit_by_plant():
 	await get_tree().create_timer(0.3).timeout
 	taking_damage = false
 
-func spawn_particle():
-	var particle_node = particle.instantiate()
+func spawn_jump_particle():
+	var particle_node = jump_particle.instantiate()
 	particle_node.position = position
 	get_parent().add_child(particle_node)
 	await get_tree().create_timer(0.3).timeout
 	particle_node.queue_free()
 
+func spawn_dust():
+	var particle_node = dust_particle.instantiate()
+	particle_node.position = position + Vector2(-1, 18)
+	particle_node.scale = Vector2(2, 2)
+	get_parent().add_child(particle_node)
+
+
 func _physics_process(delta):
-	
 	#handling gravity
 	move_and_slide()
+	
+	if is_grounded == false and is_on_floor() == true:
+		spawn_dust()
+	
+	
+	is_grounded = is_on_floor()
 	
 	if is_on_floor():
 		jump_count = 0
@@ -66,7 +80,7 @@ func _physics_process(delta):
 		jump_sound.play(0)
 		jump_count += 1
 		if (jump_count == 2):
-			spawn_particle()
+			spawn_jump_particle()
 		
 		
 	var direction = Input.get_axis("left", "right")
