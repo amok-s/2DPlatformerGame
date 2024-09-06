@@ -68,7 +68,7 @@ func _physics_process(delta):
 		if (jump_count == 2):
 			spawn_particle()
 		
-	# As good practice, you should replace UI actions with custom gameplay actions.
+		
 	var direction = Input.get_axis("left", "right")
 	if direction and (sides_input_blockage == false):
 		velocity.x = direction * SPEED

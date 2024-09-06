@@ -48,6 +48,7 @@ func decrease_health():
 func add_health():
 	if lives < 3:
 		lives += 1
+		$Healed.play(0)
 	for h in 3:
 		if (h < lives):
 			hearts[h].show()

@@ -8,6 +8,7 @@ class_name PlayerSpawn
 
 # Called when the node enters the scene tree for the first time.
 func Enter():
+	#player.get_node("Camera2D").zoom = Vector2(3,3)
 	sprite.hide()
 	player.gravity = 0
 	player.sides_input_blockage = true

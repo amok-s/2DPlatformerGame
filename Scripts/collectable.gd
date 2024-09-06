@@ -20,20 +20,15 @@ func _ready():
 func _on_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		animated_sprite_2d.animation = "collected"
+		
 		game_manager.add_point()
 		game_manager.add_fruit()
 		
-		if (game_manager.fruits_count == 10 || game_manager.fruits_count == 20) and (game_manager.lives < 3):
-			healed.play(0)
-		else:
-			if (game_manager.fruits_count != game_manager.fruits_amount):
-				pick_up.play(0)
+		if (game_manager.fruits_count != game_manager.fruits_amount):
+			pick_up.play(0)
+		
 		collision_shape_2d.queue_free()
 
 
 func _on_pick_up_finished():
-	queue_free()
-
-
-func _on_healed_finished():
 	queue_free()
