@@ -7,6 +7,7 @@ extends Node
 @export var player : CharacterBody2D
 @export var hearts : Array[Node]
 @export var next_level : PackedScene
+@export var chroma_chaos : PackedScene
 
 
 var points = 0
@@ -37,6 +38,7 @@ func _on_finish_finished():
 
 func decrease_health():
 	lives -= 1
+	spawn_chroma_chaos(0.28)
 	print(lives)
 	for h in 3:
 		if (h < lives):
@@ -62,4 +64,11 @@ func finish_level():
 	Engine.time_scale = 0.6
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Camera2D, "zoom", Vector2(2, 2), 3).set_ease(Tween.EASE_IN)
+
+func spawn_chroma_chaos(time):
+	print("powiina byc chroma")
+	var b = chroma_chaos.instantiate()
+	get_parent().add_child(b)
+	await get_tree().create_timer(time).timeout
+	b.queue_free()
 

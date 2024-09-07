@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://drxixdixet3ak"]
+
+[ext_resource type="Shader" path="res://shaders/chromatic.gdshader" id="1_2khgq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nuxv2"]
+shader = ExtResource("1_2khgq")
+shader_parameter/chaos = 6.891
+shader_parameter/radius = 1.0
+shader_parameter/attenuation = 3.742
+
+[node name="ChromaChaos" type="ColorRect"]
+material = SubResource("ShaderMaterial_nuxv2")
+offset_left = -324.0
+offset_top = -532.0
+offset_right = 2661.0
+offset_bottom = 1033.0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://c5xx170pjn46l"]
+[gd_scene load_steps=21 format=3 uid="uid://c5xx170pjn46l"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_wryh3"]
 [ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="2_0r8cn"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="3_jdj7y"]
+[ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="3_sud4f"]
 [ext_resource type="AudioStream" uid="uid://c31wo40iw47d0" path="res://assets/sounds/healpop-46004.mp3" id="3_ud3ol"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="4_8j1k4"]
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="5_a5n6i"]
@@ -42,6 +43,7 @@ script = ExtResource("1_wryh3")
 player = NodePath("../Scene Objects/CharacterBody2D")
 hearts = [NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart3")]
 next_level = ExtResource("7_0sxed")
+chroma_chaos = ExtResource("3_sud4f")
 
 [node name="finish" type="AudioStreamPlayer2D" parent="GameManager"]
 stream = ExtResource("3_ud3ol")
