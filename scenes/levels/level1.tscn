@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c5xx170pjn46l"]
+[gd_scene load_steps=21 format=3 uid="uid://c5xx170pjn46l"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_wryh3"]
 [ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="2_0r8cn"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="4_8j1k4"]
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="5_a5n6i"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="5_bqg58"]
-[ext_resource type="PackedScene" uid="uid://1flprlq4mpfh" path="res://scenes/finish.tscn" id="6_hc14g"]
 [ext_resource type="PackedScene" uid="uid://ceiy2eebq27sd" path="res://scenes/levels/level2.tscn" id="7_0sxed"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/Jersey10-Regular.ttf" id="8_l5rmh"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="8_r8qe0"]
@@ -169,10 +168,6 @@ position = Vector2(422, 554)
 
 [node name="spikes4" parent="Scene Objects/Traps group" instance=ExtResource("14_as4xu")]
 position = Vector2(1895, 409)
-
-[node name="Finish" parent="Scene Objects" instance=ExtResource("6_hc14g")]
-position = Vector2(2276, 555)
-target_level = ExtResource("7_0sxed")
 
 [node name="WorldBoundary" type="Area2D" parent="Scene Objects"]
 position = Vector2(555, 1024)

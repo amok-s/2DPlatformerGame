@@ -7,7 +7,6 @@ class_name MushroomIdle
 var can_go = false
 
 func Enter():
-	print("grzyb stoi")
 	sprite.animation = "idle"
 	if character.isStacionary == false:
 		idle_timer()

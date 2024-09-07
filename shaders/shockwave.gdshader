@@ -1,6 +1,7 @@
 shader_type canvas_item;
 
 uniform vec2 center;
+uniform float offset;
 uniform float force; 
 uniform float size;
 uniform float thickness;
@@ -13,6 +14,12 @@ void fragment(){
 	smoothstep(size-thickness-0.1,size-thickness, length(scaledUV - center));
 	vec2 disp = normalize(scaledUV - center) * force * mask;
 	COLOR = texture(SCREEN_TEXTURE,SCREEN_UV - disp);
+	
+	float r = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x + offset, SCREEN_UV.y) - disp).r * mask;
+float g = texture(SCREEN_TEXTURE, SCREEN_UV - disp).g * mask;
+float b = texture(SCREEN_TEXTURE, vec2(SCREEN_UV.x - offset, SCREEN_UV.y) - disp).b * mask;
+COLOR += vec4(r,g,b, COLOR.a);
+	
 //	COLOR.rgb = vec3(mask);
 	
 }

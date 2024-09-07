@@ -25,7 +25,6 @@ func add_point():
 
 func add_fruit():
 	fruits_count += 1
-	spawn_shockwave()
 	points_label.text = "Fruits: " + str(points) + " / " + str(fruits_amount)
 	if fruits_count == 10:
 		add_health()
@@ -63,21 +62,22 @@ func add_health():
 
 func finish_level():
 	$finish.play(0)
+	spawn_chroma_chaos(0.3)
+	spawn_shockwave()
 	Engine.time_scale = 0.6
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Camera2D, "zoom", Vector2(2, 2), 3).set_ease(Tween.EASE_IN)
 
 func spawn_chroma_chaos(time):
-	print("powiina byc chroma")
 	var b = chroma_chaos.instantiate()
 	get_parent().add_child(b)
 	await get_tree().create_timer(time).timeout
 	b.queue_free()
 
 func spawn_shockwave():
-	var b = shockwave.instantiate()
+	var b = shockwave.instantiate ()
 	var camera = player.get_node("Camera2D")
-	var offset = (camera.get_target_position() - camera.get_screen_center_position()) * camera.zoom / Vector2(get_window().size)
+	var offset = (player.position - camera.get_screen_center_position()) * camera.zoom / Vector2(get_window().size)
 	var player_center = Vector2(0.5, 0.5) + offset
 	#var player_center = Vector2(0.5, 0.5) + offset
 	player_center.x = (1.8 * player_center.x - 0.4)

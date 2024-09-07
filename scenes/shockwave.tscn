@@ -5,9 +5,10 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n7igr"]
 shader = ExtResource("1_l6imi")
 shader_parameter/center = Vector2(0.5, 0.5)
-shader_parameter/force = 1.285
+shader_parameter/offset = 0.2
+shader_parameter/force = 0.23
 shader_parameter/size = 0.885
-shader_parameter/thickness = -0.005
+shader_parameter/thickness = 0.075
 
 [sub_resource type="Animation" id="Animation_2yure"]
 length = 0.001

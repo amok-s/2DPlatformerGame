@@ -11,7 +11,6 @@ class_name MushroomMovement
 var can_stop = false
 
 func Enter():
-	print("grzyb się rusza")
 	sprite.animation = "idle"
 	choose_direction()
 	movement_timer()
