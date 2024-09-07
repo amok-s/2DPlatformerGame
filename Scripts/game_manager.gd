@@ -8,6 +8,7 @@ extends Node
 @export var hearts : Array[Node]
 @export var next_level : PackedScene
 @export var chroma_chaos : PackedScene
+@export var shockwave : PackedScene
 
 
 var points = 0
@@ -24,6 +25,7 @@ func add_point():
 
 func add_fruit():
 	fruits_count += 1
+	spawn_shockwave()
 	points_label.text = "Fruits: " + str(points) + " / " + str(fruits_amount)
 	if fruits_count == 10:
 		add_health()
@@ -72,3 +74,16 @@ func spawn_chroma_chaos(time):
 	await get_tree().create_timer(time).timeout
 	b.queue_free()
 
+func spawn_shockwave():
+	var b = shockwave.instantiate()
+	var camera = player.get_node("Camera2D")
+	var offset = (camera.get_target_position() - camera.get_screen_center_position()) * camera.zoom / Vector2(get_window().size)
+	var player_center = Vector2(0.5, 0.5) + offset
+	#var player_center = Vector2(0.5, 0.5) + offset
+	player_center.x = (1.8 * player_center.x - 0.4)
+	b.get_material().set_shader_parameter("center", player_center)
+	get_parent().add_child(b)
+	await get_tree().create_timer(0.8).timeout
+	b.queue_free()
+	
+	pass

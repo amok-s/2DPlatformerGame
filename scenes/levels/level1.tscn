@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5xx170pjn46l"]
+[gd_scene load_steps=22 format=3 uid="uid://c5xx170pjn46l"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_wryh3"]
 [ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="2_0r8cn"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="12_763tj"]
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/spikes_2.tscn" id="14_as4xu"]
 [ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="15_upxvc"]
+[ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="19_esrvl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -44,6 +45,7 @@ player = NodePath("../Scene Objects/CharacterBody2D")
 hearts = [NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart3")]
 next_level = ExtResource("7_0sxed")
 chroma_chaos = ExtResource("3_sud4f")
+shockwave = ExtResource("19_esrvl")
 
 [node name="finish" type="AudioStreamPlayer2D" parent="GameManager"]
 stream = ExtResource("3_ud3ol")
