@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://4r0yhti5mlkd"]
+
+[ext_resource type="Texture2D" uid="uid://d2dde683iw6ak" path="res://assets/Chain.png" id="1_c0lu0"]
+[ext_resource type="Texture2D" uid="uid://chwtc2jvgdefa" path="res://assets/Spiked Ball.png" id="2_fm2is"]
+
+[sub_resource type="GDScript" id="GDScript_an2x5"]
+script/source = "extends Node2D
+
+@export_range(0, 10) var chain_number : int 
+
+@onready var chain_source = $chain_source
+
+	
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	for k in chain_number:
+		var clone = chain_source.duplicate()
+		clone.position = chain_source.position + Vector2(0, -30)
+		chain_source.add_child(clone)
+		print(\"kozia dupka\")
+	
+	position += Vector2(0, -30)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_an2x5")
+chain_number = 1
+
+[node name="chain_source" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_c0lu0")
+
+[node name="ball" type="Sprite2D" parent="chain_source"]
+position = Vector2(0, 33)
+texture = ExtResource("2_fm2is")

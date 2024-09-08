@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5xx170pjn46l"]
+[gd_scene load_steps=29 format=3 uid="uid://c5xx170pjn46l"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_wryh3"]
 [ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="2_0r8cn"]
@@ -18,6 +18,77 @@
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/spikes_2.tscn" id="14_as4xu"]
 [ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="15_upxvc"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="19_esrvl"]
+[ext_resource type="Texture2D" uid="uid://d2dde683iw6ak" path="res://assets/Chain.png" id="19_lqjfn"]
+[ext_resource type="Texture2D" uid="uid://chwtc2jvgdefa" path="res://assets/Spiked Ball.png" id="20_m7d1f"]
+[ext_resource type="Script" path="res://Scripts/chained_Ball.gd" id="20_q1klr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ah6mr"]
+radius = 13.5093
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t25u1"]
+radius = 15.0333
+
+[sub_resource type="Animation" id="Animation_67lt4"]
+resource_name = "motion"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.6, 2.9),
+"transitions": PackedFloat32Array(1, 2.73208, 1, 2.82843),
+"update": 0,
+"values": [-5.0824, -1.34041, -1.34041, -5.0824]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.282743, 0.42237, 2.96531, 2.96531]
+}
+
+[sub_resource type="Animation" id="Animation_ghdqe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exmyc"]
+_data = {
+"RESET": SubResource("Animation_ghdqe"),
+"motion": SubResource("Animation_67lt4")
+}
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -75,7 +146,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(851968, 458752, 0, 851969, 458752, 0, 851970, 458752, 0, 851971, 458752, 0, 851972, 458752, 0, 851973, 458752, 0, 851974, 458752, 0, 851982, 524288, 1, 851986, 393216, 1, 851987, 524288, 1, 851988, 458752, 0, 851989, 458752, 0, 851990, 458752, 0, 851991, 458752, 0, 917503, 458752, 0, 851967, 524288, 5, 786431, 524288, 5, 720895, 524288, 5, 655359, 524288, 5, 589823, 524288, 5, 524287, 524288, 5, 458751, 524288, 5, 393215, 524288, 5, 327679, 524288, 5, 262143, 524288, 5, 196607, 524288, 5, 131071, 524288, 5, 65535, 524288, 5, -1, 589824, 4, -65536, 458752, 6, -65535, 458752, 6, -65534, 458752, 6, -65533, 458752, 6, -65532, 458752, 6, -65531, 458752, 6, -65530, 458752, 6, -65529, 458752, 6, -65528, 458752, 6, -65527, 458752, 6, -65526, 458752, 6, -65525, 458752, 6, -65524, 458752, 6, -65523, 458752, 6, -65522, 458752, 6, -65521, 458752, 6, -65520, 458752, 6, -65519, 458752, 6, -65518, 458752, 6, -65517, 458752, 6, -65516, 458752, 6, -65515, 458752, 6, -65514, 458752, 6, -65513, 458752, 6, -65512, 458752, 6, 851992, 458752, 0, 458752, 458752, 1, 524288, 458752, 1, 589824, 458752, 1, 786432, 524288, 1, 458753, 458752, 1, 524289, 524288, 1, 589825, 524288, 1, 720897, 524288, 1, 786433, 524288, 2, 720896, 524288, 1, 655360, 524288, 0, 655361, 524288, 1, 393216, 458752, 0, 393217, 458752, 0, 393218, 458752, 0, 393219, 458752, 0, 393220, 524288, 0, 458756, 524288, 2, 458755, 458752, 2, 458754, 458752, 2, 327680, 458752, 1, 327681, 458752, 1, 327682, 524288, 1, 262146, 524288, 0, 262145, 458752, 0, 262144, 458752, 0, 655373, 393216, 0, 720909, 393216, 1, 786445, 393216, 1, 655374, 524288, 0, 720910, 524288, 1, 786446, 524288, 1, 655378, 393216, 0, 720914, 393216, 1, 786450, 393216, 1, 720915, 524288, 1, 786451, 524288, 1, 458773, 393216, 0, 524309, 393216, 1, 589845, 393216, 1, 655381, 393216, 1, 720917, 393216, 1, 786453, 393216, 1, 458774, 458752, 0, 524310, 458752, 1, 589846, 458752, 1, 655382, 393216, 0, 720918, 393216, 1, 786454, 393216, 1, 458775, 458752, 0, 524311, 458752, 1, 589847, 458752, 1, 655383, 458752, 0, 720919, 458752, 1, 786455, 458752, 1, 65556, 393216, 0, 131092, 393216, 2, 65557, 458752, 0, 131093, 458752, 2, 65558, 524288, 0, 131094, 524288, 2, 655379, 524288, 0, 655375, 1114112, 0, 655376, 1179648, 0, 655377, 1245184, 0, 851993, 458752, 0, 851994, 458752, 0, 851995, 458752, 0, 851996, 458752, 0, 851997, 458752, 0, 851998, 458752, 0, 851999, 458752, 0, 852000, 458752, 0, 852001, 458752, 0, 852002, 458752, 0, 852003, 458752, 0, 852004, 524288, 0, 852009, 458752, 0, 852010, 458752, 0, 852011, 458752, 0, 852012, 458752, 0, 852013, 458752, 0, -65511, 458752, 6, -65510, 458752, 6, -65509, 458752, 6, -65508, 458752, 6, -65507, 458752, 6, -65506, 458752, 6, -65505, 458752, 6, -65504, 458752, 6, -65503, 458752, 6, -65502, 458752, 6, -65501, 458752, 6, -65500, 458752, 6, -65499, 458752, 6, -65498, 458752, 6, -65497, 458752, 6, -65496, 458752, 6, -65495, 458752, 6, -65494, 458752, 6, -65493, 458752, 6, -65492, 458752, 6, -65491, 458752, 6, 458776, 393216, 1, 393240, 393216, 0, 393241, 524288, 0, 458777, 458752, 1, 524312, 589824, 0, 524313, 655360, 0, 589848, 589824, 1, 589849, 655360, 1, 655385, 458752, 1, 655384, 524288, 0, 720920, 524288, 1, 786456, 524288, 1, 458778, 524288, 0, 524314, 524288, 1, 589850, 458752, 1, 655386, 458752, 2, 589851, 524288, 0, 655387, 524288, 2, 720921, 524288, 0, 131095, 1179648, 1, 131096, 1179648, 1, 131098, 1245184, 1, 131097, 1179648, 1, 131103, 1114112, 1, 65568, 393216, 0, 33, 393216, 0, 65570, 524288, 0, 65569, 458752, 1, 131105, 1179648, 1, 131104, 1179648, 1, 131107, 1179648, 1, 131108, 1179648, 1, 131106, 1179648, 1, 786457, 524288, 1, 852014, 458752, 0, 852015, 458752, 0, 852016, 458752, 0, 852017, 458752, 0, -65490, 458752, 6, -65489, 458752, 6, -65488, 458752, 6, -65487, 655360, 4, 49, 524288, 5, 65585, 524288, 5, 131121, 524288, 5, 196657, 524288, 5, 262193, 524288, 5, 327729, 524288, 5, 393265, 524288, 5, 458801, 524288, 5, 524337, 524288, 5, 589873, 524288, 5, 655409, 524288, 5, 720945, 524288, 5, 786481, 524288, 5, 327710, 393216, 0, 393246, 393216, 2, 458783, 393216, 1, 393247, 393216, 0, 327711, 458752, 0, 524319, 393216, 1, 589855, 393216, 1, 655391, 458752, 0, 589856, 524288, 1, 655392, 458752, 0, 524320, 524288, 1, 458784, 524288, 1, 393248, 524288, 0, 327712, 458752, 0, 393249, 458752, 2, 655393, 458752, 0, 327713, 458752, 0, 327714, 524288, 0, 393250, 524288, 2, 655395, 524288, 0, 655394, 458752, 0, 458789, 393216, 0, 458790, 524288, 0, 524326, 524288, 1, 524325, 393216, 2, 393242, 1114112, 0, 393243, 1179648, 0, 393244, 1179648, 0, 393245, 1245184, 0, 655390, 393216, 0, 786477, 524288, 0, 720940, 524288, 1, 786476, 458752, 1, 655403, 393216, 1, 720939, 393216, 1, 786475, 393216, 1, 524331, 524288, 0, 524330, 393216, 0, 589866, 393216, 2, 589867, 524288, 2, 786474, 393216, 0, 458795, 393216, 0, 655408, 393216, 0, 589872, 524288, 0, 589871, 393216, 0, 262192, 1114112, 1, 131117, 524288, 0, 131116, 393216, 0, 131112, 393216, 0, 131113, 524288, 0, 131110, 1245184, 1, 131109, 1179648, 1, 196648, 393216, 1, 196649, 524288, 1, 262184, 393216, 2, 262185, 524288, 2, 589862, 393216, 0, 655398, 524288, 0, 589863, 524288, 0, 524332, 524288, 1, 589868, 524288, 1, 655404, 524288, 1, 458796, 524288, 0, 327688, 393216, 1, 393224, 393216, 2, 327689, 524288, 1, 393225, 524288, 2, 262158, 393216, 0, 327694, 393216, 2, 262159, 524288, 0, 327695, 524288, 2, 262152, 393216, 0, 262153, 524288, 0, 262154, 1114112, 0, 262157, 1245184, 0, 262155, 1179648, 0, 262156, 1179648, 0, 327697, 1114112, 1, 327698, 1245184, 1, 786439, 393216, 0, 851975, 393216, 1, 786440, 458752, 0, 851976, 458752, 1, 851977, 524288, 1, 851981, 393216, 1, 786441, 524288, 0, 852008, 393216, 0)
 
 [node name="CharacterBody2D" parent="Scene Objects" instance=ExtResource("4_8j1k4")]
-position = Vector2(327, 383)
+position = Vector2(327, 382)
 
 [node name="Camera2D" type="Camera2D" parent="Scene Objects/CharacterBody2D"]
 unique_name_in_owner = true
@@ -150,12 +221,12 @@ position = Vector2(1336, 257)
 [node name="MushroomEnemy4" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
 position = Vector2(2112, 301)
 
-[node name="Plant2" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("15_upxvc")]
-position = Vector2(1597, 196)
+[node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("15_upxvc")]
+position = Vector2(893, 428)
 player = NodePath("../../CharacterBody2D")
 
-[node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("15_upxvc")]
-position = Vector2(824, 430)
+[node name="Plant2" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("15_upxvc")]
+position = Vector2(1597, 196)
 player = NodePath("../../CharacterBody2D")
 
 [node name="Traps group" type="Node" parent="Scene Objects"]
@@ -168,6 +239,50 @@ position = Vector2(422, 554)
 
 [node name="spikes4" parent="Scene Objects/Traps group" instance=ExtResource("14_as4xu")]
 position = Vector2(1895, 409)
+
+[node name="Chained_Ball" type="Sprite2D" parent="Scene Objects/Traps group"]
+editor_description = "- each segment y = 13
+- ball y = 22"
+position = Vector2(274, 5)
+scale = Vector2(2, 2)
+texture = ExtResource("19_lqjfn")
+script = ExtResource("20_q1klr")
+
+[node name="segment" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball"]
+position = Vector2(0, 13)
+texture = ExtResource("19_lqjfn")
+
+[node name="segment2" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball"]
+position = Vector2(0, 26)
+texture = ExtResource("19_lqjfn")
+
+[node name="segment3" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball"]
+position = Vector2(0, 39)
+texture = ExtResource("19_lqjfn")
+
+[node name="segment4" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball"]
+position = Vector2(0, 52)
+texture = ExtResource("19_lqjfn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scene Objects/Traps group/Chained_Ball"]
+position = Vector2(0, 74)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball/StaticBody2D"]
+texture = ExtResource("20_m7d1f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball/StaticBody2D"]
+shape = SubResource("CircleShape2D_ah6mr")
+
+[node name="Area2D" type="Area2D" parent="Scene Objects/Traps group/Chained_Ball/StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball/StaticBody2D/Area2D"]
+shape = SubResource("CircleShape2D_t25u1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/Chained_Ball"]
+libraries = {
+"": SubResource("AnimationLibrary_exmyc")
+}
+autoplay = "motion"
 
 [node name="WorldBoundary" type="Area2D" parent="Scene Objects"]
 position = Vector2(555, 1024)
@@ -317,6 +432,7 @@ theme_override_font_sizes/font_size = 67
 text = "back to main menu"
 
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
+[connection signal="body_entered" from="Scene Objects/Traps group/Chained_Ball/StaticBody2D/Area2D" to="Scene Objects/Traps group/Chained_Ball" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]

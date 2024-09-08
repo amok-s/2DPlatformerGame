@@ -20,8 +20,7 @@ func ui_shake(duration: float, strenght: float) -> void:
 		t.origin = Vector2(x, y)
 		transform = t
 		await get_tree().process_frame
-		await get_tree().process_frame
-		await get_tree().process_frame
+		#await get_tree().process_frame
 	transform = original_position
 		
 
