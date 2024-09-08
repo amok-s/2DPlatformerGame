@@ -25,9 +25,7 @@ func ui_shake(duration: float, strenght: float) -> void:
 		
 
 func _process(delta):
-	
-	if player.taking_damage and (game_manager.lives != 0):
-		ui_shake(0.2,5)
+	pass
 	
 	
 	

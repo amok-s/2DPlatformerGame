@@ -91,5 +91,7 @@ func _physics_process(delta):
 	
 	var isLeft = velocity.x < 0
 	sprite.flip_h = isLeft
+	
+	
 	pass
 	

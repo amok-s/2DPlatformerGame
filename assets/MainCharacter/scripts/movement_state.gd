@@ -16,9 +16,17 @@ func Update(_delta:float):
 	if player.is_on_floor():
 		if (player.velocity.x > 1 || player.velocity.x < -1):
 			sprite.animation = "run"
+			get_node("../../GrassParticles").emitting = true
+			if (player.velocity.x > 1):
+				get_node("../../GrassParticles").scale.x = -0.3
+				get_node("../../GrassParticles").position.x = -16
+			if (player.velocity.x < -1):
+				get_node("../../GrassParticles").scale.x = 0.3
+				get_node("../../GrassParticles").position.x = 16
 		else:
 			sprite.animation = "default"
-		
+			get_node("../../GrassParticles").emitting = false
+
 	
 	if not player.is_on_floor():
 		if (player.velocity.y < 0):
@@ -35,4 +43,5 @@ func Update(_delta:float):
 
 
 func Exit():
+	get_node("../../GrassParticles").emitting = false
 	pass

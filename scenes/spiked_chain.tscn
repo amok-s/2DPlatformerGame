@@ -1,40 +1,119 @@
-[gd_scene load_steps=4 format=3 uid="uid://4r0yhti5mlkd"]
+[gd_scene load_steps=9 format=3 uid="uid://4r0yhti5mlkd"]
 
-[ext_resource type="Texture2D" uid="uid://d2dde683iw6ak" path="res://assets/Chain.png" id="1_c0lu0"]
-[ext_resource type="Texture2D" uid="uid://chwtc2jvgdefa" path="res://assets/Spiked Ball.png" id="2_fm2is"]
+[ext_resource type="Texture2D" uid="uid://d2dde683iw6ak" path="res://assets/Chain.png" id="1_57o2x"]
+[ext_resource type="Script" path="res://Scripts/chained_Ball.gd" id="2_o7e7x"]
+[ext_resource type="Texture2D" uid="uid://chwtc2jvgdefa" path="res://assets/Spiked Ball.png" id="3_6g1xm"]
 
-[sub_resource type="GDScript" id="GDScript_an2x5"]
-script/source = "extends Node2D
+[sub_resource type="CircleShape2D" id="CircleShape2D_ah6mr"]
+radius = 13.5093
 
-@export_range(0, 10) var chain_number : int 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t25u1"]
+radius = 15.0333
 
-@onready var chain_source = $chain_source
+[sub_resource type="Animation" id="Animation_ghdqe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
-	
+[sub_resource type="Animation" id="Animation_67lt4"]
+resource_name = "motion"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.6, 2.9),
+"transitions": PackedFloat32Array(1, 2.73208, 1, 2.82843),
+"update": 0,
+"values": [-5.0824, -1.34041, -1.34041, -5.0824]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.282743, 0.42237, 2.96531, 2.96531]
+}
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	for k in chain_number:
-		var clone = chain_source.duplicate()
-		clone.position = chain_source.position + Vector2(0, -30)
-		chain_source.add_child(clone)
-		print(\"kozia dupka\")
-	
-	position += Vector2(0, -30)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exmyc"]
+_data = {
+"RESET": SubResource("Animation_ghdqe"),
+"motion": SubResource("Animation_67lt4")
+}
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
-
-[node name="Node2D" type="Node2D"]
-script = SubResource("GDScript_an2x5")
-chain_number = 1
-
-[node name="chain_source" type="Sprite2D" parent="."]
+[node name="Chained_Ball" type="Sprite2D"]
+editor_description = "- each segment y = 13
+- ball y = 22"
+position = Vector2(274, 5)
 scale = Vector2(2, 2)
-texture = ExtResource("1_c0lu0")
+texture = ExtResource("1_57o2x")
+script = ExtResource("2_o7e7x")
 
-[node name="ball" type="Sprite2D" parent="chain_source"]
-position = Vector2(0, 33)
-texture = ExtResource("2_fm2is")
+[node name="segment" type="Sprite2D" parent="."]
+position = Vector2(0, 13)
+texture = ExtResource("1_57o2x")
+
+[node name="segment2" type="Sprite2D" parent="."]
+position = Vector2(0, 26)
+texture = ExtResource("1_57o2x")
+
+[node name="segment3" type="Sprite2D" parent="."]
+position = Vector2(0, 39)
+texture = ExtResource("1_57o2x")
+
+[node name="segment4" type="Sprite2D" parent="."]
+position = Vector2(0, 52)
+texture = ExtResource("1_57o2x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 74)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("3_6g1xm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_ah6mr")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+shape = SubResource("CircleShape2D_t25u1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_exmyc")
+}
+autoplay = "motion"
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
