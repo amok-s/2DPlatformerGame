@@ -1,7 +1,6 @@
 extends Node
 @onready var game_manager = %GameManager
 @onready var points_label = %PointsLabel
-@onready var pick_up = $PickUp
 @onready var fruits_node = $"../Scene Objects/Collectables group"
 
 @export var player : CharacterBody2D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://dfbv5uh0yrmf1"]
+[gd_scene load_steps=69 format=3 uid="uid://dfbv5uh0yrmf1"]
 
 [ext_resource type="Texture2D" uid="uid://b2lwudqsy4tu7" path="res://assets/Turtle/Hit (44x26).png" id="1_am08q"]
 [ext_resource type="Script" path="res://Scripts/turtle.gd" id="1_cpdrl"]
@@ -6,6 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://6dp2y3g8bffl" path="res://assets/Turtle/Idle 1 (44x26).png" id="3_ri522"]
 [ext_resource type="Texture2D" uid="uid://bonohrv3qqwds" path="res://assets/Turtle/Spikes in (44x26).png" id="4_6kvgf"]
 [ext_resource type="Texture2D" uid="uid://25dgl3xwvail" path="res://assets/Turtle/Spikes out (44x26).png" id="5_vqubx"]
+[ext_resource type="Script" path="res://assets/MainCharacter/scripts/FSM.gd" id="7_f7w8u"]
+[ext_resource type="AudioStream" uid="uid://dan582oirr1yg" path="res://assets/sounds/jump.mp3" id="7_fumjo"]
+[ext_resource type="Script" path="res://Scripts/turtle_idle.gd" id="8_441tc"]
+[ext_resource type="Script" path="res://Scripts/turtle_wander.gd" id="9_lp22b"]
+[ext_resource type="Script" path="res://Scripts/turtle_startled.gd" id="11_p7ln8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_np418"]
 atlas = ExtResource("1_am08q")
@@ -384,6 +389,36 @@ size = Vector2(33.5, 21.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tntti"]
 size = Vector2(36.5, 22.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqf8y"]
+size = Vector2(35.5, 23)
+
+[sub_resource type="Animation" id="Animation_emah4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_kyjen"]
 resource_name = "spikes_out"
 length = 0.2
@@ -412,41 +447,40 @@ tracks/1/keys = {
 "values": [Vector2(0.735, 0.69), Vector2(1.155, 1.16)]
 }
 
-[sub_resource type="Animation" id="Animation_emah4"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_rusgy"]
+resource_name = "startled_anim"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpikesCollision/Spikes:position")
+tracks/0/path = NodePath("sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.25, 1.25)]
+"values": [Vector2(0, 0), Vector2(0, 3.66), Vector2(0, -4.96), Vector2(0, -4.96), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpikesCollision/Spikes:scale")
+tracks/1/path = NodePath("sprite:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4, 0.6, 0.8, 1, 1.1, 1.3, 1.4, 1.6, 1.7, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 0.000172634, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(1, 0.673077), Vector2(1, 1.138), Vector2(1, 0.828), Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1), Vector2(-1, 1), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yyplc"]
 _data = {
 "RESET": SubResource("Animation_emah4"),
-"spikes_out": SubResource("Animation_kyjen")
+"spikes_out": SubResource("Animation_kyjen"),
+"startled_anim": SubResource("Animation_rusgy")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqf8y"]
-size = Vector2(35.5, 23)
 
 [node name="Turtle" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -462,19 +496,53 @@ frame_progress = 0.955208
 position = Vector2(0.25, 2.25)
 shape = SubResource("RectangleShape2D_mr65l")
 
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_fumjo")
+volume_db = -8.0
+pitch_scale = 0.63
+attenuation = 3.605
+
 [node name="SpikesCollision" type="Area2D" parent="."]
 
 [node name="Spikes" type="CollisionShape2D" parent="SpikesCollision"]
 position = Vector2(0.25, 1.25)
+scale = Vector2(0.735, 0.69)
 shape = SubResource("RectangleShape2D_tntti")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_yyplc")
-}
 
 [node name="BodyCollision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BodyCollision"]
 position = Vector2(0.25, 1.5)
 shape = SubResource("RectangleShape2D_iqf8y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yyplc")
+}
+
+[node name="Detectors" type="Node2D" parent="."]
+
+[node name="FloorDetector" type="RayCast2D" parent="Detectors"]
+position = Vector2(-19.5, 1.5)
+target_position = Vector2(0, 27.5)
+
+[node name="WallDetector" type="RayCast2D" parent="Detectors"]
+rotation = 1.5708
+target_position = Vector2(0, 35)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("7_f7w8u")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("8_441tc")
+character = NodePath("../..")
+
+[node name="Wander" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("9_lp22b")
+character = NodePath("../..")
+
+[node name="Startled" type="Node" parent="StateMachine"]
+script = ExtResource("11_p7ln8")
+
+[connection signal="body_entered" from="BodyCollision" to="." method="_on_body_collision_body_entered"]

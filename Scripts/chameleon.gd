@@ -14,7 +14,8 @@ var player_detected = false
 
 func _physics_process(delta):
 	move_and_slide()
-	velocity.y += gravity * delta
+	if not is_on_floor():
+		velocity.y += gravity * delta
 	if (go_right == true):
 		velocity.x = speed * delta * 70
 	if (go_left == true):
