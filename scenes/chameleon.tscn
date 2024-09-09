@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cuylnt1vnra5r"]
+[gd_scene load_steps=60 format=3 uid="uid://cuylnt1vnra5r"]
 
 [ext_resource type="Script" path="res://Scripts/chameleon.gd" id="1_8wuvf"]
 [ext_resource type="Texture2D" uid="uid://dn73dnsth1siw" path="res://assets/Chameleon/Attack (84x38).png" id="1_odf5d"]
@@ -289,10 +289,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fn7oc"]
-size = Vector2(30, 34.5)
+size = Vector2(30, 33.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6fw3"]
-size = Vector2(34, 38.5)
+size = Vector2(34, 36)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6p374"]
 radius = 45.5396
@@ -386,26 +386,86 @@ _data = {
 "tongue_attack": SubResource("Animation_88ubi")
 }
 
+[sub_resource type="Animation" id="Animation_y78xq"]
+resource_name = "lil_jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.095), Vector2(1, 0.89), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-18, -6.225), Vector2(-18, -11.41), Vector2(-18, -14.12), Vector2(-18, -8.09)]
+}
+
+[sub_resource type="Animation" id="Animation_4y1gq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-18, -6.225)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nyqnl"]
+_data = {
+"RESET": SubResource("Animation_4y1gq"),
+"lil_jump": SubResource("Animation_y78xq")
+}
+
 [node name="Chameleon" type="CharacterBody2D"]
 position = Vector2(0, -1)
 scale = Vector2(2, 2)
 script = ExtResource("1_8wuvf")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-18, -7)
+position = Vector2(-18, -6.225)
 sprite_frames = SubResource("SpriteFrames_jckjg")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.499247
 
 [node name="BodyCollision" type="CollisionShape2D" parent="."]
-position = Vector2(4, -5.75)
+position = Vector2(4, -6.25)
 shape = SubResource("RectangleShape2D_fn7oc")
 
 [node name="DamageCollision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageCollision"]
-position = Vector2(4, -5.75)
+position = Vector2(4, -7)
 shape = SubResource("RectangleShape2D_j6fw3")
 
 [node name="PatrolArea" type="Area2D" parent="."]
@@ -450,15 +510,19 @@ script = ExtResource("8_vk017")
 character = NodePath("../..")
 sprite = NodePath("../../Sprite")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "sprite")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
 script = ExtResource("9_i25bi")
 character = NodePath("../..")
-sprite = NodePath("../../Sprite")
 
 [node name="TakingDamage" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "sprite")]
 script = ExtResource("10_vedp6")
 character = NodePath("../..")
 sprite = NodePath("../../Sprite")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nyqnl")
+}
 
 [connection signal="body_entered" from="DamageCollision" to="." method="_on_damage_collision_body_entered"]
 [connection signal="body_entered" from="PatrolArea" to="." method="_on_patrol_area_body_entered"]

@@ -8,13 +8,13 @@ var can_go = false
 
 
 func Enter():
+	print("idle state")
 	can_go = false
 	sprite.animation = "idle"
 	idle_timer()
 	pass
 	
 func Update(_delta:float):
-	
 	if (character.taking_damage == true):
 		state_transition.emit(self, "TakingDamage")
 	

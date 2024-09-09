@@ -15,13 +15,12 @@ var player_detected = false
 func _physics_process(delta):
 	move_and_slide()
 	velocity.y += gravity * delta
-	
 	if (go_right == true):
-		print("chce w prawo")
+		print("go right:" + str(go_right))
 		velocity.x = speed * delta * 70
 		print(velocity.x)
 	if (go_left == true):
-		print("chce w lewo")
+		print("go left:" + str(go_left))
 		velocity.x = -speed * delta * 70
 		print(velocity.x)
 		
@@ -52,7 +51,9 @@ func  player_entered(body):
 func _on_patrol_area_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		player_detected = true
-
+		
+	await get_tree().create_timer(0.2).timeout
+	$AnimationPlayer.play("lil_jump")
 
 func _on_patrol_area_body_exited(body):
 	if (body.name == "CharacterBody2D"):

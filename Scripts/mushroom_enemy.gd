@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@onready var game_manager = %GameManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var collision_shape_2d = $CollisionShape2D
 @onready var bump_sound = $Bump
@@ -43,7 +42,6 @@ func _on_area_2d_body_entered(body):
 			collision_shape_2d.queue_free()
 			collision_shape_2d2.queue_free()
 			being_hit = true
-			print ("Destroy enemy")
 			body.jump()
 			bump_sound.play(0)
 			animated_sprite_2d.play("hit")

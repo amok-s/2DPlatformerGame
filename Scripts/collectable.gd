@@ -3,7 +3,6 @@ extends Area2D
 @onready var game_manager = %GameManager
 @onready var pick_up = $PickUp
 @onready var collision_shape_2d = $CollisionShape2D
-@onready var healed = $Healed
 
 
 @export_enum("ananas", "apple", "banana", "cherry", "kiwi", "melon", "orange", "strawberry") var fruit: String = "Rebecca"

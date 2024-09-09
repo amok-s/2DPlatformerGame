@@ -21,7 +21,7 @@ func _ready():
 	timer()
 	pass 
 
-func _process(delta):
+func _process(_delta):
 	
 	if (shooting == true):
 		shooting = false

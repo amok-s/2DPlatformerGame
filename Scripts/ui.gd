@@ -24,8 +24,6 @@ func ui_shake(duration: float, strenght: float) -> void:
 	transform = original_position
 		
 
-func _process(delta):
-	pass
 	
 	
 	

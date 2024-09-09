@@ -1,7 +1,5 @@
 extends StaticBody2D
 
-@onready var game_manager = %GameManager
-
 var speed = -220
 
 # Called when the node enters the scene tree for the first time.
