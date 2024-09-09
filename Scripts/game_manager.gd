@@ -21,13 +21,13 @@ func _ready():
 
 func add_point():
 	points += 1
-	print(points)
+	if points == 10:
+		add_health()
+		points = 0
 
 func add_fruit():
 	fruits_count += 1
 	points_label.text = "Fruits: " + str(points) + " / " + str(fruits_amount)
-	if fruits_count == 10:
-		add_health()
 	if fruits_count == fruits_amount:
 		finish_level()
 		
@@ -42,7 +42,6 @@ func decrease_health():
 		get_node("../UI").ui_shake(0.2,5)
 	lives -= 1
 	spawn_chroma_chaos(0.28)
-	print(lives)
 	for h in 3:
 		if (h < lives):
 			hearts[h].show()

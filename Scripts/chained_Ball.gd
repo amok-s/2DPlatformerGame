@@ -21,8 +21,6 @@ func hit_by_ball(body):
 		body.velocity.y = -180
 	body.velocity.x = x_delta * 11.5
 	%GameManager.decrease_health()
-	print("delta x:" + str(x_delta))
-	print("delta y:" + str(y_delta))
 	await get_tree().create_timer(0.3).timeout
 	body.taking_damage = false
 	pass

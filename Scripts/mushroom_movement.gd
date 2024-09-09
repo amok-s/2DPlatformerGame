@@ -6,6 +6,9 @@ class_name MushroomMovement
 
 @onready var left_detector = %RayCastFloorLeft
 @onready var right_detector = %RayCastFloorRight
+@onready var left_wall = $"../../LeftWall"
+@onready var right_wall = $"../../RightWall"
+
 
 
 var can_stop = false
@@ -48,15 +51,17 @@ func movement_timer():
 	can_stop = true
 
 func choose_direction():
-	if left_detector.is_colliding() && right_detector.is_colliding():
+	
+	if left_detector.is_colliding() == false || left_wall.is_colliding():
+		character.go_right = true
+	
+	elif right_detector.is_colliding() == false || right_wall.is_colliding():
+		character.go_left = true
+		
+	else:
 		var random_direction = randi_range(1, 2)
 		if random_direction == 1: 
 			character.go_right = true
 		else:
 			character.go_left = true
 
-	if not left_detector.is_colliding():
-		character.go_right = true
-	
-	if not right_detector.is_colliding():
-		character.go_left = true

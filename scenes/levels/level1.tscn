@@ -599,7 +599,7 @@ position = Vector2(1697, 232)
 [node name="Enemies group" type="Node" parent="Scene Objects"]
 
 [node name="MushroomEnemy2" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
-position = Vector2(577, 157)
+position = Vector2(859, 208)
 
 [node name="MushroomEnemy3" parent="Scene Objects/Enemies group" instance=ExtResource("8_r8qe0")]
 position = Vector2(1336, 257)
@@ -608,7 +608,7 @@ position = Vector2(1336, 257)
 position = Vector2(2112, 301)
 
 [node name="Chameleon" parent="Scene Objects/Enemies group" instance=ExtResource("21_5kw46")]
-position = Vector2(161, 593)
+position = Vector2(231, 590)
 
 [node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("15_upxvc")]
 position = Vector2(893, 428)

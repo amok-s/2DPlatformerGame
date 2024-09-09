@@ -61,7 +61,6 @@ func _on_area_2d_body_entered(body):
 		#mushroom collading with walls
 	if (body.name == "TileMap"):
 		var x_delta = body.position.x - position.x
-		print(x_delta)
 		#collading from the left
 		if (x_delta > -270): 
 			can_go_left = false

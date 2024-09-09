@@ -313,6 +313,16 @@ unique_name_in_owner = true
 position = Vector2(45, 0)
 exclude_parent = false
 
+[node name="LeftWall" type="RayCast2D" parent="."]
+position = Vector2(-31, 0)
+rotation = 1.5708
+target_position = Vector2(1.5299e-06, 35)
+
+[node name="RightWall" type="RayCast2D" parent="."]
+position = Vector2(36, 0)
+rotation = -1.5708
+target_position = Vector2(-1.5299e-06, 35)
+
 [node name="Bump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6b27f")
 volume_db = -9.0

@@ -16,16 +16,10 @@ func _physics_process(delta):
 	move_and_slide()
 	velocity.y += gravity * delta
 	if (go_right == true):
-		print("go right:" + str(go_right))
 		velocity.x = speed * delta * 70
-		print(velocity.x)
 	if (go_left == true):
-		print("go left:" + str(go_left))
 		velocity.x = -speed * delta * 70
-		print(velocity.x)
 		
-
-
 func _on_damage_collision_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		player_entered(body)
@@ -51,15 +45,14 @@ func  player_entered(body):
 func _on_patrol_area_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		player_detected = true
+		await get_tree().create_timer(0.2).timeout
+		$AnimationPlayer.play("lil_jump")
 		
-	await get_tree().create_timer(0.2).timeout
-	$AnimationPlayer.play("lil_jump")
-
+	
 func _on_patrol_area_body_exited(body):
 	if (body.name == "CharacterBody2D"):
 		await get_tree().create_timer(0.4).timeout
 		player_detected = false
-
 
 func _on_tongue_attack_body_entered(body):
 	if (body.name == "CharacterBody2D"):

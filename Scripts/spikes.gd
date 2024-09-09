@@ -14,10 +14,6 @@ func _on_area_2d_body_entered(body):
 		game_manager.decrease_health()
 		var y_delta = (position.y - body.position.y) * 23
 		var x_delta = (body.position.x - position.x) * 9
-		print ("y_delta:")
-		print (y_delta)
-		print ("x_delta:")
-		print (x_delta)
 		if (y_delta > 620):
 			body.hit_by_spikes(x_delta, -600)
 		else:

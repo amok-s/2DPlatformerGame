@@ -9,7 +9,6 @@ class_name ChameleonAttack
 var can_attack = false
 
 func Enter():
-	print("attack state")
 	can_attack = false
 	sprite.animation = "idle"
 	await get_tree().create_timer(randf_range(1.7, 1.2)).timeout

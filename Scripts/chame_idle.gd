@@ -8,7 +8,6 @@ var can_go = false
 
 
 func Enter():
-	print("idle state")
 	can_go = false
 	sprite.animation = "idle"
 	idle_timer()
