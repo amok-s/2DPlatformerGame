@@ -488,9 +488,9 @@ script = ExtResource("1_cpdrl")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d5ifk")
-animation = &"idle"
+animation = &"spikes_in"
 autoplay = "idle"
-frame_progress = 0.955208
+frame_progress = 0.993111
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.25, 2.25)
@@ -542,7 +542,9 @@ character = NodePath("../..")
 script = ExtResource("9_lp22b")
 character = NodePath("../..")
 
-[node name="Startled" type="Node" parent="StateMachine"]
+[node name="Startled" type="Node" parent="StateMachine" node_paths=PackedStringArray("character")]
 script = ExtResource("11_p7ln8")
+character = NodePath("../..")
 
+[connection signal="body_entered" from="SpikesCollision" to="." method="_on_spikes_collision_body_entered"]
 [connection signal="body_entered" from="BodyCollision" to="." method="_on_body_collision_body_entered"]

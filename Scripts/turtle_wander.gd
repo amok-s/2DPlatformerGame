@@ -59,3 +59,6 @@ func choose_direction():
 func wander_time():
 	await get_tree().create_timer(randf_range(2.8, 4.0)).timeout
 	can_stop = true
+
+func wander_with_spiked():
+	pass
