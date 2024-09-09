@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/FSM.gd" id="7_o582p"]
 [ext_resource type="Script" path="res://Scripts/mushroom_movement.gd" id="8_n65w4"]
 [ext_resource type="Script" path="res://Scripts/mushroom_damage.gd" id="10_0whmx"]
-[ext_resource type="Script" path="res://scenes/mushroom_idle.gd" id="10_fpu7y"]
+[ext_resource type="Script" path="res://Scripts/mushroom_idle.gd" id="10_tlaji"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ms4sq"]
 atlas = ExtResource("2_3awl1")
@@ -338,7 +338,7 @@ character = NodePath("../..")
 sprite = NodePath("../../AnimatedSprite2D")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "sprite")]
-script = ExtResource("10_fpu7y")
+script = ExtResource("10_tlaji")
 character = NodePath("../..")
 sprite = NodePath("../../AnimatedSprite2D")
 

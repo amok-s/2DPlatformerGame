@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jas7sdjmhbf4" path="res://assets/MainCharacter/sprites/impact_dust/dust2.png" id="2_a0wmc"]
 [ext_resource type="Texture2D" uid="uid://bscsjnhoulrfk" path="res://assets/MainCharacter/sprites/impact_dust/dust3.png" id="3_p6c61"]
 [ext_resource type="Texture2D" uid="uid://b86yxkkhnxtp6" path="res://assets/MainCharacter/sprites/impact_dust/dust4.png" id="4_tl5ok"]
-[ext_resource type="Script" path="res://scenes/dust_particle.gd" id="5_0qhuk"]
+[ext_resource type="Script" path="res://Scripts/dust_particle.gd" id="5_0qhuk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hq7lu"]
 animations = [{

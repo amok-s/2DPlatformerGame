@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c5xx170pjn46l"]
+[gd_scene load_steps=35 format=3 uid="uid://c5xx170pjn46l"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_wryh3"]
 [ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="2_0r8cn"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="15_upxvc"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="19_esrvl"]
 [ext_resource type="Texture2D" uid="uid://bdaqhto6kvjiw" path="res://assets/arrow.png" id="20_vjar2"]
+[ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/chameleon.tscn" id="21_5kw46"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -243,9 +244,6 @@ player = NodePath("../../CharacterBody2D")
 [node name="spikes2" parent="Scene Objects/Traps group" instance=ExtResource("14_as4xu")]
 position = Vector2(202, 265)
 
-[node name="spikes3" parent="Scene Objects/Traps group" instance=ExtResource("14_as4xu")]
-position = Vector2(422, 554)
-
 [node name="spikes4" parent="Scene Objects/Traps group" instance=ExtResource("14_as4xu")]
 position = Vector2(1895, 409)
 
@@ -404,6 +402,9 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_u22j8")
 autoplay = "default"
 frame_progress = 0.167254
+
+[node name="Chameleon" parent="." instance=ExtResource("21_5kw46")]
+position = Vector2(161, 593)
 
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]

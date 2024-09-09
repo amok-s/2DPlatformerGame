@@ -19,9 +19,6 @@ var speed = 110
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _ready():
-	pass
-
 func _process(delta):
 	move_and_slide()
 	
