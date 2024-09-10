@@ -15,6 +15,9 @@ var points = 0
 var lives = 3
 var fruits_count = 0
 var fruits_amount
+var arrow_count = 0
+var current_arrow
+var a_timer = true
 
 func _ready():
 	fruits_amount = fruits_node.get_child_count()
@@ -28,8 +31,8 @@ func add_point():
 func add_fruit():
 	fruits_count += 1
 	points_label.text = "Fruits: " + str(fruits_count) + " / " + str(fruits_amount)
-	if fruits_count == fruits_amount - 2:
-		spawn_arrow()
+	if fruits_count > fruits_amount - 4 and fruits_count != fruits_amount and a_timer == true:
+		arrow_timer()
 	if fruits_count == fruits_amount:
 		finish_level()
 		
@@ -88,11 +91,16 @@ func spawn_shockwave():
 	get_parent().add_child(b)
 	await get_tree().create_timer(0.8).timeout
 	b.queue_free()
-	
-	pass
+
 
 func spawn_arrow():
-	print("szczałeczka")
 	var b = arrow.instantiate()
 	b.position = player.global_position
 	get_parent().add_child(b)
+
+func arrow_timer():
+	var d = fruits_count
+	a_timer = false
+	await get_tree().create_timer(15).timeout
+	if d == fruits_count and fruits_count != fruits_amount:
+		spawn_arrow()

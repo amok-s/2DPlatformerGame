@@ -20,8 +20,8 @@ var jump_input_blockage = false
 var taking_damage = false
 var is_grounded = true
 
-func jump():
-	velocity.y = -350
+#func jump():
+	#velocity.y = -550
 
 func jump_side(x):
 	taking_damage = true

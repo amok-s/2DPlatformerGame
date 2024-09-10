@@ -1062,14 +1062,14 @@ script = ExtResource("1_63lk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(126, 83)
+position = Vector2(-0.249924, 4.75008)
 scale = Vector2(1.98438, 1.98438)
 sprite_frames = SubResource("SpriteFrames_vftxf")
 animation = &"ananas"
 autoplay = "melon"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(126, 79)
+position = Vector2(-0.249924, 0.750076)
 shape = SubResource("CircleShape2D_cn2fq")
 
 [node name="PickUp" type="AudioStreamPlayer" parent="."]

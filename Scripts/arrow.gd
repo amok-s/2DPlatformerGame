@@ -1,21 +1,36 @@
 extends CharacterBody2D
 @onready var player = $"../Scene Objects/CharacterBody2D"
 @onready var fruits_group = $"../Scene Objects/Collectables group"
+@onready var game_manager = $"../GameManager"
 
 
 var speed = 140
 var fruits: Array[Node]
+var current_fruit
+var counter = 0
+var fruit_count
+var target: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	
+	fruit_count = game_manager.fruits_count
+	fruits = fruits_group.get_children(false)
+	current_fruit = fruits[0]
+	for i in fruits:
+		print(player.position - fruits[counter].position)
+		print(player.position - current_fruit.position)
+		if player.position.distance_to(fruits[counter].position) < player.position.distance_to(current_fruit.position):
+			current_fruit = fruits[counter]
+		counter += 1
+	target = current_fruit.position
 
 
 
 func _process(delta):
-	fruits = fruits_group.get_children(false)
-	look_at(fruits[0].position + Vector2(0, 95))
+	if fruit_count < game_manager.fruits_count:
+		game_manager.a_timer = true
+		queue_free()
+	look_at(target + Vector2(-25, 75))
 	calculate_velocity()
 	move_and_slide()
 

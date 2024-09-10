@@ -101,49 +101,49 @@ drag_vertical_offset = -0.06
 [node name="Collectables group" type="Node" parent="Scene Objects"]
 
 [node name="Collectable" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(-61, 88)
+position = Vector2(49, 162)
 
 [node name="Collectable2" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(300, 89)
+position = Vector2(428, 165)
 
 [node name="Collectable3" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(596, 87)
+position = Vector2(740, 161)
 
 [node name="Collectable4" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(1, 519)
+position = Vector2(128, 584)
 
 [node name="Collectable5" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(660, 378)
+position = Vector2(663, 450)
 
 [node name="Collectable6" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(859, 521)
+position = Vector2(982, 593)
 
 [node name="Collectable7" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(139, 277)
+position = Vector2(264, 332)
 
 [node name="Collectable8" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(993, 231)
+position = Vector2(1145, 64)
 
 [node name="Collectable9" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(1013, -9)
+position = Vector2(858, 210)
 
 [node name="Collectable10" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(1195, 327)
+position = Vector2(1317, 400)
 
 [node name="Collectable11" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(1151, 521)
+position = Vector2(1276, 594)
 
 [node name="Collectable12" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(1582, -11)
+position = Vector2(1711, 60)
 
 [node name="Collectable13" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(2184, 327)
+position = Vector2(2301, 401)
 
 [node name="Collectable14" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(2030, -8)
+position = Vector2(2159, 61)
 
 [node name="Collectable15" parent="Scene Objects/Collectables group" instance=ExtResource("10_dsug8")]
-position = Vector2(1697, 232)
+position = Vector2(1816, 302)
 
 [node name="Enemies group" type="Node" parent="Scene Objects"]
 
@@ -183,14 +183,14 @@ script = ExtResource("16_ci762")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/WorldBoundary"]
 shape = SubResource("WorldBoundaryShape2D_kime1")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Scene Objects"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
 scroll_offset = Vector2(69.84, 72.75)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Scene Objects/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ParallaxBackground"]
 motion_scale = Vector2(0.8, 0.4)
 motion_mirroring = Vector2(1024, 1024)
 
-[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
 texture = ExtResource("7_dvtd5")
 centered = false

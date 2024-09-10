@@ -57,7 +57,7 @@ func _on_area_2d_body_entered(body):
 			collision_shape_2d.queue_free()
 			area_2d.queue_free()
 			shooting = false
-			body.jump()
+			body.velocity.y = -550
 			kill_sound.play(0)
 			sprite.play("hit")
 			var random_x = randf_range(-150, 150)
@@ -66,7 +66,7 @@ func _on_area_2d_body_entered(body):
 			queue_free()
 		else:
 			print ("Decrease player health")
-			%game_manager.decrease_health()
+			%GameManager.decrease_health()
 			print (x_delta)
 			if (x_delta < 5): #if player touch enemy from the left
 				print ("w lewo")

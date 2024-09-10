@@ -42,7 +42,7 @@ func _on_area_2d_body_entered(body):
 			collision_shape_2d.queue_free()
 			collision_shape_2d2.queue_free()
 			being_hit = true
-			body.jump()
+			body.velocity.y = -550
 			bump_sound.play(0)
 			animated_sprite_2d.play("hit")
 			await get_tree().create_timer(2).timeout
