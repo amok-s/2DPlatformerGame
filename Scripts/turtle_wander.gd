@@ -12,7 +12,6 @@ class_name TurtleWander
 var can_stop = false
 
 func Enter():
-	print("wander")
 	can_stop = false
 	choose_direction()
 	wander_time()

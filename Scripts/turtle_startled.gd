@@ -8,7 +8,6 @@ class_name TurtleStartled
 
 
 func Enter():
-	print("startled")
 	character.spikes_out = true
 	sprite.animation = "hit"
 	animation_player.play("startled_anim")

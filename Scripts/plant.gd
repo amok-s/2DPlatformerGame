@@ -66,7 +66,7 @@ func _on_area_2d_body_entered(body):
 			queue_free()
 		else:
 			print ("Decrease player health")
-			player.game_manager.decrease_health()
+			%game_manager.decrease_health()
 			print (x_delta)
 			if (x_delta < 5): #if player touch enemy from the left
 				print ("w lewo")

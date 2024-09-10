@@ -10,7 +10,6 @@ class_name TurtleIdle
 var can_go = false
 
 func Enter():
-	print("idle")
 	can_go = false
 	if character.spikes_out == false:
 		sprite.animation = "idle"

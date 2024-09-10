@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dvs3j7t4m840j"]
+[gd_scene load_steps=25 format=3 uid="uid://dvs3j7t4m840j"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7lbga"]
 [ext_resource type="PackedScene" uid="uid://ceiy2eebq27sd" path="res://scenes/levels/level2.tscn" id="2_iy1yk"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/heart.png" id="19_4b6gs"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="20_7j4ds"]
 [ext_resource type="PackedScene" uid="uid://dfbv5uh0yrmf1" path="res://scenes/turtle.tscn" id="21_j5tqx"]
+[ext_resource type="PackedScene" uid="uid://d1e35equn7een" path="res://scenes/bee.tscn" id="22_4u265"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -152,6 +153,16 @@ position = Vector2(2112, 301)
 
 [node name="Chameleon" parent="Scene Objects/Enemies group" instance=ExtResource("12_f4mtt")]
 position = Vector2(791, 450)
+
+[node name="Turtle" parent="Scene Objects/Enemies group" instance=ExtResource("21_j5tqx")]
+position = Vector2(587, 161)
+
+[node name="Bee" parent="Scene Objects/Enemies group" instance=ExtResource("22_4u265")]
+position = Vector2(176, 466)
+
+[node name="Bee2" parent="Scene Objects/Enemies group" instance=ExtResource("22_4u265")]
+position = Vector2(488, 378)
+side_sways = true
 
 [node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("13_dw7f1")]
 position = Vector2(1545, 580)
@@ -313,9 +324,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("18_fl7bk")
 theme_override_font_sizes/font_size = 67
 text = "back to main menu"
-
-[node name="Turtle" parent="." instance=ExtResource("21_j5tqx")]
-position = Vector2(214, 596)
 
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]

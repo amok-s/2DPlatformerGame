@@ -1,0 +1,208 @@
+[gd_scene load_steps=22 format=3 uid="uid://d1e35equn7een"]
+
+[ext_resource type="Texture2D" uid="uid://chiogtwde4yo7" path="res://assets/Bee/Idle (36x34).png" id="1_6fadh"]
+[ext_resource type="Script" path="res://Scripts/bee.gd" id="1_rm3x1"]
+[ext_resource type="Script" path="res://Scripts/bee_node.gd" id="1_sdd7d"]
+[ext_resource type="Script" path="res://assets/MainCharacter/scripts/FSM.gd" id="3_v51kc"]
+[ext_resource type="Script" path="res://Scripts/bee_idle.gd" id="4_6yeff"]
+[ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://assets/sounds/tap.wav" id="4_44bbq"]
+[ext_resource type="AudioStream" uid="uid://ugwixtko8md8" path="res://assets/sounds/beetle-squark4-41449.mp3" id="5_j2axn"]
+[ext_resource type="Script" path="res://Scripts/bee_attack.gd" id="5_krxcw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qpgy"]
+atlas = ExtResource("1_6fadh")
+region = Rect2(0, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0w87"]
+atlas = ExtResource("1_6fadh")
+region = Rect2(36, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v00im"]
+atlas = ExtResource("1_6fadh")
+region = Rect2(72, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq8d7"]
+atlas = ExtResource("1_6fadh")
+region = Rect2(108, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rx53"]
+atlas = ExtResource("1_6fadh")
+region = Rect2(144, 0, 36, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5nsd"]
+atlas = ExtResource("1_6fadh")
+region = Rect2(180, 0, 36, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdw4o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qpgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0w87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v00im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq8d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rx53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5nsd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bu7f2"]
+size = Vector2(42, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0oyot"]
+size = Vector2(46, 56)
+
+[sub_resource type="Animation" id="Animation_d676f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_slvs0"]
+resource_name = "bobing"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -36.08), Vector2(0, -41.21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.26), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5yrf5"]
+resource_name = "side_sways"
+length = 3.8
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 1.9, 3.2, 3.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.14, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1.14, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 1.9, 3.2, 3.3, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-70, 0), Vector2(-61.55, 0), Vector2(0, 0), Vector2(70, 0), Vector2(73.375, 0), Vector2(76.32, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kerrn"]
+_data = {
+"RESET": SubResource("Animation_d676f"),
+"bobing": SubResource("Animation_slvs0"),
+"side_sways": SubResource("Animation_5yrf5")
+}
+
+[node name="Bee" type="Node2D"]
+script = ExtResource("1_sdd7d")
+
+[node name="Bee" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("1_rm3x1")
+
+[node name="sprite" type="AnimatedSprite2D" parent="Bee"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cdw4o")
+autoplay = "default"
+frame_progress = 0.438557
+
+[node name="Collision" type="CollisionShape2D" parent="Bee"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_bu7f2")
+
+[node name="DamageCollision" type="Area2D" parent="Bee"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bee/DamageCollision"]
+position = Vector2(0, 1.21)
+shape = SubResource("RectangleShape2D_0oyot")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bee"]
+libraries = {
+"": SubResource("AnimationLibrary_kerrn")
+}
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="Bee"]
+stream = ExtResource("4_44bbq")
+pitch_scale = 0.68
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Bee"]
+stream = ExtResource("5_j2axn")
+volume_db = -5.0
+pitch_scale = 1.3
+
+[node name="StateMachine" type="Node" parent="Bee" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_v51kc")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="Bee/StateMachine" node_paths=PackedStringArray("character")]
+script = ExtResource("4_6yeff")
+character = NodePath("../..")
+
+[node name="Attack" type="Node" parent="Bee/StateMachine"]
+script = ExtResource("5_krxcw")
+
+[connection signal="body_entered" from="Bee/DamageCollision" to="Bee" method="_on_collision_damage_body_entered"]
