@@ -8,6 +8,7 @@ extends Node
 @export var next_level : PackedScene
 @export var chroma_chaos : PackedScene
 @export var shockwave : PackedScene
+@export var arrow : PackedScene
 
 
 var points = 0
@@ -26,7 +27,9 @@ func add_point():
 
 func add_fruit():
 	fruits_count += 1
-	points_label.text = "Fruits: " + str(points) + " / " + str(fruits_amount)
+	points_label.text = "Fruits: " + str(fruits_count) + " / " + str(fruits_amount)
+	if fruits_count == fruits_amount - 2:
+		spawn_arrow()
 	if fruits_count == fruits_amount:
 		finish_level()
 		
@@ -87,3 +90,9 @@ func spawn_shockwave():
 	b.queue_free()
 	
 	pass
+
+func spawn_arrow():
+	print("szczałeczka")
+	var b = arrow.instantiate()
+	b.position = player.global_position
+	get_parent().add_child(b)

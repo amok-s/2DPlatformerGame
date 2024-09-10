@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dvs3j7t4m840j"]
+[gd_scene load_steps=26 format=3 uid="uid://dvs3j7t4m840j"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7lbga"]
 [ext_resource type="PackedScene" uid="uid://ceiy2eebq27sd" path="res://scenes/levels/level2.tscn" id="2_iy1yk"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="20_7j4ds"]
 [ext_resource type="PackedScene" uid="uid://dfbv5uh0yrmf1" path="res://scenes/turtle.tscn" id="21_j5tqx"]
 [ext_resource type="PackedScene" uid="uid://d1e35equn7een" path="res://scenes/bee.tscn" id="22_4u265"]
+[ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="23_qslmg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -49,6 +50,7 @@ hearts = [NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart"), NodePath
 next_level = ExtResource("2_iy1yk")
 chroma_chaos = ExtResource("3_7xy7f")
 shockwave = ExtResource("4_5csc1")
+arrow = ExtResource("23_qslmg")
 
 [node name="finish" type="AudioStreamPlayer2D" parent="GameManager"]
 stream = ExtResource("5_x0ak8")
@@ -160,12 +162,8 @@ position = Vector2(587, 161)
 [node name="Bee" parent="Scene Objects/Enemies group" instance=ExtResource("22_4u265")]
 position = Vector2(176, 466)
 
-[node name="Bee2" parent="Scene Objects/Enemies group" instance=ExtResource("22_4u265")]
-position = Vector2(488, 419)
-side_sways = true
-
 [node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("13_dw7f1")]
-position = Vector2(1545, 580)
+position = Vector2(1650, 435)
 player = NodePath("../../CharacterBody2D")
 
 [node name="Traps group" type="Node" parent="Scene Objects"]

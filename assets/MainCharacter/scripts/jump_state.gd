@@ -5,7 +5,6 @@ class_name PlayerJump
 @export var sprite : AnimatedSprite2D
 
 
-
 # Called when the node enters the scene tree for the first time.
 func Enter():
 	sprite.animation = "jump"
