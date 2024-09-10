@@ -8,7 +8,6 @@ class_name BeeIdle
 
 
 func Enter():
-	print("idle")
 	sprite.animation = "idle"
 	if bee.side_sways == false:
 		animation_player.play("bobing")

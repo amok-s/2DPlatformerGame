@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://wguw2hd073ms"]
+
+[ext_resource type="Texture2D" uid="uid://cu55hi61aqe1l" path="res://assets/Bee/Bullet.png" id="1_u3mfl"]
+[ext_resource type="Script" path="res://Scripts/bee_stringer.gd" id="2_sva3e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nemj6"]
+size = Vector2(10, 10)
+
+[node name="Stringer" type="Sprite2D"]
+position = Vector2(0, 33)
+scale = Vector2(2, 2)
+texture = ExtResource("1_u3mfl")
+script = ExtResource("2_sva3e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nemj6")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

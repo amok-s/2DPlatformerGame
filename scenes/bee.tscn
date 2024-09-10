@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://d1e35equn7een"]
+[gd_scene load_steps=39 format=3 uid="uid://d1e35equn7een"]
 
 [ext_resource type="Texture2D" uid="uid://chiogtwde4yo7" path="res://assets/Bee/Idle (36x34).png" id="1_6fadh"]
 [ext_resource type="Script" path="res://Scripts/bee.gd" id="1_rm3x1"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://ugwixtko8md8" path="res://assets/sounds/beetle-squark4-41449.mp3" id="5_j2axn"]
 [ext_resource type="Script" path="res://Scripts/bee_attack.gd" id="5_krxcw"]
 [ext_resource type="Script" path="res://Scripts/bee_takingdamage.gd" id="9_fu403"]
+[ext_resource type="PackedScene" uid="uid://wguw2hd073ms" path="res://scenes/bee_stringer.tscn" id="12_yvl2i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hr123"]
 atlas = ExtResource("3_w5k0q")
@@ -304,8 +305,8 @@ pitch_scale = 0.68
 
 [node name="Death" type="AudioStreamPlayer2D" parent="Bee"]
 stream = ExtResource("5_j2axn")
-volume_db = -5.0
-pitch_scale = 1.3
+volume_db = -8.0
+pitch_scale = 2.7
 
 [node name="StateMachine" type="Node" parent="Bee" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_v51kc")
@@ -318,9 +319,11 @@ character = NodePath("../..")
 [node name="Attack" type="Node" parent="Bee/StateMachine" node_paths=PackedStringArray("character")]
 script = ExtResource("5_krxcw")
 character = NodePath("../..")
+stinger = ExtResource("12_yvl2i")
 
-[node name="TakingDamage" type="Node" parent="Bee/StateMachine"]
+[node name="TakingDamage" type="Node" parent="Bee/StateMachine" node_paths=PackedStringArray("character")]
 script = ExtResource("9_fu403")
+character = NodePath("../..")
 
 [connection signal="body_entered" from="Bee/DamageCollision" to="Bee" method="_on_collision_damage_body_entered"]
 [connection signal="body_entered" from="Bee/PlayerDetector" to="Bee" method="_on_player_detector_body_entered"]

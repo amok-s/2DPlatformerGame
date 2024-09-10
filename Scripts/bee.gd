@@ -4,17 +4,9 @@ extends CharacterBody2D
 @onready var game_manager = %GameManager
 var taking_damage = false
 var player_spotted = false
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func sees_player():
+func _physics_process(delta):
 	pass
 
 
@@ -25,8 +17,7 @@ func _on_collision_damage_body_entered(body):
 	
 		if y_delta > 45:
 			taking_damage = true
-			print("pszczoła dead")
-			body.velocity.y = -450
+			body.velocity.y = -550
 			$Death.play(0)
 			await get_tree().create_timer(2).timeout
 			queue_free()
@@ -47,5 +38,4 @@ func _on_player_detector_body_entered(body):
 
 func _on_player_detector_body_exited(body):
 	if body.name == "CharacterBody2D":
-		await get_tree().create_timer(2.5).timeout
 		player_spotted = false

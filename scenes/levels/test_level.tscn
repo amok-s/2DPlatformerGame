@@ -161,7 +161,7 @@ position = Vector2(587, 161)
 position = Vector2(176, 466)
 
 [node name="Bee2" parent="Scene Objects/Enemies group" instance=ExtResource("22_4u265")]
-position = Vector2(488, 378)
+position = Vector2(488, 419)
 side_sways = true
 
 [node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("13_dw7f1")]

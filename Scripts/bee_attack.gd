@@ -5,11 +5,11 @@ class_name BeeAttack
 @onready var attack_sound = $"../../Attack"
 @onready var sprite = $"../../sprite"
 @onready var animation_player = $"../../AnimationPlayer"
+@export var stinger : PackedScene
 
 var can_attack = false
 
 func Enter():
-	print("attack")
 	animation_player.pause()
 	attack()
 	
@@ -27,7 +27,7 @@ func Update(_delta:float):
 		attack()
 	
 func attack_timer():
-	await get_tree().create_timer(randf_range(2.8, 4.0)).timeout
+	await get_tree().create_timer(randf_range(1.8, 2.7)).timeout
 	can_attack = true
 
 func attack():
@@ -35,6 +35,12 @@ func attack():
 	sprite.play("attack")
 	await get_tree().create_timer(0.4).timeout
 	attack_sound.play(0)
+	spawn_stinger()
 	await get_tree().create_timer(0.2).timeout
 	sprite.play("idle")
 	attack_timer()
+
+func spawn_stinger():
+	var b = stinger.instantiate()
+	b.position = character.position + Vector2(0, 30)
+	get_parent().get_parent().get_parent().add_child(b)
