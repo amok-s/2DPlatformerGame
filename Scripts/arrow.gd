@@ -11,7 +11,6 @@ var counter = 0
 var fruit_count
 var target: Vector2
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	fruit_count = game_manager.fruits_count
 	fruits = fruits_group.get_children(false)
@@ -23,8 +22,6 @@ func _ready():
 			current_fruit = fruits[counter]
 		counter += 1
 	target = current_fruit.position
-
-
 
 func _process(delta):
 	if fruit_count < game_manager.fruits_count:

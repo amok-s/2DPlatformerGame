@@ -325,9 +325,10 @@ theme_override_font_sizes/font_size = 67
 text = "back to main menu"
 
 [node name="AnimatableBody2D" parent="." instance=ExtResource("24_vhap1")]
-position = Vector2(700, 216)
+position = Vector2(565, 318)
 moving_time = 4.0
 speed = 100.0
+UpDown_motion = true
 
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]

@@ -3,34 +3,44 @@ extends AnimatableBody2D
 @export var moving_time: float = 2.0
 @export var idle_time: float = 1.7
 @export var speed: float = 60
+@export var UpDown_motion: bool = false
 
-var go_left = false
-var go_right = false
+var go_there = false
+var go_back = false
 var switch = false
 
 func _ready():
 	idle_timer()
+	blink_timer()
 
 
 func _process(delta):
-	if go_left == true:
-		print("idzie w lewo")
-		position -= transform.x * speed * delta
-	elif go_right == true:
-		print("idzie w prawo")
-		position += transform.x * speed * delta
+	if UpDown_motion == false:
+		if go_there == true:
+			position -= transform.x * speed * delta
+		elif go_back == true:
+			position += transform.x * speed * delta
+	
+	elif UpDown_motion == true:
+		if go_there == true:
+			position -= transform.y * speed * delta
+		elif go_back == true:
+			position += transform.y * speed * delta
+	
 	
 func blink_timer():
 		await get_tree().create_timer(randf_range(2.8, 4.0)).timeout
 		$Sprite.play("blink")
 		await get_tree().create_timer(0.3).timeout
 		$Sprite.animation = "idle"
-		await get_tree().create_timer(randf_range(0.4, 6)).timeout
+		var timer = Timer.new()
+		add_child(timer)
+		timer.wait_time = randf_range(0.4, 6)
+		timer.one_shot = true
+		timer.connect("timeout", blink_timer)
+		timer.start()
 
 func moving_timer():
-		print("moving timer")
-		print("w lewo" + str(go_left))
-		print("w prawo" + str(go_right))
 		var timer = Timer.new()
 		add_child(timer)
 		timer.wait_time = moving_time
@@ -38,18 +48,17 @@ func moving_timer():
 		timer.connect("timeout", idle_timer)
 		timer.start()
 		if switch == false:
-			go_left = true
+			go_there = true
 		elif switch == true:
-			go_right = true
+			go_back = true
 
 func idle_timer():
-	print("idle timer")
-	if go_left == true:
+	if go_there == true:
 		switch = true
-	if go_right == true:
+	if go_back == true:
 		switch = false
-	go_left = false
-	go_right = false
+	go_there = false
+	go_back = false
 	var i_timer = Timer.new()
 	add_child(i_timer)
 	i_timer.wait_time = idle_time

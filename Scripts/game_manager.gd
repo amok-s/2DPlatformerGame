@@ -17,7 +17,6 @@ var fruits_count = 0
 var fruits_amount
 var arrow_count = 0
 var current_arrow
-var a_timer = true
 
 func _ready():
 	fruits_amount = fruits_node.get_child_count()
@@ -31,7 +30,7 @@ func add_point():
 func add_fruit():
 	fruits_count += 1
 	points_label.text = "Fruits: " + str(fruits_count) + " / " + str(fruits_amount)
-	if fruits_count > fruits_amount - 4 and fruits_count != fruits_amount and a_timer == true:
+	if fruits_count > fruits_amount - 4 and fruits_count != fruits_amount:
 		arrow_timer()
 	if fruits_count == fruits_amount:
 		finish_level()
@@ -93,15 +92,14 @@ func spawn_shockwave():
 	b.queue_free()
 
 
-func spawn_arrow():
-	var b = arrow.instantiate()
-	b.position = player.global_position
-	get_parent().add_child(b)
+func spawn_arrow(last_fruit):
+	if last_fruit == fruits_count:
+		var b = arrow.instantiate()
+		b.position = player.global_position
+		get_parent().add_child(b)
 
 func arrow_timer():
-	var d = fruits_count
-	a_timer = false
+	var last_fruit = fruits_count
 	await get_tree().create_timer(10).timeout
-	if d == fruits_count and fruits_count != fruits_amount:
-		spawn_arrow()
-		a_timer = true
+	spawn_arrow(last_fruit)
+	
