@@ -13,6 +13,9 @@ func Enter():
 	sprite.animation = "default"
 
 func Update(_delta:float):
+	if (player.taking_damage == true):
+		state_transition.emit(self, "TakingDamage")
+	
 	if player.is_on_floor():
 		if (player.velocity.x > 1 || player.velocity.x < -1):
 			sprite.animation = "run"
@@ -38,8 +41,7 @@ func Update(_delta:float):
 	if Input.is_action_just_pressed("jump"):
 		state_transition.emit(self, "Jump")
 		
-	if (player.taking_damage == true):
-		state_transition.emit(self, "TakingDamage")
+
 
 
 func Exit():

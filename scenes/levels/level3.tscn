@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://g2n5jyw07p28"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_rtp7y"]
-[ext_resource type="Texture2D" uid="uid://cnyn0rkovklk8" path="res://assets/Purple.png" id="2_wxq7f"]
-[ext_resource type="Texture2D" uid="uid://b6s27ymrxjikq" path="res://assets/Terrain (16x16).png" id="3_71wmu"]
+[ext_resource type="Texture2D" uid="uid://cnyn0rkovklk8" path="res://assets/OtherSprites/Purple.png" id="2_wxq7f"]
+[ext_resource type="Texture2D" uid="uid://b6s27ymrxjikq" path="res://assets/OtherSprites/Terrain (16x16).png" id="3_71wmu"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="4_s6bdh"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="5_ctbn3"]
 [ext_resource type="PackedScene" uid="uid://1flprlq4mpfh" path="res://scenes/finish.tscn" id="6_v47ds"]
 [ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="7_thj5b"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/Jersey10-Regular.ttf" id="8_v2j0s"]
-[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/heart.png" id="9_vpi4l"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/OtherSprites/Jersey10-Regular.ttf" id="8_v2j0s"]
+[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="9_vpi4l"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="10_iikl2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3rac"]

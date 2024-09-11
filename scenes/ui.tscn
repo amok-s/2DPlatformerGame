@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://hpgg3s8vbcvf"]
 
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/Jersey10-Regular.ttf" id="1_mqcfg"]
-[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/heart.png" id="2_ia66i"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/OtherSprites/Jersey10-Regular.ttf" id="1_mqcfg"]
+[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="2_ia66i"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="3_8se7q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_co04n"]

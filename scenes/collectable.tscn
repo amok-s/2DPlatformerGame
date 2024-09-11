@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/collectable.gd" id="1_63lk2"]
 [ext_resource type="Texture2D" uid="uid://iifnunrgse17" path="res://assets/Collectables/Pineapple.png" id="2_2v108"]
-[ext_resource type="Texture2D" uid="uid://b14lo1ubpd4n5" path="res://assets/Collected.png" id="2_olorp"]
+[ext_resource type="Texture2D" uid="uid://b14lo1ubpd4n5" path="res://assets/OtherSprites/Collected.png" id="2_olorp"]
 [ext_resource type="Texture2D" uid="uid://coi115d0fk542" path="res://assets/Collectables/Apple.png" id="3_p6hg3"]
 [ext_resource type="AudioStream" uid="uid://ddk83bkx0rghe" path="res://assets/sounds/pick_up.mp3" id="4_55e3t"]
 [ext_resource type="Texture2D" uid="uid://divqpt1ecr0kf" path="res://assets/Collectables/Bananas.png" id="4_jllh3"]

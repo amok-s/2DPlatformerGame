@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://4r0yhti5mlkd"]
 
-[ext_resource type="Texture2D" uid="uid://d2dde683iw6ak" path="res://assets/Chain.png" id="1_57o2x"]
+[ext_resource type="Texture2D" uid="uid://d2dde683iw6ak" path="res://assets/OtherSprites/Chain.png" id="1_57o2x"]
 [ext_resource type="Script" path="res://Scripts/chained_Ball.gd" id="2_o7e7x"]
-[ext_resource type="Texture2D" uid="uid://chwtc2jvgdefa" path="res://assets/Spiked Ball.png" id="3_6g1xm"]
+[ext_resource type="Texture2D" uid="uid://chwtc2jvgdefa" path="res://assets/OtherSprites/Spiked Ball.png" id="3_6g1xm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ah6mr"]
 radius = 13.5093

@@ -107,5 +107,5 @@ func arrow_timer():
 
 func spawn_blink():
 	blink.show()
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.02).timeout
 	blink.hide()

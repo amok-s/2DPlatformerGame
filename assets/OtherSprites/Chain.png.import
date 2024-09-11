@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv4svwraiarnt"
-path="res://.godot/imported/Blink (42x42).png-1c5876dce53d0f2ed28a267b61a058a7.ctex"
+uid="uid://d2dde683iw6ak"
+path="res://.godot/imported/Chain.png-007f8aa89f68c3edc4c3e474a842bd82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Blink (42x42).png"
-dest_files=["res://.godot/imported/Blink (42x42).png-1c5876dce53d0f2ed28a267b61a058a7.ctex"]
+source_file="res://assets/OtherSprites/Chain.png"
+dest_files=["res://.godot/imported/Chain.png-007f8aa89f68c3edc4c3e474a842bd82.ctex"]
 
 [params]
 

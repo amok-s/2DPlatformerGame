@@ -20,8 +20,6 @@ var jump_input_blockage = false
 var taking_damage = false
 var is_grounded = true
 
-#func jump():
-	#velocity.y = -550
 
 func jump_side(x):
 	taking_damage = true
@@ -57,9 +55,11 @@ func spawn_dust():
 	particle_node.scale = Vector2(2, 2)
 	get_parent().add_child(particle_node)
 
-
 func _physics_process(delta):
 	#handling gravity
+	if not is_on_floor():
+		velocity.y += gravity * delta
+	
 	move_and_slide()
 	
 	if is_grounded == false and is_on_floor() == true:
@@ -71,8 +71,6 @@ func _physics_process(delta):
 	if is_on_floor():
 		jump_count = 0
 	
-	if not is_on_floor():
-		velocity.y += gravity * delta
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and (jump_count < 2) and (jump_input_blockage == false):
@@ -92,6 +90,5 @@ func _physics_process(delta):
 	var isLeft = velocity.x < 0
 	sprite.flip_h = isLeft
 	
-	
-	pass
+
 	

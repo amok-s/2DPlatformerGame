@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf2jv23n4i1tg"
-path="res://.godot/imported/Mud Particle.png-c2a15169d2c4050a9fda9be7dbc92943.ctex"
+uid="uid://dyagxqcbeh3pj"
+path="res://.godot/imported/Idle.png-d4856bfcdca5e1d859c01452dd00278f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mud Particle.png"
-dest_files=["res://.godot/imported/Mud Particle.png-c2a15169d2c4050a9fda9be7dbc92943.ctex"]
+source_file="res://assets/OtherSprites/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-d4856bfcdca5e1d859c01452dd00278f.ctex"]
 
 [params]
 

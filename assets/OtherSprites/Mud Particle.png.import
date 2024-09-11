@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cntt433po72tv"
-path="res://.godot/imported/heart.png-9a2fa56e49d8a002fed7c28ce07513e0.ctex"
+uid="uid://bf2jv23n4i1tg"
+path="res://.godot/imported/Mud Particle.png-012c6ad3154e831d228db7a94eb4946e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/heart.png"
-dest_files=["res://.godot/imported/heart.png-9a2fa56e49d8a002fed7c28ce07513e0.ctex"]
+source_file="res://assets/OtherSprites/Mud Particle.png"
+dest_files=["res://.godot/imported/Mud Particle.png-012c6ad3154e831d228db7a94eb4946e.ctex"]
 
 [params]
 

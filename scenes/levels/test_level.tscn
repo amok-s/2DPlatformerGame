@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dvs3j7t4m840j"]
+[gd_scene load_steps=37 format=3 uid="uid://dvs3j7t4m840j"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_7lbga"]
 [ext_resource type="PackedScene" uid="uid://ceiy2eebq27sd" path="res://scenes/levels/level2.tscn" id="2_iy1yk"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="4_5csc1"]
 [ext_resource type="AudioStream" uid="uid://c31wo40iw47d0" path="res://assets/sounds/healpop-46004.mp3" id="5_x0ak8"]
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="6_n38um"]
-[ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="7_dvtd5"]
+[ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/OtherSprites/Pink.png" id="7_dvtd5"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="8_qx2km"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="9_hm4vh"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="10_dsug8"]
@@ -17,17 +17,23 @@
 [ext_resource type="PackedScene" uid="uid://4r0yhti5mlkd" path="res://scenes/spiked_chain.tscn" id="15_c4j2c"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="16_ci762"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="17_j7axr"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/Jersey10-Regular.ttf" id="18_fl7bk"]
-[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/heart.png" id="19_4b6gs"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/OtherSprites/Jersey10-Regular.ttf" id="18_fl7bk"]
+[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="19_4b6gs"]
 [ext_resource type="Texture2D" uid="uid://cahkt83wqnvye" path="res://assets/Foliage/sprite - 11.png" id="20_3xlih"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="20_7j4ds"]
 [ext_resource type="Material" uid="uid://cjdh5qqujvcrr" path="res://shaders/foliage.tres" id="20_qbn08"]
 [ext_resource type="PackedScene" uid="uid://dfbv5uh0yrmf1" path="res://scenes/turtle.tscn" id="21_j5tqx"]
+[ext_resource type="Texture2D" uid="uid://de3ul1kce7ypb" path="res://assets/PineForestParallax/MorningLayer6.png" id="21_pr1lg"]
 [ext_resource type="Texture2D" uid="uid://dli1oxbx3syj6" path="res://assets/Foliage/sprite - 09 bright.png" id="22_1k2gn"]
+[ext_resource type="Texture2D" uid="uid://dqdq2msnvnnf4" path="res://assets/PineForestParallax/MorningLayer5.png" id="22_2pl2b"]
 [ext_resource type="PackedScene" uid="uid://d1e35equn7een" path="res://scenes/bee.tscn" id="22_4u265"]
+[ext_resource type="Texture2D" uid="uid://ufkeb2ct1p0u" path="res://assets/PineForestParallax/MorningLayer4.png" id="22_461gr"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="23_qslmg"]
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="24_j1ths"]
+[ext_resource type="Texture2D" uid="uid://daosphxj6dyv" path="res://assets/PineForestParallax/MorningLayer3.png" id="24_jhgeh"]
 [ext_resource type="PackedScene" uid="uid://bwou04ab2t0gd" path="res://scenes/moving_platform.tscn" id="24_vhap1"]
+[ext_resource type="Texture2D" uid="uid://cfekmo3uqwtng" path="res://assets/PineForestParallax/MorningLayer2.png" id="25_cufrx"]
+[ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="26_03y3a"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -66,7 +72,7 @@ stream = ExtResource("6_n38um")
 [node name="Scene Objects" type="Node" parent="."]
 
 [node name="Blink" type="ColorRect" parent="Scene Objects"]
-modulate = Color(0.733333, 0.737255, 0.611765, 0.533333)
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -76,7 +82,7 @@ offset_right = 1548.0
 offset_bottom = 711.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 1, 1, 0.27451)
+color = Color(1, 1, 1, 0.286275)
 
 [node name="TileMap" type="TileMap" parent="Scene Objects"]
 texture_filter = 1
@@ -191,19 +197,82 @@ script = ExtResource("16_ci762")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/WorldBoundary"]
 shape = SubResource("WorldBoundaryShape2D_kime1")
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
+[node name="ForestBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
 scroll_offset = Vector2(69.84, 72.75)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+visible = false
 motion_scale = Vector2(0.8, 0.4)
 motion_mirroring = Vector2(1024, 1024)
 
-[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/ParallaxLayer"]
 texture_repeat = 2
 texture = ExtResource("7_dvtd5")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2048, 1024)
+
+[node name="Background" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(3200, 1800)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Background"]
+position = Vector2(-135, -117)
+texture = ExtResource("21_pr1lg")
+centered = false
+
+[node name="Back" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+position = Vector2(-106, -65)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(1600, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Back"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_2pl2b")
+centered = false
+
+[node name="BackMiddle" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+position = Vector2(-106, -65)
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1600, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/BackMiddle"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_461gr")
+centered = false
+
+[node name="Middle" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+position = Vector2(-106, -65)
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1600, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Middle"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("24_jhgeh")
+centered = false
+
+[node name="MiddleFront" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+position = Vector2(-106, -65)
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1600, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/MiddleFront"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("25_cufrx")
+centered = false
+
+[node name="Front" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+position = Vector2(-106, -65)
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1600, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Front"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("26_03y3a")
+centered = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Scene Objects/WorldBoundary/ForestBackground"]
+color = Color(0.329412, 0.811765, 0.439216, 1)
 
 [node name="Foliage" type="Node2D" parent="Scene Objects"]
 
@@ -364,9 +433,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("18_fl7bk")
 theme_override_font_sizes/font_size = 67
 text = "back to main menu"
-
-[node name="MushroomEnemy" parent="." instance=ExtResource("11_fmgvo")]
-position = Vector2(1075, 302)
 
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]

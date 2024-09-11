@@ -2,17 +2,17 @@
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1md1s"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="2_dvh2t"]
-[ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="3_5d73i"]
+[ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/OtherSprites/Pink.png" id="3_5d73i"]
 [ext_resource type="Shader" path="res://shaders/scroll.gdshader" id="3_w0qj5"]
 [ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://assets/sounds/tap.wav" id="4_ubdrv"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/Jersey10-Regular.ttf" id="5_qhanw"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/OtherSprites/Jersey10-Regular.ttf" id="5_qhanw"]
 [ext_resource type="AudioStream" uid="uid://cxewllpgyr6c0" path="res://assets/sounds/main_menu.mp3" id="5_yd101"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="7_7cu5i"]
-[ext_resource type="Theme" uid="uid://cx6d1dsn20yf6" path="res://assets/main_menu.tres" id="7_v1ut2"]
-[ext_resource type="Theme" uid="uid://b4ncgrxdxg2j1" path="res://assets/menu_box.tres" id="8_47h8b"]
+[ext_resource type="Theme" uid="uid://cx6d1dsn20yf6" path="res://assets/OtherSprites/main_menu.tres" id="7_v1ut2"]
+[ext_resource type="Theme" uid="uid://b4ncgrxdxg2j1" path="res://assets/OtherSprites/menu_box.tres" id="8_47h8b"]
 [ext_resource type="Texture2D" uid="uid://c52so222ka0yj" path="res://assets/MainCharacter/sprites/Idle (32x32).png" id="8_gut1k"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="9_wy3pa"]
-[ext_resource type="Texture2D" uid="uid://dh21o4nlduyio" path="res://assets/GUI.png" id="13_arhh8"]
+[ext_resource type="Texture2D" uid="uid://dh21o4nlduyio" path="res://assets/OtherSprites/GUI.png" id="13_arhh8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifu7e"]
 shader = ExtResource("3_w0qj5")

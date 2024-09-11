@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://ceiy2eebq27sd"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_o7sjg"]
-[ext_resource type="Texture2D" uid="uid://ix37p4u54ugv" path="res://assets/Yellow.png" id="2_rlwjj"]
-[ext_resource type="Texture2D" uid="uid://b6s27ymrxjikq" path="res://assets/Terrain (16x16).png" id="3_a1sgd"]
+[ext_resource type="Texture2D" uid="uid://ix37p4u54ugv" path="res://assets/OtherSprites/Yellow.png" id="2_rlwjj"]
+[ext_resource type="Texture2D" uid="uid://b6s27ymrxjikq" path="res://assets/OtherSprites/Terrain (16x16).png" id="3_a1sgd"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="4_5jdoo"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="5_air3g"]
 [ext_resource type="PackedScene" uid="uid://1flprlq4mpfh" path="res://scenes/finish.tscn" id="6_t6iy7"]
 [ext_resource type="PackedScene" uid="uid://g2n5jyw07p28" path="res://scenes/levels/level3.tscn" id="7_ei6uk"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/Jersey10-Regular.ttf" id="8_uq0el"]
-[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/heart.png" id="9_pif7p"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/OtherSprites/Jersey10-Regular.ttf" id="8_uq0el"]
+[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="9_pif7p"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="10_7i4wk"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="11_vhosm"]
 

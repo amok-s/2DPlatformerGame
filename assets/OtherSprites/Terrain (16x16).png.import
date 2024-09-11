@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chwtc2jvgdefa"
-path="res://.godot/imported/Spiked Ball.png-fd45495ab25aa72ba9aa8b9a82e701f0.ctex"
+uid="uid://b6s27ymrxjikq"
+path="res://.godot/imported/Terrain (16x16).png-880778fe6ac97eaf2bf938f9b918943e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Spiked Ball.png"
-dest_files=["res://.godot/imported/Spiked Ball.png-fd45495ab25aa72ba9aa8b9a82e701f0.ctex"]
+source_file="res://assets/OtherSprites/Terrain (16x16).png"
+dest_files=["res://.godot/imported/Terrain (16x16).png-880778fe6ac97eaf2bf938f9b918943e.ctex"]
 
 [params]
 

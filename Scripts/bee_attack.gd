@@ -35,6 +35,7 @@ func attack():
 	sprite.play("attack")
 	await get_tree().create_timer(0.4).timeout
 	attack_sound.play(0)
+	await get_tree().create_timer(0.1).timeout
 	spawn_stinger()
 	await get_tree().create_timer(0.2).timeout
 	sprite.play("idle")
@@ -42,5 +43,5 @@ func attack():
 
 func spawn_stinger():
 	var b = stinger.instantiate()
-	b.position = character.position + Vector2(0, 30)
+	b.position = character.position + Vector2(0, 20)
 	get_parent().get_parent().get_parent().add_child(b)

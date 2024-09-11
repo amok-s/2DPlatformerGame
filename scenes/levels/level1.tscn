@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://c5xx170pjn46l"]
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_wryh3"]
-[ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/Pink.png" id="2_0r8cn"]
+[ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/OtherSprites/Pink.png" id="2_0r8cn"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="3_jdj7y"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="3_sud4f"]
 [ext_resource type="AudioStream" uid="uid://c31wo40iw47d0" path="res://assets/sounds/healpop-46004.mp3" id="3_ud3ol"]
@@ -9,9 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="5_a5n6i"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="5_bqg58"]
 [ext_resource type="PackedScene" uid="uid://ceiy2eebq27sd" path="res://scenes/levels/level2.tscn" id="7_0sxed"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/Jersey10-Regular.ttf" id="8_l5rmh"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/OtherSprites/Jersey10-Regular.ttf" id="8_l5rmh"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="8_r8qe0"]
-[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/heart.png" id="9_axadg"]
+[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="9_axadg"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="9_xajej"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="11_l36i0"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="12_763tj"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="15_upxvc"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="19_esrvl"]
 [ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/chameleon.tscn" id="21_5kw46"]
+
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771

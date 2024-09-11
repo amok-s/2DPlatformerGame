@@ -1,8 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bwou04ab2t0gd"]
 
-[ext_resource type="Texture2D" uid="uid://bv4svwraiarnt" path="res://assets/Blink (42x42).png" id="1_fthch"]
+[ext_resource type="Texture2D" uid="uid://bv4svwraiarnt" path="res://assets/OtherSprites/Blink (42x42).png" id="1_fthch"]
 [ext_resource type="Script" path="res://Scripts/moving_platform.gd" id="1_jjwlu"]
-[ext_resource type="Texture2D" uid="uid://dyagxqcbeh3pj" path="res://assets/Idle.png" id="2_x1ovy"]
+[ext_resource type="Texture2D" uid="uid://dyagxqcbeh3pj" path="res://assets/OtherSprites/Idle.png" id="2_x1ovy"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilien"]
 atlas = ExtResource("1_fthch")
