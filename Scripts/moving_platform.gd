@@ -1,8 +1,8 @@
 extends AnimatableBody2D
 
-@export var moving_time: float = 2.0
+@export var moving_time: float = 4.0
 @export var idle_time: float = 1.7
-@export var speed: float = 60
+@export var speed: float = 100
 @export var UpDown_motion: bool = false
 
 var go_there = false

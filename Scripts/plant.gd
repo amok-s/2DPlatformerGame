@@ -54,6 +54,7 @@ func _on_area_2d_body_entered(body):
 		var x_delta = body.position.x - position.x
 		print (y_delta)
 		if (y_delta > 30):
+			%GameManager.spawn_blink()
 			collision_shape_2d.queue_free()
 			area_2d.queue_free()
 			shooting = false

@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cjdh5qqujvcrr"]
+
+[ext_resource type="Shader" path="res://shaders/foliage_wind.gdshader" id="1_0u007"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ne53t"]
+seed = 480
+frequency = 0.016
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x8bow"]
+width = 15
+height = 35
+generate_mipmaps = false
+seamless_blend_skirt = 0.22
+noise = SubResource("FastNoiseLite_ne53t")
+
+[resource]
+shader = ExtResource("1_0u007")
+shader_parameter/pixel_mode = false
+shader_parameter/pixel_amount = 192.0
+shader_parameter/distortion = 0.018
+shader_parameter/texture_noise_system = true
+shader_parameter/noise_speed = 0.15
+shader_parameter/noise_direction = -1
+shader_parameter/worley_noise_system = false
+shader_parameter/worley_cell_density = 10.0
+shader_parameter/worley_speed = 1.5
+shader_parameter/edge_and_mask = false
+shader_parameter/alpha_value = 1.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_x8bow")

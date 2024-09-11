@@ -2,6 +2,8 @@ extends Node
 @onready var game_manager = %GameManager
 @onready var points_label = %PointsLabel
 @onready var fruits_node = $"../Scene Objects/Collectables group"
+@onready var blink = $"../Scene Objects/Blink"
+
 
 @export var player : CharacterBody2D
 @export var hearts : Array[Node]
@@ -19,6 +21,7 @@ var arrow_count = 0
 var current_arrow
 
 func _ready():
+	blink.hide()
 	fruits_amount = fruits_node.get_child_count()
 
 func add_point():
@@ -91,7 +94,6 @@ func spawn_shockwave():
 	await get_tree().create_timer(0.8).timeout
 	b.queue_free()
 
-
 func spawn_arrow(last_fruit):
 	if last_fruit == fruits_count:
 		var b = arrow.instantiate()
@@ -102,4 +104,8 @@ func arrow_timer():
 	var last_fruit = fruits_count
 	await get_tree().create_timer(10).timeout
 	spawn_arrow(last_fruit)
-	
+
+func spawn_blink():
+	blink.show()
+	await get_tree().create_timer(0.1).timeout
+	blink.hide()

@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var bump_sound = $Bump
 @onready var collision_shape_2d2 = $Area2D/CollisionShape2D
 
+
 @export var isStacionary: bool = false
 
 var being_hit = false
@@ -21,7 +22,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _process(delta):
 	move_and_slide()
 	
-	velocity.y += gravity * delta
+	if not is_on_floor():
+		velocity.y += gravity * delta * 0.7
 	
 	if (go_right == true):
 		velocity.x = speed * delta * 70
@@ -36,9 +38,9 @@ func _on_area_2d_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		var y_delta = position.y - body.position.y
 		var x_delta = body.position.x - position.x
-		
 		# when mushroom is destroyed
 		if (y_delta > 56):
+			%GameManager.spawn_blink()
 			collision_shape_2d.queue_free()
 			collision_shape_2d2.queue_free()
 			being_hit = true
@@ -53,10 +55,10 @@ func _on_area_2d_body_entered(body):
 			body.game_manager.decrease_health()
 			#player is jumping left
 			if (x_delta < 40):
-				body.jump_side(-500) 
+				body.jump_side(-450) 
 			#player is jumpring right
 			else:
-				body.jump_side(500)
+				body.jump_side(450)
 	
 		#mushroom collading with walls
 	if (body.name == "TileMap"):

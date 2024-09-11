@@ -8,7 +8,7 @@ func Enter():
 	sprite.play("hit")
 	var random_x = randf_range(-150, 150)
 	character.velocity.x = random_x
-	character.velocity.y = -190
+	character.velocity.y = -220
 	
 func Exit():
 	pass

@@ -4,8 +4,8 @@ class_name MushroomMovement
 @export var character : CharacterBody2D
 @export var sprite : AnimatedSprite2D
 
-@onready var left_detector = %RayCastFloorLeft
-@onready var right_detector = %RayCastFloorRight
+@onready var left_detector = $"../../LeftFloor"
+@onready var right_detector = $"../../RightFloor"
 @onready var left_wall = $"../../LeftWall"
 @onready var right_wall = $"../../RightWall"
 

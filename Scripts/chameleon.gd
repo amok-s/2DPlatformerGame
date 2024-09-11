@@ -33,12 +33,13 @@ func  player_entered(body):
 		taking_damage = true
 		body.velocity.y = -450
 		$Death.play(0)
+		%GameManager.spawn_blink()
 		await get_tree().create_timer(2).timeout
 		queue_free()
 	else:
 		body.taking_damage = true
 		%GameManager.decrease_health()
-		body.velocity.y = -180
+		body.velocity.y = -300
 		body.velocity.x = x_delta * 6.5
 		await get_tree().create_timer(0.3).timeout
 		body.taking_damage = false
