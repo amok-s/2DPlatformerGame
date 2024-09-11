@@ -11,6 +11,7 @@ extends Node
 @export var chroma_chaos : PackedScene
 @export var shockwave : PackedScene
 @export var arrow : PackedScene
+@export var FruitsLeftForArrowToShow : int
 
 
 var points = 0
@@ -33,7 +34,7 @@ func add_point():
 func add_fruit():
 	fruits_count += 1
 	points_label.text = "Fruits: " + str(fruits_count) + " / " + str(fruits_amount)
-	if fruits_count > fruits_amount - 4 and fruits_count != fruits_amount:
+	if fruits_count > FruitsLeftForArrowToShow - 1 and fruits_count != fruits_amount:
 		arrow_timer()
 	if fruits_count == fruits_amount:
 		finish_level()

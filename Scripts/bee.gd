@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@onready var bee = $".."
-@onready var game_manager = %GameManager
 var taking_damage = false
 var player_spotted = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -18,6 +16,7 @@ func _on_collision_damage_body_entered(body):
 		if y_delta > 45:
 			taking_damage = true
 			body.velocity.y = -550
+			body.game_manager.spawn_blink()
 			$Death.play(0)
 			await get_tree().create_timer(2).timeout
 			queue_free()

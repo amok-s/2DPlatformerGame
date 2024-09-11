@@ -27,7 +27,7 @@ func _on_menu_music_finished():
 func _on_level_1_pressed():
 	tap_sound.play(0)
 	if (tap_sound.finished):
-		get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
+		get_tree().change_scene_to_file("res://scenes/levels/level1_1.tscn")
 
 func _on_level_2_pressed():
 	tap_sound.play(0)

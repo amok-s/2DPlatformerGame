@@ -2,8 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bv4svwraiarnt" path="res://assets/OtherSprites/Blink (42x42).png" id="1_fthch"]
 [ext_resource type="Script" path="res://Scripts/moving_platform.gd" id="1_jjwlu"]
-[ext_resource type="Texture2D" uid="uid://dyagxqcbeh3pj" path="res://assets/OtherSprites/Idle.png" id="2_x1ovy"]
-
+[ext_resource type="Texture2D" uid="uid://drtwj33wvdxap" path="res://assets/OtherSprites/Idle_head.png" id="3_p7nsp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilien"]
 atlas = ExtResource("1_fthch")
@@ -21,8 +20,8 @@ region = Rect2(84, 0, 42, 42)
 atlas = ExtResource("1_fthch")
 region = Rect2(126, 0, 42, 42)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_35fbd"]
-atlas = ExtResource("2_x1ovy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0ovo"]
+atlas = ExtResource("3_p7nsp")
 region = Rect2(0, 0, 42, 42)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bdgle"]
@@ -46,7 +45,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_35fbd")
+"texture": SubResource("AtlasTexture_l0ovo")
 }],
 "loop": true,
 "name": &"idle",

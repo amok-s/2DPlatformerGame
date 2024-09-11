@@ -16,8 +16,6 @@ func _ready():
 	fruits = fruits_group.get_children(false)
 	current_fruit = fruits[0]
 	for i in fruits:
-		print(player.position - fruits[counter].position)
-		print(player.position - current_fruit.position)
 		if player.position.distance_to(fruits[counter].position) < player.position.distance_to(current_fruit.position):
 			current_fruit = fruits[counter]
 		counter += 1

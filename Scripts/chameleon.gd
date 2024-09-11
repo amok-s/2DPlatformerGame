@@ -40,7 +40,7 @@ func  player_entered(body):
 		body.taking_damage = true
 		%GameManager.decrease_health()
 		body.velocity.y = -300
-		body.velocity.x = x_delta * 6.5
+		body.velocity.x = -400 if x_delta < 0 else 400
 		await get_tree().create_timer(0.3).timeout
 		body.taking_damage = false
 
