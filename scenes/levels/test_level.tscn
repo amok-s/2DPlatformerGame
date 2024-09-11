@@ -294,15 +294,34 @@ layer = 1
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Vines"]
 motion_scale = Vector2(2, 1)
 
-[node name="NatureTiles2" type="Sprite2D" parent="Vines/ParallaxLayer"]
+[node name="Node2D" type="Node2D" parent="Vines/ParallaxLayer"]
+
+[node name="NatureTiles2" type="Sprite2D" parent="Vines/ParallaxLayer/Node2D"]
 position = Vector2(836, 116)
 scale = Vector2(5, 5)
 texture = ExtResource("24_j1ths")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
-[node name="NatureTiles" type="Sprite2D" parent="Vines/ParallaxLayer"]
+[node name="NatureTiles" type="Sprite2D" parent="Vines/ParallaxLayer/Node2D"]
 position = Vector2(840, 561)
+scale = Vector2(5, 5)
+texture = ExtResource("24_j1ths")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="Node2D2" type="Node2D" parent="Vines/ParallaxLayer"]
+position = Vector2(3710, 0)
+
+[node name="NatureTiles2" type="Sprite2D" parent="Vines/ParallaxLayer/Node2D2"]
+position = Vector2(0, 116)
+scale = Vector2(5, 5)
+texture = ExtResource("24_j1ths")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles" type="Sprite2D" parent="Vines/ParallaxLayer/Node2D2"]
+position = Vector2(0, 561)
 scale = Vector2(5, 5)
 texture = ExtResource("24_j1ths")
 region_enabled = true

@@ -70,7 +70,6 @@ func add_health():
 
 func finish_level():
 	$finish.play(0)
-	spawn_chroma_chaos(0.3)
 	spawn_shockwave()
 	Engine.time_scale = 0.6
 	var tween = get_tree().create_tween()
@@ -78,7 +77,7 @@ func finish_level():
 
 func spawn_chroma_chaos(time):
 	var b = chroma_chaos.instantiate()
-	get_parent().add_child(b)
+	get_parent().get_parent().add_child(b)
 	await get_tree().create_timer(time).timeout
 	b.queue_free()
 
@@ -87,7 +86,6 @@ func spawn_shockwave():
 	var camera = player.get_node("Camera2D")
 	var offset = (player.position - camera.get_screen_center_position()) * camera.zoom / Vector2(get_window().size)
 	var player_center = Vector2(0.5, 0.5) + offset
-	#var player_center = Vector2(0.5, 0.5) + offset
 	player_center.x = (1.8 * player_center.x - 0.4)
 	b.get_material().set_shader_parameter("center", player_center)
 	get_parent().add_child(b)

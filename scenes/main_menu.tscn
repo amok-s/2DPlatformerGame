@@ -1,12 +1,14 @@
-[gd_scene load_steps=29 format=3 uid="uid://3kqxe67swqec"]
+[gd_scene load_steps=33 format=3 uid="uid://3kqxe67swqec"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1md1s"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="2_dvh2t"]
 [ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/OtherSprites/Pink.png" id="3_5d73i"]
 [ext_resource type="Shader" path="res://shaders/scroll.gdshader" id="3_w0qj5"]
 [ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://assets/sounds/tap.wav" id="4_ubdrv"]
+[ext_resource type="Texture2D" uid="uid://cfekmo3uqwtng" path="res://assets/PineForestParallax/MorningLayer2.png" id="5_5ubdx"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/OtherSprites/Jersey10-Regular.ttf" id="5_qhanw"]
 [ext_resource type="AudioStream" uid="uid://cxewllpgyr6c0" path="res://assets/sounds/main_menu.mp3" id="5_yd101"]
+[ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="6_frn6f"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="7_7cu5i"]
 [ext_resource type="Theme" uid="uid://cx6d1dsn20yf6" path="res://assets/OtherSprites/main_menu.tres" id="7_v1ut2"]
 [ext_resource type="Theme" uid="uid://b4ncgrxdxg2j1" path="res://assets/OtherSprites/menu_box.tres" id="8_47h8b"]
@@ -16,6 +18,18 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifu7e"]
 shader = ExtResource("3_w0qj5")
+shader_parameter/x_axis_modifier = -1.0
+shader_parameter/y_axis_modifier = -0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hm8cw"]
+shader = ExtResource("3_w0qj5")
+shader_parameter/x_axis_modifier = 0.01
+shader_parameter/y_axis_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5am4"]
+shader = ExtResource("3_w0qj5")
+shader_parameter/x_axis_modifier = 0.005
+shader_parameter/y_axis_modifier = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u17bg"]
 atlas = ExtResource("8_gut1k")
@@ -121,19 +135,56 @@ shake_decay_rate = 0.0
 position = Vector2(576, 321)
 position_smoothing_enabled = true
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Node" type="Node" parent="."]
+
+[node name="Background" type="TextureRect" parent="Node"]
+modulate = Color(1, 0.611765, 1, 0.403922)
 texture_filter = 1
 material = SubResource("ShaderMaterial_ifu7e")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -53.0
-offset_top = -30.0
-offset_right = 54.0
-offset_bottom = 34.0
+offset_left = -52.0
+offset_top = -29.0
+offset_right = 55.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_5d73i")
+stretch_mode = 1
+
+[node name="ForestBg" type="TextureRect" parent="Node"]
+modulate = Color(1, 0.376471, 1, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_hm8cw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = 92.0
+offset_right = 1955.0
+offset_bottom = 1244.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_5ubdx")
+stretch_mode = 1
+
+[node name="ForestBg2" type="TextureRect" parent="Node"]
+modulate = Color(1, 0.376471, 1, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_t5am4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = 170.0
+offset_right = 2010.0
+offset_bottom = 1322.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_frn6f")
 stretch_mode = 1
 
 [node name="TapSound" type="AudioStreamPlayer" parent="."]
@@ -308,6 +359,8 @@ vertical_alignment = 2
 [node name="Gui" type="Sprite2D" parent="."]
 position = Vector2(1022, -219)
 texture = ExtResource("13_arhh8")
+
+[node name="Background2" type="Node2D" parent="."]
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="finished" from="MenuMusic" to="." method="_on_menu_music_finished"]
