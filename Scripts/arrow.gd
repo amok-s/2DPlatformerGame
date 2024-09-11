@@ -28,7 +28,6 @@ func _ready():
 
 func _process(delta):
 	if fruit_count < game_manager.fruits_count:
-		game_manager.a_timer = true
 		queue_free()
 	look_at(target + Vector2(-25, 75))
 	calculate_velocity()

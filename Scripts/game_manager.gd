@@ -101,6 +101,7 @@ func spawn_arrow():
 func arrow_timer():
 	var d = fruits_count
 	a_timer = false
-	await get_tree().create_timer(15).timeout
+	await get_tree().create_timer(10).timeout
 	if d == fruits_count and fruits_count != fruits_amount:
 		spawn_arrow()
+		a_timer = true
