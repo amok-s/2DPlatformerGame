@@ -1,6 +1,6 @@
 extends Sprite2D
 
-var speed = 200
+var speed = 300
 
 func _process(delta):
 	position += transform.y * speed * delta
