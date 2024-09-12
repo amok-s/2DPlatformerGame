@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://3kqxe67swqec"]
+[gd_scene load_steps=39 format=3 uid="uid://3kqxe67swqec"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1md1s"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="2_dvh2t"]
@@ -6,15 +6,20 @@
 [ext_resource type="Shader" path="res://shaders/scroll.gdshader" id="3_w0qj5"]
 [ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://assets/sounds/tap.wav" id="4_ubdrv"]
 [ext_resource type="Texture2D" uid="uid://cfekmo3uqwtng" path="res://assets/PineForestParallax/MorningLayer2.png" id="5_5ubdx"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/OtherSprites/Jersey10-Regular.ttf" id="5_qhanw"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="5_qhanw"]
 [ext_resource type="AudioStream" uid="uid://cxewllpgyr6c0" path="res://assets/sounds/main_menu.mp3" id="5_yd101"]
 [ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="6_frn6f"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="7_7cu5i"]
-[ext_resource type="Theme" uid="uid://cx6d1dsn20yf6" path="res://assets/OtherSprites/main_menu.tres" id="7_v1ut2"]
-[ext_resource type="Theme" uid="uid://b4ncgrxdxg2j1" path="res://assets/OtherSprites/menu_box.tres" id="8_47h8b"]
 [ext_resource type="Texture2D" uid="uid://c52so222ka0yj" path="res://assets/MainCharacter/sprites/Idle (32x32).png" id="8_gut1k"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="9_wy3pa"]
-[ext_resource type="Texture2D" uid="uid://dh21o4nlduyio" path="res://assets/OtherSprites/GUI.png" id="13_arhh8"]
+[ext_resource type="Theme" uid="uid://t0yq5xb26liw" path="res://assets/UI/menu_box_bosque.tres" id="11_e0m1u"]
+[ext_resource type="StyleBox" uid="uid://jaup1xuv46xc" path="res://assets/UI/play_button_focus.tres" id="12_kudce"]
+[ext_resource type="Texture2D" uid="uid://d8tq8h6apfpn" path="res://assets/UI/Border All 4.png" id="12_lhdqb"]
+[ext_resource type="Texture2D" uid="uid://dh21o4nlduyio" path="res://assets/UI/GUI.png" id="13_arhh8"]
+[ext_resource type="Material" uid="uid://cjdh5qqujvcrr" path="res://shaders/foliage.tres" id="13_sd77c"]
+[ext_resource type="Texture2D" uid="uid://dli1oxbx3syj6" path="res://assets/Foliage/sprite - 09 bright.png" id="14_abiig"]
+[ext_resource type="Theme" uid="uid://4g0i8j3taa3i" path="res://assets/UI/title_box.tres" id="16_hluqq"]
+[ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="18_n5as5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifu7e"]
 shader = ExtResource("3_w0qj5")
@@ -30,6 +35,20 @@ shader_parameter/y_axis_modifier = 0.0
 shader = ExtResource("3_w0qj5")
 shader_parameter/x_axis_modifier = 0.005
 shader_parameter/y_axis_modifier = 0.0
+
+[sub_resource type="Theme" id="Theme_1kdex"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfr3d"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("12_lhdqb")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 385, 64, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u17bg"]
 atlas = ExtResource("8_gut1k")
@@ -117,10 +136,7 @@ animations = [{
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lbxg"]
-bg_color = Color(0.776471, 0.513726, 0.588235, 0.360784)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nrut"]
-draw_center = false
+bg_color = Color(0, 0, 0, 0.360784)
 
 [node name="MainMenuScreen" type="Node"]
 script = ExtResource("1_1md1s")
@@ -135,9 +151,9 @@ shake_decay_rate = 0.0
 position = Vector2(576, 321)
 position_smoothing_enabled = true
 
-[node name="Node" type="Node" parent="."]
+[node name="Background" type="Node" parent="."]
 
-[node name="Background" type="TextureRect" parent="Node"]
+[node name="Background" type="TextureRect" parent="Background"]
 modulate = Color(1, 0.611765, 1, 0.403922)
 texture_filter = 1
 material = SubResource("ShaderMaterial_ifu7e")
@@ -153,7 +169,7 @@ grow_vertical = 2
 texture = ExtResource("3_5d73i")
 stretch_mode = 1
 
-[node name="ForestBg" type="TextureRect" parent="Node"]
+[node name="ForestBg" type="TextureRect" parent="Background"]
 modulate = Color(1, 0.376471, 1, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_hm8cw")
@@ -170,7 +186,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_5ubdx")
 stretch_mode = 1
 
-[node name="ForestBg2" type="TextureRect" parent="Node"]
+[node name="ForestBg2" type="TextureRect" parent="Background"]
 modulate = Color(1, 0.376471, 1, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_t5am4")
@@ -198,59 +214,62 @@ autoplay = true
 [node name="Menu" type="Node2D" parent="."]
 
 [node name="MenuBox" type="Panel" parent="Menu"]
-offset_left = 421.0
+offset_left = 429.0
 offset_top = 263.0
-offset_right = 637.0
-offset_bottom = 567.0
-theme = ExtResource("8_47h8b")
+offset_right = 534.0
+offset_bottom = 411.0
+scale = Vector2(2, 2)
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"menu box"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MenuBox"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -71.0
-offset_top = -108.0
-offset_right = 70.0
-offset_bottom = 113.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
+layout_mode = 0
+offset_left = 18.0
+offset_top = 12.5
+offset_right = 106.0
+offset_bottom = 172.5
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("11_e0m1u")
+theme_override_constants/separation = 6
 
 [node name="Play" type="Button" parent="Menu/MenuBox/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("7_v1ut2")
-theme_override_font_sizes/font_size = 25
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_1kdex")
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+theme_override_colors/font_pressed_color = Color(0.772549, 0.976471, 0, 1)
+theme_override_colors/font_hover_color = Color(0.909804, 1, 0.454902, 1)
+theme_override_colors/font_focus_color = Color(0.909804, 1, 0.454902, 1)
+theme_override_font_sizes/font_size = 17
+theme_override_styles/hover = ExtResource("12_kudce")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cfr3d")
+theme_override_styles/focus = ExtResource("12_kudce")
 text = "Play
 "
 
 [node name="Options" type="Button" parent="Menu/MenuBox/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("8_47h8b")
-theme_override_font_sizes/font_size = 25
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 15
 text = "Options"
-flat = true
 
 [node name="Credits" type="Button" parent="Menu/MenuBox/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("8_47h8b")
-theme_override_font_sizes/font_size = 25
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_override_font_sizes/font_size = 15
 text = "Credits
 "
-flat = true
 
 [node name="Quit" type="Button" parent="Menu/MenuBox/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("8_47h8b")
-theme_override_font_sizes/font_size = 25
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_override_font_sizes/font_size = 15
 text = "Quit"
-flat = true
 
 [node name="level buttons" type="Node" parent="."]
 
@@ -294,6 +313,14 @@ flat = true
 layout_mode = 3
 anchors_preset = 0
 
+[node name="foliage_behind" type="Node2D" parent="bg_elements"]
+
+[node name="Sprite-09Bright" type="Sprite2D" parent="bg_elements/foliage_behind"]
+material = ExtResource("13_sd77c")
+position = Vector2(212, 138)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("14_abiig")
+
 [node name="TileMap" type="TileMap" parent="bg_elements"]
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -312,6 +339,29 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cdla1")
 autoplay = "default"
 
+[node name="foliage_top" type="Node2D" parent="bg_elements"]
+
+[node name="NatureTiles" type="Sprite2D" parent="bg_elements/foliage_top"]
+position = Vector2(1083, 131)
+scale = Vector2(5, 5)
+texture = ExtResource("18_n5as5")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles3" type="Sprite2D" parent="bg_elements/foliage_top"]
+position = Vector2(196, 660)
+scale = Vector2(5, 5)
+texture = ExtResource("18_n5as5")
+region_enabled = true
+region_rect = Rect2(108, 5, 81, 91)
+
+[node name="NatureTiles2" type="Sprite2D" parent="bg_elements/foliage_top"]
+position = Vector2(1083, 576)
+scale = Vector2(5, 5)
+texture = ExtResource("18_n5as5")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
 [node name="Footer" type="Panel" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
@@ -328,28 +378,31 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3lbxg")
 [node name="TitleBox" type="Panel" parent="."]
 offset_left = 354.0
 offset_top = 48.0
-offset_right = 686.0
-offset_bottom = 249.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_8nrut")
+offset_right = 535.0
+offset_bottom = 154.0
+scale = Vector2(2, 2)
+theme = ExtResource("16_hluqq")
 
 [node name="TitleText" type="Label" parent="TitleBox"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 22.0
-offset_top = -91.5
-offset_right = 336.0
-offset_bottom = 112.5
+offset_left = 18.5
+offset_top = -55.0
+offset_right = 164.5
+offset_bottom = 50.0
 grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.909804, 1, 0.454902, 1)
+theme_override_colors/font_shadow_color = Color(0.462745, 1, 0.85098, 0.541176)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = -4
 theme_override_constants/shadow_offset_y = 4
-theme_override_constants/outline_size = 7
-theme_override_constants/shadow_outline_size = 10
-theme_override_constants/line_spacing = -15
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/line_spacing = -13
 theme_override_fonts/font = ExtResource("5_qhanw")
-theme_override_font_sizes/font_size = 72
+theme_override_font_sizes/font_size = 41
 text = "noche
 en el 
 bosque"

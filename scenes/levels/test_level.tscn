@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://4r0yhti5mlkd" path="res://scenes/spiked_chain.tscn" id="15_c4j2c"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="16_ci762"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="17_j7axr"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/OtherSprites/Jersey10-Regular.ttf" id="18_fl7bk"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="18_fl7bk"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="19_4b6gs"]
 [ext_resource type="Texture2D" uid="uid://cahkt83wqnvye" path="res://assets/Foliage/sprite - 11.png" id="20_3xlih"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="20_7j4ds"]
@@ -35,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://cfekmo3uqwtng" path="res://assets/PineForestParallax/MorningLayer2.png" id="25_cufrx"]
 [ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="26_03y3a"]
 [ext_resource type="PackedScene" uid="uid://deitxtunqmwtm" path="res://scenes/false_block.tscn" id="35_lrdtb"]
+
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771

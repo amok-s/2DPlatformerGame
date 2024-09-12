@@ -43,14 +43,13 @@ func BottomCollapse():
 	$BottomPart/Sprite.pause()
 	$BottomPart/Sprite.frame = 2
 	bottomGoDown = true
-	await get_tree().create_timer(2).timeout
-	bottomGoDown = false
-	$BottomPart.queue_free()
 	TopCollapse()
 
 func TopCollapse():
 	await get_tree().create_timer(0.5).timeout
 	$TopPart/Sprite.play("default")
+	bottomGoDown = false
+	$BottomPart.queue_free()
 	await get_tree().create_timer(0.3).timeout
 	$TopPart/Sprite.pause()
 	$TopPart/Sprite.frame = 2

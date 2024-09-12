@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="5_ctbn3"]
 [ext_resource type="PackedScene" uid="uid://1flprlq4mpfh" path="res://scenes/finish.tscn" id="6_v47ds"]
 [ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="7_thj5b"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/OtherSprites/Jersey10-Regular.ttf" id="8_v2j0s"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="8_v2j0s"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="9_vpi4l"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="10_iikl2"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3rac"]
 texture = ExtResource("3_71wmu")

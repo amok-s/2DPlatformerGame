@@ -34,7 +34,7 @@ func add_point():
 func add_fruit():
 	fruits_count += 1
 	points_label.text = "Fruits: " + str(fruits_count) + " / " + str(fruits_amount)
-	if fruits_count > FruitsLeftForArrowToShow - 1 and fruits_count != fruits_amount:
+	if fruits_count > fruits_amount - FruitsLeftForArrowToShow - 1 and fruits_count != fruits_amount:
 		arrow_timer()
 	if fruits_count == fruits_amount:
 		finish_level()
@@ -72,6 +72,7 @@ func add_health():
 func finish_level():
 	$finish.play(0)
 	spawn_shockwave()
+	$"../UI".hide()
 	Engine.time_scale = 0.6
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Camera2D, "zoom", Vector2(2, 2), 3).set_ease(Tween.EASE_IN)

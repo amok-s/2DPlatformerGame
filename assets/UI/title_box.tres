@@ -1,0 +1,47 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://4g0i8j3taa3i"]
+
+[ext_resource type="StyleBox" uid="uid://clmfrfhecinlc" path="res://assets/UI/focus_border.tres" id="1_ccatj"]
+[ext_resource type="Texture2D" uid="uid://d8tq8h6apfpn" path="res://assets/UI/Border All 4.png" id="2_1c2gj"]
+[ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="3_qu8gu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qoxb"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_otq02"]
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 12.0
+texture = ExtResource("2_1c2gj")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(256, 256, 64, 64)
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c74im"]
+texture = ExtResource("2_1c2gj")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(1, 65, 62, 62)
+
+[resource]
+default_font = ExtResource("3_qu8gu")
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 8
+Button/font_sizes/font_size = 15
+Button/styles/focus = ExtResource("1_ccatj")
+Button/styles/hover = ExtResource("1_ccatj")
+Button/styles/normal = SubResource("StyleBoxFlat_1qoxb")
+Button/styles/pressed = SubResource("StyleBoxTexture_otq02")
+Fonts/fonts/normal = ExtResource("3_qu8gu")
+Panel/styles/panel = SubResource("StyleBoxTexture_c74im")

@@ -87,7 +87,7 @@ void fragment() {
 	}
 	else
 	{
-		COLOR = texture(TEXTURE, noise_uv);
+		//COLOR = texture(TEXTURE, noise_uv);
 		COLOR.a = (texture(TEXTURE, noise_uv).a) * alpha_value;
 	}
 }

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://d3foqyah3o2js"
-path="res://.godot/imported/SevenPixelsFont.ttf-e96235ca2467d3eb9be3e52042a82b0c.fontdata"
+uid="uid://cyyew61h6skjj"
+path="res://.godot/imported/MinimalPixel v2.ttf-61af256bc9c52b1df71f79ab4de22eb9.fontdata"
 
 [deps]
 
-source_file="res://assets/OtherSprites/SevenPixelsFont.ttf"
-dest_files=["res://.godot/imported/SevenPixelsFont.ttf-e96235ca2467d3eb9be3e52042a82b0c.fontdata"]
+source_file="res://assets/UI/MinimalPixel v2.ttf"
+dest_files=["res://.godot/imported/MinimalPixel v2.ttf-61af256bc9c52b1df71f79ab4de22eb9.fontdata"]
 
 [params]
 
