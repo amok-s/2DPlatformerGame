@@ -10,7 +10,7 @@ shader_parameter/attenuation = 3.742
 
 [node name="ChromaChaos" type="ColorRect"]
 material = SubResource("ShaderMaterial_nuxv2")
-offset_left = -324.0
-offset_top = -532.0
-offset_right = 2661.0
-offset_bottom = 1033.0
+offset_left = -290.0
+offset_top = -334.0
+offset_right = 4969.0
+offset_bottom = 2481.0

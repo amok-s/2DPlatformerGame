@@ -46,7 +46,7 @@ func _on_finish_finished():
 	get_tree().change_scene_to_packed(next_level)
 
 func decrease_health():
-	if lives != 1:
+	if lives > 1:
 		get_node("../UI").ui_shake(0.2,5)
 	lives -= 1
 	spawn_chroma_chaos(0.28)

@@ -36,7 +36,7 @@ func _process(_delta):
 
 func shoot():
 	
-	if ((player.position.x - position.x) > 0):
+	if ((player.position.x - position. x) > 0):
 		var b = bullet.instantiate()
 		b.position = position + Vector2(55, -8)
 		b.rotate(PI)
@@ -58,7 +58,7 @@ func _on_area_2d_body_entered(body):
 			collision_shape_2d.queue_free()
 			area_2d.queue_free()
 			shooting = false
-			body.velocity.y = -550
+			body.velocity.y = -450
 			kill_sound.play(0)
 			sprite.play("hit")
 			var random_x = randf_range(-150, 150)
