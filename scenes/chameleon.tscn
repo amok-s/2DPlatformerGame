@@ -292,11 +292,11 @@ animations = [{
 size = Vector2(30, 33.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6fw3"]
-size = Vector2(34, 36)
+size = Vector2(33.5, 36)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6p374"]
-radius = 45.5396
-height = 126.194
+radius = 38.0521
+height = 169.18
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxjjk"]
 size = Vector2(8, 6)
@@ -405,13 +405,13 @@ shape = SubResource("RectangleShape2D_fn7oc")
 [node name="DamageCollision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageCollision"]
-position = Vector2(4, -7)
+position = Vector2(3.75, -7)
 shape = SubResource("RectangleShape2D_j6fw3")
 
 [node name="PatrolArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PatrolArea"]
-position = Vector2(-40, -18)
+position = Vector2(-25.5, -12.5)
 rotation = -1.51312
 shape = SubResource("CapsuleShape2D_6p374")
 

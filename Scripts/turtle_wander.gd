@@ -26,7 +26,7 @@ func Update(_delta:float):
 	if (character.startled == true):
 		state_transition.emit(self, "Startled")
 	
-	if (can_stop == true):
+	if (can_stop == true || not floor_detector.is_colliding()):
 		state_transition.emit(self, "Idle")
 
 func choose_direction():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dbm4yield3fiq"]
+[gd_scene load_steps=57 format=3 uid="uid://dbm4yield3fiq"]
 
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_8w85p"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="2_ll6h0"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dfbv5uh0yrmf1" path="res://scenes/turtle.tscn" id="15_1lgkl"]
 [ext_resource type="PackedScene" uid="uid://d1e35equn7een" path="res://scenes/bee.tscn" id="16_0xf8t"]
 [ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="17_tcrw6"]
+[ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/chameleon.tscn" id="17_ws3h8"]
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/spikes_2.tscn" id="18_f4lgu"]
 [ext_resource type="PackedScene" uid="uid://bwou04ab2t0gd" path="res://scenes/moving_platform.tscn" id="19_7pi1i"]
 [ext_resource type="PackedScene" uid="uid://4r0yhti5mlkd" path="res://scenes/spiked_chain.tscn" id="20_0mis0"]
@@ -284,9 +285,6 @@ position = Vector2(1197, 159)
 [node name="Turtle_1" parent="Scene Objects/Enemies group" instance=ExtResource("15_1lgkl")]
 position = Vector2(1566, 213)
 
-[node name="Turtle_2" parent="Scene Objects/Enemies group" instance=ExtResource("15_1lgkl")]
-position = Vector2(780, 549)
-
 [node name="Bee" parent="Scene Objects/Enemies group" instance=ExtResource("16_0xf8t")]
 position = Vector2(176, 514)
 
@@ -304,6 +302,9 @@ isStacionary = true
 
 [node name="Bee2" parent="Scene Objects/Enemies group" instance=ExtResource("16_0xf8t")]
 position = Vector2(2300, 527)
+
+[node name="Chameleon" parent="Scene Objects/Enemies group" instance=ExtResource("17_ws3h8")]
+position = Vector2(778, 553)
 
 [node name="Traps group" type="Node2D" parent="Scene Objects"]
 

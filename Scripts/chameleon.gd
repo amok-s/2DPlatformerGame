@@ -29,7 +29,7 @@ func  player_entered(body):
 	var y_delta = get_node("DamageCollision").global_position.y - body.global_position.y
 	var x_delta = body.global_position.x - get_node("DamageCollision").global_position.x
 	
-	if y_delta > 35:
+	if y_delta > 50:
 		taking_damage = true
 		body.velocity.y = -450
 		$Death.play(0)
@@ -45,10 +45,18 @@ func _on_patrol_area_body_entered(body):
 		player_detected = true
 		await get_tree().create_timer(0.2).timeout
 		$AnimationPlayer.play("lil_jump")
+		print(body.position.x - position.x)
+		if body.position.x - position.x > 0 && scale_switch == false:
+			scale.x = -2
+			scale_switch = true
+		elif body.position.x - position.x < 0 && scale_switch == true:
+			scale.x = -2
+			scale_switch = false
+		
 	
 func _on_patrol_area_body_exited(body):
 	if (body.name == "CharacterBody2D"):
-		await get_tree().create_timer(0.4).timeout
+		await get_tree().create_timer(0.6).timeout
 		player_detected = false
 
 func _on_tongue_attack_body_entered(body):
