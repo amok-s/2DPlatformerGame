@@ -131,7 +131,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_671m3")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 12.0
 }, {
@@ -200,7 +200,7 @@ size = Vector2(52, 70)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdg5u"]
 size = Vector2(56, 74.5)
 
-[node name="Plant" type="RigidBody2D" node_paths=PackedStringArray("sprite", "kill_sound", "spawn_projectile_sound")]
+[node name="Plant" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "kill_sound", "spawn_projectile_sound")]
 script = ExtResource("1_ga77x")
 bullet = ExtResource("2_qoxeu")
 sprite = NodePath("PlantSprite")
@@ -211,9 +211,8 @@ spawn_projectile_sound = NodePath("SpawnProjectileSound")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4uw4c")
-animation = &"hit"
+animation = &"attack"
 autoplay = "idle"
-frame_progress = 0.247486
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, 7)
