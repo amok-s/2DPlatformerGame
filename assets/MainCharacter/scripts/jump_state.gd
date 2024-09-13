@@ -7,6 +7,7 @@ class_name PlayerJump
 
 # Called when the node enters the scene tree for the first time.
 func Enter():
+	print(self.name)
 	sprite.animation = "jump"
 	pass # Replace with function body.
 

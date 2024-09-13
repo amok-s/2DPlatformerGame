@@ -55,6 +55,7 @@ func _on_area_2d_body_entered(body):
 		print (y_delta)
 		if (y_delta > 30):
 			%GameManager.spawn_blink()
+			%GameManager.spawn_sfx("kill", position + Vector2(0, -25))
 			collision_shape_2d.queue_free()
 			area_2d.queue_free()
 			shooting = false
@@ -66,12 +67,7 @@ func _on_area_2d_body_entered(body):
 			await get_tree().create_timer(4).timeout
 			queue_free()
 		else:
-			print ("Decrease player health")
-			%GameManager.decrease_health()
-			print (x_delta)
 			if (x_delta < 5): #if player touch enemy from the left
-				print ("w lewo")
-				body.jump_side(-380) 
+				body.take_damage(-380, -550)
 			else: #approaching from the right
-				print ("w prawo") 
-				body.jump_side(380)
+				body.take_damage(380, -550)

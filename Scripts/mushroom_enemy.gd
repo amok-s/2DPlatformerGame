@@ -9,7 +9,6 @@ extends CharacterBody2D
 @export var sfx : PackedScene
 @export var isStacionary: bool = false
 
-var being_hit = false
 
 var can_go_right = true
 var go_right = false
@@ -46,19 +45,17 @@ func _on_area_2d_body_entered(body):
 			collision_shape_2d2.queue_free()
 			body.velocity.y = -550
 			%GameManager.spawn_sfx("kill", position + Vector2(0, -20))
-			being_hit = true
 			bump_sound.play(0)
+			$StateMachine.force_change_state("TakingDamage")
 		
-			
 		# when mushroom is hitting the player
 		else:
-			body.game_manager.decrease_health()
 			#player is jumping left
 			if (x_delta < 40):
-				body.jump_side(-450) 
+				body.take_damage(-450, -550)
 			#player is jumpring right
 			else:
-				body.jump_side(450)
+				body.take_damage(450, -550)
 	
 		#mushroom collading with walls
 	if (body.name == "TileMap"):

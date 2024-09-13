@@ -20,27 +20,11 @@ var jump_input_blockage = false
 var taking_damage = false
 var is_grounded = true
 
-
-func jump_side(x):
-	taking_damage = true
-	velocity.y = -550
+func take_damage(x, y, willTakeDamage = true):
+	if willTakeDamage == true:
+		taking_damage = true
 	velocity.x = x
-	await get_tree().create_timer(0.3).timeout
-	taking_damage = false
-
-func hit_by_spikes(x, y):
-	taking_damage = true
-	velocity.y = y 
-	velocity.x = x 
-	await get_tree().create_timer(0.3).timeout
-	taking_damage = false
-
-func hit_by_plant():
-	game_manager.decrease_health()
-	velocity.y = -550
-	taking_damage = true
-	await get_tree().create_timer(0.3).timeout
-	taking_damage = false
+	velocity.y = y
 
 func spawn_jump_particle():
 	var particle_node = jump_particle.instantiate()
@@ -82,7 +66,7 @@ func _physics_process(delta):
 		
 		
 	var direction = Input.get_axis("left", "right")
-	if direction and (sides_input_blockage == false):
+	if direction and sides_input_blockage == false:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, 15.5)

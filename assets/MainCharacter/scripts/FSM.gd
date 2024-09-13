@@ -21,8 +21,11 @@ func _process(delta):
 	if current_state:
 		current_state.Update(delta)
 
-func force_change_state(new_state : String):
-	pass
+func force_change_state(new_state_name : String):
+	current_state.Exit()
+	var new_state = states.get(new_state_name.to_lower())
+	new_state.Enter()
+	current_state = new_state
 
 func change_state(source_state : State, new_state_name : String):
 	if source_state != current_state:

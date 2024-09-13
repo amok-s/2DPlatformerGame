@@ -47,10 +47,10 @@ func _on_finish_finished():
 	get_tree().change_scene_to_packed(next_level)
 
 func decrease_health():
-	if lives > 1:
-		get_node("../UI").ui_shake(0.2,5)
-	lives -= 1
 	spawn_chroma_chaos(0.28)
+	lives -= 1
+	if lives > 0:
+		get_node("../UI").ui_shake(0.2,5)
 	for h in 3:
 		if (h < lives):
 			hearts[h].show()
@@ -58,7 +58,7 @@ func decrease_health():
 			hearts[h].hide()
 	if (lives == 0):
 		var tween = get_tree().create_tween()
-		tween.tween_property(%Camera2D, "zoom", Vector2(4, 4), 0.8).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+		tween.tween_property(%Camera2D, "zoom", Vector2(2.2, 2.6), 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		await get_tree().create_timer(0.75).timeout
 		get_tree().reload_current_scene()
 
@@ -113,9 +113,10 @@ func spawn_blink():
 	await get_tree().create_timer(0.02).timeout
 	blink.hide()
 
-func spawn_sfx(name, sfx_position : Vector2, rotation = 0):
+func spawn_sfx(name, sfx_position : Vector2, rotation = 0, scale = Vector2(4,4)):
 	var b = sfx.instantiate()
 	b.position = sfx_position
 	b.rotation_degrees = rotation
+	b.scale = scale
 	add_child(b)
 	b.play_animation(name)

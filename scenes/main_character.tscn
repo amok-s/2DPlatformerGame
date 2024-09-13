@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://brnrrjstww3s4"]
+[gd_scene load_steps=71 format=3 uid="uid://brnrrjstww3s4"]
 
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_jqxxa"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/main_character.gd" id="1_wmnck"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/jump_state.gd" id="16_sx83y"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/spawn_state.gd" id="17_823os"]
 [ext_resource type="Texture2D" uid="uid://bf2jv23n4i1tg" path="res://assets/OtherSprites/Mud Particle.png" id="19_6p34y"]
+[ext_resource type="Script" path="res://assets/MainCharacter/scripts/death_state.gd" id="20_dnlp0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_40v4p"]
 shader = ExtResource("1_jqxxa")
@@ -475,10 +476,14 @@ script = ExtResource("16_sx83y")
 player = NodePath("../..")
 sprite = NodePath("../../Sprite2D")
 
-[node name="TakingDamage" type="Node" parent="StateMachine" node_paths=PackedStringArray("being_hit_sound", "dead_sound", "player", "sprite")]
+[node name="TakingDamage" type="Node" parent="StateMachine" node_paths=PackedStringArray("being_hit_sound", "player", "sprite")]
 script = ExtResource("16_01nmg")
 being_hit_sound = NodePath("../../BeingHit")
-dead_sound = NodePath("../../DeadSound")
+player = NodePath("../..")
+sprite = NodePath("../../Sprite2D")
+
+[node name="Death" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "sprite")]
+script = ExtResource("20_dnlp0")
 player = NodePath("../..")
 sprite = NodePath("../../Sprite2D")
 

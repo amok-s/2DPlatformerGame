@@ -12,9 +12,7 @@ func Enter():
 		idle_timer()
 	
 func Update(_delta:float):
-	if character.being_hit == true:
-		state_transition.emit(self, "TakingDamage")
-		
+
 	if can_go == true:
 		state_transition.emit(self, "Movement")
 

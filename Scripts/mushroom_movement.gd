@@ -31,9 +31,6 @@ func Update(_delta:float):
 			sprite.animation = "run"
 	else:
 		sprite.animation = "idle"
-
-	if (character.being_hit == true):
-		state_transition.emit(self, "TakingDamage")
 		
 	if(can_stop == true):
 		state_transition.emit(self, "Idle")

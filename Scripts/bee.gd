@@ -23,12 +23,7 @@ func _on_collision_damage_body_entered(body):
 			await get_tree().create_timer(2).timeout
 			queue_free()
 		else:
-			body.taking_damage = true
-			body.game_manager.decrease_health()
-			body.velocity.y = -320
-			body.velocity.x = x_delta * 10
-			await get_tree().create_timer(0.3).timeout
-			body.taking_damage = false
+			body.take_damage(x_delta * 10, -320)
 
 
 

@@ -10,12 +10,7 @@ func _on_area_2d_body_entered(body):
 	if body.name == "CharacterBody2D":
 		$Area2D.queue_free()
 		hide()
-		body.game_manager.decrease_health()
-		body.velocity.y = -450
-		body.taking_damage = true
-		await get_tree().create_timer(0.3).timeout
-		body.taking_damage = false
-		await get_tree().create_timer(0.3).timeout
+		body.take_damage(0, -450)
 		queue_free()
 	elif body.name == "TileMap":
 		queue_free()

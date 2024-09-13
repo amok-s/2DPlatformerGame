@@ -36,20 +36,14 @@ func  player_entered(body):
 		%GameManager.spawn_blink()
 		await get_tree().create_timer(2).timeout
 		queue_free()
-	else:
-		body.taking_damage = true
-		%GameManager.decrease_health()
-		body.velocity.y = -300
-		body.velocity.x = -400 if x_delta < 0 else 400
-		await get_tree().create_timer(0.3).timeout
-		body.taking_damage = false
+	else:	
+		body.take_damage(-400 if x_delta < 0 else 400, -300)
 
 func _on_patrol_area_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		player_detected = true
 		await get_tree().create_timer(0.2).timeout
 		$AnimationPlayer.play("lil_jump")
-		
 	
 func _on_patrol_area_body_exited(body):
 	if (body.name == "CharacterBody2D"):
@@ -59,9 +53,4 @@ func _on_patrol_area_body_exited(body):
 func _on_tongue_attack_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		var x_delta = body.global_position.x - get_node("DamageCollision").global_position.x
-		body.taking_damage = true
-		%GameManager.decrease_health()
-		body.velocity.y = -400
-		body.velocity.x = x_delta * 4.5
-		await get_tree().create_timer(0.3).timeout
-		body.taking_damage = false
+		body.take_damage(x_delta *4.5, -400)

@@ -10,8 +10,6 @@ func _ready():
 func _process(delta):
 	position += transform.x * speed * delta
 
-
-
 func _on_core_body_entered(body):
 	if (body.name == "TileMap"):
 		queue_free()
@@ -19,6 +17,5 @@ func _on_core_body_entered(body):
 
 func _on_blades_body_entered(body):
 	if (body.name == "CharacterBody2D"):
-		print ("Decrease player health")
-		body.hit_by_plant()
+		body.take_damage(0, -600)
 		queue_free()
