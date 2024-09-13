@@ -12,12 +12,12 @@ func Enter():
 	if get_node("../../%GameManager").lives == 0:
 		get_node("..").force_change_state("Death")
 	else:
-		DamageTimer()
 		get_node("../../%GameManager").spawn_sfx("player_hit", player.position)
 		being_hit_sound.play(0)
 		sprite.play("hit")
 		player.sides_input_blockage = true
 		player.jump_input_blockage = true
+		DamageTimer()
 	
 func Update(_delta:float):
 	if player.taking_damage == false:
@@ -29,8 +29,8 @@ func Exit():
 
 func DamageTimer():
 		var timer = Timer.new()
-		add_child(timer)
-		timer.wait_time = 0.4
+		get_parent().get_parent().add_child(timer)
+		timer.wait_time = 0.3
 		timer.one_shot = true
 		timer.connect("timeout", StopDamage)
 		timer.start()

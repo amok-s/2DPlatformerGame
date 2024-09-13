@@ -285,7 +285,7 @@ position = Vector2(1197, 159)
 position = Vector2(1566, 213)
 
 [node name="Turtle_2" parent="Scene Objects/Enemies group" instance=ExtResource("15_1lgkl")]
-position = Vector2(1239, 359)
+position = Vector2(780, 549)
 
 [node name="Bee" parent="Scene Objects/Enemies group" instance=ExtResource("16_0xf8t")]
 position = Vector2(176, 514)
@@ -989,9 +989,6 @@ size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("45_hbnwp")
 theme_override_font_sizes/font_size = 31
 text = "back to main menu"
-
-[node name="spikes2" parent="." instance=ExtResource("18_f4lgu")]
-position = Vector2(794, 553)
 
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/Traps group/Chained_Ball2/StaticBody2D/Area2D" to="Scene Objects/Traps group/Chained_Ball2" method="_on_area_2d_body_entered"]

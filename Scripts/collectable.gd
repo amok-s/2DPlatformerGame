@@ -18,8 +18,10 @@ func _ready():
 
 func _on_body_entered(body):
 	if (body.name == "CharacterBody2D"):
-		animated_sprite_2d.animation = "collected"
+		hide()
+		#animated_sprite_2d.animation = "collected"
 		
+		game_manager.spawn_sfx("collect", position, 0, Vector2(3, 3))
 		game_manager.add_point()
 		game_manager.add_fruit()
 		

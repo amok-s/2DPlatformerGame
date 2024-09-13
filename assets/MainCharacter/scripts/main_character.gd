@@ -26,13 +26,6 @@ func take_damage(x, y, willTakeDamage = true):
 	velocity.x = x
 	velocity.y = y
 
-func spawn_jump_particle():
-	var particle_node = jump_particle.instantiate()
-	particle_node.position = position
-	get_parent().add_child(particle_node)
-	await get_tree().create_timer(0.3).timeout
-	particle_node.queue_free()
-
 func spawn_dust():
 	var particle_node = dust_particle.instantiate()
 	particle_node.position = position + Vector2(-1, 18)
@@ -62,14 +55,14 @@ func _physics_process(delta):
 		jump_sound.play(0)
 		jump_count += 1
 		if (jump_count == 2):
-			spawn_jump_particle()
+			%GameManager.spawn_sfx("double_jump", position, 0, Vector2(3, 3)) 
 		
 		
 	var direction = Input.get_axis("left", "right")
 	if direction and sides_input_blockage == false:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, 15.5)
+		velocity.x = move_toward(velocity.x, 0, 15.5,)
 	
 	var isLeft = velocity.x < 0
 	sprite.flip_h = isLeft

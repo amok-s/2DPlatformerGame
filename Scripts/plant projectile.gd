@@ -11,9 +11,10 @@ func _process(delta):
 	position += transform.x * speed * delta
 
 func _on_core_body_entered(body):
-	if (body.name == "TileMap"):
+	if (body.name != "CharacterBody2D"):
 		queue_free()
 	
+
 
 func _on_blades_body_entered(body):
 	if (body.name == "CharacterBody2D"):

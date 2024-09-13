@@ -34,6 +34,7 @@ func  player_entered(body):
 		body.velocity.y = -450
 		$Death.play(0)
 		%GameManager.spawn_blink()
+		%GameManager.spawn_sfx("dust_2", position + Vector2(0, -15))
 		await get_tree().create_timer(2).timeout
 		queue_free()
 	else:	

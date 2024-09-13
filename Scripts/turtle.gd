@@ -41,12 +41,8 @@ func _on_spikes_collision_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		var y_delta = $SpikesCollision.global_position.y - body.global_position.y
 		var x_delta = body.global_position.x - $SpikesCollision.global_position.x
-		body.taking_damage = true
 		if y_delta > 15:
-			body.velocity.y = -550
+			body.take_damage(x_delta * 10, - 550)
 		else:
-			body.velocity.y = -350
-		body.velocity.x = x_delta * 10
-		%GameManager.decrease_health()
-		await get_tree().create_timer(0.3).timeout
-		body.taking_damage = false
+			body.take_damage(x_delta * 8, -450)
+
