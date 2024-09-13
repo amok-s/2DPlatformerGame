@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var collision_shape_2d2 = $Area2D/CollisionShape2D
 
 
+@export var sfx : PackedScene
 @export var isStacionary: bool = false
 
 var being_hit = false
@@ -43,12 +44,11 @@ func _on_area_2d_body_entered(body):
 			%GameManager.spawn_blink()
 			collision_shape_2d.queue_free()
 			collision_shape_2d2.queue_free()
-			being_hit = true
 			body.velocity.y = -550
+			%GameManager.spawn_sfx("kill", position + Vector2(0, -20))
+			being_hit = true
 			bump_sound.play(0)
-			animated_sprite_2d.play("hit")
-			await get_tree().create_timer(2).timeout
-			queue_free()
+		
 			
 		# when mushroom is hitting the player
 		else:

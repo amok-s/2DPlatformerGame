@@ -8,6 +8,7 @@ class_name TurtleStartled
 
 
 func Enter():
+	get_node("../../%GameManager").spawn_sfx("blast", character.position + Vector2(0, -10), -90)
 	character.spikes_out = true
 	sprite.animation = "hit"
 	animation_player.play("startled_anim")

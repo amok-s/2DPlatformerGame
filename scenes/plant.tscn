@@ -228,6 +228,8 @@ pitch_scale = 1.2
 stream = ExtResource("5_6dm7m")
 volume_db = -10.0
 pitch_scale = 1.2
+max_distance = 650.0
+attenuation = 0.329877
 
 [node name="Area2D" type="Area2D" parent="."]
 

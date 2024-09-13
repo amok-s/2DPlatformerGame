@@ -15,6 +15,8 @@ func _on_collision_damage_body_entered(body):
 	
 		if y_delta > 45:
 			taking_damage = true
+			var bee_position = global_position
+			get_node("../%GameManager").spawn_sfx("dust_2", bee_position + Vector2(10, 0))
 			body.velocity.y = -550
 			body.game_manager.spawn_blink()
 			$Death.play(0)

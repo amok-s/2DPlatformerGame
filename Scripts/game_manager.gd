@@ -12,6 +12,7 @@ extends Node
 @export var shockwave : PackedScene
 @export var arrow : PackedScene
 @export var FruitsLeftForArrowToShow : int
+@export var sfx : PackedScene
 
 
 var points = 0
@@ -111,3 +112,10 @@ func spawn_blink():
 	blink.show()
 	await get_tree().create_timer(0.02).timeout
 	blink.hide()
+
+func spawn_sfx(name, sfx_position : Vector2, rotation = 0):
+	var b = sfx.instantiate()
+	b.position = sfx_position
+	b.rotation_degrees = rotation
+	add_child(b)
+	b.play_animation(name)
