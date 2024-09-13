@@ -23,6 +23,7 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "CharacterBody2D":
+		$AnimationPlayer.play("collapse")
 		MainBodyCollapse()
 		
 

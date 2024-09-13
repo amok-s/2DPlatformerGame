@@ -428,6 +428,7 @@ material = SubResource("ShaderMaterial_40v4p")
 position = Vector2(-0.5, -2.5)
 scale = Vector2(2.09375, 2.09375)
 sprite_frames = SubResource("SpriteFrames_jacn6")
+animation = &"dead"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

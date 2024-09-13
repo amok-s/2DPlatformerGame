@@ -14,6 +14,7 @@ func Enter():
 		player.taking_damage = true
 		sprite.play("dead")
 		dead_sound.play(0)
+		print("halo?")
 		await get_tree().create_timer(0.3).timeout
 		sprite.hide()
 	else:
