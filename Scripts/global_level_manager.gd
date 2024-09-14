@@ -9,4 +9,4 @@ func startLevelMusic(levelMusic):
 		levelMusic.play(music_time + 0.65 if music_time > 0 else 0)
 		var tween = get_tree().create_tween()
 		tween.tween_property(levelMusic, "volume_db", levelMusicVolume, 1.3)
-		#tween.set_ease(Tween.EASE_IN)
+

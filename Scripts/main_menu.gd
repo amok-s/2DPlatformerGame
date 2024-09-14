@@ -18,6 +18,7 @@ func godot_bug_fix(text):
 	return text
 
 func _ready():
+	GlobalLevelManager.music_time = 0
 	menu_music.play(0.5)
 	center = Vector2(10, 20)
 	

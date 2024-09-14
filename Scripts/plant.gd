@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var canShoot = true
+var scale_switch = false
 
 func timer():
 	var random = randf_range(0, 4)
@@ -29,26 +30,24 @@ func _process(_delta):
 	if not is_on_floor():
 		velocity.y += gravity * _delta
 		
-	var playerOnRight = (player.position.x - position.x) > 0
-	sprite.flip_h = playerOnRight
+	#var playerOnRight = (player.position.x - position.x) > 0
+	#sprite.flip_h = playerOnRight
+	#%Area2D/CollisionShape2D.flip_h = playerOnRight
 
 func shoot():
-	if canShoot:
-		sprite.animation = "attack"
-		await get_tree().create_timer(0.5).timeout
-		if ((player.position.x - position. x) > 0):
-			var b = bullet.instantiate()
-			b.position = position + Vector2(55, -8)
-			b.rotate(PI)
-			get_parent().add_child(b)
-		else:
-			var b = bullet.instantiate()
-			b.position = position + Vector2(-55, -8)
-			get_parent().add_child(b)
+	checkPlayerPosition()
+	sprite.animation = "attack"
+	await get_tree().create_timer(0.5).timeout
+	
+	var b = bullet.instantiate()
+	b.position = position + Vector2(55 if scale_switch == true else -55, -8)
+	if scale_switch == true:
+		b.rotate(PI) 
+	get_parent().add_child(b)
 
-		spawn_projectile_sound.play(0)
-		sprite.animation = "idle"
-		timer()
+	spawn_projectile_sound.play(0)
+	sprite.animation = "idle"
+	timer()
 func _on_area_2d_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		var y_delta = position.y - body.position.y
@@ -73,3 +72,12 @@ func _on_area_2d_body_entered(body):
 				body.take_damage(-380, -550)
 			else: #approaching from the right
 				body.take_damage(380, -550)
+
+func checkPlayerPosition():
+	if player.position.x - position.x > 0 and scale_switch == false:
+		scale.x = -scale.x
+		scale_switch = true
+	elif player.position.x - position.x < 0 and scale_switch == true:
+		scale.x = -scale.x
+		scale_switch = false
+	

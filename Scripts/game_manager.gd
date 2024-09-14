@@ -57,6 +57,9 @@ func decrease_health():
 		else:
 			hearts[h].hide()
 	if (lives == 0):
+		var tween = get_tree().create_tween()
+		tween.tween_property(%Camera2D, "zoom", Vector2(2.2, 2.6), 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+		await get_tree().create_timer(0.75).timeout
 		player_dead()
 
 func add_health():
@@ -122,7 +125,4 @@ func player_dead():
 	var music = get_parent().get_node("BgMusic")
 	if music:
 		GlobalLevelManager.music_time = music.get_playback_position()
-	var tween = get_tree().create_tween()
-	tween.tween_property(%Camera2D, "zoom", Vector2(2.2, 2.6), 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	await get_tree().create_timer(0.75).timeout
 	get_tree().reload_current_scene()

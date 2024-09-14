@@ -10,7 +10,8 @@ extends CharacterBody2D
 @export var appearing : PackedScene
 
 
-var SPEED = 340.0
+#var SPEED = 340.0
+var SPEED = 360.0
 const JUMP_VELOCITY = -840.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jump_count = 0
@@ -62,7 +63,7 @@ func _physics_process(delta):
 	if direction and sides_input_blockage == false:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, 15.5,)
+		velocity.x = move_toward(velocity.x, 0, 14.5 if not is_on_floor() else 27,)
 	
 	var isLeft = velocity.x < 0
 	sprite.flip_h = isLeft
