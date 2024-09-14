@@ -7,11 +7,25 @@ extends Node
 var center : Vector2 
 @onready var background = $Background
 
+@onready var title_text = $TitleBox/TitleText
+@onready var v_box_container = $Menu/MenuBox/VBoxContainer
 
+
+func godot_bug_fix(text):
+	text = text.c_escape()
+	text = text.replace("\\r\\n", "\n")
+	text = text.c_unescape()
+	return text
 
 func _ready():
 	menu_music.play(0.5)
 	center = Vector2(10, 20)
+	
+	
+	title_text.text = godot_bug_fix(title_text.text)
+	for i in v_box_container.get_children():
+		i.text = godot_bug_fix(i.text)
+
 	
 	
 func _process(delta):

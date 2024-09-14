@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://3kqxe67swqec"]
+[gd_scene load_steps=38 format=3 uid="uid://3kqxe67swqec"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1md1s"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="2_dvh2t"]
@@ -15,7 +15,6 @@
 [ext_resource type="Theme" uid="uid://t0yq5xb26liw" path="res://assets/UI/menu_box_bosque.tres" id="11_e0m1u"]
 [ext_resource type="StyleBox" uid="uid://jaup1xuv46xc" path="res://assets/UI/play_button_focus.tres" id="12_kudce"]
 [ext_resource type="Texture2D" uid="uid://d8tq8h6apfpn" path="res://assets/UI/Border All 4.png" id="12_lhdqb"]
-[ext_resource type="Texture2D" uid="uid://dh21o4nlduyio" path="res://assets/UI/GUI.png" id="13_arhh8"]
 [ext_resource type="Material" uid="uid://cjdh5qqujvcrr" path="res://shaders/foliage.tres" id="13_sd77c"]
 [ext_resource type="Texture2D" uid="uid://dli1oxbx3syj6" path="res://assets/Foliage/sprite - 09 bright.png" id="14_abiig"]
 [ext_resource type="Theme" uid="uid://4g0i8j3taa3i" path="res://assets/UI/title_box.tres" id="16_hluqq"]
@@ -35,20 +34,6 @@ shader_parameter/y_axis_modifier = 0.0
 shader = ExtResource("3_w0qj5")
 shader_parameter/x_axis_modifier = 0.005
 shader_parameter/y_axis_modifier = 0.0
-
-[sub_resource type="Theme" id="Theme_1kdex"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfr3d"]
-content_margin_top = 10.0
-content_margin_bottom = 10.0
-texture = ExtResource("12_lhdqb")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(0, 385, 64, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u17bg"]
 atlas = ExtResource("8_gut1k")
@@ -135,6 +120,20 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Theme" id="Theme_1kdex"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfr3d"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("12_lhdqb")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 385, 64, 62)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lbxg"]
 bg_color = Color(0, 0, 0, 0.360784)
 
@@ -211,6 +210,59 @@ stream = ExtResource("5_yd101")
 volume_db = -18.236
 autoplay = true
 
+[node name="bg_elements" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="foliage_behind" type="Node2D" parent="bg_elements"]
+
+[node name="Sprite-09Bright" type="Sprite2D" parent="bg_elements/foliage_behind"]
+material = ExtResource("13_sd77c")
+position = Vector2(212, 138)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("14_abiig")
+
+[node name="TileMap" type="TileMap" parent="bg_elements"]
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_set = ExtResource("7_7cu5i")
+format = 2
+layer_0/tile_data = PackedInt32Array(786462, 393216, 0, 851998, 393216, 1, 917534, 393216, 2, 786463, 458752, 0, 851999, 458752, 1, 917535, 458752, 2, 786464, 524288, 0, 852000, 524288, 1, 917536, 851968, 1, 983072, 851968, 2, 917537, 917504, 1, 983073, 917504, 2, 720919, 786432, 1, 720920, 1114112, 1, 720921, 1179648, 1, 720922, 1179648, 1, 720923, 1179648, 1, 720924, 1179648, 1, 720925, 1245184, 1, 720926, 786432, 1, 524294, 393216, 1, 589830, 393216, 2, 655366, 524288, 1, 720902, 524288, 2, 393223, 458752, 0, 458759, 589824, 0, 524295, 589824, 1, 589831, 458752, 2, 393224, 458752, 0, 458760, 655360, 0, 524296, 655360, 1, 589832, 458752, 2, 393225, 524288, 0, 458761, 524288, 1, 524297, 524288, 1, 589833, 524288, 2, 524293, 393216, 0, 589829, 393216, 1, 655365, 393216, 1, 720901, 393216, 2, 393222, 393216, 0, 458758, 393216, 1, 1114114, 1114112, 9)
+
+[node name="MushroomEnemy" parent="bg_elements" instance=ExtResource("9_wy3pa")]
+position = Vector2(915, 324)
+isStacionary = true
+
+[node name="character" type="AnimatedSprite2D" parent="bg_elements"]
+texture_filter = 1
+position = Vector2(268, 160)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cdla1")
+autoplay = "default"
+
+[node name="foliage_top" type="Node2D" parent="bg_elements"]
+
+[node name="NatureTiles" type="Sprite2D" parent="bg_elements/foliage_top"]
+position = Vector2(1083, 131)
+scale = Vector2(5, 5)
+texture = ExtResource("18_n5as5")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles3" type="Sprite2D" parent="bg_elements/foliage_top"]
+position = Vector2(196, 660)
+scale = Vector2(5, 5)
+texture = ExtResource("18_n5as5")
+region_enabled = true
+region_rect = Rect2(108, 5, 81, 91)
+
+[node name="NatureTiles2" type="Sprite2D" parent="bg_elements/foliage_top"]
+position = Vector2(1083, 576)
+scale = Vector2(5, 5)
+texture = ExtResource("18_n5as5")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
 [node name="Menu" type="Node2D" parent="."]
 
 [node name="MenuBox" type="Panel" parent="Menu"]
@@ -223,11 +275,10 @@ theme = ExtResource("11_e0m1u")
 theme_type_variation = &"menu box"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu/MenuBox"]
-layout_mode = 0
-offset_left = 18.0
-offset_top = 12.5
-offset_right = 106.0
-offset_bottom = 172.5
+offset_left = 18.5
+offset_top = 11.0
+offset_right = 106.5
+offset_bottom = 171.0
 scale = Vector2(0.8, 0.8)
 theme = ExtResource("11_e0m1u")
 theme_override_constants/separation = 6
@@ -310,59 +361,6 @@ theme_override_font_sizes/font_size = 35
 text = "> test level"
 flat = true
 
-[node name="bg_elements" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-
-[node name="foliage_behind" type="Node2D" parent="bg_elements"]
-
-[node name="Sprite-09Bright" type="Sprite2D" parent="bg_elements/foliage_behind"]
-material = ExtResource("13_sd77c")
-position = Vector2(212, 138)
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("14_abiig")
-
-[node name="TileMap" type="TileMap" parent="bg_elements"]
-texture_filter = 1
-scale = Vector2(2, 2)
-tile_set = ExtResource("7_7cu5i")
-format = 2
-layer_0/tile_data = PackedInt32Array(786462, 393216, 0, 851998, 393216, 1, 917534, 393216, 2, 786463, 458752, 0, 851999, 458752, 1, 917535, 458752, 2, 786464, 524288, 0, 852000, 524288, 1, 917536, 851968, 1, 983072, 851968, 2, 917537, 917504, 1, 983073, 917504, 2, 720919, 786432, 1, 720920, 1114112, 1, 720921, 1179648, 1, 720922, 1179648, 1, 720923, 1179648, 1, 720924, 1179648, 1, 720925, 1245184, 1, 720926, 786432, 1, 524294, 393216, 1, 589830, 393216, 2, 655366, 524288, 1, 720902, 524288, 2, 393223, 458752, 0, 458759, 589824, 0, 524295, 589824, 1, 589831, 458752, 2, 393224, 458752, 0, 458760, 655360, 0, 524296, 655360, 1, 589832, 458752, 2, 393225, 524288, 0, 458761, 524288, 1, 524297, 524288, 1, 589833, 524288, 2, 524293, 393216, 0, 589829, 393216, 1, 655365, 393216, 1, 720901, 393216, 2, 393222, 393216, 0, 458758, 393216, 1, 1114114, 1114112, 9)
-
-[node name="MushroomEnemy" parent="bg_elements" instance=ExtResource("9_wy3pa")]
-position = Vector2(915, 324)
-isStacionary = true
-
-[node name="character" type="AnimatedSprite2D" parent="bg_elements"]
-texture_filter = 1
-position = Vector2(268, 160)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_cdla1")
-autoplay = "default"
-
-[node name="foliage_top" type="Node2D" parent="bg_elements"]
-
-[node name="NatureTiles" type="Sprite2D" parent="bg_elements/foliage_top"]
-position = Vector2(1083, 131)
-scale = Vector2(5, 5)
-texture = ExtResource("18_n5as5")
-region_enabled = true
-region_rect = Rect2(204, 52, 16, 92)
-
-[node name="NatureTiles3" type="Sprite2D" parent="bg_elements/foliage_top"]
-position = Vector2(196, 660)
-scale = Vector2(5, 5)
-texture = ExtResource("18_n5as5")
-region_enabled = true
-region_rect = Rect2(108, 5, 81, 91)
-
-[node name="NatureTiles2" type="Sprite2D" parent="bg_elements/foliage_top"]
-position = Vector2(1083, 576)
-scale = Vector2(5, 5)
-texture = ExtResource("18_n5as5")
-region_enabled = true
-region_rect = Rect2(204, 52, 16, 92)
-
 [node name="Footer" type="Panel" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
@@ -377,22 +375,27 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3lbxg")
 
 [node name="TitleBox" type="Panel" parent="."]
-offset_left = 354.0
-offset_top = 48.0
-offset_right = 535.0
-offset_bottom = 154.0
+layout_direction = 1
+anchors_preset = -1
+anchor_left = 0.307292
+anchor_top = 0.0740741
+anchor_right = 0.621528
+anchor_bottom = 0.401235
+offset_right = -181.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(2, 2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("16_hluqq")
 
 [node name="TitleText" type="Label" parent="TitleBox"]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 18.5
-offset_top = -55.0
-offset_right = 164.5
-offset_bottom = 50.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.909804, 1, 0.454902, 1)
 theme_override_colors/font_shadow_color = Color(0.462745, 1, 0.85098, 0.541176)
@@ -409,12 +412,6 @@ en el
 bosque"
 horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="Gui" type="Sprite2D" parent="."]
-position = Vector2(1022, -219)
-texture = ExtResource("13_arhh8")
-
-[node name="Background2" type="Node2D" parent="."]
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="finished" from="MenuMusic" to="." method="_on_menu_music_finished"]

@@ -10,12 +10,13 @@ config_version=5
 
 [application]
 
-config/name="2d Platformer game"
+config/name="La noche en el bosque"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 
 [display]
 
+window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 
 [dotnet]
