@@ -22,6 +22,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="2d Platformer game"
 
+[editor]
+
+movie_writer/movie_file="E:/gra.avi"
+
 [file_customization]
 
 folder_colors={
