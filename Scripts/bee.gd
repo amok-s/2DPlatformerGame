@@ -12,8 +12,9 @@ func _on_collision_damage_body_entered(body):
 	if body.name == "CharacterBody2D":
 		var y_delta = get_node("DamageCollision").global_position.y - body.global_position.y
 		var x_delta = body.global_position.x - get_node("DamageCollision").global_position.x
+		print(y_delta)
 	
-		if y_delta > 45:
+		if y_delta > 30:
 			taking_damage = true
 			var bee_position = global_position
 			get_node("../%GameManager").spawn_sfx("dust_2", bee_position + Vector2(10, 0))

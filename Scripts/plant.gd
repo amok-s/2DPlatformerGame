@@ -15,8 +15,9 @@ var canShoot = true
 
 func timer():
 	var random = randf_range(0, 4)
-	await get_tree().create_timer(random).timeout
-	shoot()
+	if get_tree():
+		await get_tree().create_timer(random).timeout
+		shoot()
 
 
 func _ready():
@@ -65,7 +66,7 @@ func _on_area_2d_body_entered(body):
 			var random_x = randf_range(-150, 150)
 			velocity.x = random_x
 			velocity.y = -190
-			await get_tree().create_timer(4).timeout
+			await get_tree().create_timer(3).timeout
 			queue_free()
 		else:
 			if (x_delta < 5): #if player touch enemy from the left

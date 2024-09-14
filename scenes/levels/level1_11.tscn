@@ -1,7 +1,8 @@
-[gd_scene load_steps=57 format=3 uid="uid://bk2j6du6spg0y"]
+[gd_scene load_steps=58 format=3 uid="uid://bk2j6du6spg0y"]
 
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_ckrt3"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="2_f4u8j"]
+[ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_td6sc"]
 [ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="3_xaqpy"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="4_6ek8h"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="5_lwgeu"]
@@ -140,6 +141,10 @@ bg_color = Color(0.133333, 0.054902, 0.203922, 0.52549)
 script = ExtResource("1_ckrt3")
 metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_td6sc")
+volume_db = -30.0
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "hearts")]
 unique_name_in_owner = true
