@@ -127,43 +127,34 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sound:playing")
+tracks/0/path = NodePath("Sound:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sound:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-6.0]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_a7o73"]
 resource_name = "collapse"
-length = 6.0
-tracks/0/type = "value"
+length = 5.0
+tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sound:playing")
+tracks/0/path = NodePath("Sound")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.1,
+"stream": ExtResource("2_2v82x")
+}],
+"times": PackedFloat32Array(0)
 }
+tracks/0/use_blend = true
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -171,10 +162,10 @@ tracks/1/path = NodePath("Sound:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.9, 1.9, 2.8),
+"times": PackedFloat32Array(0, 0.566667, 1.16667, 3.43333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [-25.0, 0.0, -6.0, -50.0]
+"values": [-10.0, 0.0, 0.0, -20.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijg2u"]
@@ -187,10 +178,8 @@ _data = {
 script = ExtResource("1_3ylbk")
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_2v82x")
-volume_db = -6.0
-max_distance = 200.0
-attenuation = 2.2974
+max_distance = 300.0
+attenuation = 2.63902
 
 [node name="TopPart" type="CharacterBody2D" parent="."]
 motion_mode = 1

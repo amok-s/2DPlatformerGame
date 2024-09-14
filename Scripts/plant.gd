@@ -72,4 +72,3 @@ func _on_area_2d_body_entered(body):
 				body.take_damage(-380, -550)
 			else: #approaching from the right
 				body.take_damage(380, -550)
-

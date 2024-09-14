@@ -71,4 +71,3 @@ func _on_area_2d_body_exited(body):
 	if (body.name == "TileMap"):
 		can_go_left = true
 		can_go_right = true
-

@@ -45,4 +45,3 @@ func _on_spikes_collision_body_entered(body):
 			body.take_damage(x_delta * 10, - 550)
 		else:
 			body.take_damage(x_delta * 8, -450)
-
