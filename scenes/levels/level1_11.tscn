@@ -1003,6 +1003,7 @@ theme_override_fonts/font = ExtResource("35_ub5rq")
 theme_override_font_sizes/font_size = 31
 text = "back to main menu"
 
+[connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/Traps group/Chained_Ball2/StaticBody2D/Area2D" to="Scene Objects/Traps group/Chained_Ball2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
