@@ -39,11 +39,11 @@ func shoot():
 			var b = bullet.instantiate()
 			b.position = position + Vector2(55, -8)
 			b.rotate(PI)
-			get_parent().get_parent().add_child(b)
+			get_parent().add_child(b)
 		else:
 			var b = bullet.instantiate()
 			b.position = position + Vector2(-55, -8)
-			get_parent().get_parent().add_child(b)
+			get_parent().add_child(b)
 
 		spawn_projectile_sound.play(0)
 		sprite.animation = "idle"
