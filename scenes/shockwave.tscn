@@ -46,19 +46,24 @@ _data = {
 "play": SubResource("Animation_bj7tu")
 }
 
-[node name="ColorRect" type="ColorRect"]
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_n7igr")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1361.0
-offset_top = -277.0
-offset_right = 3395.0
-offset_bottom = 2273.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -643.5
+offset_top = -381.5
+offset_right = 643.5
+offset_bottom = 381.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
 libraries = {
 "": SubResource("AnimationLibrary_bpce7")
 }

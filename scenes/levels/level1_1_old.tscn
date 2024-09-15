@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_8td60"]
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_d7ro5"]
-[ext_resource type="PackedScene" uid="uid://ceiy2eebq27sd" path="res://scenes/levels/level2.tscn" id="2_stk82"]
+[ext_resource type="PackedScene" uid="uid://ceiy2eebq27sd" path="res://scenes/levels/level2_old.tscn" id="2_stk82"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="3_maj80"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="4_grvd8"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="5_w0rth"]

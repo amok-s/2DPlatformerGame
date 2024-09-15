@@ -87,12 +87,13 @@ func spawn_chroma_chaos(time):
 	b.queue_free()
 
 func spawn_shockwave():
-	var b = shockwave.instantiate ()
+	var b = shockwave.instantiate()
 	var camera = player.get_node("Camera2D")
 	var offset = (player.position - camera.get_screen_center_position()) * camera.zoom / Vector2(get_window().size)
 	var player_center = Vector2(0.5, 0.5) + offset
 	player_center.x = (1.8 * player_center.x - 0.4)
-	b.get_material().set_shader_parameter("center", player_center)
+	#b.position = camera.get_screen_center_position() * camera.zoom / Vector2(get_window().size)
+	b.get_child(0).get_material().set_shader_parameter("center", player_center)
 	get_parent().add_child(b)
 	await get_tree().create_timer(0.8).timeout
 	b.queue_free()
@@ -109,6 +110,8 @@ func arrow_timer():
 	spawn_arrow(last_fruit)
 
 func spawn_blink():
+	var offset = Vector2(blink.size.x / 2, blink.size.y /2)
+	blink.position = player.position - offset
 	blink.show()
 	await get_tree().create_timer(0.02).timeout
 	blink.hide()
