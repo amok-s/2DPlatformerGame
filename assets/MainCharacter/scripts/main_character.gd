@@ -63,7 +63,7 @@ func _physics_process(delta):
 	if direction and sides_input_blockage == false:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, 14.5 if not is_on_floor() else 30,)
+		velocity.x = move_toward(velocity.x, 0, 18 if not is_on_floor() else 50,)
 	
 	var isLeft = velocity.x < 0
 	sprite.flip_h = isLeft

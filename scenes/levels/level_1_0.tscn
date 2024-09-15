@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://byg4cqglqdv2q"]
+[gd_scene load_steps=50 format=3 uid="uid://byg4cqglqdv2q"]
 
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_elb1b"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_2jyts"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="10_j36yy"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="11_q4dpm"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="12_guysr"]
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="13_h5qm4"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="13_njjyl"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="14_71goe"]
 [ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="15_vvqh3"]
@@ -44,6 +45,20 @@
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="47_33rq6"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="48_wbo78"]
 [ext_resource type="Theme" uid="uid://t0yq5xb26liw" path="res://assets/UI/menu_box_bosque.tres" id="49_5s7gp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ka5c6"]
+shader = ExtResource("13_h5qm4")
+shader_parameter/top = true
+shader_parameter/left = true
+shader_parameter/right = true
+shader_parameter/bottom = true
+shader_parameter/topleft = true
+shader_parameter/topright = true
+shader_parameter/bottomleft = true
+shader_parameter/bottomright = true
+shader_parameter/width = 1.0
+shader_parameter/color = Color(0.87451, 0.729412, 0.00784314, 0.733333)
+shader_parameter/inside = false
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -117,7 +132,7 @@ layer_0/tile_data = PackedInt32Array(393221, 393216, 0, 458757, 393216, 1, 52429
 
 [node name="CharacterBody2D" parent="Scene Objects" instance=ExtResource("12_guysr")]
 modulate = Color(0.00784314, 0.054902, 0.0352941, 1)
-position = Vector2(368, 243)
+position = Vector2(406, 278)
 
 [node name="Camera2D" type="Camera2D" parent="Scene Objects/CharacterBody2D"]
 unique_name_in_owner = true
@@ -133,6 +148,7 @@ drag_vertical_offset = -0.06
 
 [node name="Collectables group" type="Node2D" parent="Scene Objects"]
 modulate = Color(0.203797, 0.525339, 0.422003, 1)
+material = SubResource("ShaderMaterial_ka5c6")
 
 [node name="Collectable3" parent="Scene Objects/Collectables group" instance=ExtResource("13_njjyl")]
 position = Vector2(701, 255)

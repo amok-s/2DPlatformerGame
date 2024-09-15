@@ -129,3 +129,7 @@ func player_dead():
 	if music:
 		GlobalLevelManager.music_time = music.get_playback_position()
 	get_tree().reload_current_scene()
+
+func showOutline(item):
+	var shader = preload("res://shaders/outline.gdshader")
+	pass

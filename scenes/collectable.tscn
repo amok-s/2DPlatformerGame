@@ -1058,10 +1058,12 @@ animations = [{
 radius = 20.025
 
 [node name="Collectable" type="Area2D"]
+use_parent_material = true
 script = ExtResource("1_63lk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+use_parent_material = true
 position = Vector2(-0.249924, 4.75008)
 scale = Vector2(1.98438, 1.98438)
 sprite_frames = SubResource("SpriteFrames_vftxf")
