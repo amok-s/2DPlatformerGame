@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://ugwixtko8md8" path="res://assets/sounds/beetle-squark4-41449.mp3" id="5_j2axn"]
 [ext_resource type="Script" path="res://Scripts/bee_attack.gd" id="5_krxcw"]
 [ext_resource type="Script" path="res://Scripts/bee_takingdamage.gd" id="9_fu403"]
-[ext_resource type="PackedScene" uid="uid://wguw2hd073ms" path="res://scenes/bee_stringer.tscn" id="12_yvl2i"]
+[ext_resource type="PackedScene" uid="uid://wguw2hd073ms" path="res://scenes/enemies and traps/bee_stringer.tscn" id="12_yvl2i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hr123"]
 atlas = ExtResource("3_w5k0q")

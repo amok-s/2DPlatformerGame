@@ -10,9 +10,7 @@
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="8_uq0el"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="9_pif7p"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="10_7i4wk"]
-[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="11_vhosm"]
-
-
+[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="11_vhosm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3rac"]
 texture = ExtResource("3_a1sgd")

@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="9_vpi4l"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="10_iikl2"]
 
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3rac"]
 texture = ExtResource("3_71wmu")
 0:0/0 = 0

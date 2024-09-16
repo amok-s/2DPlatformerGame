@@ -1,11 +1,12 @@
 [gd_scene load_steps=27 format=3 uid="uid://deitxtunqmwtm"]
 
-[ext_resource type="Script" path="res://scenes/false_block.gd" id="1_3ylbk"]
+[ext_resource type="Script" path="res://Scripts/false_block.gd" id="1_3ylbk"]
 [ext_resource type="Texture2D" uid="uid://dyagxqcbeh3pj" path="res://assets/OtherSprites/Idle.png" id="1_avd5j"]
 [ext_resource type="Texture2D" uid="uid://b6wjxdxocib4d" path="res://assets/OtherSprites/HitTop (22x22).png" id="1_bsr14"]
 [ext_resource type="Texture2D" uid="uid://b06em141ock6t" path="res://assets/OtherSprites/Part 1 (22x22).png" id="1_v46r3"]
 [ext_resource type="AudioStream" uid="uid://bx8v3ifu4l82v" path="res://assets/sounds/rocks-6129.mp3" id="2_2v82x"]
 [ext_resource type="Texture2D" uid="uid://bbk43n72yd8ch" path="res://assets/OtherSprites/Part 2 (22x22).png" id="3_ox0at"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmpw1"]
 atlas = ExtResource("3_ox0at")

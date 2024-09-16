@@ -58,9 +58,7 @@ func _on_level_3_pressed():
 func _on_play_button_pressed():
 	tap_sound.play(0)
 	if (tap_sound.finished):
-		get_tree().change_scene_to_file("res://scenes/levels/level_1_0.tscn")
-
-
+		get_tree().change_scene_to_file("res://scenes/levels/1st Arc/level_1_0.tscn")
 
 func _on_quit_pressed():
 	get_tree().quit() 

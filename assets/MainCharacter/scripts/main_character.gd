@@ -65,8 +65,8 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, 18 if not is_on_floor() else 50,)
 	
-	var isLeft = velocity.x < 0
-	sprite.flip_h = isLeft
+	#var isLeft = velocity.x < 0
+	#sprite.flip_h = isLeft
 	
 
 	

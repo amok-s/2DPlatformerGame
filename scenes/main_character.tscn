@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://brnrrjstww3s4"]
+[gd_scene load_steps=72 format=3 uid="uid://brnrrjstww3s4"]
 
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_jqxxa"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/main_character.gd" id="1_wmnck"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://62py5vgap5qa" path="res://assets/MainCharacter/sprites/Run (32x32).png" id="10_ub3is"]
 [ext_resource type="AudioStream" uid="uid://ddk83bkx0rghe" path="res://assets/sounds/pick_up.mp3" id="12_32mua"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/FSM.gd" id="13_2y0p8"]
+[ext_resource type="Script" path="res://Scripts/main_character_sprite.gd" id="13_mb06h"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/movement_state.gd" id="15_veihb"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/taking_damage_state.gd" id="16_01nmg"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/jump_state.gd" id="16_sx83y"]
@@ -431,6 +432,7 @@ scale = Vector2(2.09375, 2.09375)
 sprite_frames = SubResource("SpriteFrames_jacn6")
 animation = &"dead"
 autoplay = "default"
+script = ExtResource("13_mb06h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0.5)

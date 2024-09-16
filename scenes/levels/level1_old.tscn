@@ -10,19 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="5_bqg58"]
 [ext_resource type="PackedScene" uid="uid://ceiy2eebq27sd" path="res://scenes/levels/level2_old.tscn" id="7_0sxed"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="8_l5rmh"]
-[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="8_r8qe0"]
+[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="8_r8qe0"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="9_axadg"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="9_xajej"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="11_l36i0"]
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="12_763tj"]
-[ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/spikes_2.tscn" id="14_as4xu"]
-[ext_resource type="PackedScene" uid="uid://4r0yhti5mlkd" path="res://scenes/spiked_chain.tscn" id="14_qlts2"]
-[ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="15_upxvc"]
+[ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="14_as4xu"]
+[ext_resource type="PackedScene" uid="uid://4r0yhti5mlkd" path="res://scenes/enemies and traps/spiked_chain.tscn" id="14_qlts2"]
+[ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/enemies and traps/plant.tscn" id="15_upxvc"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="19_esrvl"]
-[ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/chameleon.tscn" id="21_5kw46"]
-
-
-
+[ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/enemies and traps/chameleon.tscn" id="21_5kw46"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="6_frn6f"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="7_7cu5i"]
 [ext_resource type="Texture2D" uid="uid://c52so222ka0yj" path="res://assets/MainCharacter/sprites/Idle (32x32).png" id="8_gut1k"]
-[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="9_wy3pa"]
+[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="9_wy3pa"]
 [ext_resource type="Theme" uid="uid://t0yq5xb26liw" path="res://assets/UI/menu_box_bosque.tres" id="11_e0m1u"]
 [ext_resource type="StyleBox" uid="uid://jaup1xuv46xc" path="res://assets/UI/play_button_focus.tres" id="12_kudce"]
 [ext_resource type="Texture2D" uid="uid://d8tq8h6apfpn" path="res://assets/UI/Border All 4.png" id="12_lhdqb"]

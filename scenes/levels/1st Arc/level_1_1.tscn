@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_e3m3s"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_deppc"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_26f5x"]
-[ext_resource type="PackedScene" uid="uid://bk2j6du6spg0y" path="res://scenes/levels/level1_11.tscn" id="4_51gmf"]
+[ext_resource type="PackedScene" uid="uid://teeg2gwcg42j" path="res://scenes/levels/1st Arc/level_1_2.tscn" id="4_yfhjp"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_jnx3e"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_hi7li"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_qq1ql"]
@@ -14,10 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="12_7foie"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="13_hp8kh"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="14_5e3eu"]
-[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/mushroom_enemy.tscn" id="14_7vgkq"]
-[ext_resource type="PackedScene" uid="uid://deitxtunqmwtm" path="res://scenes/false_block.tscn" id="14_xibpj"]
-[ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/spikes_2.tscn" id="15_uteg8"]
-[ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/plant.tscn" id="15_wl8l2"]
+[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="14_7vgkq"]
+[ext_resource type="PackedScene" uid="uid://deitxtunqmwtm" path="res://scenes/enemies and traps/false_block.tscn" id="14_xibpj"]
+[ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="15_uteg8"]
+[ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/enemies and traps/plant.tscn" id="15_wl8l2"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="19_75vtc"]
 [ext_resource type="Texture2D" uid="uid://de3ul1kce7ypb" path="res://assets/PineForestParallax/MorningLayer6.png" id="20_jvfji"]
 [ext_resource type="Texture2D" uid="uid://dqdq2msnvnnf4" path="res://assets/PineForestParallax/MorningLayer5.png" id="21_dvp63"]
@@ -141,7 +141,7 @@ unique_name_in_owner = true
 script = ExtResource("3_26f5x")
 player = NodePath("../Scene Objects/CharacterBody2D")
 hearts = [NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart3")]
-next_level = ExtResource("4_51gmf")
+next_level = ExtResource("4_yfhjp")
 chroma_chaos = ExtResource("5_jnx3e")
 shockwave = ExtResource("6_hi7li")
 arrow = ExtResource("7_qq1ql")
@@ -366,7 +366,7 @@ position = Vector2(-9, 613)
 shape = SubResource("WorldBoundaryShape2D_kime1")
 
 [node name="ForestBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
-scroll_offset = Vector2(-3120.22, -600.867)
+scroll_offset = Vector2(-1049.52, -365.796)
 
 [node name="Sky" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
 motion_scale = Vector2(0, 1)
@@ -520,7 +520,7 @@ texture = ExtResource("27_itwy5")
 
 [node name="Vines" type="ParallaxBackground" parent="Scene Objects"]
 layer = 1
-scroll_offset = Vector2(-3120.22, -600.867)
+scroll_offset = Vector2(-1049.52, -365.796)
 
 [node name="Further" type="ParallaxLayer" parent="Scene Objects/Vines"]
 motion_scale = Vector2(2, 1)
