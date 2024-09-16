@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://vt05dc210idm"]
+
+[sub_resource type="Curve" id="Curve_de16y"]
+_data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_c28h7"]
+curve = SubResource("Curve_de16y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_15fbb"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 400, 1)
+spread = 106.291
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 2, 0)
+scale_min = 4.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_c28h7")
+color = Color(0.996078, 0.984314, 0.839216, 0.74902)
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 45
+process_material = SubResource("ParticleProcessMaterial_15fbb")
+lifetime = 2.4

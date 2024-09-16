@@ -274,7 +274,7 @@ scale = Vector2(2, 2)
 theme = ExtResource("11_e0m1u")
 theme_type_variation = &"menu box"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MenuBox"]
+[node name="MainMenu" type="VBoxContainer" parent="Menu/MenuBox"]
 layout_mode = 0
 offset_left = 18.5
 offset_top = 11.0
@@ -284,7 +284,7 @@ scale = Vector2(0.8, 0.8)
 theme = ExtResource("11_e0m1u")
 theme_override_constants/separation = 6
 
-[node name="Play" type="Button" parent="Menu/MenuBox/VBoxContainer"]
+[node name="Play" type="Button" parent="Menu/MenuBox/MainMenu"]
 layout_mode = 2
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
@@ -300,7 +300,7 @@ theme_override_styles/focus = ExtResource("12_kudce")
 text = "Play
 "
 
-[node name="Options" type="Button" parent="Menu/MenuBox/VBoxContainer"]
+[node name="Options" type="Button" parent="Menu/MenuBox/MainMenu"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("11_e0m1u")
@@ -308,7 +308,7 @@ theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 15
 text = "Options"
 
-[node name="Credits" type="Button" parent="Menu/MenuBox/VBoxContainer"]
+[node name="Credits" type="Button" parent="Menu/MenuBox/MainMenu"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("11_e0m1u")
@@ -316,12 +316,58 @@ theme_override_font_sizes/font_size = 15
 text = "Credits
 "
 
-[node name="Quit" type="Button" parent="Menu/MenuBox/VBoxContainer"]
+[node name="Quit" type="Button" parent="Menu/MenuBox/MainMenu"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("11_e0m1u")
 theme_override_font_sizes/font_size = 15
 text = "Quit"
+
+[node name="Level Box" type="Panel" parent="Menu"]
+visible = false
+offset_left = 429.0
+offset_top = 263.0
+offset_right = 534.0
+offset_bottom = 411.0
+scale = Vector2(2, 2)
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"menu box"
+
+[node name="MainMenu" type="VBoxContainer" parent="Menu/Level Box"]
+layout_mode = 0
+offset_left = 18.5
+offset_top = 11.0
+offset_right = 106.5
+offset_bottom = 171.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("11_e0m1u")
+theme_override_constants/separation = 6
+
+[node name="level1" type="Button" parent="Menu/Level Box/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 15
+text = "  level I"
+alignment = 0
+
+[node name="Options2" type="Button" parent="Menu/Level Box/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 15
+text = "  level II"
+alignment = 0
+
+[node name="Credits" type="Button" parent="Menu/Level Box/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_override_font_sizes/font_size = 15
+text = "  level III"
+alignment = 0
 
 [node name="level buttons" type="Node" parent="."]
 
@@ -416,8 +462,8 @@ vertical_alignment = 2
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="finished" from="MenuMusic" to="." method="_on_menu_music_finished"]
-[connection signal="pressed" from="Menu/MenuBox/VBoxContainer/Play" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="Menu/MenuBox/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Menu/MenuBox/MainMenu/Play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/MenuBox/MainMenu/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="level buttons/VBoxContainer/level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="level buttons/VBoxContainer/level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="level buttons/VBoxContainer/level3" to="." method="_on_level_3_pressed"]

@@ -8,7 +8,7 @@ var center : Vector2
 @onready var background = $Background
 
 @onready var title_text = $TitleBox/TitleText
-@onready var v_box_container = $Menu/MenuBox/VBoxContainer
+@onready var v_box_container = $Menu/MenuBox/MainMenu
 
 
 func godot_bug_fix(text):

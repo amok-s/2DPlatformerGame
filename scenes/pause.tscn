@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx5eqhjjdi1b"]
+
+[ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="1_3pdyp"]
+[ext_resource type="Theme" uid="uid://t0yq5xb26liw" path="res://assets/UI/menu_box_bosque.tres" id="2_tovhn"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="3_jkowr"]
+[ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="4_lyexa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc2ha"]
+bg_color = Color(0.133333, 0.054902, 0.203922, 0.52549)
+
+[node name="Pause" type="Node"]
+script = ExtResource("1_3pdyp")
+
+[node name="PausePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jc2ha")
+
+[node name="Node2D" type="Node2D" parent="PausePanel"]
+scale = Vector2(2, 2)
+
+[node name="Panel" type="Panel" parent="PausePanel/Node2D"]
+offset_left = 148.0
+offset_top = 48.0
+offset_right = 431.0
+offset_bottom = 280.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_tovhn")
+
+[node name="Label" type="Label" parent="PausePanel/Node2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 188.5
+offset_top = 63.0
+offset_right = 389.5
+offset_bottom = 113.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+theme_override_fonts/font = ExtResource("3_jkowr")
+theme_override_font_sizes/font_size = 45
+text = "GAME PAUSED"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PausePanel"]
+layout_mode = 1
+offset_left = 318.0
+offset_top = 213.0
+offset_right = 580.0
+offset_bottom = 379.0
+scale = Vector2(2, 2)
+theme = ExtResource("2_tovhn")
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="PausePanel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_jkowr")
+theme_override_font_sizes/font_size = 31
+text = "resume"
+
+[node name="Restart" type="Button" parent="PausePanel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_jkowr")
+theme_override_font_sizes/font_size = 31
+text = "restart"
+
+[node name="MainMenu" type="Button" parent="PausePanel/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_jkowr")
+theme_override_font_sizes/font_size = 31
+text = "back to main menu"
+
+[node name="Vine" type="Node2D" parent="PausePanel"]
+position = Vector2(-163, 0)
+
+[node name="NatureTiles" type="Sprite2D" parent="PausePanel/Vine"]
+position = Vector2(991, 139)
+scale = Vector2(4, 4)
+texture = ExtResource("4_lyexa")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles2" type="Sprite2D" parent="PausePanel/Vine"]
+position = Vector2(992, 495)
+scale = Vector2(4, 4)
+texture = ExtResource("4_lyexa")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[connection signal="pressed" from="PausePanel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="PausePanel/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PausePanel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

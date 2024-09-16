@@ -19,7 +19,6 @@ func _ready():
 func _on_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		hide()
-		#animated_sprite_2d.animation = "collected"
 		
 		game_manager.spawn_sfx("collect", position, 0, Vector2(3, 3))
 		game_manager.add_point()

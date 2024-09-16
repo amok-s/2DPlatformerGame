@@ -79,6 +79,9 @@ func finish_level():
 	Engine.time_scale = 0.6
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Camera2D, "zoom", Vector2(2, 2), 3).set_ease(Tween.EASE_IN)
+	var music = get_parent().get_node("BgMusic")
+	if music:
+		GlobalLevelManager.music_time = music.get_playback_position()
 
 func spawn_chroma_chaos(time):
 	var b = chroma_chaos.instantiate()
