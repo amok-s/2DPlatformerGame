@@ -1,8 +1,9 @@
-[gd_scene load_steps=50 format=3 uid="uid://byg4cqglqdv2q"]
+[gd_scene load_steps=53 format=3 uid="uid://byg4cqglqdv2q"]
 
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_elb1b"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_2jyts"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_67nub"]
+[ext_resource type="Shader" path="res://shaders/chromatic_abberation.gdshader" id="3_wjgd2"]
 [ext_resource type="PackedScene" uid="uid://dng8x08fargcw" path="res://scenes/levels/1st Arc/level_1_1.tscn" id="4_o2v0u"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_4yko3"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_f78gj"]
@@ -21,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://6t81tuqsygiq" path="res://assets/OtherSprites/GUI.png" id="22_aa2s2"]
 [ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="23_fedd8"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="26_pye7x"]
+[ext_resource type="Texture2D" uid="uid://ubgoc5j03gll" path="res://assets/OtherSprites/offset.png" id="27_67oer"]
 [ext_resource type="Texture2D" uid="uid://de3ul1kce7ypb" path="res://assets/PineForestParallax/MorningLayer6.png" id="27_kirre"]
 [ext_resource type="Texture2D" uid="uid://c04gi11582b07" path="res://assets/Foliage/sprite - 03.png" id="27_neov2"]
 [ext_resource type="Texture2D" uid="uid://roax86tvee52" path="res://assets/Foliage/sprite - 19.png" id="27_ws2wh"]
@@ -62,6 +64,11 @@ shader_parameter/inside = false
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3t7p2"]
+shader = ExtResource("3_wjgd2")
+shader_parameter/strength = 1.0
+shader_parameter/offset_image = ExtResource("27_67oer")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe8tn"]
 bg_color = Color(0.94902, 0.392157, 0.419608, 0.301961)
@@ -346,6 +353,16 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Scene Objects/WorldBoundary/ForestBackground"]
 color = Color(0.282353, 0.72549, 0.576471, 1)
+
+[node name="ChromaticAbberation" type="CanvasLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+
+[node name="ColorRect" type="ColorRect" parent="Scene Objects/WorldBoundary/ForestBackground/ChromaticAbberation"]
+material = SubResource("ShaderMaterial_3t7p2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Foliage" type="Node2D" parent="Scene Objects"]
 modulate = Color(0.00784314, 0.054902, 0.0352941, 1)

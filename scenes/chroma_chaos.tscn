@@ -4,9 +4,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nuxv2"]
 shader = ExtResource("1_2khgq")
-shader_parameter/chaos = 6.891
+shader_parameter/chaos = 10.0
 shader_parameter/radius = 1.0
-shader_parameter/attenuation = 3.742
+shader_parameter/attenuation = 1.155
 
 [node name="CanvasLayer" type="CanvasLayer"]
 

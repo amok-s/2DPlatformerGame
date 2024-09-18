@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8viaeyptfqrd"
+path="res://.godot/imported/Haruko - Joie de Vivre.mp3-0a4fa9163ca824d9020549fa2acd31f1.mp3str"
+
+[deps]
+
+source_file="res://assets/Music/Haruko - Joie de Vivre.mp3"
+dest_files=["res://.godot/imported/Haruko - Joie de Vivre.mp3-0a4fa9163ca824d9020549fa2acd31f1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,15 +1,16 @@
-[gd_scene load_steps=51 format=3 uid="uid://dng8x08fargcw"]
+[gd_scene load_steps=55 format=3 uid="uid://dng8x08fargcw"]
 
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_e3m3s"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_deppc"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_26f5x"]
-[ext_resource type="PackedScene" uid="uid://teeg2gwcg42j" path="res://scenes/levels/1st Arc/level_1_2.tscn" id="4_yfhjp"]
+[ext_resource type="PackedScene" uid="uid://b0iwi22pd1xua" path="res://scenes/levels/1st Arc/level_1_2.tscn" id="4_yfhjp"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_jnx3e"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_hi7li"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_qq1ql"]
 [ext_resource type="PackedScene" uid="uid://b12j70xyi7o37" path="res://scenes/sfxs.tscn" id="8_yy8mi"]
 [ext_resource type="AudioStream" uid="uid://c31wo40iw47d0" path="res://assets/sounds/healpop-46004.mp3" id="9_37cma"]
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="10_kl62i"]
+[ext_resource type="Script" path="res://Scripts/ShadowAreas.gd" id="11_4mm0w"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="11_bs0gq"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="12_7foie"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="13_hp8kh"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://deitxtunqmwtm" path="res://scenes/enemies and traps/false_block.tscn" id="14_xibpj"]
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="15_uteg8"]
 [ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/enemies and traps/plant.tscn" id="15_wl8l2"]
+[ext_resource type="Material" uid="uid://bw44tondqgsxm" path="res://shaders/monsters.tres" id="16_kcnlo"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="19_75vtc"]
 [ext_resource type="Texture2D" uid="uid://de3ul1kce7ypb" path="res://assets/PineForestParallax/MorningLayer6.png" id="20_jvfji"]
 [ext_resource type="Texture2D" uid="uid://dqdq2msnvnnf4" path="res://assets/PineForestParallax/MorningLayer5.png" id="21_dvp63"]
@@ -61,6 +63,13 @@ scale_min = 4.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_c28h7")
 color = Color(0.996078, 0.984314, 0.839216, 0.74902)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwly4"]
+size = Vector2(14.1581, 23.5341)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xbjv5"]
+radius = 8.54617
+height = 31.8894
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ka5c6"]
 shader = ExtResource("13_hp8kh")
@@ -186,6 +195,24 @@ lifetime = 2.4
 preprocess = 0.2
 visibility_rect = Rect2(-239.845, -136.24, 900, 600)
 
+[node name="ShadowAreas" type="Area2D" parent="Scene Objects"]
+visible = false
+scale = Vector2(9, 9)
+script = ExtResource("11_4mm0w")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Scene Objects/ShadowAreas"]
+polygon = PackedVector2Array(312.778, 75.3333, 345.222, 75.3333, 345.222, 136.222, 157.444, 136.333, 156, 76, 209.556, 75.6667, 312.667, 77.3333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/ShadowAreas"]
+position = Vector2(39.8889, 73.3333)
+rotation = 0.721395
+shape = SubResource("RectangleShape2D_gwly4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scene Objects/ShadowAreas"]
+position = Vector2(128.444, 62.7778)
+rotation = 1.48562
+shape = SubResource("CapsuleShape2D_xbjv5")
+
 [node name="TileMap" type="TileMap" parent="Scene Objects"]
 texture_filter = 1
 scale = Vector2(3, 3)
@@ -274,15 +301,19 @@ position = Vector2(2790, 541)
 position = Vector2(1942, 896)
 
 [node name="Enemies group" type="Node2D" parent="Scene Objects"]
+material = ExtResource("16_kcnlo")
 
 [node name="MushroomEnemy" parent="Scene Objects/Enemies group" instance=ExtResource("14_7vgkq")]
+use_parent_material = false
 position = Vector2(2175, 552)
 
 [node name="MushroomEnemy2" parent="Scene Objects/Enemies group" instance=ExtResource("14_7vgkq")]
+use_parent_material = false
 position = Vector2(1650, 638)
 isStacionary = true
 
 [node name="MushroomEnemy3" parent="Scene Objects/Enemies group" instance=ExtResource("14_7vgkq")]
+use_parent_material = false
 position = Vector2(235, 451)
 isStacionary = true
 
@@ -366,7 +397,7 @@ position = Vector2(-9, 613)
 shape = SubResource("WorldBoundaryShape2D_kime1")
 
 [node name="ForestBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
-scroll_offset = Vector2(-1049.52, -365.796)
+scroll_offset = Vector2(-1294.89, -1003.8)
 
 [node name="Sky" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
 motion_scale = Vector2(0, 1)
@@ -520,7 +551,7 @@ texture = ExtResource("27_itwy5")
 
 [node name="Vines" type="ParallaxBackground" parent="Scene Objects"]
 layer = 1
-scroll_offset = Vector2(-1049.52, -365.796)
+scroll_offset = Vector2(-1294.89, -1003.8)
 
 [node name="Further" type="ParallaxLayer" parent="Scene Objects/Vines"]
 motion_scale = Vector2(2, 1)
@@ -687,6 +718,9 @@ offset_top = -858.0
 offset_right = 1398.0
 offset_bottom = 591.0
 
+[node name="CanvasLayer" parent="Scene Objects" instance=ExtResource("5_jnx3e")]
+visible = false
+
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "game_manager")]
 layer = 2
 script = ExtResource("41_qwv1m")
@@ -851,6 +885,8 @@ region_rect = Rect2(204, 52, 16, 92)
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
+[connection signal="body_entered" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_entered"]
+[connection signal="body_exited" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_exited"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Restart" to="UI/Pause" method="_on_restart_pressed"]

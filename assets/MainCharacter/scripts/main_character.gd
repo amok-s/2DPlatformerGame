@@ -32,6 +32,9 @@ func spawn_dust():
 	particle_node.position = position + Vector2(-1, 18)
 	particle_node.scale = Vector2(2, 2)
 	get_parent().add_child(particle_node)
+	
+func outlineBlink():
+	$Sprite2D.outlineBlink()
 
 func _physics_process(delta):
 	#handling gravity

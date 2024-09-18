@@ -282,12 +282,14 @@ size = Vector2(79, 56)
 size = Vector2(83, 56.0001)
 
 [node name="MushroomEnemy" type="CharacterBody2D"]
+use_parent_material = true
 position = Vector2(1, 0)
 script = ExtResource("1_rq5co")
 sfx = ExtResource("2_fvpj6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+use_parent_material = true
 position = Vector2(0.74992, -18.2501)
 scale = Vector2(2.92187, 2.92187)
 sprite_frames = SubResource("SpriteFrames_lbj60")

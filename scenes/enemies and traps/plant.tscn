@@ -201,6 +201,7 @@ size = Vector2(52, 70)
 size = Vector2(56, 74.5)
 
 [node name="Plant" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "kill_sound", "spawn_projectile_sound")]
+use_parent_material = true
 script = ExtResource("1_ga77x")
 bullet = ExtResource("2_qoxeu")
 sprite = NodePath("PlantSprite")
@@ -209,6 +210,7 @@ spawn_projectile_sound = NodePath("SpawnProjectileSound")
 
 [node name="PlantSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+use_parent_material = true
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4uw4c")
 animation = &"attack"

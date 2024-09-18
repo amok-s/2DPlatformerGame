@@ -27,8 +27,9 @@ func Update(_delta:float):
 		attack()
 	
 func attack_timer():
-	await get_tree().create_timer(randf_range(1.8, 2.7)).timeout
-	can_attack = true
+	if get_tree():
+		await get_tree().create_timer(randf_range(1.8, 2.7)).timeout
+		can_attack = true
 
 func attack():
 	can_attack = false

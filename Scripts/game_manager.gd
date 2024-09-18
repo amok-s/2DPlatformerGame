@@ -50,6 +50,7 @@ func decrease_health():
 	spawn_chroma_chaos(0.28)
 	lives -= 1
 	if lives > 0:
+		player.outlineBlink()
 		get_node("../UI").ui_shake(0.2,5)
 	for h in 3:
 		if (h < lives):
