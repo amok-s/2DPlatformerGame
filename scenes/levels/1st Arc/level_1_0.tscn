@@ -1,9 +1,10 @@
-[gd_scene load_steps=52 format=3 uid="uid://byg4cqglqdv2q"]
+[gd_scene load_steps=53 format=3 uid="uid://byg4cqglqdv2q"]
 
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_elb1b"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_2jyts"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_67nub"]
 [ext_resource type="Shader" path="res://shaders/chromatic_abberation.gdshader" id="3_wjgd2"]
+[ext_resource type="PackedScene" uid="uid://dng8x08fargcw" path="res://scenes/levels/1st Arc/level_1_1.tscn" id="4_quev8"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_4yko3"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_f78gj"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_jgko0"]
@@ -99,6 +100,7 @@ unique_name_in_owner = true
 script = ExtResource("3_67nub")
 player = NodePath("../Scene Objects/CharacterBody2D")
 hearts = [NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart3")]
+next_level = ExtResource("4_quev8")
 chroma_chaos = ExtResource("5_4yko3")
 shockwave = ExtResource("6_f78gj")
 arrow = ExtResource("7_jgko0")

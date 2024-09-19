@@ -34,7 +34,7 @@ shader_parameter/topright = true
 shader_parameter/bottomleft = true
 shader_parameter/bottomright = true
 shader_parameter/width = 1.0
-shader_parameter/color = Color(0.890196, 0.52549, 0.776471, 0.976471)
+shader_parameter/color = Color(0.85098, 0.407843, 0.721569, 0.976471)
 shader_parameter/inside = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hhlo"]
