@@ -1,7 +1,7 @@
 [gd_scene load_steps=53 format=3 uid="uid://byg4cqglqdv2q"]
 
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_elb1b"]
-[ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_2jyts"]
+[ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_4yhkb"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_67nub"]
 [ext_resource type="Shader" path="res://shaders/chromatic_abberation.gdshader" id="3_wjgd2"]
 [ext_resource type="PackedScene" uid="uid://dng8x08fargcw" path="res://scenes/levels/1st Arc/level_1_1.tscn" id="4_quev8"]
@@ -92,8 +92,8 @@ metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_2jyts")
-volume_db = -20.0
+stream = ExtResource("2_4yhkb")
+volume_db = -15.0
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "hearts")]
 unique_name_in_owner = true
