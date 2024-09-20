@@ -8,6 +8,8 @@ class_name PlayerTakingDamage
 # Called when the node enters the scene tree for the first time.
 func Enter():
 	print(self.name)
+	if player.jump_count == 2:
+		player.jump_count = 1
 	get_node("../../%GameManager").decrease_health()
 	if get_node("../../%GameManager").lives == 0:
 		get_node("..").force_change_state("Death")

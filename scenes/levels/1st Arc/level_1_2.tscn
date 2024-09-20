@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://b0iwi22pd1xua"]
+[gd_scene load_steps=62 format=3 uid="uid://b0iwi22pd1xua"]
 
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_d1f63"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="10_6tjdl"]
 [ext_resource type="Script" path="res://Scripts/ShadowAreas.gd" id="11_oldh4"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="12_23aok"]
+[ext_resource type="Script" path="res://Scripts/camera_changes.gd" id="12_roao4"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="13_csu2x"]
 [ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="14_53yij"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="15_xaqjn"]
@@ -50,6 +51,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_he51u"]
 size = Vector2(42.7217, 79.049)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orkk6"]
+size = Vector2(823, 555)
 
 [sub_resource type="Curve" id="Curve_de16y"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -211,6 +215,15 @@ shape = SubResource("RectangleShape2D_he51u")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Scene Objects/ShadowAreas"]
 polygon = PackedVector2Array(257, 61.6667, 289, 128, 369.667, 117.667, 416.333, 43.3333, 269.667, 45.3333)
+
+[node name="CameraChanges" type="Node2D" parent="Scene Objects"]
+script = ExtResource("12_roao4")
+
+[node name="Camera_01" type="Area2D" parent="Scene Objects/CameraChanges"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
+position = Vector2(359.5, 523.5)
+shape = SubResource("RectangleShape2D_orkk6")
 
 [node name="TileMap" type="TileMap" parent="Scene Objects"]
 texture_filter = 1
@@ -1010,6 +1023,8 @@ region_rect = Rect2(204, 52, 16, 92)
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_exited"]
+[connection signal="body_entered" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges" method="_on_camera_01_body_entered"]
+[connection signal="body_exited" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges" method="_on_camera_01_body_exited"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Restart" to="UI/Pause" method="_on_restart_pressed"]
