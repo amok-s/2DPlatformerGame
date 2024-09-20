@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cqcni6n4vc56y"]
+
+[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_hcu5n"]
+
+[resource]
+shader = ExtResource("1_hcu5n")
+shader_parameter/top = true
+shader_parameter/left = true
+shader_parameter/right = true
+shader_parameter/bottom = true
+shader_parameter/topleft = true
+shader_parameter/topright = true
+shader_parameter/bottomleft = true
+shader_parameter/bottomright = true
+shader_parameter/width = 1.0
+shader_parameter/color = Color(0.87451, 0.729412, 0.00784314, 0.733333)
+shader_parameter/inside = false

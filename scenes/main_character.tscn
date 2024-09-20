@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://brnrrjstww3s4"]
+[gd_scene load_steps=75 format=3 uid="uid://brnrrjstww3s4"]
 
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_jqxxa"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/main_character.gd" id="1_wmnck"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://Scripts/main_character_sprite.gd" id="13_mb06h"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/movement_state.gd" id="15_veihb"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/taking_damage_state.gd" id="16_01nmg"]
+[ext_resource type="AudioStream" uid="uid://chcymqq1243fd" path="res://assets/sounds/footstep.mp3" id="16_c3vls"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/jump_state.gd" id="16_sx83y"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/spawn_state.gd" id="17_823os"]
 [ext_resource type="Texture2D" uid="uid://bf2jv23n4i1tg" path="res://assets/OtherSprites/Mud Particle.png" id="19_6p34y"]
@@ -416,6 +417,29 @@ turbulence_noise_strength = 1.42
 turbulence_noise_speed_random = 1.59
 turbulence_influence_max = 0.165
 
+[sub_resource type="Animation" id="Animation_crb5p"]
+resource_name = "footsteps"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"playFootstepAudio"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1r6xb"]
+_data = {
+"footsteps": SubResource("Animation_crb5p")
+}
+
 [node name="CharacterBody2D" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "jump_sound")]
 script = ExtResource("1_wmnck")
 sprite = NodePath("Sprite2D")
@@ -456,6 +480,10 @@ pitch_scale = 1.4
 stream = ExtResource("12_32mua")
 volume_db = -10.0
 pitch_scale = 1.5
+
+[node name="Footstep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_c3vls")
+volume_db = -12.0
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("13_2y0p8")
@@ -502,3 +530,10 @@ speed_scale = 0.7
 explosiveness = 0.51
 randomness = 0.4
 fixed_fps = 12
+
+[node name="AnimationPlayers" type="Node" parent="."]
+
+[node name="FootstepAnimation" type="AnimationPlayer" parent="AnimationPlayers"]
+libraries = {
+"": SubResource("AnimationLibrary_1r6xb")
+}

@@ -70,15 +70,19 @@ size = Vector2(24, 8)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bcmr"]
 
 [node name="plant projectile" type="Node2D"]
+use_parent_material = true
 
 [node name="plant projectile" type="StaticBody2D" parent="."]
+use_parent_material = true
 script = ExtResource("1_8degd")
 
 [node name="Sprite2D" type="Sprite2D" parent="plant projectile"]
+use_parent_material = true
 scale = Vector2(2, 2)
 texture = ExtResource("1_mgbue")
 
 [node name="Sprite2D" type="Sprite2D" parent="plant projectile/Sprite2D"]
+use_parent_material = true
 texture = ExtResource("2_ueoex")
 
 [node name="spinning animation" type="AnimationPlayer" parent="plant projectile"]
@@ -91,6 +95,7 @@ autoplay = "spinning"
 speed_scale = 2.3
 
 [node name="blades" type="Area2D" parent="plant projectile"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plant projectile/blades"]
 rotation = 3.14159
@@ -100,6 +105,7 @@ shape = SubResource("RectangleShape2D_8pnot")
 [node name="core" type="Area2D" parent="plant projectile"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plant projectile/core"]
+visible = false
 shape = SubResource("CircleShape2D_1bcmr")
 
 [connection signal="body_entered" from="plant projectile/blades" to="plant projectile" method="_on_blades_body_entered"]

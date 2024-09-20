@@ -11,12 +11,11 @@ class_name PlayerMovement
 # Called when the node enters the scene tree for the first time.
 func Enter():
 	print(self.name)
-	sprite.animation = "default"
+	sprite.animation = "default" 
 
 func Update(_delta:float):
 	if (player.taking_damage == true):
 		state_transition.emit(self, "TakingDamage")
-	
 	if player.is_on_floor():
 		if (player.velocity.x > 1 || player.velocity.x < -1):
 			sprite.animation = "run"

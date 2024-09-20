@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 @onready var game_manager = %GameManager
+@onready var footstep_audio : AudioStreamPlayer2D = get_node(NodePath("Footstep"))
+
+
 
 @export var sprite : AnimatedSprite2D
 @export var jump_sound : AudioStreamPlayer
@@ -8,6 +11,7 @@ extends CharacterBody2D
 @export var jump_particle : PackedScene
 @export var dust_particle: PackedScene
 @export var appearing : PackedScene
+
 
 
 #var SPEED = 340.0
@@ -65,11 +69,16 @@ func _physics_process(delta):
 	var direction = Input.get_axis("left", "right")
 	if direction and sides_input_blockage == false:
 		velocity.x = direction * SPEED
+		if is_on_floor():
+			$"AnimationPlayers/FootstepAnimation".play("footsteps")
 	else:
 		velocity.x = move_toward(velocity.x, 0, 18 if not is_on_floor() else 50,)
 	
+		
 	#var isLeft = velocity.x < 0
 	#sprite.flip_h = isLeft
 	
-
+func playFootstepAudio():
+	footstep_audio.pitch_scale = randf_range(1.3, 2)
+	footstep_audio.play(0)
 	

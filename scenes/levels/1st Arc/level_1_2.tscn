@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://b0iwi22pd1xua"]
+[gd_scene load_steps=60 format=3 uid="uid://b0iwi22pd1xua"]
 
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_d1f63"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/ShadowAreas.gd" id="11_oldh4"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="12_23aok"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="13_csu2x"]
-[ext_resource type="Shader" path="res://shaders/outline.gdshader" id="14_qmue3"]
+[ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="14_53yij"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="15_xaqjn"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="16_lkeih"]
 [ext_resource type="Material" uid="uid://bw44tondqgsxm" path="res://shaders/monsters.tres" id="16_qrym6"]
@@ -70,20 +70,6 @@ scale_min = 4.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_c28h7")
 color = Color(0.996078, 0.984314, 0.839216, 0.74902)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ka5c6"]
-shader = ExtResource("14_qmue3")
-shader_parameter/top = true
-shader_parameter/left = true
-shader_parameter/right = true
-shader_parameter/bottom = true
-shader_parameter/topleft = true
-shader_parameter/topright = true
-shader_parameter/bottomleft = true
-shader_parameter/bottomright = true
-shader_parameter/width = 1.0
-shader_parameter/color = Color(0.87451, 0.729412, 0.00784314, 0.733333)
-shader_parameter/inside = false
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -169,7 +155,7 @@ metadata/_edit_vertical_guides_ = [4120.0]
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_cnu3s")
-volume_db = -15.0
+volume_db = -18.0
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "hearts")]
 unique_name_in_owner = true
@@ -270,7 +256,7 @@ drag_horizontal_offset = 0.17
 drag_vertical_offset = -0.06
 
 [node name="Collectables group" type="Node2D" parent="Scene Objects"]
-material = SubResource("ShaderMaterial_ka5c6")
+material = ExtResource("14_53yij")
 
 [node name="Collectable" parent="Scene Objects/Collectables group" instance=ExtResource("15_xaqjn")]
 position = Vector2(848, 791)
