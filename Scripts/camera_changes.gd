@@ -5,8 +5,7 @@ var tweenZoom
 var tweenOffset 
 
 func _ready():
-	#tweenZoom = get_tree().create_tween()
-	pass
+	tweenZoom = get_tree().create_tween()
 
 func _on_camera_01_body_entered(body):
 	if body.name == "CharacterBody2D":
@@ -30,20 +29,16 @@ func cameraChange(zoomValue : Vector2 = Vector2(0, 0), offset : Vector2 = Vector
 	tweenOffset.tween_property(%Camera2D, "offset", offset, time)
 
 func cameraChangeZoom(zoomValue : Vector2, time : float = 3):
-	if tweenZoom:
+	if tweenZoom.is_valid():
 		tweenZoom.kill()
-	tweenZoom = create_tween()
-	tweenZoom.set_trans(Tween.TRANS_SINE)
-	tweenZoom.set_ease(Tween.EASE_IN_OUT)
-	tweenZoom.tween_property(%Camera2D, "zoom", zoomValue, time)
-	#if not tweenZoom || not tweenZoom.is_valid():
-		#tweenZoom = get_tree().create_tween()
-		#tweenZoom.set_parallel()
-		#tweenZoom.tween_property(%Camera2D, "zoom", zoomValue, time)
-		#
-	#elif tweenZoom.is_running():
-		#print("trwa jeszcze")
-		#tweenZoom.tween_property(%Camera2D, "zoom", zoomValue, time)
+		tweenZoom = get_tree().create_tween()
+		tweenZoom.tween_property(%Camera2D, "zoom", zoomValue, time)
+	else:
+		tweenZoom = get_tree().create_tween()
+		tweenZoom.set_parallel()
+		tweenZoom.set_ease(Tween.EASE_IN_OUT)
+		tweenZoom.tween_property(%Camera2D, "zoom", zoomValue, time)
+
 		
 
 func cameraChangeOffset(offsetValue : Vector2, time : float = 3):

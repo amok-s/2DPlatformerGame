@@ -53,7 +53,7 @@
 size = Vector2(42.7217, 79.049)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orkk6"]
-size = Vector2(823, 555)
+size = Vector2(653, 555)
 
 [sub_resource type="Curve" id="Curve_de16y"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -222,7 +222,7 @@ script = ExtResource("12_roao4")
 [node name="Camera_01" type="Area2D" parent="Scene Objects/CameraChanges"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
-position = Vector2(359.5, 523.5)
+position = Vector2(274.5, 523.5)
 shape = SubResource("RectangleShape2D_orkk6")
 
 [node name="TileMap" type="TileMap" parent="Scene Objects"]
