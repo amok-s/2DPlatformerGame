@@ -136,7 +136,7 @@ corner_detail = 1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc2ha"]
 bg_color = Color(0.133333, 0.054902, 0.203922, 0.52549)
 
-[node name="Level1_0" type="Node"]
+[node name="Level1_1" type="Node"]
 script = ExtResource("1_e3m3s")
 metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]

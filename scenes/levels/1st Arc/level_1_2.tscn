@@ -1,6 +1,6 @@
-[gd_scene load_steps=62 format=3 uid="uid://b0iwi22pd1xua"]
+[gd_scene load_steps=63 format=3 uid="uid://b0iwi22pd1xua"]
 
-[ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_d1f63"]
+[ext_resource type="Script" path="res://scenes/levels/1st Arc/level_1_2.gd" id="1_c62k0"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_e5plh"]
 [ext_resource type="PackedScene" uid="uid://cqddarltj231" path="res://scenes/levels/2nd Arc/level_2_0.tscn" id="4_8n42r"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/ShadowAreas.gd" id="11_oldh4"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="12_23aok"]
 [ext_resource type="Script" path="res://Scripts/camera_changes.gd" id="12_roao4"]
+[ext_resource type="Script" path="res://scenes/levels/1st Arc/Camera_01.gd" id="13_313dv"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="13_csu2x"]
 [ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="14_53yij"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="15_xaqjn"]
@@ -152,8 +153,8 @@ corner_detail = 1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc2ha"]
 bg_color = Color(0.133333, 0.054902, 0.203922, 0.52549)
 
-[node name="Level1_0" type="Node"]
-script = ExtResource("1_d1f63")
+[node name="Level1_2" type="Node"]
+script = ExtResource("1_c62k0")
 metadata/_edit_horizontal_guides_ = [-433.0, 1101.0]
 metadata/_edit_vertical_guides_ = [4120.0]
 
@@ -220,6 +221,7 @@ polygon = PackedVector2Array(257, 61.6667, 289, 128, 369.667, 117.667, 416.333, 
 script = ExtResource("12_roao4")
 
 [node name="Camera_01" type="Area2D" parent="Scene Objects/CameraChanges"]
+script = ExtResource("13_313dv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
 position = Vector2(274.5, 523.5)
@@ -403,6 +405,7 @@ position = Vector2(3420, -185)
 player = NodePath("../../CharacterBody2D")
 
 [node name="MushroomEnemy3" parent="Scene Objects/Enemies group" instance=ExtResource("16_lkeih")]
+use_parent_material = false
 position = Vector2(1149, -5)
 
 [node name="Traps group" type="Node2D" parent="Scene Objects"]
@@ -1023,8 +1026,8 @@ region_rect = Rect2(204, 52, 16, 92)
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_exited"]
-[connection signal="body_entered" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges" method="_on_camera_01_body_entered"]
-[connection signal="body_exited" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges" method="_on_camera_01_body_exited"]
+[connection signal="body_entered" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges/Camera_01" method="_on_body_entered"]
+[connection signal="body_exited" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges/Camera_01" method="_on_body_exited"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Restart" to="UI/Pause" method="_on_restart_pressed"]

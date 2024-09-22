@@ -1,6 +1,6 @@
 [gd_scene load_steps=61 format=3 uid="uid://cqddarltj231"]
 
-[ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_5hfpq"]
+[ext_resource type="Script" path="res://scenes/levels/2nd Arc/level_2_0.gd" id="1_2kxrt"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_srrgp"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_bpgu4"]
 [ext_resource type="PackedScene" uid="uid://dd4544bcjm1md" path="res://scenes/levels/2nd Arc/level_2_1.tscn" id="4_jikuh"]
@@ -157,8 +157,8 @@ corner_detail = 1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc2ha"]
 bg_color = Color(0.133333, 0.054902, 0.203922, 0.52549)
 
-[node name="Level1_0" type="Node"]
-script = ExtResource("1_5hfpq")
+[node name="Level2_0" type="Node"]
+script = ExtResource("1_2kxrt")
 metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]
 

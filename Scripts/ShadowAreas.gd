@@ -16,4 +16,3 @@ func _on_body_exited(body):
 func showShadow(character):
 	var tween = get_tree().create_tween()
 	tween.tween_property(character, "modulate", Color(0.621, 0.556, 0.634), 0.6).set_ease(Tween.EASE_IN)
-	#character.modulate = Color.BLACK
