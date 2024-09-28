@@ -1,5 +1,5 @@
 extends Node
-@onready var pause_panel = %PausePanel
+@onready var pause_panel = $PausePanel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +14,8 @@ func _process(delta):
 	if (esc_pressed == true):
 		get_tree().paused = true
 		pause_panel.show()
+		$PausePanel/VBoxContainer/Resume.grab_focus()
+
 
 
 func _on_resume_pressed():
