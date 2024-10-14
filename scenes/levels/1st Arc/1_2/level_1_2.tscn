@@ -1,6 +1,6 @@
 [gd_scene load_steps=63 format=3 uid="uid://b0iwi22pd1xua"]
 
-[ext_resource type="Script" path="res://scenes/levels/1st Arc/level_1_2.gd" id="1_c62k0"]
+[ext_resource type="Script" path="res://scenes/levels/1st Arc/1_2/level_1_2.gd" id="1_c62k0"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_e5plh"]
 [ext_resource type="PackedScene" uid="uid://cqddarltj231" path="res://scenes/levels/2nd Arc/level_2_0.tscn" id="4_8n42r"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://Scripts/ShadowAreas.gd" id="11_oldh4"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="12_23aok"]
 [ext_resource type="Script" path="res://Scripts/camera_changes.gd" id="12_roao4"]
-[ext_resource type="Script" path="res://scenes/levels/1st Arc/Camera_01.gd" id="13_313dv"]
+[ext_resource type="Script" path="res://scenes/levels/1st Arc/1_2/Camera_1_2.gd" id="13_b6mji"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="13_csu2x"]
 [ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="14_53yij"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="15_xaqjn"]
@@ -221,7 +221,7 @@ polygon = PackedVector2Array(257, 61.6667, 289, 128, 369.667, 117.667, 416.333, 
 script = ExtResource("12_roao4")
 
 [node name="Camera_01" type="Area2D" parent="Scene Objects/CameraChanges"]
-script = ExtResource("13_313dv")
+script = ExtResource("13_b6mji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
 position = Vector2(274.5, 523.5)

@@ -1,10 +1,10 @@
 [gd_scene load_steps=53 format=3 uid="uid://byg4cqglqdv2q"]
 
-[ext_resource type="Script" path="res://scenes/levels/1st Arc/level_1_0.gd" id="1_hatjl"]
+[ext_resource type="Script" path="res://scenes/levels/1st Arc/1_0/level_1_0.gd" id="1_hatjl"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_4yhkb"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_67nub"]
 [ext_resource type="Shader" path="res://shaders/chromatic_abberation.gdshader" id="3_wjgd2"]
-[ext_resource type="PackedScene" uid="uid://dng8x08fargcw" path="res://scenes/levels/1st Arc/level_1_1.tscn" id="4_quev8"]
+[ext_resource type="PackedScene" uid="uid://dng8x08fargcw" path="res://scenes/levels/1st Arc/1_1/level_1_1.tscn" id="4_quev8"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_4yko3"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_f78gj"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_jgko0"]
@@ -47,6 +47,7 @@
 [ext_resource type="Theme" uid="uid://t0yq5xb26liw" path="res://assets/UI/menu_box_bosque.tres" id="46_a4jjh"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="46_jm0th"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="47_33rq6"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ka5c6"]
 shader = ExtResource("13_h5qm4")

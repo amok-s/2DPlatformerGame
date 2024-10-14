@@ -25,6 +25,7 @@ var current_arrow
 func _ready():
 	blink.hide()
 	fruits_amount = fruits_node.get_child_count()
+	print(next_level.resource_path)
 
 func add_point():
 	points += 1
@@ -43,8 +44,13 @@ func add_fruit():
 
 func _on_finish_finished():
 	await get_tree().create_timer(0.1).timeout
+	var newScene = ResourceLoader.load_threaded_get(next_level.resource_path)
+	var music = get_parent().get_node("BgMusic")
+	if music:
+		GlobalLevelManager.music_time = music.get_playback_position()
 	Engine.time_scale = 1
-	get_tree().change_scene_to_packed(next_level)
+	get_tree().change_scene_to_packed(newScene)
+	#get_tree().change_scene_to_packed(next_level)
 
 func decrease_health():
 	spawn_chroma_chaos(0.28)
@@ -80,9 +86,8 @@ func finish_level():
 	Engine.time_scale = 0.6
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Camera2D, "zoom", Vector2(2, 2), 3).set_ease(Tween.EASE_IN)
-	var music = get_parent().get_node("BgMusic")
-	if music:
-		GlobalLevelManager.music_time = music.get_playback_position()
+	ResourceLoader.load_threaded_request(next_level.resource_path)
+	
 
 func spawn_chroma_chaos(time):
 	var b = chroma_chaos.instantiate()

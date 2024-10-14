@@ -1,6 +1,8 @@
 extends Node
 
 var music_time = 0
+var nextLevelPath: String
+var loadingArc
 
 func startLevelMusic(levelMusic, newArc = false):
 	if levelMusic:
@@ -13,3 +15,5 @@ func startLevelMusic(levelMusic, newArc = false):
 		var tween = get_tree().create_tween()
 		tween.tween_property(levelMusic, "volume_db", levelMusicVolume, 1.3)
 
+func LevelStart():
+	pass

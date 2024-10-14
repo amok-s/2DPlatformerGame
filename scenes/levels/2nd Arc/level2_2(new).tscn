@@ -12,12 +12,12 @@
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="10_srlqo"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="11_dn5tk"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="12_4xshr"]
+[ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="13_1yb04"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="13_422tp"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="14_evd24"]
 [ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/enemies and traps/chameleon.tscn" id="15_qjcpp"]
 [ext_resource type="PackedScene" uid="uid://dfbv5uh0yrmf1" path="res://scenes/enemies and traps/turtle.tscn" id="16_h0xs0"]
 [ext_resource type="PackedScene" uid="uid://d1e35equn7een" path="res://scenes/enemies and traps/bee.tscn" id="17_wbcax"]
-[ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/enemies and traps/plant.tscn" id="18_xgdpg"]
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="19_wx2ys"]
 [ext_resource type="PackedScene" uid="uid://bwou04ab2t0gd" path="res://scenes/enemies and traps/moving_platform.tscn" id="20_hjwvj"]
 [ext_resource type="PackedScene" uid="uid://4r0yhti5mlkd" path="res://scenes/enemies and traps/spiked_chain.tscn" id="21_6efeu"]
@@ -251,6 +251,7 @@ drag_horizontal_offset = 0.17
 drag_vertical_offset = -0.06
 
 [node name="Collectables group" type="Node2D" parent="Scene Objects"]
+material = ExtResource("13_1yb04")
 
 [node name="Collectable_1" parent="Scene Objects/Collectables group" instance=ExtResource("13_422tp")]
 position = Vector2(2424, 732)
@@ -332,6 +333,9 @@ position = Vector2(-166, 502)
 [node name="MushroomEnemy3" parent="Scene Objects/Enemies group" instance=ExtResource("14_evd24")]
 position = Vector2(1197, 159)
 
+[node name="MushroomEnemy4" parent="Scene Objects/Enemies group" instance=ExtResource("14_evd24")]
+position = Vector2(2764, 395)
+
 [node name="Chameleon" parent="Scene Objects/Enemies group" instance=ExtResource("15_qjcpp")]
 position = Vector2(791, 548)
 
@@ -340,14 +344,6 @@ position = Vector2(1239, 359)
 
 [node name="Bee" parent="Scene Objects/Enemies group" instance=ExtResource("17_wbcax")]
 position = Vector2(176, 514)
-
-[node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("18_xgdpg")]
-position = Vector2(2747, 388)
-player = NodePath("../../CharacterBody2D")
-
-[node name="MushroomEnemy_1" parent="Scene Objects/Enemies group" instance=ExtResource("14_evd24")]
-position = Vector2(2930, 741)
-isStacionary = true
 
 [node name="Bee2" parent="Scene Objects/Enemies group" instance=ExtResource("17_wbcax")]
 position = Vector2(2300, 543)
@@ -447,6 +443,54 @@ shape = SubResource("CircleShape2D_ah6mr")
 shape = SubResource("CircleShape2D_t25u1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/Chained_Ball2"]
+libraries = {
+"": SubResource("AnimationLibrary_exmyc")
+}
+autoplay = "motion"
+
+[node name="Chained_Ball3" type="Sprite2D" parent="Scene Objects/Traps group"]
+editor_description = "- each segment y = 13
+- ball y = 22"
+position = Vector2(2733, -39)
+scale = Vector2(2, 2)
+texture = ExtResource("22_0ncta")
+script = ExtResource("23_3axxt")
+
+[node name="segment" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3"]
+position = Vector2(0, 13)
+texture = ExtResource("22_0ncta")
+
+[node name="segment2" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3"]
+position = Vector2(0, 26)
+texture = ExtResource("22_0ncta")
+
+[node name="segment3" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3"]
+position = Vector2(0, 39)
+texture = ExtResource("22_0ncta")
+
+[node name="segment4" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3"]
+position = Vector2(0, 52)
+texture = ExtResource("22_0ncta")
+
+[node name="segment5" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3"]
+position = Vector2(0, 65)
+texture = ExtResource("22_0ncta")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scene Objects/Traps group/Chained_Ball3"]
+position = Vector2(0, 87)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3/StaticBody2D"]
+texture = ExtResource("24_suj08")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball3/StaticBody2D"]
+shape = SubResource("CircleShape2D_ah6mr")
+
+[node name="Area2D" type="Area2D" parent="Scene Objects/Traps group/Chained_Ball3/StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball3/StaticBody2D/Area2D"]
+shape = SubResource("CircleShape2D_t25u1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/Chained_Ball3"]
 libraries = {
 "": SubResource("AnimationLibrary_exmyc")
 }
@@ -582,7 +626,6 @@ metadata/_edit_lock_ = true
 color = Color(0.984314, 0.415686, 0.541176, 1)
 
 [node name="Foliage" type="Node2D" parent="Scene Objects"]
-visible = false
 top_level = true
 
 [node name="Sprite-09Bright" type="Sprite2D" parent="Scene Objects/Foliage"]
@@ -1050,6 +1093,7 @@ text = "back to main menu"
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/Traps group/Chained_Ball2/StaticBody2D/Area2D" to="Scene Objects/Traps group/Chained_Ball2" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Scene Objects/Traps group/Chained_Ball3/StaticBody2D/Area2D" to="Scene Objects/Traps group/Chained_Ball3" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Restart" to="UI/Pause" method="_on_restart_pressed"]

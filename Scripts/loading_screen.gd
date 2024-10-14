@@ -1,11 +1,17 @@
 extends Node2D
 
+var sceneLoadStatus = 0
+var sceneName
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	sceneName = GlobalLevelManager.nextLevelPath
+	ResourceLoader.load_threaded_request(sceneName)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	sceneLoadStatus = ResourceLoader.load_threaded_get_status(sceneName)
+	if sceneLoadStatus == ResourceLoader.THREAD_LOAD_LOADED:
+		var newScene = ResourceLoader.load_threaded_get(sceneName)
+		get_tree().change_scene_to_packed(newScene)
