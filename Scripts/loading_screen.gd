@@ -5,6 +5,12 @@ var sceneName
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Arc1.hide()
+	$Arc2.hide()
+	if GlobalLevelManager.currentArc == 1:
+		$Arc1.show()
+	if GlobalLevelManager.currentArc == 2:
+		$Arc2.show()
 	sceneName = GlobalLevelManager.nextLevelPath
 	ResourceLoader.load_threaded_request(sceneName)
 

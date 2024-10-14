@@ -2,7 +2,9 @@ extends Node
 
 var music_time = 0
 var nextLevelPath: String
-var loadingArc
+var currentArc = 0
+var endOfArc = false
+
 
 func startLevelMusic(levelMusic, newArc = false):
 	if levelMusic:

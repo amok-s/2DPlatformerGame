@@ -4,7 +4,8 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalLevelManager.startLevelMusic($BgMusic, true)
-
+	GlobalLevelManager.endOfArc = false
+	GlobalLevelManager.currentArc = 2
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

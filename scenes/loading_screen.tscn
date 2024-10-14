@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bvyyhppb23ejw"]
+[gd_scene load_steps=52 format=3 uid="uid://bvyyhppb23ejw"]
 
 [ext_resource type="Shader" path="res://shaders/scroll.gdshader" id="1_8uc0c"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_hfpq0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://daosphxj6dyv" path="res://assets/PineForestParallax/MorningLayer3.png" id="2_ooamt"]
 [ext_resource type="Texture2D" uid="uid://b45rg3f3ca2yd" path="res://assets/OtherSprites/Green Effect and Bullet 16x16.png" id="3_ihqis"]
 [ext_resource type="Theme" uid="uid://cx6d1dsn20yf6" path="res://assets/UI/main_menu.tres" id="4_6h3h0"]
+[ext_resource type="Texture2D" uid="uid://6dp2y3g8bffl" path="res://assets/Turtle/Idle 1 (44x26).png" id="5_5agqn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8w856"]
 shader = ExtResource("1_8uc0c")
@@ -31,6 +32,186 @@ shader_parameter/bottomright = true
 shader_parameter/width = 1.0
 shader_parameter/color = Color(0.909804, 1, 0.454902, 1)
 shader_parameter/inside = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkbdu"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(0, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3mrv"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(44, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ws3j"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(88, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ulsk"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(132, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3maol"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(176, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d754"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(220, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3pjf"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(264, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edj8o"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(308, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6v2l"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(352, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihvje"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(396, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcnsn"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(440, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wviy4"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(484, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slnke"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(528, 0, 44, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcoix"]
+atlas = ExtResource("5_5agqn")
+region = Rect2(572, 0, 44, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2j5py"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkbdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3mrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ws3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ulsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3maol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d754")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3pjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edj8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6v2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihvje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcnsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wviy4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slnke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcoix")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpuk4"]
+atlas = ExtResource("3_ihqis")
+region = Rect2(304, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l14sl"]
+atlas = ExtResource("3_ihqis")
+region = Rect2(320, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gygvl"]
+atlas = ExtResource("3_ihqis")
+region = Rect2(336, 176, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3aoi5"]
+atlas = ExtResource("3_ihqis")
+region = Rect2(352, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dhyol"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpuk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l14sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gygvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3aoi5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_p5oin"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arc1/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["loading"]
+}
+
+[sub_resource type="Animation" id="Animation_8418e"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Arc1/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["loading", "loading.", "loading..", "loading..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_foptu"]
+_data = {
+"RESET": SubResource("Animation_p5oin"),
+"idle": SubResource("Animation_8418e")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2y1b"]
 atlas = ExtResource("2_6lk1q")
@@ -152,92 +333,21 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qpuk4"]
-atlas = ExtResource("3_ihqis")
-region = Rect2(304, 176, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l14sl"]
-atlas = ExtResource("3_ihqis")
-region = Rect2(320, 176, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gygvl"]
-atlas = ExtResource("3_ihqis")
-region = Rect2(336, 176, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3aoi5"]
-atlas = ExtResource("3_ihqis")
-region = Rect2(352, 176, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dhyol"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qpuk4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l14sl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gygvl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3aoi5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}]
-
-[sub_resource type="Animation" id="Animation_p5oin"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["loading"]
-}
-
-[sub_resource type="Animation" id="Animation_8418e"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": ["loading", "loading.", "loading..", "loading..."]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_foptu"]
-_data = {
-"RESET": SubResource("Animation_p5oin"),
-"idle": SubResource("Animation_8418e")
-}
-
 [node name="LoadingScreen" type="Node2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_s52qn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Arc2" type="Node2D" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Arc2"]
 offset_left = -4.0
 offset_top = -3.0
 offset_right = 390.0
 offset_bottom = 221.0
-color = Color(0.109804, 0.305882, 0.211765, 1)
+color = Color(0.470588, 0.0901961, 0.219608, 1)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="Arc2"]
 visible = false
 modulate = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_8w856")
@@ -255,8 +365,8 @@ grow_vertical = 2
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ooamt")
 
-[node name="ForestBg" type="TextureRect" parent="."]
-modulate = Color(0, 0, 0, 1)
+[node name="ForestBg" type="TextureRect" parent="Arc2"]
+modulate = Color(0.415686, 0, 0.513726, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_uwaa0")
 anchors_preset = 15
@@ -273,16 +383,16 @@ texture = ExtResource("2_ooamt")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arc2"]
 material = SubResource("ShaderMaterial_fh7uq")
-position = Vector2(247.667, 181.333)
+position = Vector2(250.333, 190.333)
 rotation = 3.14159
-scale = Vector2(1.5, -1.5)
-sprite_frames = SubResource("SpriteFrames_xpmie")
+scale = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_2j5py")
 autoplay = "default"
-frame_progress = 0.907926
+frame_progress = 0.109831
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Arc2"]
 visible = false
 position = Vector2(358.667, 184.667)
 scale = Vector2(2.5, 2.5)
@@ -290,7 +400,7 @@ sprite_frames = SubResource("SpriteFrames_dhyol")
 autoplay = "default"
 frame_progress = 0.71013
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="Arc2"]
 offset_left = 281.0
 offset_top = 185.333
 offset_right = 415.0
@@ -302,7 +412,89 @@ theme_override_font_sizes/font_size = 20
 text = "loading"
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Arc2"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_foptu")
+}
+autoplay = "idle"
+
+[node name="Arc1" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Arc1"]
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 390.0
+offset_bottom = 221.0
+color = Color(0.109804, 0.305882, 0.211765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Arc1"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_8w856")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.33333
+offset_top = -7.66667
+offset_right = 4055.67
+offset_bottom = 2279.33
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ooamt")
+
+[node name="ForestBg" type="TextureRect" parent="Arc1"]
+modulate = Color(0.219608, 0.227451, 0.356863, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_uwaa0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -20.0
+offset_right = 3015.0
+offset_bottom = 1809.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_ooamt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arc1"]
+material = SubResource("ShaderMaterial_fh7uq")
+position = Vector2(247.667, 181.333)
+rotation = 3.14159
+scale = Vector2(1.5, -1.5)
+sprite_frames = SubResource("SpriteFrames_xpmie")
+autoplay = "default"
+frame_progress = 0.907926
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Arc1"]
+visible = false
+position = Vector2(358.667, 184.667)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_dhyol")
+autoplay = "default"
+frame_progress = 0.71013
+
+[node name="Label" type="Label" parent="Arc1"]
+offset_left = 281.0
+offset_top = 185.333
+offset_right = 415.0
+offset_bottom = 215.333
+theme = ExtResource("4_6h3h0")
+theme_override_colors/font_outline_color = Color(0.909804, 1, 0.454902, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+text = "loading"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Arc1"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_foptu")
 }

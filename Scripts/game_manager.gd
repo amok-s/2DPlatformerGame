@@ -14,6 +14,7 @@ extends Node
 @export var FruitsLeftForArrowToShow : int
 @export var sfx : PackedScene
 
+var loadingScreen = "res://scenes/loading_screen.tscn"
 
 var points = 0
 var lives = 3
@@ -40,17 +41,6 @@ func add_fruit():
 		arrow_timer()
 	if fruits_count == fruits_amount:
 		finish_level()
-		
-
-func _on_finish_finished():
-	await get_tree().create_timer(0.1).timeout
-	var newScene = ResourceLoader.load_threaded_get(next_level.resource_path)
-	var music = get_parent().get_node("BgMusic")
-	if music:
-		GlobalLevelManager.music_time = music.get_playback_position()
-	Engine.time_scale = 1
-	get_tree().change_scene_to_packed(newScene)
-	#get_tree().change_scene_to_packed(next_level)
 
 func decrease_health():
 	spawn_chroma_chaos(0.28)
@@ -86,9 +76,25 @@ func finish_level():
 	Engine.time_scale = 0.6
 	var tween = get_tree().create_tween()
 	tween.tween_property(%Camera2D, "zoom", Vector2(2, 2), 3).set_ease(Tween.EASE_IN)
-	ResourceLoader.load_threaded_request(next_level.resource_path)
+	if !GlobalLevelManager.endOfArc:
+		ResourceLoader.load_threaded_request(next_level.resource_path)
+	else:
+		GlobalLevelManager.nextLevelPath = next_level.resource_path
+		ResourceLoader.load_threaded_request(loadingScreen)
+		
+func _on_finish_finished():
+	await get_tree().create_timer(0.1).timeout
 	
-
+	var newScene = ResourceLoader.load_threaded_get(next_level.resource_path if GlobalLevelManager.endOfArc == false else loadingScreen)
+	
+	var music = get_parent().get_node("BgMusic")
+	if music:
+		GlobalLevelManager.music_time = music.get_playback_position()
+	if GlobalLevelManager.endOfArc == true:
+		GlobalLevelManager.currentArc = GlobalLevelManager.currentArc + 1
+	Engine.time_scale = 1
+	get_tree().change_scene_to_packed(newScene)
+	
 func spawn_chroma_chaos(time):
 	var b = chroma_chaos.instantiate()
 	get_parent().get_parent().add_child(b)

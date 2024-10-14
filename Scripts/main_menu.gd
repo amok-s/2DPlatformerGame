@@ -58,6 +58,7 @@ func _on_level_3_pressed():
 func _on_play_button_pressed():
 	tap_sound.play(0)
 	if (tap_sound.finished):
+		GlobalLevelManager.currentArc = 1
 		GlobalLevelManager.nextLevelPath = "res://scenes/levels/1st Arc/1_0/level_1_0.tscn"
 		var loadingScreen = load("res://scenes/loading_screen.tscn")
 		get_tree().change_scene_to_packed(loadingScreen)
