@@ -48,7 +48,6 @@
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="46_jm0th"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="47_33rq6"]
 
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ka5c6"]
 shader = ExtResource("13_h5qm4")
 shader_parameter/top = true
@@ -93,6 +92,7 @@ metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_4yhkb")
 volume_db = -15.0
 

@@ -144,6 +144,7 @@ bg_color = Color(0.133333, 0.054902, 0.203922, 0.52549)
 script = ExtResource("1_m2ce3")
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_p3hoq")
 volume_db = -20.0
 

@@ -25,6 +25,7 @@ var current_arrow
 
 func _ready():
 	blink.hide()
+	Engine.time_scale = 1
 	fruits_amount = fruits_node.get_child_count()
 	print(next_level.resource_path)
 
@@ -92,7 +93,6 @@ func _on_finish_finished():
 		GlobalLevelManager.music_time = music.get_playback_position()
 	if GlobalLevelManager.endOfArc == true:
 		GlobalLevelManager.currentArc = GlobalLevelManager.currentArc + 1
-	Engine.time_scale = 1
 	get_tree().change_scene_to_packed(newScene)
 	
 func spawn_chroma_chaos(time):

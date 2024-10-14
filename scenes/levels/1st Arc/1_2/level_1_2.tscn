@@ -159,6 +159,7 @@ metadata/_edit_horizontal_guides_ = [-433.0, 1101.0]
 metadata/_edit_vertical_guides_ = [4120.0]
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_cnu3s")
 volume_db = -18.0
 
