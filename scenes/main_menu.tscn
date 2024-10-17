@@ -289,6 +289,7 @@ theme_override_constants/separation = 6
 layout_mode = 2
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
+mouse_filter = 2
 theme = SubResource("Theme_1kdex")
 theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
 theme_override_colors/font_pressed_color = Color(0.772549, 0.976471, 0, 1)
@@ -305,6 +306,7 @@ script = ExtResource("18_h14l1")
 [node name="Options" type="Button" parent="Menu/MenuBox/MainMenu"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 2
 theme = ExtResource("11_e0m1u")
 theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 15
@@ -313,6 +315,7 @@ text = "Options"
 [node name="Credits" type="Button" parent="Menu/MenuBox/MainMenu"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 2
 theme = ExtResource("11_e0m1u")
 theme_override_font_sizes/font_size = 15
 text = "Credits
@@ -321,6 +324,7 @@ text = "Credits
 [node name="Quit" type="Button" parent="Menu/MenuBox/MainMenu"]
 layout_mode = 2
 size_flags_vertical = 4
+mouse_filter = 2
 theme = ExtResource("11_e0m1u")
 theme_override_font_sizes/font_size = 15
 text = "Quit"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://b0iwi22pd1xua"]
+[gd_scene load_steps=61 format=3 uid="uid://b0iwi22pd1xua"]
 
 [ext_resource type="Script" path="res://scenes/levels/1st Arc/1_2/level_1_2.gd" id="1_c62k0"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
@@ -41,14 +41,13 @@
 [ext_resource type="Texture2D" uid="uid://b1twlhensmx0w" path="res://assets/Foliage/ferns - sprite - 12.png" id="31_obf5k"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="32_0nc86"]
 [ext_resource type="Texture2D" uid="uid://d2ffkpbntf060" path="res://assets/Foliage/sprite - 08.png" id="32_5jnvq"]
-[ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="33_1b5e1"]
 [ext_resource type="Texture2D" uid="uid://dli1oxbx3syj6" path="res://assets/Foliage/sprite - 09 bright.png" id="33_roxf1"]
 [ext_resource type="Texture2D" uid="uid://cyxy1djnmeqrf" path="res://assets/Foliage/sprite - 08 bright.png" id="34_4fro0"]
-[ext_resource type="Theme" uid="uid://t0yq5xb26liw" path="res://assets/UI/menu_box_bosque.tres" id="34_wvhi4"]
 [ext_resource type="Texture2D" uid="uid://uyjxepr4k11l" path="res://assets/Foliage/sprite - 1000 bright.png" id="36_uk34j"]
 [ext_resource type="Texture2D" uid="uid://bqgrojjhad54v" path="res://assets/Foliage/sprite - 0333.png" id="37_ml50e"]
 [ext_resource type="Texture2D" uid="uid://pp6ssxrmu04f" path="res://assets/Foliage/sprite - 08 bright66.png" id="38_w7yjd"]
 [ext_resource type="Shader" path="res://shaders/foliage_wind.gdshader" id="40_rn81f"]
+[ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="48_8lic3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_he51u"]
 size = Vector2(42.7217, 79.049)
@@ -149,9 +148,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc2ha"]
-bg_color = Color(0.133333, 0.054902, 0.203922, 0.52549)
 
 [node name="Level1_2" type="Node"]
 script = ExtResource("1_c62k0")
@@ -932,96 +928,8 @@ layout_mode = 2
 texture = ExtResource("32_0nc86")
 expand_mode = 2
 
-[node name="Pause" type="Node" parent="UI"]
-script = ExtResource("33_1b5e1")
-
-[node name="PausePanel" type="Panel" parent="UI/Pause"]
-unique_name_in_owner = true
+[node name="Pause" parent="UI" instance=ExtResource("48_8lic3")]
 visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jc2ha")
-
-[node name="Node2D" type="Node2D" parent="UI/Pause/PausePanel"]
-scale = Vector2(2, 2)
-
-[node name="Panel" type="Panel" parent="UI/Pause/PausePanel/Node2D"]
-offset_left = 148.0
-offset_top = 48.0
-offset_right = 431.0
-offset_bottom = 280.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("34_wvhi4")
-
-[node name="Label" type="Label" parent="UI/Pause/PausePanel/Node2D"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 188.5
-offset_top = 63.0
-offset_right = 389.5
-offset_bottom = 113.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
-theme_override_fonts/font = ExtResource("31_lg4bx")
-theme_override_font_sizes/font_size = 45
-text = "GAME PAUSED"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PausePanel"]
-layout_mode = 1
-offset_left = 318.0
-offset_top = 213.0
-offset_right = 580.0
-offset_bottom = 379.0
-scale = Vector2(2, 2)
-theme = ExtResource("34_wvhi4")
-theme_override_constants/separation = 2
-alignment = 1
-
-[node name="Resume" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("31_lg4bx")
-theme_override_font_sizes/font_size = 31
-text = "resume"
-
-[node name="Restart" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("31_lg4bx")
-theme_override_font_sizes/font_size = 31
-text = "restart"
-
-[node name="MainMenu" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("31_lg4bx")
-theme_override_font_sizes/font_size = 31
-text = "back to main menu"
-
-[node name="Vine" type="Node2D" parent="UI/Pause/PausePanel"]
-position = Vector2(-163, 0)
-
-[node name="NatureTiles" type="Sprite2D" parent="UI/Pause/PausePanel/Vine"]
-position = Vector2(991, 139)
-scale = Vector2(4, 4)
-texture = ExtResource("28_612pb")
-region_enabled = true
-region_rect = Rect2(204, 52, 16, 92)
-
-[node name="NatureTiles2" type="Sprite2D" parent="UI/Pause/PausePanel/Vine"]
-position = Vector2(992, 495)
-scale = Vector2(4, 4)
-texture = ExtResource("28_612pb")
-region_enabled = true
-region_rect = Rect2(204, 52, 16, 92)
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
@@ -1030,6 +938,3 @@ region_rect = Rect2(204, 52, 16, 92)
 [connection signal="body_entered" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges/Camera_01" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges/Camera_01" method="_on_body_exited"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Restart" to="UI/Pause" method="_on_restart_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]

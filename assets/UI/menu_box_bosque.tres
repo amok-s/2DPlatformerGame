@@ -1,9 +1,11 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://t0yq5xb26liw"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://t0yq5xb26liw"]
 
 [ext_resource type="Texture2D" uid="uid://cuk6h2iywa11a" path="res://assets/UI/Border All 9.png" id="1_7g64t"]
 [ext_resource type="StyleBox" uid="uid://clmfrfhecinlc" path="res://assets/UI/focus_border.tres" id="1_fovfm"]
 [ext_resource type="Texture2D" uid="uid://d8tq8h6apfpn" path="res://assets/UI/Border All 4.png" id="2_7xrbg"]
 [ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="2_nbu8s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oq121"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qoxb"]
 content_margin_top = 10.0
@@ -37,11 +39,14 @@ region_rect = Rect2(257, 0, 62, 63)
 
 [resource]
 default_font = ExtResource("2_nbu8s")
+Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.94902, 0.94902, 0.94902, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 8
 Button/font_sizes/font_size = 15
 Button/styles/focus = ExtResource("1_fovfm")
-Button/styles/hover = ExtResource("1_fovfm")
+Button/styles/hover = SubResource("StyleBoxEmpty_oq121")
 Button/styles/normal = SubResource("StyleBoxFlat_1qoxb")
 Button/styles/pressed = SubResource("StyleBoxTexture_otq02")
 Fonts/fonts/normal = ExtResource("2_nbu8s")

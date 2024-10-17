@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://byg4cqglqdv2q"]
+[gd_scene load_steps=51 format=3 uid="uid://byg4cqglqdv2q"]
 
 [ext_resource type="Script" path="res://scenes/levels/1st Arc/1_0/level_1_0.gd" id="1_hatjl"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_4yhkb"]
@@ -43,8 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://b1twlhensmx0w" path="res://assets/Foliage/ferns - sprite - 12.png" id="41_k5bhd"]
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="42_63bdp"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="45_6twhs"]
-[ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="45_cr5u6"]
-[ext_resource type="Theme" uid="uid://t0yq5xb26liw" path="res://assets/UI/menu_box_bosque.tres" id="46_a4jjh"]
+[ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="46_j4t6w"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="46_jm0th"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="47_33rq6"]
 
@@ -82,9 +81,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc2ha"]
-bg_color = Color(0.133333, 0.054902, 0.203922, 0.52549)
 
 [node name="Level1_0" type="Node"]
 script = ExtResource("1_hatjl")
@@ -945,100 +941,8 @@ layout_mode = 2
 texture = ExtResource("47_33rq6")
 expand_mode = 2
 
-[node name="Pause" type="Node" parent="UI"]
-script = ExtResource("45_cr5u6")
-
-[node name="PausePanel" type="Panel" parent="UI/Pause"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jc2ha")
-
-[node name="Node2D" type="Node2D" parent="UI/Pause/PausePanel"]
-scale = Vector2(2, 2)
-
-[node name="Panel" type="Panel" parent="UI/Pause/PausePanel/Node2D"]
-offset_left = 148.0
-offset_top = 48.0
-offset_right = 431.0
-offset_bottom = 280.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("46_a4jjh")
-
-[node name="Label" type="Label" parent="UI/Pause/PausePanel/Node2D"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 188.5
-offset_top = 63.0
-offset_right = 389.5
-offset_bottom = 113.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
-theme_override_fonts/font = ExtResource("46_jm0th")
-theme_override_font_sizes/font_size = 45
-text = "GAME PAUSED"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PausePanel"]
-layout_mode = 1
-offset_left = 318.0
-offset_top = 213.0
-offset_right = 580.0
-offset_bottom = 379.0
-scale = Vector2(2, 2)
-theme = ExtResource("46_a4jjh")
-theme_override_constants/separation = 2
-alignment = 1
-
-[node name="Resume" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("46_jm0th")
-theme_override_font_sizes/font_size = 31
-text = "resume"
-
-[node name="Restart" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("46_jm0th")
-theme_override_font_sizes/font_size = 31
-text = "restart"
-
-[node name="MainMenu" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("46_jm0th")
-theme_override_font_sizes/font_size = 31
-text = "back to main menu"
-
-[node name="Vine" type="Node2D" parent="UI/Pause/PausePanel"]
-position = Vector2(-163, 0)
-
-[node name="NatureTiles" type="Sprite2D" parent="UI/Pause/PausePanel/Vine"]
-position = Vector2(991, 139)
-scale = Vector2(4, 4)
-texture = ExtResource("42_63bdp")
-region_enabled = true
-region_rect = Rect2(204, 52, 16, 92)
-
-[node name="NatureTiles2" type="Sprite2D" parent="UI/Pause/PausePanel/Vine"]
-position = Vector2(992, 495)
-scale = Vector2(4, 4)
-texture = ExtResource("42_63bdp")
-region_enabled = true
-region_rect = Rect2(204, 52, 16, 92)
+[node name="Pause" parent="UI" instance=ExtResource("46_j4t6w")]
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Restart" to="UI/Pause" method="_on_restart_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
