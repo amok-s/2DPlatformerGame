@@ -1,0 +1,20 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cmed2lwqbt6o4"]
+
+[ext_resource type="Texture2D" uid="uid://dsygxu7wp1hex" path="res://assets/UI/Deco All 4.png" id="1_k0vf6"]
+
+[resource]
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 12.0
+texture = ExtResource("1_k0vf6")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(256, 256, 64, 64)
+draw_center = false

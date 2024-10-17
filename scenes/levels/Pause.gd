@@ -59,7 +59,7 @@ func camera_zoom_in():
 
 func pause():
 	pause_panel.show()
-	#ui.hide()
+	ui.hide()
 	$PausePanel/VBoxContainer/Resume.grab_focus()
 	bgMusic.volume_db = bgMusic.volume_db - 12
 	get_tree().paused = true

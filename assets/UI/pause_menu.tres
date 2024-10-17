@@ -1,10 +1,8 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dho6g7d4levdn"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dho6g7d4levdn"]
 
-[ext_resource type="StyleBox" uid="uid://clmfrfhecinlc" path="res://assets/UI/focus_border.tres" id="1_hxntc"]
+[ext_resource type="StyleBox" uid="uid://cmed2lwqbt6o4" path="res://assets/UI/pause_focus.tres" id="1_4aake"]
 [ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="3_wd4lc"]
 [ext_resource type="Texture2D" uid="uid://cuk6h2iywa11a" path="res://assets/UI/Border All 9.png" id="4_8e6rv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oq121"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qoxb"]
 content_margin_top = 10.0
@@ -30,10 +28,10 @@ Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0.796078, 1, 0.454902, 1)
 Button/constants/outline_size = 8
 Button/font_sizes/font_size = 15
-Button/styles/focus = ExtResource("1_hxntc")
-Button/styles/hover = SubResource("StyleBoxEmpty_oq121")
+Button/styles/focus = ExtResource("1_4aake")
+Button/styles/hover = ExtResource("1_4aake")
 Button/styles/normal = SubResource("StyleBoxFlat_1qoxb")
-Button/styles/pressed = ExtResource("1_hxntc")
+Button/styles/pressed = ExtResource("1_4aake")
 Fonts/fonts/normal = ExtResource("3_wd4lc")
 Panel/styles/panel = SubResource("StyleBoxTexture_7ky6j")
 Panel/styles/play_button = null

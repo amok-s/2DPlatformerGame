@@ -929,7 +929,6 @@ texture = ExtResource("32_0nc86")
 expand_mode = 2
 
 [node name="Pause" parent="UI" instance=ExtResource("48_8lic3")]
-visible = false
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
