@@ -18,6 +18,7 @@ func timer():
 	var random = randf_range(0, 4)
 	if get_tree():
 		await get_tree().create_timer(random).timeout
+		print("shooting")
 		shoot()
 
 
@@ -30,9 +31,6 @@ func _process(_delta):
 	if not is_on_floor():
 		velocity.y += gravity * _delta
 		
-	#var playerOnRight = (player.position.x - position.x) > 0
-	#sprite.flip_h = playerOnRight
-	#%Area2D/CollisionShape2D.flip_h = playerOnRight
 
 func shoot():
 	checkPlayerPosition()

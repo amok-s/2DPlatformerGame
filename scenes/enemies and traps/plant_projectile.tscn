@@ -70,6 +70,7 @@ size = Vector2(24, 8)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1bcmr"]
 
 [node name="plant projectile" type="Node2D"]
+process_mode = 1
 use_parent_material = true
 
 [node name="plant projectile" type="StaticBody2D" parent="."]

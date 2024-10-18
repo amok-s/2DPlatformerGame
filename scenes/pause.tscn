@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cx5eqhjjdi1b"]
+[gd_scene load_steps=9 format=3 uid="uid://cx5eqhjjdi1b"]
 
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="1_o0ns5"]
 [ext_resource type="Shader" path="res://shaders/pixelate.gdshader" id="2_ol6dk"]
 [ext_resource type="Theme" uid="uid://t0yq5xb26liw" path="res://assets/UI/menu_box_bosque.tres" id="3_t6kx5"]
+[ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="4_d8m81"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="4_h1e6r"]
 [ext_resource type="Theme" uid="uid://dho6g7d4levdn" path="res://assets/UI/pause_menu.tres" id="5_l75wh"]
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="6_idpwl"]
@@ -43,6 +44,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -30.0
+offset_right = -196.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -53,10 +58,10 @@ position = Vector2(-2, 12)
 scale = Vector2(2, 2)
 
 [node name="Panel" type="Panel" parent="PausePanel/Node2D"]
-offset_left = 165.0
+offset_left = 180.0
 offset_top = 31.0
-offset_right = 407.0
-offset_bottom = 236.0
+offset_right = 405.0
+offset_bottom = 287.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_t6kx5")
@@ -65,14 +70,16 @@ theme = ExtResource("3_t6kx5")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 206.0
-offset_top = 40.0
-offset_right = 374.0
-offset_bottom = 82.0
+offset_left = 210.0
+offset_top = 50.5
+offset_right = 378.0
+offset_bottom = 92.5
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
-theme_override_fonts/font = ExtResource("4_h1e6r")
-theme_override_font_sizes/font_size = 38
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_d8m81")
+theme_override_font_sizes/font_size = 21
 text = "GAME PAUSED"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PausePanel"]
@@ -84,9 +91,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 470.0
-offset_top = 171.0
+offset_top = 182.0
 offset_right = 581.0
-offset_bottom = 313.0
+offset_bottom = 372.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -116,6 +123,17 @@ theme_override_font_sizes/font_size = 23
 button_mask = 0
 text = "restart"
 
+[node name="Options" type="Button" parent="PausePanel/VBoxContainer"]
+process_mode = 3
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("4_h1e6r")
+theme_override_font_sizes/font_size = 23
+button_mask = 0
+text = "options"
+
 [node name="MainMenu" type="Button" parent="PausePanel/VBoxContainer"]
 process_mode = 3
 layout_mode = 2
@@ -128,7 +146,7 @@ text = "main menu"
 
 [node name="Vine" type="Node2D" parent="PausePanel"]
 modulate = Color(0.439216, 0.258824, 0, 1)
-position = Vector2(-1092, -180)
+position = Vector2(-1627, -180)
 scale = Vector2(2, 2)
 
 [node name="NatureTiles" type="Sprite2D" parent="PausePanel/Vine"]
@@ -145,6 +163,94 @@ texture = ExtResource("6_idpwl")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
+[node name="OptionsPanel" type="Panel" parent="."]
+offset_left = 659.0
+offset_top = 146.0
+offset_right = 881.0
+offset_bottom = 351.0
+scale = Vector2(2, 2)
+theme = ExtResource("5_l75wh")
+
+[node name="WIP info" type="Label" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 31.5
+offset_bottom = -7.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_d8m81")
+theme_override_font_sizes/font_size = 14
+text = "work in progress
+"
+
+[node name="MasterVolume" type="Label" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 16.0
+offset_right = 14.0
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_d8m81")
+theme_override_font_sizes/font_size = 14
+text = "master volume"
+
+[node name="MasterVolume2" type="Label" parent="OptionsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 75.0
+offset_right = 14.0
+offset_bottom = 89.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("4_d8m81")
+theme_override_font_sizes/font_size = 14
+text = "music volume"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsPanel"]
+layout_mode = 0
+offset_left = 22.5
+offset_top = 142.0
+offset_right = 197.5
+offset_bottom = 184.0
+theme_override_constants/separation = 24
+
+[node name="Default" type="Button" parent="OptionsPanel/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("4_h1e6r")
+theme_override_font_sizes/font_size = 19
+button_mask = 0
+text = "default"
+
+[node name="Back" type="Button" parent="OptionsPanel/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("4_h1e6r")
+theme_override_font_sizes/font_size = 19
+button_mask = 0
+text = "save & go back"
+
 [connection signal="pressed" from="PausePanel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PausePanel/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="OptionsPanel/HBoxContainer/Back" to="." method="_on_back_pressed"]

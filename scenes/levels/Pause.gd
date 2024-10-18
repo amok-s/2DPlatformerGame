@@ -2,22 +2,27 @@ extends Node
 @onready var pause_panel = $PausePanel
 @onready var bgMusic = $"../../BgMusic"
 @onready var ui = $"../CoinsPanel"
+@onready var player = $"../../Scene Objects/CharacterBody2D"
 
-
+var zoom_protect = 0
 var original_cam
+var can_esc = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pause_panel.hide()
 	$CanvasLayer.hide()
+	$OptionsPanel.hide()
 	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var esc_pressed = Input.is_action_just_pressed("escape")
-	if (esc_pressed == true):
+	if (esc_pressed == true and can_esc == true):
+		can_esc = false
 		camera_zoom_in()
 		$CanvasLayer.show()
+		
 
 
 
@@ -48,13 +53,18 @@ func unpause():
 	var cam_tween = get_tree().create_tween()
 	cam_tween.set_parallel()
 	cam_tween.tween_property(%Camera2D, "zoom", original_cam, 0.4)
+	cam_tween.tween_callback(change_esc_bool).set_delay(0.4)
+	
+	
+func change_esc_bool():
+	can_esc = true
 	
 func camera_zoom_in():
 	var tween = get_tree().create_tween()
 	original_cam = %Camera2D.zoom
 	tween.set_parallel()
 	tween.set_ease(Tween.EASE_IN_OUT)
-	tween.tween_property(%Camera2D, "zoom", Vector2(3.4, 3.4), 0.2)
+	tween.tween_property(%Camera2D, "zoom", Vector2(3.6, 3.6), 0.2)
 	tween.tween_callback(pause).set_delay(0.1)
 
 func pause():
@@ -63,3 +73,15 @@ func pause():
 	$PausePanel/VBoxContainer/Resume.grab_focus()
 	bgMusic.volume_db = bgMusic.volume_db - 12
 	get_tree().paused = true
+
+	
+
+
+func _on_options_pressed():
+	$OptionsPanel.show()
+	$OptionsPanel/HBoxContainer/Back.grab_focus()
+
+
+func _on_back_pressed():
+	$OptionsPanel.hide()
+	$PausePanel/VBoxContainer/Options.grab_focus()

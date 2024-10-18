@@ -201,6 +201,7 @@ size = Vector2(52, 70)
 size = Vector2(56, 74.5)
 
 [node name="Plant" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "kill_sound", "spawn_projectile_sound")]
+process_mode = 1
 use_parent_material = true
 script = ExtResource("1_ga77x")
 bullet = ExtResource("2_qoxeu")
