@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx5eqhjjdi1b"]
+[gd_scene load_steps=10 format=3 uid="uid://cx5eqhjjdi1b"]
 
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="1_o0ns5"]
 [ext_resource type="Shader" path="res://shaders/pixelate.gdshader" id="2_ol6dk"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="4_h1e6r"]
 [ext_resource type="Theme" uid="uid://dho6g7d4levdn" path="res://assets/UI/pause_menu.tres" id="5_l75wh"]
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="6_idpwl"]
+[ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://assets/sounds/tap.wav" id="8_f3j10"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kctr1"]
 shader = ExtResource("2_ol6dk")
@@ -234,6 +235,8 @@ theme_override_constants/separation = 24
 [node name="Default" type="Button" parent="OptionsPanel/HBoxContainer"]
 process_mode = 3
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
 mouse_filter = 2
 theme_override_fonts/font = ExtResource("4_h1e6r")
 theme_override_font_sizes/font_size = 19
@@ -248,6 +251,9 @@ theme_override_fonts/font = ExtResource("4_h1e6r")
 theme_override_font_sizes/font_size = 19
 button_mask = 0
 text = "save & go back"
+
+[node name="TapSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_f3j10")
 
 [connection signal="pressed" from="PausePanel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/Restart" to="." method="_on_restart_pressed"]

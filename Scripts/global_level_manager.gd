@@ -4,6 +4,7 @@ var music_time = 0
 var nextLevelPath: String
 var currentArc = 0
 var endOfArc = false
+var pausable = false
 
 
 func startLevelMusic(levelMusic, newArc = false):

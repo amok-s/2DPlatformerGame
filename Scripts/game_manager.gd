@@ -27,7 +27,7 @@ func _ready():
 	blink.hide()
 	Engine.time_scale = 1
 	fruits_amount = fruits_node.get_child_count()
-	print(next_level.resource_path)
+	pauseBreak(1)
 
 func add_point():
 	points += 1
@@ -55,6 +55,7 @@ func decrease_health():
 		else:
 			hearts[h].hide()
 	if (lives == 0):
+		GlobalLevelManager.pausable = false
 		var tween = get_tree().create_tween()
 		tween.tween_property(%Camera2D, "zoom", Vector2(2.2, 2.6), 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		await get_tree().create_timer(0.75).timeout
@@ -71,6 +72,7 @@ func add_health():
 			hearts[h].hide()
 
 func finish_level():
+	GlobalLevelManager.pausable = false
 	$finish.play(0)
 	spawn_shockwave()
 	$"../UI".hide()
@@ -148,3 +150,9 @@ func player_dead():
 func showOutline(item):
 	var shader = preload("res://shaders/outline.gdshader")
 	pass
+
+func pauseBreak(time):
+	GlobalLevelManager.pausable = false
+	await get_tree().create_timer(time).timeout
+	GlobalLevelManager.pausable = true
+	

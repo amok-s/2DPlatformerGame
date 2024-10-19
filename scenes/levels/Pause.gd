@@ -6,8 +6,7 @@ extends Node
 
 var zoom_protect = 0
 var original_cam
-var can_esc = true
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	pause_panel.hide()
 	$CanvasLayer.hide()
@@ -18,8 +17,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var esc_pressed = Input.is_action_just_pressed("escape")
-	if (esc_pressed == true and can_esc == true):
-		can_esc = false
+	if (esc_pressed == true and GlobalLevelManager.pausable == true):
+		GlobalLevelManager.pausable = false
 		camera_zoom_in()
 		$CanvasLayer.show()
 		
@@ -28,15 +27,20 @@ func _process(delta):
 
 
 func _on_resume_pressed():
+	playTapSound()
 	unpause()
 
 
 func _on_main_menu_pressed():
+	playTapSound()
+	await get_tree().create_timer(0.25).timeout
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
 func _on_restart_pressed():
+	playTapSound()
+	await get_tree().create_timer(0.25).timeout
 	pause_panel.hide()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
@@ -57,7 +61,7 @@ func unpause():
 	
 	
 func change_esc_bool():
-	can_esc = true
+	GlobalLevelManager.pausable = true
 	
 func camera_zoom_in():
 	var tween = get_tree().create_tween()
@@ -74,14 +78,16 @@ func pause():
 	bgMusic.volume_db = bgMusic.volume_db - 12
 	get_tree().paused = true
 
-	
-
-
 func _on_options_pressed():
+	playTapSound()
 	$OptionsPanel.show()
 	$OptionsPanel/HBoxContainer/Back.grab_focus()
 
-
 func _on_back_pressed():
+	playTapSound()
 	$OptionsPanel.hide()
 	$PausePanel/VBoxContainer/Options.grab_focus()
+
+
+func playTapSound():
+	$TapSound.play(0)

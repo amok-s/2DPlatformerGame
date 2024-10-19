@@ -7,6 +7,7 @@ class_name PlayerSpawn
 @export var appearing : PackedScene
 
 
+
 # Called when the node enters the scene tree for the first time.
 func Enter():
 	print(self.name)
@@ -28,6 +29,7 @@ func Enter():
 	sprite.show()
 	player.sides_input_blockage = false
 	player.jump_input_blockage = false
+
 	pass 
 
 func Update(_delta:float):
