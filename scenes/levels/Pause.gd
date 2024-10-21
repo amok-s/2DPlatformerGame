@@ -3,6 +3,8 @@ extends Node
 @onready var bgMusic = $"../../BgMusic"
 @onready var ui = $"../CoinsPanel"
 @onready var player = $"../../Scene Objects/CharacterBody2D"
+@onready var death_count = $PausePanel/Node2D/DeathCount
+
 
 var zoom_protect = 0
 var original_cam
@@ -21,6 +23,7 @@ func _process(delta):
 		GlobalLevelManager.pausable = false
 		camera_zoom_in()
 		$CanvasLayer.show()
+	death_count.text = "death count : " + str(GlobalLevelManager.death_count)
 		
 
 

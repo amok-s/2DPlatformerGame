@@ -1,9 +1,9 @@
 [gd_scene load_steps=59 format=3 uid="uid://cqddarltj231"]
 
-[ext_resource type="Script" path="res://scenes/levels/2nd Arc/level_2_0.gd" id="1_2kxrt"]
+[ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_0/level_2_0.gd" id="1_2kxrt"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_srrgp"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_bpgu4"]
-[ext_resource type="PackedScene" uid="uid://dd4544bcjm1md" path="res://scenes/levels/2nd Arc/level_2_1.tscn" id="4_jikuh"]
+[ext_resource type="PackedScene" uid="uid://dd4544bcjm1md" path="res://scenes/levels/2nd Arc/2_1/level_2_1.tscn" id="4_jikuh"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_gn656"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_2ardi"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_ywjhf"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="44_a3nmy"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="44_r1532"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="45_mra0w"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ka5c6"]
 shader = ExtResource("13_ab0kh")

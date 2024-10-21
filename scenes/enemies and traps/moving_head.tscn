@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5xrvt2mhrrlh"]
+
+[ext_resource type="Script" path="res://scenes/enemies and traps/moving_head2.gd" id="1_6cu3w"]
+[ext_resource type="Texture2D" uid="uid://bv4svwraiarnt" path="res://assets/OtherSprites/Blink (42x42).png" id="1_8foqo"]
+[ext_resource type="Texture2D" uid="uid://drtwj33wvdxap" path="res://assets/OtherSprites/Idle_head.png" id="2_3i07g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ofqj"]
+atlas = ExtResource("1_8foqo")
+region = Rect2(0, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqk31"]
+atlas = ExtResource("1_8foqo")
+region = Rect2(42, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jjlj"]
+atlas = ExtResource("1_8foqo")
+region = Rect2(84, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa61l"]
+atlas = ExtResource("1_8foqo")
+region = Rect2(126, 0, 42, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g12o"]
+atlas = ExtResource("2_3i07g")
+region = Rect2(0, 0, 42, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ch61o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ofqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqk31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jjlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa61l")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g12o")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rqj4i"]
+size = Vector2(34, 33)
+
+[node name="MovingHead" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_6cu3w")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ch61o")
+animation = &"blink"
+autoplay = "idle"
+frame_progress = 0.779628
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rqj4i")
+
+[node name="BlinkTimer" type="Timer" parent="."]
+one_shot = true

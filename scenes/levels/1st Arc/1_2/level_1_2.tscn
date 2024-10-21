@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/levels/1st Arc/1_2/level_1_2.gd" id="1_c62k0"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_e5plh"]
-[ext_resource type="PackedScene" uid="uid://cqddarltj231" path="res://scenes/levels/2nd Arc/level_2_0.tscn" id="4_8n42r"]
+[ext_resource type="PackedScene" uid="uid://cqddarltj231" path="res://scenes/levels/2nd Arc/2_0/level_2_0.tscn" id="4_8n42r"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_ih6i4"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_0n8l8"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_6r0ow"]

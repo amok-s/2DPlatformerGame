@@ -12,6 +12,7 @@ var switch = false
 func _ready():
 	idle_timer()
 	blink_timer()
+	pass
 
 
 func _process(delta):

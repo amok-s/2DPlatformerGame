@@ -142,10 +142,14 @@ func spawn_sfx(name, sfx_position : Vector2, rotation = 0, scale = Vector2(4,4))
 	b.play_animation(name)
 
 func player_dead():
+	GlobalLevelManager.death_count += 1
 	var music = get_parent().get_node("BgMusic")
 	if music:
 		GlobalLevelManager.music_time = music.get_playback_position()
-	get_tree().reload_current_scene()
+	if Engine.time_scale == 1:
+		get_tree().reload_current_scene()
+	else:
+		return
 
 func showOutline(item):
 	var shader = preload("res://shaders/outline.gdshader")

@@ -5,6 +5,7 @@ var nextLevelPath: String
 var currentArc = 0
 var endOfArc = false
 var pausable = false
+var death_count = 0
 
 
 func startLevelMusic(levelMusic, newArc = false):
