@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://krtj644s2nsh"]
+
+[ext_resource type="Texture2D" uid="uid://dxfrt1iw7wvuq" path="res://assets/OtherSprites/firefly.png" id="1_eu2x6"]
+[ext_resource type="Texture2D" uid="uid://cob1pi5a48cv4" path="res://assets/OtherSprites/2d_lights_and_shadows_neutral_point_light.webp" id="2_lnidy"]
+
+[node name="Firefly" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+light_mask = 2
+scale = Vector2(3, 3)
+texture = ExtResource("1_eu2x6")
+
+[node name="BiggerLight" type="PointLight2D" parent="."]
+color = Color(0.34902, 1, 0.388235, 1)
+energy = 14.51
+range_z_min = -1949
+shadow_color = Color(0.0588235, 0.0588235, 0.0588235, 0.156863)
+texture = ExtResource("2_lnidy")
+texture_scale = 1.8
+height = 25.0
+
+[node name="SmallerLight" type="PointLight2D" parent="."]
+color = Color(0.870588, 0.803922, 0.219608, 1)
+energy = 12.91
+range_z_min = -1949
+shadow_color = Color(0.0588235, 0.0588235, 0.0588235, 0.156863)
+texture = ExtResource("2_lnidy")
