@@ -11,11 +11,13 @@ var final_pos : Vector2
 var flying = true
 var light = true
 var darkness = false
-var pulse = false
+var pulses = false
 
 var smaller_light_energy
 var bigger_light_energy
 var bigger_light_scale
+
+var pulses_tween
 
 var range = randi_range(12, 25)
 var await_time
@@ -32,6 +34,9 @@ func _process(delta):
 		fly()
 	if light:
 		light_pulses()
+		
+	if !pulses and pulses_tween:
+		pulses_tween.kill()
 func randomize_direction():
 	flying = false
 	random_point = Vector2(randi_range(-range, range), randi_range(-range, range))
@@ -55,34 +60,45 @@ func light_pulses():
 	var small_tween = get_tree().create_tween()
 	var bigger_tween = get_tree().create_tween()
 	var bigger_scale = get_tree().create_tween()
-	var rand_time = randf_range(0.4, 2.00)
+	var rand_time = randf_range(0.6, 2.00)
 	
 	if ($SmallerLight.energy == smaller_light_energy): #ściemnianie
-		small_tween.tween_property($SmallerLight, "energy", 0.8, rand_time)
+		small_tween.tween_property($SmallerLight, "energy", 2.3, rand_time)
 		bigger_tween.tween_property($BiggerLight, "energy", 1.4, rand_time)
 		bigger_scale.tween_property($BiggerLight, "texture_scale", $SmallerLight.texture_scale, rand_time)
-		darkness = true
+		bigger_tween.tween_callback(darkness_change)
 		
 	else: #rozjaśnianie
 		small_tween.tween_property($SmallerLight, "energy", smaller_light_energy, rand_time)
 		bigger_tween.tween_property($BiggerLight, "energy", bigger_light_energy, rand_time)
 		bigger_scale.tween_property($BiggerLight, "texture_scale", bigger_light_scale, rand_time)
-		darkness = false
-	small_tween.tween_callback(light_bool_change)
-	if !darkness and pulsating:
-		pulses()
+		bigger_tween.tween_callback(darkness_change)
+	small_tween.tween_callback(light_bool_change).set_delay(0.05)
+
 
 func light_bool_change():
-	await_time = randf_range(0, 0.3) if darkness else randf_range(1.3, 2.2)
+	await_time = randf_range(0, 0.1) if darkness else randf_range(1.4, 2.2)
+	if !darkness:
+		pulses = true
+		pulsating()
 	await get_tree().create_timer(await_time).timeout
 	light = true
-	
-	
+	if !darkness:
+		pulses = false
 
-func pulses():
-	var tween = get_tree().create_tween()
-	var time = randf_range(0.5, 0.7)
-	tween.set_loops()
-	tween.tween_property($BiggerLight, "texture_scale", $BiggerLight.texture_scale - 0.1 if $BiggerLight.texture_scale == bigger_light_scale else bigger_light_scale, time)
-	tween.tween_interval(time)
+func darkness_change():
+	if !darkness:
+		darkness = true
+	else:
+		darkness = false
+
+func pulsating():
+	print("pulsating")
+	for n in 8:
+		if pulses:
+			pulses_tween = get_tree().create_tween()
+			var time = randf_range(0.2, 0.7)
+			pulses_tween.tween_property($BiggerLight, "texture_scale", $BiggerLight.texture_scale - 0.2 if $BiggerLight.texture_scale == bigger_light_scale else bigger_light_scale, time)
+			print("puls: " + str(n))
+			await get_tree().create_timer(time).timeout
 	
