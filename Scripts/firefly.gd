@@ -19,7 +19,7 @@ var bigger_light_scale
 
 var pulses_tween
 
-var range = randi_range(12, 25)
+var range = randi_range(16, 27)
 var await_time
 
 func _ready():
@@ -45,7 +45,7 @@ func randomize_direction():
 	if (random_point + current_pos).distance_to(initial_pos) > flying_range:
 		while (random_point + current_pos).distance_to(initial_pos) > flying_range:
 			random_point = Vector2(randi_range(-range, range), randi_range(-range, range))
-	wander_time = randf_range(0.4, 0.8)
+	wander_time = randf_range(0.7, 1.3)
 
 func fly():
 	var tween = get_tree().create_tween()
@@ -57,7 +57,7 @@ func fly():
 	tween.tween_callback(flying_bool_change)
 	
 func flying_bool_change():
-	await get_tree().create_timer(randf_range(0, 0.08)).timeout
+	await get_tree().create_timer(randf_range(0, 0.12)).timeout
 	flying = true
 	
 func light_pulses():
@@ -65,7 +65,7 @@ func light_pulses():
 	var small_tween = get_tree().create_tween()
 	var bigger_tween = get_tree().create_tween()
 	var bigger_scale = get_tree().create_tween()
-	var rand_time = randf_range(0.6, 1.6)
+	var rand_time = randf_range(0.4, 1.2)
 	
 	if ($SmallerLight.energy == smaller_light_energy): #ściemnianie
 		small_tween.tween_property($SmallerLight, "energy", 2.3, rand_time)
