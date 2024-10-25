@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var flying_range : int
+@export var flying_range : int = 70
 
 var random_point : Vector2
 var wander_time : float
@@ -26,6 +26,8 @@ func _ready():
 	smaller_light_energy = $SmallerLight.energy
 	bigger_light_energy = $BiggerLight.energy
 	bigger_light_scale = $BiggerLight.texture_scale
+	initial_pos = get_global_position()
+	current_pos = get_global_position()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -40,6 +42,9 @@ func _process(delta):
 func randomize_direction():
 	flying = false
 	random_point = Vector2(randi_range(-range, range), randi_range(-range, range))
+	if (random_point + current_pos).distance_to(initial_pos) > flying_range:
+		while (random_point + current_pos).distance_to(initial_pos) > flying_range:
+			random_point = Vector2(randi_range(-range, range), randi_range(-range, range))
 	wander_time = randf_range(0.4, 0.8)
 
 func fly():
@@ -60,7 +65,7 @@ func light_pulses():
 	var small_tween = get_tree().create_tween()
 	var bigger_tween = get_tree().create_tween()
 	var bigger_scale = get_tree().create_tween()
-	var rand_time = randf_range(0.6, 2.00)
+	var rand_time = randf_range(0.6, 1.6)
 	
 	if ($SmallerLight.energy == smaller_light_energy): #ściemnianie
 		small_tween.tween_property($SmallerLight, "energy", 2.3, rand_time)
@@ -98,7 +103,7 @@ func pulsating():
 		if pulses:
 			pulses_tween = get_tree().create_tween()
 			var time = randf_range(0.2, 0.7)
-			pulses_tween.tween_property($BiggerLight, "texture_scale", $BiggerLight.texture_scale - 0.2 if $BiggerLight.texture_scale == bigger_light_scale else bigger_light_scale, time)
+			pulses_tween.tween_property($BiggerLight, "texture_scale", $BiggerLight.texture_scale - 0.1 if $BiggerLight.texture_scale == bigger_light_scale else bigger_light_scale, time)
 			print("puls: " + str(n))
 			await get_tree().create_timer(time).timeout
 	

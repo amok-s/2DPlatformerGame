@@ -5,20 +5,32 @@
 [ext_resource type="Texture2D" uid="uid://cob1pi5a48cv4" path="res://assets/OtherSprites/2d_lights_and_shadows_neutral_point_light.webp" id="2_lnidy"]
 
 [node name="Firefly" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_mgdpp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-light_mask = 2
+modulate = Color(0.807843, 0.992157, 0, 1)
+light_mask = 32
 rotation = 1.5708
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_eu2x6")
 
 [node name="BiggerLight" type="PointLight2D" parent="."]
 light_mask = 5
-color = Color(0.309804, 0.968627, 0.0235294, 1)
-energy = 9.62
+color = Color(0.360945, 0.999481, 0.162117, 1)
+energy = 14.0
 range_z_min = -1949
 range_layer_min = -100
+shadow_color = Color(0.0588235, 0.0588235, 0.0588235, 0.156863)
+texture = ExtResource("2_lnidy")
+
+[node name="BiggerLight2" type="PointLight2D" parent="."]
+light_mask = 16
+color = Color(0.168627, 0.588235, 0, 1)
+energy = 120.0
+range_z_min = -1949
+range_layer_min = -100
+range_item_cull_mask = 16
 shadow_color = Color(0.0588235, 0.0588235, 0.0588235, 0.156863)
 texture = ExtResource("2_lnidy")
 
@@ -28,6 +40,7 @@ color = Color(0.933333, 0.933333, 0, 1)
 energy = 5.47
 range_z_min = -1949
 range_layer_min = -100
+range_item_cull_mask = 33
 shadow_color = Color(0.0588235, 0.0588235, 0.0588235, 0.156863)
 texture = ExtResource("2_lnidy")
 texture_scale = 0.3

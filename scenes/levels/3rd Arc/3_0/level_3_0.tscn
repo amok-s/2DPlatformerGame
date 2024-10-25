@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bg6r5sgtfj0sp"]
+[gd_scene load_steps=58 format=3 uid="uid://bg6r5sgtfj0sp"]
 
 [ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_0/level_2_0.gd" id="1_c1jba"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_7en63"]
@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://ufkeb2ct1p0u" path="res://assets/PineForestParallax/MorningLayer4.png" id="22_jpva1"]
 [ext_resource type="Texture2D" uid="uid://daosphxj6dyv" path="res://assets/PineForestParallax/MorningLayer3.png" id="23_x3f1k"]
 [ext_resource type="Texture2D" uid="uid://cfekmo3uqwtng" path="res://assets/PineForestParallax/MorningLayer2.png" id="24_gryfw"]
-[ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="25_mejhw"]
 [ext_resource type="Material" uid="uid://cjdh5qqujvcrr" path="res://shaders/foliage.tres" id="26_kmk1t"]
 [ext_resource type="Texture2D" uid="uid://b1twlhensmx0w" path="res://assets/Foliage/ferns - sprite - 12.png" id="27_cf6dl"]
 [ext_resource type="Texture2D" uid="uid://cahkt83wqnvye" path="res://assets/Foliage/sprite - 11.png" id="28_eobdx"]
@@ -341,7 +340,8 @@ shape = SubResource("WorldBoundaryShape2D_kime1")
 scroll_offset = Vector2(69.84, 72.75)
 
 [node name="Sky" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
-modulate = Color(0.996078, 0.647059, 1, 1)
+modulate = Color(0.0862745, 0.109804, 0.27451, 1)
+light_mask = 0
 motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(3200, 1800)
 metadata/_edit_lock_ = true
@@ -353,69 +353,65 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Back" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+light_mask = 5
 position = Vector2(-106, -65)
 motion_scale = Vector2(0.1, 0.3)
 motion_mirroring = Vector2(1600, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Back"]
-modulate = Color(0.996078, 0.529412, 1, 1)
+modulate = Color(0.133333, 0.0352941, 0.247059, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("21_dbab6")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="BackMiddle" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+light_mask = 5
 position = Vector2(-106, -65)
 motion_scale = Vector2(0.3, 0.5)
 motion_mirroring = Vector2(1600, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/BackMiddle"]
-modulate = Color(1, 0.713726, 1, 1)
+modulate = Color(0.168627, 0.0235294, 0.239216, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("22_jpva1")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="Middle" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+light_mask = 5
 position = Vector2(-106, -65)
 motion_scale = Vector2(0.5, 0.7)
 motion_mirroring = Vector2(1600, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Middle"]
+modulate = Color(0.137255, 0.0235294, 0.254902, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("23_x3f1k")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="MiddleFront" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+light_mask = 5
 position = Vector2(-106, -47)
 motion_scale = Vector2(0.7, 0.8)
 motion_mirroring = Vector2(1600, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/MiddleFront"]
+modulate = Color(0.309804, 0, 0.403922, 1)
+light_mask = 21
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("24_gryfw")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Front" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
-visible = false
-position = Vector2(-106, -47)
-motion_scale = Vector2(0.8, 0.9)
-motion_mirroring = Vector2(1600, 0)
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Front"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("25_mejhw")
-centered = false
-metadata/_edit_lock_ = true
-
 [node name="Ground" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+visible = false
+light_mask = 5
 position = Vector2(0, 44)
 motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(1656, 0)
@@ -426,11 +422,12 @@ offset_left = -491.0
 offset_top = 788.0
 offset_right = 1686.0
 offset_bottom = 1706.0
-color = Color(0.0313726, 0.109804, 0.0627451, 1)
+color = Color(0.00784314, 0, 0.0235294, 1)
 metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Scene Objects/WorldBoundary/ForestBackground"]
-color = Color(0.984314, 0.415686, 0.541176, 1)
+visible = false
+color = Color(0.156863, 0.372549, 0.364706, 1)
 
 [node name="Foliage" type="Node2D" parent="Scene Objects"]
 modulate = Color(0.00784314, 0.054902, 0.0352941, 1)
@@ -522,6 +519,7 @@ texture = ExtResource("37_qs2r5")
 
 [node name="Vines" type="ParallaxBackground" parent="Scene Objects"]
 layer = 1
+visible = false
 scroll_offset = Vector2(-357.774, -712.599)
 
 [node name="Further" type="ParallaxLayer" parent="Scene Objects/Vines"]
@@ -892,6 +890,7 @@ texture = ExtResource("43_eactq")
 expand_mode = 2
 
 [node name="Pause" parent="UI" instance=ExtResource("44_6pqf7")]
+visible = false
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
