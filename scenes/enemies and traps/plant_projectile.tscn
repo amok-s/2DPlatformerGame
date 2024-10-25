@@ -32,6 +32,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2c3ja"]
 resource_name = "spinning"
+length = 0.9
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -40,7 +41,7 @@ tracks/0/path = NodePath("Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.4, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, -1.5708, -3.14159]
@@ -52,7 +53,7 @@ tracks/1/path = NodePath("../blades/CollisionShape2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.4, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, -1.5708, -3.14159]
@@ -84,6 +85,7 @@ texture = ExtResource("1_mgbue")
 
 [node name="Sprite2D" type="Sprite2D" parent="plant projectile/Sprite2D"]
 use_parent_material = true
+rotation = -0.206848
 texture = ExtResource("2_ueoex")
 
 [node name="spinning animation" type="AnimationPlayer" parent="plant projectile"]
@@ -99,7 +101,7 @@ speed_scale = 2.3
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plant projectile/blades"]
-rotation = 3.14159
+rotation = -0.206848
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_8pnot")
 

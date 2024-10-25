@@ -70,7 +70,7 @@ func _on_area_2d_body_entered(body):
 			sprite.play("hit")
 			var random_x = randf_range(-150, 150)
 			velocity.x = random_x
-			velocity.y = -190
+			velocity.y = -250
 			await get_tree().create_timer(3).timeout
 			queue_free()
 		else: #hurting the player
