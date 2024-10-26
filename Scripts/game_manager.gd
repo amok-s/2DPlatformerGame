@@ -22,6 +22,8 @@ var fruits_count = 0
 var fruits_amount
 var arrow_count = 0
 var current_arrow
+var chroma
+var cant_die = false
 
 func _ready():
 	blink.hide()
@@ -54,7 +56,7 @@ func decrease_health():
 			hearts[h].show()
 		else:
 			hearts[h].hide()
-	if (lives == 0):
+	if (lives == 0) and !cant_die:
 		GlobalLevelManager.pausable = false
 		var tween = get_tree().create_tween()
 		tween.tween_property(%Camera2D, "zoom", Vector2(2.2, 2.6), 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
@@ -73,6 +75,7 @@ func add_health():
 
 func finish_level():
 	GlobalLevelManager.pausable = false
+	cant_die = true
 	$finish.play(0)
 	spawn_shockwave()
 	$"../UI".hide()
@@ -98,10 +101,10 @@ func _on_finish_finished():
 	get_tree().change_scene_to_packed(newScene)
 	
 func spawn_chroma_chaos(time):
-	var b = chroma_chaos.instantiate()
-	get_parent().get_parent().add_child(b)
+	chroma = chroma_chaos.instantiate()
+	get_parent().add_child(chroma)
 	await get_tree().create_timer(time).timeout
-	b.queue_free()
+	chroma.queue_free()
 
 func spawn_shockwave():
 	var b = shockwave.instantiate()

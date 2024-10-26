@@ -11,7 +11,7 @@ func Enter():
 	if player.jump_count == 2:
 		player.jump_count = 1
 	get_node("../../%GameManager").decrease_health()
-	if get_node("../../%GameManager").lives == 0:
+	if get_node("../../%GameManager").lives <= 0 and get_node("../../%GameManager").cant_die == false:
 		get_node("..").force_change_state("Death")
 	else:
 		get_node("../../%GameManager").spawn_sfx("player_hit", player.position)

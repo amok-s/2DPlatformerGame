@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var game_manager = $"../GameManager"
 
 
-var speed = 140
+var speed = 180
 var fruits: Array[Node]
 var current_fruit
 var counter = 0
