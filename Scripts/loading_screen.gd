@@ -7,10 +7,13 @@ var sceneName
 func _ready():
 	$Arc1.hide()
 	$Arc2.hide()
+	$Arc3.hide()
 	if GlobalLevelManager.currentArc == 1:
 		$Arc1.show()
 	if GlobalLevelManager.currentArc == 2:
 		$Arc2.show()
+	if GlobalLevelManager.currentArc == 3:
+		$Arc3.show()
 	sceneName = GlobalLevelManager.nextLevelPath
 	ResourceLoader.load_threaded_request(sceneName)
 

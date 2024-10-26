@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bvyyhppb23ejw"]
+[gd_scene load_steps=61 format=3 uid="uid://bvyyhppb23ejw"]
 
 [ext_resource type="Shader" path="res://shaders/scroll.gdshader" id="1_8uc0c"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_hfpq0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b45rg3f3ca2yd" path="res://assets/OtherSprites/Green Effect and Bullet 16x16.png" id="3_ihqis"]
 [ext_resource type="Theme" uid="uid://cx6d1dsn20yf6" path="res://assets/UI/main_menu.tres" id="4_6h3h0"]
 [ext_resource type="Texture2D" uid="uid://6dp2y3g8bffl" path="res://assets/Turtle/Idle 1 (44x26).png" id="5_5agqn"]
+[ext_resource type="Texture2D" uid="uid://tr2jo1d32fh8" path="res://assets/Chameleon/Run (84x38).png" id="9_vjfac"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8w856"]
 shader = ExtResource("1_8uc0c")
@@ -277,6 +278,38 @@ region = Rect2(448, 0, 32, 32)
 atlas = ExtResource("2_6lk1q")
 region = Rect2(480, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fss11"]
+atlas = ExtResource("9_vjfac")
+region = Rect2(0, 0, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3a6b"]
+atlas = ExtResource("9_vjfac")
+region = Rect2(84, 0, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1b66f"]
+atlas = ExtResource("9_vjfac")
+region = Rect2(168, 0, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xru7w"]
+atlas = ExtResource("9_vjfac")
+region = Rect2(252, 0, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0omm"]
+atlas = ExtResource("9_vjfac")
+region = Rect2(336, 0, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbg5g"]
+atlas = ExtResource("9_vjfac")
+region = Rect2(420, 0, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eew8i"]
+atlas = ExtResource("9_vjfac")
+region = Rect2(504, 0, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ishpc"]
+atlas = ExtResource("9_vjfac")
+region = Rect2(588, 0, 84, 38)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_xpmie"]
 animations = [{
 "frames": [{
@@ -330,6 +363,35 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fss11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3a6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1b66f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xru7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0omm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbg5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eew8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ishpc")
+}],
+"loop": true,
+"name": &"new_animation",
 "speed": 12.0
 }]
 
@@ -494,6 +556,88 @@ text = "loading"
 metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Arc1"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_foptu")
+}
+autoplay = "idle"
+
+[node name="Arc3" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Arc3"]
+offset_left = -4.0
+offset_top = -3.0
+offset_right = 390.0
+offset_bottom = 221.0
+color = Color(0.0862745, 0.254902, 0.321569, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Arc3"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_8w856")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.33333
+offset_top = -7.66667
+offset_right = 4055.67
+offset_bottom = 2279.33
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ooamt")
+
+[node name="ForestBg" type="TextureRect" parent="Arc3"]
+modulate = Color(0.219608, 0.227451, 0.356863, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_uwaa0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -20.0
+offset_right = 3015.0
+offset_bottom = 1809.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_ooamt")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arc3"]
+material = SubResource("ShaderMaterial_fh7uq")
+position = Vector2(277, 179.666)
+rotation = 3.14159
+scale = Vector2(1.5, -1.5)
+sprite_frames = SubResource("SpriteFrames_xpmie")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.179552
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Arc3"]
+visible = false
+position = Vector2(358.667, 184.667)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_dhyol")
+autoplay = "default"
+frame_progress = 0.892142
+
+[node name="Label" type="Label" parent="Arc3"]
+offset_left = 281.0
+offset_top = 185.333
+offset_right = 415.0
+offset_bottom = 215.333
+theme = ExtResource("4_6h3h0")
+theme_override_colors/font_outline_color = Color(0.909804, 1, 0.454902, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+text = "loading"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Arc3"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_foptu")
