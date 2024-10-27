@@ -1,6 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlrt1rfqy831f"]
+[gd_scene load_steps=7 format=3 uid="uid://dlrt1rfqy831f"]
 
 [ext_resource type="Script" path="res://Scripts/scene_transition.gd" id="1_rfqpw"]
+[ext_resource type="Shader" path="res://shaders/pixelate.gdshader" id="2_0tbsd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y258a"]
+shader = ExtResource("2_0tbsd")
+shader_parameter/amount = 1.0
 
 [sub_resource type="Animation" id="Animation_580ok"]
 resource_name = "RESET"
@@ -8,10 +13,22 @@ length = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PixelateRect:modulate")
+tracks/0/path = NodePath("PixelateRect:material:shader_parameter/amount")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -20,18 +37,30 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_myyeq"]
 resource_name = "pixelate"
-length = 0.5
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PixelateRect:modulate")
+tracks/0/path = NodePath("PixelateRect:material:shader_parameter/amount")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.353554, 0.366021),
+"update": 0,
+"values": [1.0, 50.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.47451)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y0hx2"]
@@ -41,10 +70,12 @@ _data = {
 }
 
 [node name="SceneTransition" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_rfqpw")
 
 [node name="PixelateRect" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
+top_level = true
+material = SubResource("ShaderMaterial_y258a")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -52,6 +83,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.709804, 0.396078, 0.490196, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

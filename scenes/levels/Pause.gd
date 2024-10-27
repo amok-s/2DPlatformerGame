@@ -46,7 +46,7 @@ func _on_restart_pressed():
 	await get_tree().create_timer(0.25).timeout
 	pause_panel.hide()
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	SceneTransition.level_restart()
 
 func unpause():
 	pause_panel.hide()

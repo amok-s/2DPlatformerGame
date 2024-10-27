@@ -98,7 +98,9 @@ func _on_finish_finished():
 		GlobalLevelManager.music_time = music.get_playback_position()
 	if GlobalLevelManager.endOfArc == true:
 		GlobalLevelManager.currentArc = GlobalLevelManager.currentArc + 1
-	get_tree().change_scene_to_packed(newScene)
+		get_tree().change_scene_to_packed(newScene)
+	else:
+		SceneTransition.change_scene(newScene)
 	
 func spawn_chroma_chaos(time):
 	chroma = chroma_chaos.instantiate()
