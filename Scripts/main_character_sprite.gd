@@ -1,6 +1,8 @@
 extends AnimatedSprite2D
 
 var scale_switch = false
+@onready var collision_shape = $"../CollisionShape2D"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,10 +13,12 @@ func _ready():
 func _process(delta):
 	if get_parent().velocity.x < 0 and scale_switch == false:
 		scale.x = -scale.x
+		collision_shape.scale.x = -collision_shape.scale.x
 		scale_switch = true
 	
 	if get_parent().velocity.x > 0 and scale_switch == true:
 		scale.x = - scale.x
+		collision_shape.scale.x = -collision_shape.scale.x
 		scale_switch = false
 	
 func outlineBlink():

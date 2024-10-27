@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cqddarltj231"]
+[gd_scene load_steps=65 format=3 uid="uid://cqddarltj231"]
 
 [ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_0/level_2_0.gd" id="1_2kxrt"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_srrgp"]
@@ -16,8 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="14_q26k6"]
 [ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/enemies and traps/chameleon.tscn" id="17_nbr64"]
 [ext_resource type="PackedScene" uid="uid://4r0yhti5mlkd" path="res://scenes/enemies and traps/spiked_chain.tscn" id="18_05257"]
-[ext_resource type="PackedScene" uid="uid://bwou04ab2t0gd" path="res://scenes/enemies and traps/moving_platform.tscn" id="18_qwxyv"]
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="18_wgv6l"]
+[ext_resource type="PackedScene" uid="uid://c5xrvt2mhrrlh" path="res://scenes/enemies and traps/moving_head.tscn" id="18_wr4wi"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="19_icqy8"]
 [ext_resource type="Texture2D" uid="uid://de3ul1kce7ypb" path="res://assets/PineForestParallax/MorningLayer6.png" id="20_066c8"]
 [ext_resource type="Texture2D" uid="uid://dqdq2msnvnnf4" path="res://assets/PineForestParallax/MorningLayer5.png" id="21_c6841"]
@@ -45,7 +45,6 @@
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="44_r1532"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="45_mra0w"]
 
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ka5c6"]
 shader = ExtResource("13_ab0kh")
 shader_parameter/top = true
@@ -59,6 +58,82 @@ shader_parameter/bottomright = true
 shader_parameter/width = 1.0
 shader_parameter/color = Color(0.87451, 0.729412, 0.00784314, 0.733333)
 shader_parameter/inside = false
+
+[sub_resource type="Animation" id="Animation_n6if8"]
+resource_name = "moving"
+length = 3.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2277, 277), Vector2(2277, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5ewvi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2277, 277)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ng24q"]
+_data = {
+"RESET": SubResource("Animation_5ewvi"),
+"moving": SubResource("Animation_n6if8")
+}
+
+[sub_resource type="Animation" id="Animation_7h4xv"]
+resource_name = "moving"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2700, 43), Vector2(2487, 43)]
+}
+
+[sub_resource type="Animation" id="Animation_idy5b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2700, 43)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_re11d"]
+_data = {
+"RESET": SubResource("Animation_idy5b"),
+"moving": SubResource("Animation_7h4xv")
+}
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -248,6 +323,9 @@ position = Vector2(2402, 348)
 [node name="Collectable7" parent="Scene Objects/Collectables group" instance=ExtResource("14_q26k6")]
 position = Vector2(2481, 348)
 
+[node name="Collectable24" parent="Scene Objects/Collectables group" instance=ExtResource("14_q26k6")]
+position = Vector2(2769, 348)
+
 [node name="Collectable8" parent="Scene Objects/Collectables group" instance=ExtResource("14_q26k6")]
 position = Vector2(3130, -33)
 
@@ -315,20 +393,35 @@ position = Vector2(3339, 113)
 [node name="spikes5" parent="Scene Objects/Traps group" instance=ExtResource("18_wgv6l")]
 position = Vector2(3434, 305)
 
+[node name="spikes6" parent="Scene Objects/Traps group" instance=ExtResource("18_wgv6l")]
+position = Vector2(2576, 353)
+
 [node name="spikes4" parent="Scene Objects/Traps group" instance=ExtResource("18_wgv6l")]
 position = Vector2(4948, -31)
 
 [node name="Chained_Ball" parent="Scene Objects/Traps group" instance=ExtResource("18_05257")]
 position = Vector2(1632, -141)
 
-[node name="MovingPlatform" parent="Scene Objects/Traps group" instance=ExtResource("18_qwxyv")]
-position = Vector2(2753, 266)
-moving_time = 2.4
-speed = 270.0
-UpDown_motion = true
-
 [node name="Chained_Ball2" parent="Scene Objects/Traps group" instance=ExtResource("18_05257")]
 position = Vector2(4582, -331)
+
+[node name="MovingHead" parent="Scene Objects/Traps group" instance=ExtResource("18_wr4wi")]
+position = Vector2(2277, 277)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/MovingHead"]
+libraries = {
+"": SubResource("AnimationLibrary_ng24q")
+}
+autoplay = "moving"
+
+[node name="MovingHead2" parent="Scene Objects/Traps group" instance=ExtResource("18_wr4wi")]
+position = Vector2(2700, 43)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/MovingHead2"]
+libraries = {
+"": SubResource("AnimationLibrary_re11d")
+}
+autoplay = "moving"
 
 [node name="WorldBoundary" type="Area2D" parent="Scene Objects"]
 position = Vector2(555, 1024)

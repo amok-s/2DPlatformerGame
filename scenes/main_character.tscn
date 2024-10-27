@@ -392,7 +392,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ao5ao"]
-size = Vector2(44, 60)
+size = Vector2(42, 60)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g500f"]
 lifetime_randomness = 0.43
@@ -459,7 +459,7 @@ autoplay = "default"
 script = ExtResource("13_mb06h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ao5ao")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
