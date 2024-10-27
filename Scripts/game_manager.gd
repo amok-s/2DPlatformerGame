@@ -152,7 +152,7 @@ func player_dead():
 	if music:
 		GlobalLevelManager.music_time = music.get_playback_position()
 	if Engine.time_scale == 1:
-		get_tree().reload_current_scene()
+		SceneTransition.level_restart()
 	else:
 		return
 

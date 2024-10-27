@@ -7,12 +7,13 @@ func change_scene(target: PackedScene) -> void:
 	$AnimationPlayer.play_backwards("pixelate")
 	
 func level_restart() -> void:
-	pass
 	$AnimationPlayer.play("pixelate")
 	await $AnimationPlayer.animation_finished
 	get_tree().reload_current_scene()
 	$AnimationPlayer.play_backwards("pixelate")
+
 	
+
 #func change_scene_to_packed():
 	#pass
 #
