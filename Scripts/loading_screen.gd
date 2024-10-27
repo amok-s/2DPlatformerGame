@@ -23,7 +23,4 @@ func _process(delta):
 	sceneLoadStatus = ResourceLoader.load_threaded_get_status(sceneName)
 	if sceneLoadStatus == ResourceLoader.THREAD_LOAD_LOADED:
 		var newScene = ResourceLoader.load_threaded_get(sceneName)
-		$SceneTransition/AnimationPlayer.play("pixelate")
-		await $SceneTransition/AnimationPlayer.animation_finished
-		get_tree().change_scene_to_packed(newScene)
-		$SceneTransition/AnimationPlayer.play_backwards("pixelate")
+		SceneTransition.change_scene(newScene)

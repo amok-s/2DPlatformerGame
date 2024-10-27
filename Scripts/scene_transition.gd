@@ -1,10 +1,17 @@
 extends CanvasLayer
 
-func change_scene(target: String) -> void:
+func change_scene(target: PackedScene) -> void:
 	$AnimationPlayer.play("pixelate")
 	await $AnimationPlayer.animation_finished
-	get_tree().change_scene(target)
+	get_tree().change_scene_to_packed(target)
 	$AnimationPlayer.play_backwards("pixelate")
 	
-func chnage_scene_to_packed():
-	pass
+#func change_scene_to_packed():
+	#pass
+#
+#func scene_ending():
+	#$AnimationPlayer.play("pixelate")
+	#await $AnimationPlayer.animation_finished
+	#
+#func scene_opening():
+	#$AnimationPlayer.play_backwards("pixelate")
