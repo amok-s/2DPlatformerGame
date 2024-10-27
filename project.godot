@@ -21,6 +21,7 @@ config/icon="res://assets/game_icon.png"
 [autoload]
 
 GlobalLevelManager="*res://Scripts/global_level_manager.gd"
+SceneTransition="*res://scenes/scene_transition.tscn"
 
 [display]
 

@@ -375,6 +375,61 @@ theme_override_font_sizes/font_size = 15
 text = "  level III"
 alignment = 0
 
+[node name="Level Box2" type="Panel" parent="Menu"]
+visible = false
+offset_left = 429.0
+offset_top = 141.0
+offset_right = 534.0
+offset_bottom = 295.0
+scale = Vector2(2, 2)
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"menu box"
+
+[node name="Arc1" type="Label" parent="Menu/Level Box2"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 21.5
+offset_right = 72.0
+offset_bottom = 37.5
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+text = "Arc 1"
+
+[node name="MainMenu" type="VBoxContainer" parent="Menu/Level Box2"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 43.0
+offset_right = 107.0
+offset_bottom = 160.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("11_e0m1u")
+theme_override_constants/separation = 6
+
+[node name="Intro" type="Button" parent="Menu/Level Box2/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 15
+text = "  intro"
+alignment = 0
+
+[node name="Level 1-1" type="Button" parent="Menu/Level Box2/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 15
+text = "  level 1-1"
+alignment = 0
+
+[node name="Level 1-2" type="Button" parent="Menu/Level Box2/MainMenu"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_override_font_sizes/font_size = 15
+text = "  level 1-2"
+alignment = 0
+
 [node name="level buttons" type="Node" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="level buttons"]
@@ -420,9 +475,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -51.0
-offset_top = -36.0
+offset_top = -39.0
 offset_right = 55.0
-offset_bottom = 32.0
+offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3lbxg")
