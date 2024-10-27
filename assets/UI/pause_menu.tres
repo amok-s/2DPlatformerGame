@@ -1,13 +1,24 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dho6g7d4levdn"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dho6g7d4levdn"]
 
 [ext_resource type="StyleBox" uid="uid://cmed2lwqbt6o4" path="res://assets/UI/pause_focus.tres" id="1_4aake"]
+[ext_resource type="Texture2D" uid="uid://dsygxu7wp1hex" path="res://assets/UI/Deco All 4.png" id="2_6y1qs"]
 [ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="3_wd4lc"]
 [ext_resource type="Texture2D" uid="uid://cuk6h2iywa11a" path="res://assets/UI/Border All 9.png" id="4_8e6rv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qoxb"]
-content_margin_top = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ncvdu"]
+content_margin_left = 10.0
+content_margin_top = 12.0
+content_margin_right = 10.0
+content_margin_bottom = 12.0
+texture = ExtResource("2_6y1qs")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+expand_margin_left = 15.0
+expand_margin_right = 15.0
+region_rect = Rect2(267, 268, 41, 36)
+draw_center = false
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ky6j"]
 texture = ExtResource("4_8e6rv")
@@ -30,7 +41,7 @@ Button/constants/outline_size = 8
 Button/font_sizes/font_size = 15
 Button/styles/focus = ExtResource("1_4aake")
 Button/styles/hover = ExtResource("1_4aake")
-Button/styles/normal = SubResource("StyleBoxFlat_1qoxb")
+Button/styles/normal = SubResource("StyleBoxTexture_ncvdu")
 Button/styles/pressed = ExtResource("1_4aake")
 Fonts/fonts/normal = ExtResource("3_wd4lc")
 Panel/styles/panel = SubResource("StyleBoxTexture_7ky6j")

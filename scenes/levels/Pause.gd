@@ -84,7 +84,9 @@ func pause():
 func _on_options_pressed():
 	playTapSound()
 	$OptionsPanel.show()
-	$OptionsPanel/HBoxContainer/Back.grab_focus()
+	$OptionsPanel/VBoxContainer/HSlider.grab_focus()
+	
+
 
 func _on_back_pressed():
 	playTapSound()
