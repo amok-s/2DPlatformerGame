@@ -64,7 +64,7 @@ scale = Vector2(2, 2)
 offset_left = 180.0
 offset_top = 22.0
 offset_right = 405.0
-offset_bottom = 278.0
+offset_bottom = 283.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("3_t6kx5")
@@ -90,16 +90,16 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 208.0
-offset_top = 289.0
+offset_top = 297.0
 offset_right = 329.0
-offset_bottom = 303.0
+offset_bottom = 311.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("4_d8m81")
 theme_override_font_sizes/font_size = 14
-text = "death count:
+text = "today's death count:
 "
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PausePanel"]
@@ -241,6 +241,7 @@ custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+mouse_filter = 2
 min_value = -36.0
 max_value = 30.0
 step = 2.0
@@ -255,6 +256,7 @@ theme_override_constants/separation = 15
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_font_sizes/font_size = 19
 text = "full screen"
 
@@ -284,24 +286,6 @@ theme_override_fonts/font = ExtResource("4_h1e6r")
 theme_override_font_sizes/font_size = 19
 button_mask = 0
 text = "save & go back"
-
-[node name="WIP info" type="Label" parent="OptionsPanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -89.5
-offset_top = -21.0
-offset_right = 31.5
-offset_bottom = -7.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("4_d8m81")
-theme_override_font_sizes/font_size = 14
-text = "work in progress
-"
 
 [node name="TapSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_f3j10")

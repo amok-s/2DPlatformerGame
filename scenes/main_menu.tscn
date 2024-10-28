@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://3kqxe67swqec"]
+[gd_scene load_steps=43 format=3 uid="uid://3kqxe67swqec"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1md1s"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="2_dvh2t"]
@@ -20,6 +20,10 @@
 [ext_resource type="Theme" uid="uid://4g0i8j3taa3i" path="res://assets/UI/title_box.tres" id="16_hluqq"]
 [ext_resource type="Script" path="res://Scripts/button_focus.gd" id="18_h14l1"]
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="18_n5as5"]
+[ext_resource type="Theme" uid="uid://ba3a3s2ug01le" path="res://assets/UI/options_menu.tres" id="19_kmfwg"]
+[ext_resource type="Script" path="res://Scripts/options_pause_menu.gd" id="20_ddmb5"]
+[ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="21_ck7jc"]
+[ext_resource type="Script" path="res://Scripts/StatsBox.gd" id="23_kpss0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifu7e"]
 shader = ExtResource("3_w0qj5")
@@ -266,6 +270,7 @@ region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="Menu" type="Node2D" parent="."]
+texture_filter = 1
 
 [node name="MenuBox" type="Panel" parent="Menu"]
 offset_left = 429.0
@@ -431,6 +436,171 @@ theme_override_font_sizes/font_size = 15
 text = "  level 1-2"
 alignment = 0
 
+[node name="OptionsMenu" type="Control" parent="Menu"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Options" type="Panel" parent="Menu/OptionsMenu"]
+offset_left = 364.0
+offset_top = 48.0
+offset_right = 597.0
+offset_bottom = 313.0
+scale = Vector2(1.5, 1.5)
+theme = ExtResource("19_kmfwg")
+script = ExtResource("20_ddmb5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/OptionsMenu/Options"]
+process_mode = 3
+layout_mode = 0
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 214.0
+offset_bottom = 245.0
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="MasterVolumeLabel" type="Label" parent="Menu/OptionsMenu/Options/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("21_ck7jc")
+theme_override_font_sizes/font_size = 14
+text = "master volume"
+
+[node name="MasterVolume" type="HSlider" parent="Menu/OptionsMenu/Options/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+min_value = -66.0
+max_value = 24.0
+step = 4.0
+value = 2.0
+rounded = true
+
+[node name="HSeparator" type="HSeparator" parent="Menu/OptionsMenu/Options/VBoxContainer"]
+modulate = Color(0.796078, 1, 0.454902, 1)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="MusicVolumeLabel" type="Label" parent="Menu/OptionsMenu/Options/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("21_ck7jc")
+theme_override_font_sizes/font_size = 14
+text = "music volume"
+
+[node name="MusicVolume" type="HSlider" parent="Menu/OptionsMenu/Options/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+min_value = -36.0
+max_value = 30.0
+step = 2.0
+rounded = true
+
+[node name="HSeparator2" type="HSeparator" parent="Menu/OptionsMenu/Options/VBoxContainer"]
+modulate = Color(0.796078, 1, 0.454902, 1)
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="FullScreen" type="CheckButton" parent="Menu/OptionsMenu/Options/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 19
+text = "full screen"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/OptionsMenu/Options/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Default" type="Button" parent="Menu/OptionsMenu/Options/VBoxContainer/HBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("5_qhanw")
+theme_override_font_sizes/font_size = 19
+button_mask = 0
+text = "default"
+
+[node name="Back" type="Button" parent="Menu/OptionsMenu/Options/VBoxContainer/HBoxContainer"]
+process_mode = 3
+layout_direction = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("5_qhanw")
+theme_override_font_sizes/font_size = 19
+button_mask = 0
+text = "save & go back"
+
+[node name="Stats" type="Panel" parent="Menu/OptionsMenu"]
+offset_left = 731.0
+offset_top = 25.0
+offset_right = 884.0
+offset_bottom = 140.0
+scale = Vector2(2, 2)
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"menu box"
+script = ExtResource("23_kpss0")
+
+[node name="StatsLabel" type="Label" parent="Menu/OptionsMenu/Stats"]
+layout_mode = 2
+offset_left = 19.0
+offset_top = 16.0
+offset_right = 120.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("21_ck7jc")
+theme_override_font_sizes/font_size = 14
+text = "Stats"
+
+[node name="StatsContainer" type="VBoxContainer" parent="Menu/OptionsMenu/Stats"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 43.0
+offset_right = 107.0
+offset_bottom = 160.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("11_e0m1u")
+theme_override_constants/separation = 11
+
+[node name="DeathsLabel" type="Label" parent="Menu/OptionsMenu/Stats/StatsContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 14
+text = "deaths total:"
+
+[node name="FruitsLabel" type="Label" parent="Menu/OptionsMenu/Stats/StatsContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 14
+text = "fruits eaten:"
+
+[node name="MobLabel" type="Label" parent="Menu/OptionsMenu/Stats/StatsContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 14
+text = "mobs killed:"
+
 [node name="level buttons" type="Node" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="level buttons"]
@@ -525,7 +695,14 @@ vertical_alignment = 2
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="finished" from="MenuMusic" to="." method="_on_menu_music_finished"]
 [connection signal="pressed" from="Menu/MenuBox/MainMenu/Play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/MenuBox/MainMenu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/MenuBox/MainMenu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="Menu/OptionsMenu/Options/VBoxContainer/MasterVolume" to="Menu/OptionsMenu/Options" method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="Menu/OptionsMenu/Options/VBoxContainer/MusicVolume" to="Menu/OptionsMenu/Options" method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/FullScreen" to="Menu/OptionsMenu/Options" method="_on_full_screen_pressed"]
+[connection signal="toggled" from="Menu/OptionsMenu/Options/VBoxContainer/FullScreen" to="Menu/OptionsMenu/Options" method="_on_full_screen_toggled"]
+[connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/HBoxContainer/Default" to="Menu/OptionsMenu/Options" method="_on_default_pressed"]
+[connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="level buttons/VBoxContainer/level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="level buttons/VBoxContainer/level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="level buttons/VBoxContainer/level3" to="." method="_on_level_3_pressed"]

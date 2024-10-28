@@ -47,6 +47,8 @@ func _on_area_2d_body_entered(body):
 			%GameManager.spawn_sfx("kill", position + Vector2(0, -20))
 			bump_sound.play(0)
 			$StateMachine.force_change_state("TakingDamage")
+			Stats.mobs_killed += 1
+			Stats.mushroom_killed += 1
 		
 		# when mushroom is hitting the player
 		else:

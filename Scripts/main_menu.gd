@@ -65,3 +65,27 @@ func _on_play_button_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit() 
+
+func _on_options_pressed():
+	tap_sound.play(0)
+	if (tap_sound.finished):
+		$Menu/MenuBox.hide()
+		$TitleBox.hide()
+		$Menu/OptionsMenu.show()
+		$Menu/OptionsMenu/Options/VBoxContainer/MasterVolume.grab_focus()
+
+
+
+
+
+func _on_back_pressed():
+	tap_sound.play(0)
+	if (tap_sound.finished):
+		$Menu/MenuBox.show()
+		$TitleBox.show()
+		$Menu/OptionsMenu.hide()
+		$Menu/MenuBox/MainMenu/Play.grab_focus()
+
+
+
+

@@ -22,6 +22,7 @@ config/icon="res://assets/game_icon.png"
 
 GlobalLevelManager="*res://Scripts/global_level_manager.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
+Stats="*res://Scripts/Stats.gd"
 
 [display]
 

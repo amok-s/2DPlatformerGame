@@ -39,6 +39,7 @@ func add_point():
 
 func add_fruit():
 	fruits_count += 1
+	Stats.fruits_eaten += 1
 	points_label.text = "Fruits: " + str(fruits_count) + " / " + str(fruits_amount)
 	if fruits_count > fruits_amount - FruitsLeftForArrowToShow - 1 and fruits_count != fruits_amount:
 		arrow_timer()
@@ -148,6 +149,7 @@ func spawn_sfx(name, sfx_position : Vector2, rotation = 0, scale = Vector2(4,4))
 
 func player_dead():
 	GlobalLevelManager.death_count += 1
+	Stats.global_deaths += 1
 	var music = get_parent().get_node("BgMusic")
 	if music:
 		GlobalLevelManager.music_time = music.get_playback_position()

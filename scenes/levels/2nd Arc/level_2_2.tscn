@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dh3d8d6dqjj8a"]
+[gd_scene load_steps=64 format=3 uid="uid://dh3d8d6dqjj8a"]
 
 [ext_resource type="Script" path="res://scenes/levels/2nd Arc/level_2_2.gd" id="1_l1dqw"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_5gqnn"]
@@ -50,8 +50,7 @@
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="49_8x24r"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="50_wglov"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="51_iukdv"]
-[ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="52_2vur0"]
-[ext_resource type="Theme" uid="uid://t0yq5xb26liw" path="res://assets/UI/menu_box_bosque.tres" id="53_58k7v"]
+[ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="51_wtg8g"]
 
 [sub_resource type="Curve" id="Curve_avk8e"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -188,9 +187,6 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc2ha"]
-bg_color = Color(0.133333, 0.054902, 0.203922, 0.52549)
 
 [node name="Level2_2" type="Node"]
 script = ExtResource("1_l1dqw")
@@ -932,86 +928,8 @@ layout_mode = 2
 texture = ExtResource("51_iukdv")
 expand_mode = 2
 
-[node name="Pause" type="Node" parent="UI"]
-script = ExtResource("52_2vur0")
-
-[node name="PausePanel" type="Panel" parent="UI/Pause"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jc2ha")
-
-[node name="Node2D" type="Node2D" parent="UI/Pause/PausePanel"]
-scale = Vector2(2, 2)
-
-[node name="Panel" type="Panel" parent="UI/Pause/PausePanel/Node2D"]
-offset_left = 148.0
-offset_top = 48.0
-offset_right = 431.0
-offset_bottom = 280.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("53_58k7v")
-
-[node name="Label" type="Label" parent="UI/Pause/PausePanel/Node2D"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 188.5
-offset_top = 63.0
-offset_right = 389.5
-offset_bottom = 113.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
-theme_override_fonts/font = ExtResource("50_wglov")
-theme_override_font_sizes/font_size = 45
-text = "GAME PAUSED"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PausePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -261.0
-offset_top = -112.0
-offset_right = 1.0
-offset_bottom = 54.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-theme = ExtResource("53_58k7v")
-theme_override_constants/separation = 2
-alignment = 1
-
-[node name="Resume" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("50_wglov")
-theme_override_font_sizes/font_size = 31
-text = "resume"
-
-[node name="Restart" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("50_wglov")
-theme_override_font_sizes/font_size = 31
-text = "restart"
-
-[node name="MainMenu" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("50_wglov")
-theme_override_font_sizes/font_size = 31
-text = "back to main menu"
+[node name="Pause" parent="." instance=ExtResource("51_wtg8g")]
+position = Vector2(752.614, 215.208)
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
@@ -1019,6 +937,3 @@ text = "back to main menu"
 [connection signal="body_exited" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_exited"]
 [connection signal="body_entered" from="Scene Objects/Traps group/Chained_Ball2/StaticBody2D/Area2D" to="Scene Objects/Traps group/Chained_Ball2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Restart" to="UI/Pause" method="_on_restart_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
