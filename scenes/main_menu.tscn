@@ -210,6 +210,7 @@ stream = ExtResource("4_ubdrv")
 stream = ExtResource("5_yd101")
 volume_db = -18.236
 autoplay = true
+bus = &"Music"
 
 [node name="bg_elements" type="Control" parent="."]
 layout_mode = 3

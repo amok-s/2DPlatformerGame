@@ -198,6 +198,7 @@ script = ExtResource("1_l1dqw")
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_5gqnn")
 volume_db = -20.0
+bus = &"Music"
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "hearts")]
 unique_name_in_owner = true

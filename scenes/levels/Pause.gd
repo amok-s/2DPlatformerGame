@@ -4,6 +4,7 @@ extends Node
 @onready var ui = $"../CoinsPanel"
 @onready var player = $"../../Scene Objects/CharacterBody2D"
 @onready var death_count = $PausePanel/Node2D/DeathCount
+@onready var music_volume = $OptionsPanel/VBoxContainer/MusicVolume
 
 
 var zoom_protect = 0
@@ -84,14 +85,20 @@ func pause():
 func _on_options_pressed():
 	playTapSound()
 	$OptionsPanel.show()
-	$OptionsPanel/VBoxContainer/HSlider.grab_focus()
+	$OptionsPanel/VBoxContainer/MasterVolume.grab_focus()
 	
 
 
 func _on_back_pressed():
 	playTapSound()
 	$OptionsPanel.hide()
+	var bgMusicVolume = bgMusic.volume_db
+	print("volume: " + str(bgMusicVolume))
+	var tween = get_tree().create_tween()
+	tween.tween_property(bgMusic, "volume_db", bgMusicVolume - 12, 0.6)
+	print("powinno sie zciszcy")
 	$PausePanel/VBoxContainer/Options.grab_focus()
+	print("volume: " + str(bgMusic.volume_db))
 
 
 func playTapSound():

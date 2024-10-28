@@ -158,6 +158,7 @@ metadata/_edit_vertical_guides_ = [4120.0]
 process_mode = 3
 stream = ExtResource("2_cnu3s")
 volume_db = -18.0
+bus = &"Music"
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "hearts")]
 unique_name_in_owner = true

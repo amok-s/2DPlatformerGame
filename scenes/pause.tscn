@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cx5eqhjjdi1b"]
+[gd_scene load_steps=12 format=3 uid="uid://cx5eqhjjdi1b"]
 
 [ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="1_o0ns5"]
 [ext_resource type="Shader" path="res://shaders/pixelate.gdshader" id="2_ol6dk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="6_idpwl"]
 [ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://assets/sounds/tap.wav" id="8_f3j10"]
 [ext_resource type="Theme" uid="uid://ba3a3s2ug01le" path="res://assets/UI/options_menu.tres" id="8_nwgxi"]
+[ext_resource type="Script" path="res://Scripts/options_pause_menu.gd" id="9_ui1qv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kctr1"]
 shader = ExtResource("2_ol6dk")
@@ -183,22 +184,25 @@ region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="OptionsPanel" type="Panel" parent="."]
-offset_left = 659.0
-offset_top = 130.0
-offset_right = 881.0
-offset_bottom = 368.0
+offset_left = 647.0
+offset_top = 76.0
+offset_right = 880.0
+offset_bottom = 341.0
 scale = Vector2(2, 2)
 theme = ExtResource("8_nwgxi")
+script = ExtResource("9_ui1qv")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel"]
+process_mode = 3
 layout_mode = 0
-offset_left = 16.0
-offset_top = 19.0
-offset_right = 211.0
-offset_bottom = 243.0
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 214.0
+offset_bottom = 245.0
 theme_override_constants/separation = 6
+alignment = 1
 
-[node name="MasterVolume" type="Label" parent="OptionsPanel/VBoxContainer"]
+[node name="MasterVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -207,15 +211,23 @@ theme_override_fonts/font = ExtResource("4_d8m81")
 theme_override_font_sizes/font_size = 14
 text = "master volume"
 
-[node name="HSlider" type="HSlider" parent="OptionsPanel/VBoxContainer"]
+[node name="MasterVolume" type="HSlider" parent="OptionsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+min_value = -66.0
+max_value = 24.0
+step = 4.0
+value = 2.0
 rounded = true
 
 [node name="HSeparator" type="HSeparator" parent="OptionsPanel/VBoxContainer"]
+modulate = Color(0.796078, 1, 0.454902, 1)
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="MasterVolume2" type="Label" parent="OptionsPanel/VBoxContainer"]
+[node name="MusicVolumeLabel" type="Label" parent="OptionsPanel/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -224,21 +236,27 @@ theme_override_fonts/font = ExtResource("4_d8m81")
 theme_override_font_sizes/font_size = 14
 text = "music volume"
 
-[node name="HSlider2" type="HSlider" parent="OptionsPanel/VBoxContainer"]
+[node name="MusicVolume" type="HSlider" parent="OptionsPanel/VBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+min_value = -36.0
+max_value = 30.0
+step = 2.0
 rounded = true
 
 [node name="HSeparator2" type="HSeparator" parent="OptionsPanel/VBoxContainer"]
+modulate = Color(0.796078, 1, 0.454902, 1)
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="CheckButton" type="CheckButton" parent="OptionsPanel/VBoxContainer"]
+[node name="FullScreen" type="CheckButton" parent="OptionsPanel/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 19
 text = "full screen"
-
-[node name="Control" type="Control" parent="OptionsPanel/VBoxContainer"]
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="OptionsPanel/VBoxContainer"]
 layout_mode = 2
@@ -292,4 +310,9 @@ stream = ExtResource("8_f3j10")
 [connection signal="pressed" from="PausePanel/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="PausePanel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/MasterVolume" to="OptionsPanel" method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="OptionsPanel/VBoxContainer/MusicVolume" to="OptionsPanel" method="_on_music_volume_value_changed"]
+[connection signal="pressed" from="OptionsPanel/VBoxContainer/FullScreen" to="OptionsPanel" method="_on_full_screen_pressed"]
+[connection signal="toggled" from="OptionsPanel/VBoxContainer/FullScreen" to="OptionsPanel" method="_on_full_screen_toggled"]
+[connection signal="pressed" from="OptionsPanel/VBoxContainer/HBoxContainer/Default" to="OptionsPanel" method="_on_default_pressed"]
 [connection signal="pressed" from="OptionsPanel/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]

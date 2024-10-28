@@ -6,11 +6,12 @@ var currentArc = 0
 var endOfArc = false
 var pausable = false
 var death_count = 0
-
+var currentMusic
 
 func startLevelMusic(levelMusic, newArc = false):
 	if levelMusic:
 		var levelMusicVolume = levelMusic.volume_db
+		currentMusic = levelMusic
 		levelMusic.volume_db = -60
 		if newArc == true:
 			levelMusic.play(0)
@@ -21,3 +22,4 @@ func startLevelMusic(levelMusic, newArc = false):
 
 func LevelStart():
 	pass
+
