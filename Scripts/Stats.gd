@@ -4,13 +4,18 @@ var global_deaths : int = 0
 var fruits_eaten : int = 0
 var mobs_killed : int = 0
 
-var lvl1_1_unlocked = false
-var lvl1_2_unlocked = false
+var levels_unlocked: Array[String]
 
-var level2_0_unlocked = false
-var level2_1_unlocked = false
-var lvl
-
+var arc2_unlocked = false
+var arc3_unlocked = false
 
 var mushroom_killed : int = 0
 var plants_killed : int = 0
+
+func lvl_unlock(lvl_name):
+	if levels_unlocked.is_empty():
+		levels_unlocked.append(lvl_name)
+	elif !levels_unlocked.has(lvl_name):
+		levels_unlocked.append(lvl_name)
+	else:
+		pass

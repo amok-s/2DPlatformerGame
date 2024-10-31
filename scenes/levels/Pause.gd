@@ -7,6 +7,7 @@ extends Node
 @onready var music_volume = $OptionsPanel/VBoxContainer/MusicVolume
 
 
+
 var zoom_protect = 0
 var original_cam
 
@@ -14,7 +15,7 @@ func _ready():
 	pause_panel.hide()
 	$CanvasLayer.hide()
 	$OptionsPanel.hide()
-	pass
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,7 +25,7 @@ func _process(delta):
 		GlobalLevelManager.pausable = false
 		camera_zoom_in()
 		$CanvasLayer.show()
-	death_count.text = "death count : " + str(GlobalLevelManager.death_count)
+	death_count.text = "today's death count : " + str(GlobalLevelManager.death_count)
 		
 
 
@@ -93,12 +94,9 @@ func _on_back_pressed():
 	playTapSound()
 	$OptionsPanel.hide()
 	var bgMusicVolume = bgMusic.volume_db
-	print("volume: " + str(bgMusicVolume))
 	var tween = get_tree().create_tween()
 	tween.tween_property(bgMusic, "volume_db", bgMusicVolume - 12, 0.6)
-	print("powinno sie zciszcy")
 	$PausePanel/VBoxContainer/Options.grab_focus()
-	print("volume: " + str(bgMusic.volume_db))
 
 
 func playTapSound():

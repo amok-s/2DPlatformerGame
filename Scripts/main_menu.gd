@@ -3,13 +3,15 @@ extends Node
 @onready var tap_sound = $TapSound
 @onready var menu_music = $MenuMusic
 @onready var bg_elements = $bg_elements
+@onready var master_volume = $Menu/OptionsMenu/Options/VBoxContainer/MasterVolume
+@onready var music_volume = $Menu/OptionsMenu/Options/VBoxContainer/MusicVolume
+
 
 var center : Vector2 
 @onready var background = $Background
 
 @onready var title_text = $TitleBox/TitleText
 @onready var v_box_container = $Menu/MenuBox/MainMenu
-
 
 func godot_bug_fix(text):
 	text = text.c_escape()
@@ -21,14 +23,14 @@ func _ready():
 	GlobalLevelManager.music_time = 0
 	menu_music.play(0.5)
 	center = Vector2(10, 20)
-	
+	$Menu/LevelSelection.check_level_progress()
+
 	
 	title_text.text = godot_bug_fix(title_text.text)
 	for i in v_box_container.get_children():
 		i.text = godot_bug_fix(i.text)
 
-	
-	
+
 func _process(delta):
 	var tween = bg_elements.create_tween()
 	
@@ -39,29 +41,24 @@ func _process(delta):
 func _on_menu_music_finished():
 	menu_music.play(0.3)
 
-func _on_level_1_pressed():
-	tap_sound.play(0)
-	if (tap_sound.finished):
-		get_tree().change_scene_to_file("res://scenes/levels/level1_1.tscn")
-
-func _on_level_2_pressed():
-	tap_sound.play(0)
-	if (tap_sound.finished):
-		get_tree().change_scene_to_file("res://scenes/levels/level1_11.tscn")
-		
-func _on_level_3_pressed():
-	tap_sound.play(0)
-	if (tap_sound.finished):
-		get_tree().change_scene_to_file("res://scenes/levels/test_level_2.tscn")		
-
-
 func _on_play_button_pressed():
 	tap_sound.play(0)
-	if (tap_sound.finished):
-		GlobalLevelManager.currentArc = 1
-		GlobalLevelManager.nextLevelPath = "res://scenes/levels/1st Arc/1_0/level_1_0.tscn"
-		var loadingScreen = load("res://scenes/loading_screen.tscn")
-		get_tree().change_scene_to_packed(loadingScreen)
+	$Menu/MenuBox.hide()
+	$Menu/LevelSelection.show()
+	$Menu/LevelSelection/Arc1/Levels/lvl1_0.grab_focus()
+	#if (tap_sound.finished):
+		#if Stats.levels_unlocked.is_empty():
+			#GlobalLevelManager.currentArc = 1
+			#GlobalLevelManager.nextLevelPath = "res://scenes/levels/1st Arc/1_0/level_1_0.tscn"
+			#var loadingScreen = load("res://scenes/loading_screen.tscn")
+			#get_tree().change_scene_to_packed(loadingScreen)
+		#else:
+			#$Menu/MenuBox.hide()
+			#$Menu/LevelSelection.show()
+			#$Menu/LevelSelection/Arc1/Levels/lvl1_0.grab_focus()
+#
+			#$Menu/LevelSelection.level_selection()
+
 
 func _on_quit_pressed():
 	get_tree().quit() 
@@ -74,16 +71,14 @@ func _on_options_pressed():
 		$Menu/OptionsMenu.show()
 		$Menu/OptionsMenu/Options/VBoxContainer/MasterVolume.grab_focus()
 
-
-
-
-
 func _on_back_pressed():
 	tap_sound.play(0)
 	if (tap_sound.finished):
 		$Menu/MenuBox.show()
 		$TitleBox.show()
 		$Menu/OptionsMenu.hide()
+		music_volume.value = AudioServer.get_bus_volume_db(1)
+		master_volume.value = AudioServer.get_bus_volume_db(0)
 		$Menu/MenuBox/MainMenu/Play.grab_focus()
 
 

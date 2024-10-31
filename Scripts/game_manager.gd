@@ -76,6 +76,7 @@ func add_health():
 
 func finish_level():
 	GlobalLevelManager.pausable = false
+	Stats.lvl_unlock(get_parent().lvlname)
 	cant_die = true
 	$finish.play(0)
 	spawn_shockwave()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://3kqxe67swqec"]
+[gd_scene load_steps=45 format=3 uid="uid://3kqxe67swqec"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1md1s"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="2_dvh2t"]
@@ -20,7 +20,9 @@
 [ext_resource type="Theme" uid="uid://4g0i8j3taa3i" path="res://assets/UI/title_box.tres" id="16_hluqq"]
 [ext_resource type="Script" path="res://Scripts/button_focus.gd" id="18_h14l1"]
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="18_n5as5"]
+[ext_resource type="Script" path="res://Scripts/LevelSelection.gd" id="19_aidgm"]
 [ext_resource type="Theme" uid="uid://ba3a3s2ug01le" path="res://assets/UI/options_menu.tres" id="19_kmfwg"]
+[ext_resource type="Texture2D" uid="uid://dh21o4nlduyio" path="res://assets/UI/GUI.png" id="19_p4ru4"]
 [ext_resource type="Script" path="res://Scripts/options_pause_menu.gd" id="20_ddmb5"]
 [ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="21_ck7jc"]
 [ext_resource type="Script" path="res://Scripts/StatsBox.gd" id="23_kpss0"]
@@ -172,6 +174,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_5d73i")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="ForestBg" type="TextureRect" parent="Background"]
 modulate = Color(1, 0.376471, 1, 1)
@@ -189,6 +193,8 @@ grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("5_5ubdx")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="ForestBg2" type="TextureRect" parent="Background"]
 modulate = Color(1, 0.376471, 1, 1)
@@ -206,6 +212,8 @@ grow_vertical = 2
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_frn6f")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="TapSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ubdrv")
@@ -219,6 +227,7 @@ bus = &"Music"
 [node name="bg_elements" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+metadata/_edit_lock_ = true
 
 [node name="foliage_behind" type="Node2D" parent="bg_elements"]
 
@@ -335,72 +344,120 @@ theme = ExtResource("11_e0m1u")
 theme_override_font_sizes/font_size = 15
 text = "Quit"
 
-[node name="Level Box" type="Panel" parent="Menu"]
+[node name="LevelSelection" type="Panel" parent="Menu"]
 visible = false
+clip_contents = true
 offset_left = 429.0
 offset_top = 263.0
 offset_right = 534.0
-offset_bottom = 411.0
+offset_bottom = 417.0
 scale = Vector2(2, 2)
 theme = ExtResource("11_e0m1u")
 theme_type_variation = &"menu box"
+script = ExtResource("19_aidgm")
 
-[node name="MainMenu" type="VBoxContainer" parent="Menu/Level Box"]
-layout_mode = 0
-offset_left = 18.5
-offset_top = 11.0
-offset_right = 106.5
-offset_bottom = 171.0
-scale = Vector2(0.8, 0.8)
-theme = ExtResource("11_e0m1u")
-theme_override_constants/separation = 6
+[node name="Arc1" type="Control" parent="Menu/LevelSelection"]
+anchors_preset = 0
+offset_right = 104.0
+offset_bottom = 152.0
 
-[node name="level1" type="Button" parent="Menu/Level Box/MainMenu"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("11_e0m1u")
-theme_type_variation = &"FlatButton"
-theme_override_font_sizes/font_size = 15
-text = "  level I"
-alignment = 0
-
-[node name="Options2" type="Button" parent="Menu/Level Box/MainMenu"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("11_e0m1u")
-theme_type_variation = &"FlatButton"
-theme_override_font_sizes/font_size = 15
-text = "  level II"
-alignment = 0
-
-[node name="Credits" type="Button" parent="Menu/Level Box/MainMenu"]
-layout_mode = 2
-size_flags_vertical = 4
-theme = ExtResource("11_e0m1u")
-theme_override_font_sizes/font_size = 15
-text = "  level III"
-alignment = 0
-
-[node name="Level Box2" type="Panel" parent="Menu"]
-visible = false
-offset_left = 429.0
-offset_top = 141.0
-offset_right = 534.0
-offset_bottom = 295.0
+[node name="LeftArrow" type="Sprite2D" parent="Menu/LevelSelection/Arc1"]
+modulate = Color(0.796078, 1, 0.454902, 1)
+position = Vector2(85, 25.5)
 scale = Vector2(2, 2)
-theme = ExtResource("11_e0m1u")
-theme_type_variation = &"menu box"
+texture = ExtResource("19_p4ru4")
+region_enabled = true
+region_rect = Rect2(148, 35, 9, 9)
 
-[node name="Arc1" type="Label" parent="Menu/Level Box2"]
+[node name="ArcLabel" type="Label" parent="Menu/LevelSelection/Arc1"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 21.5
-offset_right = 72.0
-offset_bottom = 37.5
+offset_left = 32.5
+offset_top = 17.5
+offset_right = 74.5
+offset_bottom = 33.5
 theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
 text = "Arc 1"
 
-[node name="MainMenu" type="VBoxContainer" parent="Menu/Level Box2"]
+[node name="RightArrow" type="Sprite2D" parent="Menu/LevelSelection/Arc1"]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+position = Vector2(20.5, 26)
+rotation = 3.14159
+scale = Vector2(2, -2)
+texture = ExtResource("19_p4ru4")
+region_enabled = true
+region_rect = Rect2(148, 35, 9, 9)
+
+[node name="Levels" type="VBoxContainer" parent="Menu/LevelSelection/Arc1"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 43.0
+offset_right = 112.0
+offset_bottom = 160.0
+scale = Vector2(0.8, 0.8)
+mouse_filter = 0
+theme = ExtResource("11_e0m1u")
+theme_override_constants/separation = 6
+
+[node name="lvl1_0" type="Button" parent="Menu/LevelSelection/Arc1/Levels"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_override_font_sizes/font_size = 15
+text = "  intro"
+alignment = 0
+
+[node name="lvl1_1" type="Button" parent="Menu/LevelSelection/Arc1/Levels"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 15
+text = "  level 1-1"
+alignment = 0
+
+[node name="lvl1_2" type="Button" parent="Menu/LevelSelection/Arc1/Levels"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 15
+disabled = true
+text = "  level 1-2"
+alignment = 0
+
+[node name="Arc2" type="Control" parent="Menu/LevelSelection"]
+visible = false
+anchors_preset = 0
+offset_right = 104.0
+offset_bottom = 152.0
+
+[node name="LeftArrow" type="Sprite2D" parent="Menu/LevelSelection/Arc2"]
+modulate = Color(0.796078, 1, 0.454902, 1)
+position = Vector2(85, 25.5)
+scale = Vector2(2, 2)
+texture = ExtResource("19_p4ru4")
+region_enabled = true
+region_rect = Rect2(148, 35, 9, 9)
+
+[node name="ArcLabel" type="Label" parent="Menu/LevelSelection/Arc2"]
+layout_mode = 0
+offset_left = 32.5
+offset_top = 17.5
+offset_right = 74.5
+offset_bottom = 33.5
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+text = "Arc 2"
+
+[node name="RightArrow" type="Sprite2D" parent="Menu/LevelSelection/Arc2"]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+position = Vector2(20.5, 26)
+rotation = 3.14159
+scale = Vector2(2, -2)
+texture = ExtResource("19_p4ru4")
+region_enabled = true
+region_rect = Rect2(148, 35, 9, 9)
+
+[node name="Levels" type="VBoxContainer" parent="Menu/LevelSelection/Arc2"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 43.0
@@ -410,7 +467,7 @@ scale = Vector2(0.8, 0.8)
 theme = ExtResource("11_e0m1u")
 theme_override_constants/separation = 6
 
-[node name="Intro" type="Button" parent="Menu/Level Box2/MainMenu"]
+[node name="Intro" type="Button" parent="Menu/LevelSelection/Arc2/Levels"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("11_e0m1u")
@@ -419,20 +476,94 @@ theme_override_font_sizes/font_size = 15
 text = "  intro"
 alignment = 0
 
-[node name="Level 1-1" type="Button" parent="Menu/Level Box2/MainMenu"]
+[node name="Level 1-1" type="Button" parent="Menu/LevelSelection/Arc2/Levels"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("11_e0m1u")
 theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 15
+disabled = true
 text = "  level 1-1"
 alignment = 0
 
-[node name="Level 1-2" type="Button" parent="Menu/Level Box2/MainMenu"]
+[node name="Level 1-2" type="Button" parent="Menu/LevelSelection/Arc2/Levels"]
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 15
+disabled = true
+text = "  level 1-2"
+alignment = 0
+
+[node name="Arc3" type="Control" parent="Menu/LevelSelection"]
+visible = false
+anchors_preset = 0
+offset_right = 104.0
+offset_bottom = 152.0
+
+[node name="LeftArrow" type="Sprite2D" parent="Menu/LevelSelection/Arc3"]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+position = Vector2(85, 25.5)
+scale = Vector2(2, 2)
+texture = ExtResource("19_p4ru4")
+region_enabled = true
+region_rect = Rect2(148, 35, 9, 9)
+
+[node name="ArcLabel" type="Label" parent="Menu/LevelSelection/Arc3"]
+layout_mode = 0
+offset_left = 32.5
+offset_top = 17.5
+offset_right = 74.5
+offset_bottom = 33.5
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+text = "Arc 3"
+
+[node name="RightArrow" type="Sprite2D" parent="Menu/LevelSelection/Arc3"]
+modulate = Color(0.796078, 1, 0.454902, 1)
+position = Vector2(20.5, 26)
+rotation = 3.14159
+scale = Vector2(2, -2)
+texture = ExtResource("19_p4ru4")
+region_enabled = true
+region_rect = Rect2(148, 35, 9, 9)
+
+[node name="Levels" type="VBoxContainer" parent="Menu/LevelSelection/Arc3"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 43.0
+offset_right = 107.0
+offset_bottom = 160.0
+scale = Vector2(0.8, 0.8)
+theme = ExtResource("11_e0m1u")
+theme_override_constants/separation = 6
+
+[node name="Intro" type="Button" parent="Menu/LevelSelection/Arc3/Levels"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 15
+text = "  intro"
+alignment = 0
+
+[node name="Level 1-1" type="Button" parent="Menu/LevelSelection/Arc3/Levels"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 15
+disabled = true
+text = "  level 1-1"
+alignment = 0
+
+[node name="Level 1-2" type="Button" parent="Menu/LevelSelection/Arc3/Levels"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("11_e0m1u")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 15
+disabled = true
 text = "  level 1-2"
 alignment = 0
 
@@ -444,6 +575,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Options" type="Panel" parent="Menu/OptionsMenu"]
+layout_mode = 0
 offset_left = 364.0
 offset_top = 48.0
 offset_right = 597.0
@@ -476,10 +608,9 @@ custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 mouse_filter = 2
-min_value = -66.0
+min_value = -68.0
 max_value = 24.0
 step = 4.0
-value = 2.0
 rounded = true
 
 [node name="HSeparator" type="HSeparator" parent="Menu/OptionsMenu/Options/VBoxContainer"]
@@ -548,6 +679,7 @@ button_mask = 0
 text = "save & go back"
 
 [node name="Stats" type="Panel" parent="Menu/OptionsMenu"]
+layout_mode = 0
 offset_left = 731.0
 offset_top = 25.0
 offset_right = 884.0
@@ -568,7 +700,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("21_ck7jc")
 theme_override_font_sizes/font_size = 14
-text = "Stats"
+text = "STATS"
 
 [node name="StatsContainer" type="VBoxContainer" parent="Menu/OptionsMenu/Stats"]
 layout_mode = 0
@@ -600,45 +732,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 14
 text = "mobs killed:"
-
-[node name="level buttons" type="Node" parent="."]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="level buttons"]
-visible = false
-offset_left = 786.0
-offset_top = 375.0
-offset_right = 926.0
-offset_bottom = 557.0
-
-[node name="level1" type="Button" parent="level buttons/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.898039, 0.764706, 0.494118, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("5_qhanw")
-theme_override_font_sizes/font_size = 35
-text = "> level 1_1"
-flat = true
-
-[node name="level2" type="Button" parent="level buttons/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.898039, 0.764706, 0.494118, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("5_qhanw")
-theme_override_font_sizes/font_size = 35
-text = "> level 2"
-flat = true
-
-[node name="level3" type="Button" parent="level buttons/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_pressed_color = Color(0.898039, 0.764706, 0.494118, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_fonts/font = ExtResource("5_qhanw")
-theme_override_font_sizes/font_size = 35
-text = "> test level"
-flat = true
 
 [node name="Footer" type="Panel" parent="."]
 anchors_preset = 12
@@ -697,12 +790,10 @@ vertical_alignment = 2
 [connection signal="pressed" from="Menu/MenuBox/MainMenu/Play" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Menu/MenuBox/MainMenu/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Menu/MenuBox/MainMenu/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Menu/LevelSelection/Arc1/Levels/lvl1_0" to="Menu/LevelSelection" method="_on_lvl_1_0_pressed"]
 [connection signal="value_changed" from="Menu/OptionsMenu/Options/VBoxContainer/MasterVolume" to="Menu/OptionsMenu/Options" method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="Menu/OptionsMenu/Options/VBoxContainer/MusicVolume" to="Menu/OptionsMenu/Options" method="_on_music_volume_value_changed"]
 [connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/FullScreen" to="Menu/OptionsMenu/Options" method="_on_full_screen_pressed"]
 [connection signal="toggled" from="Menu/OptionsMenu/Options/VBoxContainer/FullScreen" to="Menu/OptionsMenu/Options" method="_on_full_screen_toggled"]
 [connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/HBoxContainer/Default" to="Menu/OptionsMenu/Options" method="_on_default_pressed"]
 [connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="level buttons/VBoxContainer/level1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="level buttons/VBoxContainer/level2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="level buttons/VBoxContainer/level3" to="." method="_on_level_3_pressed"]
