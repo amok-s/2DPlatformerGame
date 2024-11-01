@@ -1,6 +1,6 @@
 extends Node
 
-var lvlname : String = "lvl3_1"
+var lvlname : String = "lvl1_1"
 
 func _ready():
 	GlobalLevelManager.startLevelMusic($BgMusic)
