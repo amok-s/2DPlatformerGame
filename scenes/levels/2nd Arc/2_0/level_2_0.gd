@@ -1,7 +1,7 @@
 extends Node
 
+var lvlname : String = "lvl2_0"
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalLevelManager.startLevelMusic($BgMusic, true)
 	GlobalLevelManager.endOfArc = false

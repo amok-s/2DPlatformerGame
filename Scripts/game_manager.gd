@@ -30,6 +30,7 @@ func _ready():
 	Engine.time_scale = 1
 	fruits_amount = fruits_node.get_child_count()
 	pauseBreak(1)
+	Stats.lvl_unlock(get_parent().lvlname)
 
 func add_point():
 	points += 1
@@ -76,7 +77,7 @@ func add_health():
 
 func finish_level():
 	GlobalLevelManager.pausable = false
-	Stats.lvl_unlock(get_parent().lvlname)
+	checkArc()
 	cant_die = true
 	$finish.play(0)
 	spawn_shockwave()
@@ -168,3 +169,8 @@ func pauseBreak(time):
 	await get_tree().create_timer(time).timeout
 	GlobalLevelManager.pausable = true
 	
+func checkArc():
+	if get_parent().lvlname == "lvl1_2":
+		Stats.arc2_unlocked = true
+	if get_parent().lvlname == "lvl2_2":
+		Stats.arc3_unlocked = true

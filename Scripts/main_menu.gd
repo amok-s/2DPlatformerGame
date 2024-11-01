@@ -23,8 +23,6 @@ func _ready():
 	GlobalLevelManager.music_time = 0
 	menu_music.play(0.5)
 	center = Vector2(10, 20)
-	$Menu/LevelSelection.check_level_progress()
-
 	
 	title_text.text = godot_bug_fix(title_text.text)
 	for i in v_box_container.get_children():
@@ -37,27 +35,26 @@ func _process(delta):
 	var offset = center - bg_elements.get_global_mouse_position() * 0.05
 	
 	tween.tween_property(bg_elements, "position", offset, 1.0)
+	
+	if Input.is_action_just_pressed("escape"):
+		esc_pressed()
+	
 
 func _on_menu_music_finished():
 	menu_music.play(0.3)
 
 func _on_play_button_pressed():
 	tap_sound.play(0)
-	$Menu/MenuBox.hide()
-	$Menu/LevelSelection.show()
-	$Menu/LevelSelection/Arc1/Levels/lvl1_0.grab_focus()
-	#if (tap_sound.finished):
-		#if Stats.levels_unlocked.is_empty():
-			#GlobalLevelManager.currentArc = 1
-			#GlobalLevelManager.nextLevelPath = "res://scenes/levels/1st Arc/1_0/level_1_0.tscn"
-			#var loadingScreen = load("res://scenes/loading_screen.tscn")
-			#get_tree().change_scene_to_packed(loadingScreen)
-		#else:
-			#$Menu/MenuBox.hide()
-			#$Menu/LevelSelection.show()
-			#$Menu/LevelSelection/Arc1/Levels/lvl1_0.grab_focus()
-#
-			#$Menu/LevelSelection.level_selection()
+	if (tap_sound.finished):
+		if Stats.levels_unlocked.is_empty():
+			GlobalLevelManager.currentArc = 1
+			GlobalLevelManager.nextLevelPath = "res://scenes/levels/1st Arc/1_0/level_1_0.tscn"
+			var loadingScreen = load("res://scenes/loading_screen.tscn")
+			get_tree().change_scene_to_packed(loadingScreen)
+		else:
+			$Menu/MenuBox.hide()
+			$Menu/LevelSelection.show()
+			$Menu/LevelSelection.level_selection()
 
 
 func _on_quit_pressed():
@@ -81,6 +78,12 @@ func _on_back_pressed():
 		master_volume.value = AudioServer.get_bus_volume_db(0)
 		$Menu/MenuBox/MainMenu/Play.grab_focus()
 
+func esc_pressed():
+	$Menu/OptionsMenu.hide()
+	$Menu/LevelSelection.hide()
+	$TitleBox.show()
+	$Menu/MenuBox.show()
+	$Menu/MenuBox/MainMenu/Play.grab_focus()
 
 
 
