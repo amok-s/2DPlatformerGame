@@ -3,8 +3,7 @@ extends Node
 var lvlname : String = "lvl1_0"
 
 func _ready():
-	GlobalLevelManager.startLevelMusic($BgMusic, true)
-	GlobalLevelManager.endOfArc = false
+	GlobalLevelManager.startLevelMusic($BgMusic)
 	GlobalLevelManager.currentArc = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

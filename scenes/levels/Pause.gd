@@ -48,6 +48,9 @@ func _on_restart_pressed():
 	await get_tree().create_timer(0.25).timeout
 	pause_panel.hide()
 	get_tree().paused = false
+	var music = get_parent().get_node("BgMusic")
+	if music:
+		GlobalLevelManager.music_time = music.get_playback_position()
 	SceneTransition.level_restart()
 
 func unpause():
