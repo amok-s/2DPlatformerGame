@@ -76,9 +76,26 @@ func _on_back_pressed():
 		$Menu/OptionsMenu.hide()
 		music_volume.value = AudioServer.get_bus_volume_db(1)
 		master_volume.value = AudioServer.get_bus_volume_db(0)
+		Stats.current_options["music volume"] = music_volume.value
+		Stats.current_options["master volume"] = master_volume.value
+		Stats.current_options["full screen"] = $Menu/OptionsMenu/Options/VBoxContainer/FullScreen.button_pressed
 		$Menu/MenuBox/MainMenu/Play.grab_focus()
 
 func esc_pressed():
+	if $Menu/OptionsMenu.is_visible_in_tree():
+		music_volume.value = Stats.current_options["music volume"]
+		AudioServer.set_bus_volume_db(1, music_volume.value)
+		
+		master_volume.value = Stats.current_options["master volume"]
+		AudioServer.set_bus_volume_db(0, master_volume.value)
+		
+		if Stats.current_options["full screen"] == true:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+			$Menu/OptionsMenu/Options/VBoxContainer/FullScreen.button_pressed = true
+		elif Stats.current_options["full screen"] == false:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			$Menu/OptionsMenu/Options/VBoxContainer/FullScreen.button_pressed = false
+		
 	$Menu/OptionsMenu.hide()
 	$Menu/LevelSelection.hide()
 	$TitleBox.show()

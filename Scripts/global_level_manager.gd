@@ -6,6 +6,7 @@ var currentArc = 0
 var pausable = false
 var death_count = 0
 var currentMusicPath
+var endOfArc = false
 
 func startLevelMusic(levelMusic):
 	if levelMusic:

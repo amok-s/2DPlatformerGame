@@ -12,6 +12,10 @@ var arc3_unlocked = false
 var mushroom_killed : int = 0
 var plants_killed : int = 0
 
+var defualt_options = {"master volume" : 0, "music volume": 0, "full screen" : false}
+var current_options = {"master volume" : 0, "music volume": 0, "full screen" : false}
+
+
 func lvl_unlock(lvl_name):
 	if levels_unlocked.is_empty():
 		levels_unlocked.append(lvl_name)

@@ -16,6 +16,7 @@ shader = ExtResource("2_ol6dk")
 shader_parameter/amount = 15.0
 
 [node name="Pause" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_o0ns5")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

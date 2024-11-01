@@ -5,6 +5,7 @@ var lvlname : String = "lvl1_0"
 func _ready():
 	GlobalLevelManager.startLevelMusic($BgMusic)
 	GlobalLevelManager.currentArc = 1
+	GlobalLevelManager.endOfArc = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

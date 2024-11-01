@@ -5,6 +5,7 @@ var lvlname : String = "lvl2_1"
 func _ready():
 	GlobalLevelManager.startLevelMusic($BgMusic)
 	GlobalLevelManager.currentArc = 2
+	GlobalLevelManager.endOfArc = false
 
 
 func _on_bg_music_finished():

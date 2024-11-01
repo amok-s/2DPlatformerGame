@@ -89,7 +89,6 @@ func _on_lvl_2_0_pressed():
 		var loadingScreen = load("res://scenes/loading_screen.tscn")
 		get_tree().change_scene_to_packed(loadingScreen)
 
-
 func _on_lvl_2_1_pressed():
 	tap_sound.play(0)
 	if (tap_sound.finished):

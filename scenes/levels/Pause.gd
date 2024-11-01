@@ -26,9 +26,27 @@ func _process(delta):
 		camera_zoom_in()
 		$CanvasLayer.show()
 	death_count.text = "today's death count : " + str(GlobalLevelManager.death_count)
+	
+	if esc_pressed and $PausePanel.is_visible_in_tree() and !$OptionsPanel.is_visible_in_tree():
+		print("dupa")
+		unpause()
+
+	if esc_pressed and $OptionsPanel.is_visible_in_tree():
+		$OptionsPanel.hide()
 		
-
-
+		music_volume.value = Stats.current_options["music volume"]
+		AudioServer.set_bus_volume_db(1, music_volume.value)
+		
+		$OptionsPanel/VBoxContainer/MasterVolume.value = Stats.current_options["master volume"]
+		AudioServer.set_bus_volume_db(0, $OptionsPanel/VBoxContainer/MasterVolume.value)
+		
+		if Stats.current_options["full screen"] == true:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+			$OptionsPanel/VBoxContainer/FullScreen.button_pressed = true
+		elif Stats.current_options["full screen"] == false:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			$OptionsPanel/VBoxContainer/FullScreen.button_pressed = false
+		$PausePanel/VBoxContainer/Resume.grab_focus()
 
 
 func _on_resume_pressed():
@@ -95,6 +113,9 @@ func _on_options_pressed():
 
 func _on_back_pressed():
 	playTapSound()
+	Stats.current_options["music volume"] = music_volume.value
+	Stats.current_options["master volume"] = $OptionsPanel/VBoxContainer/MasterVolume.value
+	Stats.current_options["full screen"] = $OptionsPanel/VBoxContainer/FullScreen.button_pressed
 	$OptionsPanel.hide()
 	var bgMusicVolume = bgMusic.volume_db
 	var tween = get_tree().create_tween()
