@@ -8,17 +8,25 @@ var path
 var player
 var chase_position
 
+func _ready():
+	if get_parent().name == "PathFollow2D":
+		path = get_parent()
+
+func _process(delta):
+	move_and_slide()
+
 func _on_player_detector_body_entered(body):
-	if body.name == "CharacterBody2D":
-		player = body
-		if player_spotted == false:
-			$AnimationPlayer.play("rage")
-			$Rage.play(0)
-			await get_tree().create_timer(0.4).timeout
-			$AnimationPlayer.play_backwards("rage")
-			chase_position = global_position
-			player_spotted = true
-			player_spotted_timer()
+	pass
+	#if body.name == "CharacterBody2D":
+		#player = body
+		#if player_spotted == false:
+			#$AnimationPlayer.play("rage")
+			#$Rage.play(0)
+			#await get_tree().create_timer(0.4).timeout
+			#$AnimationPlayer.play_backwards("rage")
+			#chase_position = global_position
+			#player_spotted = true
+			#player_spotted_timer()
 		
 func _on_damage_collision_body_entered(body):
 	if body.name == "CharacterBody2D":
@@ -39,5 +47,5 @@ func _on_damage_collision_body_entered(body):
 			body.take_damage(x_delta * 10, -320)
 
 func player_spotted_timer():
-	await get_tree().create_timer(randi_range(2.6, 3.5)).timeout
+	await get_tree().create_timer(randi_range(2.7, 3.7)).timeout
 	player_spotted = false

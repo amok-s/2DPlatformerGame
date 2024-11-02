@@ -10,3 +10,4 @@ func _ready():
 func _on_bg_music_finished():
 	GlobalLevelManager.music_time = 0
 	GlobalLevelManager.startLevelMusic($BgMusic)
+

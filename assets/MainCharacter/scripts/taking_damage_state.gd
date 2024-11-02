@@ -25,6 +25,7 @@ func Update(_delta:float):
 	if player.taking_damage == false:
 		state_transition.emit(self, "Movement")
 	
+	
 func Exit():
 	player.sides_input_blockage = false
 	player.jump_input_blockage = false
