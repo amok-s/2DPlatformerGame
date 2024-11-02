@@ -5,21 +5,21 @@ var player_spotted = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var speed : int = 65
 var path
+var player
+var chase_position
 
 func _on_player_detector_body_entered(body):
 	if body.name == "CharacterBody2D":
-		player_spotted = true
-		$AnimationPlayer.play("rage")
-		$Rage.play(0)
-		await get_tree().create_timer(0.4).timeout
-		$AnimationPlayer.play_backwards("rage")
-
-
-func _on_player_detector_body_exited(body):
-	if body.name == "CharacterBody2D":
-		player_spotted = false
-
-
+		player = body
+		if player_spotted == false:
+			$AnimationPlayer.play("rage")
+			$Rage.play(0)
+			await get_tree().create_timer(0.4).timeout
+			$AnimationPlayer.play_backwards("rage")
+			chase_position = global_position
+			player_spotted = true
+			player_spotted_timer()
+		
 func _on_damage_collision_body_entered(body):
 	if body.name == "CharacterBody2D":
 		var y_delta = get_node("DamageCollision").global_position.y - body.global_position.y
@@ -37,3 +37,7 @@ func _on_damage_collision_body_entered(body):
 			queue_free()
 		else:
 			body.take_damage(x_delta * 10, -320)
+
+func player_spotted_timer():
+	await get_tree().create_timer(randi_range(2.6, 3.5)).timeout
+	player_spotted = false

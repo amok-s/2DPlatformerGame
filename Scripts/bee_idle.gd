@@ -20,7 +20,7 @@ func Exit():
 func Update(_delta:float):
 	if bee.taking_damage == true:
 		state_transition.emit(self, "TakingDamage")
-	
+
 	if bee.player_spotted == true:
 		state_transition.emit(self, "Attack")
 	
