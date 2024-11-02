@@ -11,6 +11,7 @@ var arc3_unlocked = false
 
 var mushroom_killed : int = 0
 var plants_killed : int = 0
+var bee_killed : int = 0
 
 var defualt_options = {"master volume" : 0, "music volume": 0, "full screen" : false}
 var current_options = {"master volume" : 0, "music volume": 0, "full screen" : false}

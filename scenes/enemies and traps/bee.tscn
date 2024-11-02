@@ -1,8 +1,7 @@
-[gd_scene load_steps=39 format=3 uid="uid://d1e35equn7een"]
+[gd_scene load_steps=40 format=3 uid="uid://d1e35equn7een"]
 
 [ext_resource type="Texture2D" uid="uid://chiogtwde4yo7" path="res://assets/Bee/Idle (36x34).png" id="1_6fadh"]
 [ext_resource type="Script" path="res://Scripts/bee.gd" id="1_rm3x1"]
-[ext_resource type="Script" path="res://Scripts/bee_node.gd" id="1_sdd7d"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/FSM.gd" id="3_v51kc"]
 [ext_resource type="Texture2D" uid="uid://cjhycwepcwff4" path="res://assets/Bee/Attack (36x34).png" id="3_w5k0q"]
 [ext_resource type="Texture2D" uid="uid://d1withhjmvh2m" path="res://assets/Bee/Hit (36x34).png" id="4_0pt1d"]
@@ -10,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://b52aprqqe7h2r" path="res://assets/sounds/tap.wav" id="4_44bbq"]
 [ext_resource type="AudioStream" uid="uid://ugwixtko8md8" path="res://assets/sounds/beetle-squark4-41449.mp3" id="5_j2axn"]
 [ext_resource type="Script" path="res://Scripts/bee_attack.gd" id="5_krxcw"]
+[ext_resource type="AudioStream" uid="uid://cln1dsimt3y5k" path="res://assets/Bee/bee_rage.mp3" id="7_hemce"]
+[ext_resource type="Shader" path="res://shaders/pixelate.gdshader" id="8_lyuyx"]
 [ext_resource type="Script" path="res://Scripts/bee_takingdamage.gd" id="9_fu403"]
 [ext_resource type="PackedScene" uid="uid://wguw2hd073ms" path="res://scenes/enemies and traps/bee_stringer.tscn" id="12_yvl2i"]
 
@@ -170,161 +171,163 @@ size = Vector2(42, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0oyot"]
 size = Vector2(46, 56)
 
-[sub_resource type="Animation" id="Animation_d676f"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oiaji"]
+shader = ExtResource("8_lyuyx")
+shader_parameter/amount = 1.0
+
+[sub_resource type="Animation" id="Animation_6e2hr"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Pixelate:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
+tracks/1/path = NodePath("sprite:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pixelate:material:shader_parameter/amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
 }
 
-[sub_resource type="Animation" id="Animation_slvs0"]
-resource_name = "bobing"
-length = 2.0
-loop_mode = 2
+[sub_resource type="Animation" id="Animation_x4ji1"]
+resource_name = "rage"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("Pixelate:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.7, 1.1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -36.08), Vector2(0, -41.21)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
+tracks/1/path = NodePath("sprite:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.7, 1.1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1.26), Vector2(1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pixelate:material:shader_parameter/amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 20.0]
 }
 
-[sub_resource type="Animation" id="Animation_5yrf5"]
-resource_name = "side_sways"
-length = 3.8
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.4, 0.6, 1.9, 3.2, 3.3, 3.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.14, 1), Vector2(1, 1), Vector2(1, 1), Vector2(1.14, 1), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.4, 0.6, 1.9, 3.2, 3.3, 3.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-70, 0), Vector2(-61.55, 0), Vector2(0, 0), Vector2(70, 0), Vector2(73.375, 0), Vector2(76.32, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kerrn"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shiqp"]
 _data = {
-"RESET": SubResource("Animation_d676f"),
-"bobing": SubResource("Animation_slvs0"),
-"side_sways": SubResource("Animation_5yrf5")
+"RESET": SubResource("Animation_6e2hr"),
+"rage": SubResource("Animation_x4ji1")
 }
 
-[node name="Bee" type="Node2D"]
-script = ExtResource("1_sdd7d")
-
-[node name="Bee" type="CharacterBody2D" parent="."]
-motion_mode = 1
+[node name="Bee" type="CharacterBody2D"]
 script = ExtResource("1_rm3x1")
 
-[node name="sprite" type="AnimatedSprite2D" parent="Bee"]
+[node name="sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cdw4o")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.938593
+frame_progress = 0.274363
 
-[node name="Collision" type="CollisionShape2D" parent="Bee"]
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_bu7f2")
 
-[node name="DamageCollision" type="Area2D" parent="Bee"]
+[node name="DamageCollision" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bee/DamageCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageCollision"]
 position = Vector2(0, 1.21)
 shape = SubResource("RectangleShape2D_0oyot")
 
-[node name="PlayerDetector" type="Area2D" parent="Bee"]
+[node name="PlayerDetector" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bee/PlayerDetector"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetector"]
 position = Vector2(0, -19)
 scale = Vector2(1, 3.868)
 polygon = PackedVector2Array(-14, 9.23467, -126, 80.6619, 137, 80.1449, 13, 9.23467)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Bee"]
-libraries = {
-"": SubResource("AnimationLibrary_kerrn")
-}
-
-[node name="Attack" type="AudioStreamPlayer2D" parent="Bee"]
+[node name="Attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_44bbq")
 volume_db = -2.0
 pitch_scale = 0.68
 
-[node name="Death" type="AudioStreamPlayer2D" parent="Bee"]
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_j2axn")
 volume_db = -8.0
 pitch_scale = 2.7
 
-[node name="StateMachine" type="Node" parent="Bee" node_paths=PackedStringArray("initial_state")]
+[node name="Rage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_hemce")
+volume_db = -5.0
+
+[node name="Pixelate" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_oiaji")
+offset_left = -32.0
+offset_top = -27.0
+offset_right = 37.0
+offset_bottom = 31.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_shiqp")
+}
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_v51kc")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="Bee/StateMachine" node_paths=PackedStringArray("character")]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_6yeff")
-character = NodePath("../..")
 
-[node name="Attack" type="Node" parent="Bee/StateMachine" node_paths=PackedStringArray("character")]
+[node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("5_krxcw")
-character = NodePath("../..")
 stinger = ExtResource("12_yvl2i")
 
-[node name="TakingDamage" type="Node" parent="Bee/StateMachine" node_paths=PackedStringArray("character")]
+[node name="TakingDamage" type="Node" parent="StateMachine"]
 script = ExtResource("9_fu403")
-character = NodePath("../..")
 
-[connection signal="body_entered" from="Bee/DamageCollision" to="Bee" method="_on_collision_damage_body_entered"]
-[connection signal="body_entered" from="Bee/PlayerDetector" to="Bee" method="_on_player_detector_body_entered"]
-[connection signal="body_exited" from="Bee/PlayerDetector" to="Bee" method="_on_player_detector_body_exited"]
+[connection signal="body_entered" from="DamageCollision" to="." method="_on_damage_collision_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

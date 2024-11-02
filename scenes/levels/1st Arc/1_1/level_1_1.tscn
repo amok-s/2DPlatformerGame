@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dng8x08fargcw"]
+[gd_scene load_steps=55 format=3 uid="uid://dng8x08fargcw"]
 
 [ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_83y6o"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_74o6y"]
@@ -42,6 +42,7 @@
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="40_n2s0o"]
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="41_dqtev"]
 [ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="42_sntpe"]
+[ext_resource type="PackedScene" uid="uid://d1e35equn7een" path="res://scenes/enemies and traps/bee.tscn" id="43_7ulco"]
 
 [sub_resource type="Curve" id="Curve_de16y"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -83,6 +84,12 @@ shader_parameter/bottomright = true
 shader_parameter/width = 1.0
 shader_parameter/color = Color(0.87451, 0.729412, 0.00784314, 0.733333)
 shader_parameter/inside = false
+
+[sub_resource type="Curve2D" id="Curve2D_86jx6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2, 3, 0, 0, 0, 0, 189, 55, 0, 0, 0, 0, -302, 75, 0, 0, 0, 0, 2, 3)
+}
+point_count = 4
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -318,6 +325,18 @@ isStacionary = true
 [node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("18_lrlc7")]
 position = Vector2(2579, 915)
 player = NodePath("../../CharacterBody2D")
+
+[node name="Path2D" type="Path2D" parent="Scene Objects/Enemies group"]
+position = Vector2(1795, 383)
+curve = SubResource("Curve2D_86jx6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Scene Objects/Enemies group/Path2D"]
+position = Vector2(2, 3)
+rotation = 0.271223
+rotates = false
+
+[node name="Bee" parent="Scene Objects/Enemies group/Path2D/PathFollow2D" instance=ExtResource("43_7ulco")]
+rotation = -0.271223
 
 [node name="MushroomEnemy4" parent="Scene Objects/Enemies group" instance=ExtResource("17_73oa2")]
 position = Vector2(1781, 1027)
@@ -701,6 +720,7 @@ offset_left = 131.0
 offset_top = -429.0
 offset_right = 1925.0
 offset_bottom = 1020.0
+metadata/_edit_lock_ = true
 
 [node name="ColorRect3" type="ColorRect" parent="Scene Objects/GodRays"]
 material = SubResource("ShaderMaterial_qytny")
@@ -708,6 +728,7 @@ offset_left = 1535.0
 offset_top = -573.0
 offset_right = 3329.0
 offset_bottom = 876.0
+metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="Scene Objects/GodRays"]
 material = SubResource("ShaderMaterial_3lbrr")
