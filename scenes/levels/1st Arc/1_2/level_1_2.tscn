@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://b0iwi22pd1xua"]
+[gd_scene load_steps=65 format=3 uid="uid://b0iwi22pd1xua"]
 
 [ext_resource type="Script" path="res://scenes/levels/1st Arc/1_2/level_1_2.gd" id="1_c62k0"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
@@ -74,6 +74,30 @@ scale_min = 4.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_c28h7")
 color = Color(0.996078, 0.984314, 0.839216, 0.74902)
+
+[sub_resource type="Curve2D" id="Curve2D_356hx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2658.59, 92.4441, -76.4137, -33.7119, 76.4137, 33.7119, 2786, 38, 32.9628, -50.9424, -32.9628, 50.9424, 2812, 196, 38.956, 39.7051, -38.956, -39.7051, 2693, 188, 0, 0, 0, 0, 2658.59, 92.4441)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_k1mm4"]
+_data = {
+"points": PackedVector2Array(142.836, 21.4299, -142.836, -21.4299, 3363.49, 740, 66.6077, -6.3496, -66.6077, 6.3496, 3201.24, 741, -54.7663, -16.6677, 54.7663, 16.6677, 3197.51, 796, -75.0167, 3.1748, 75.0167, -3.1748, 3353.23, 800, 30.3435, -4.7622, -30.3435, 4.7622, 3364.42, 741)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_l283l"]
+_data = {
+"points": PackedVector2Array(-152.176, -68.4702, 152.176, 68.4702, 796, -132, 0, 0, 0, 0, 1303.01, -108, 70.804, 48.2659, -70.804, -48.2659, 1320.9, -175, 0, 0, 0, 0, 1143.03, -204.188, 119.416, -29.184, -119.416, 29.184, 885.933, -188, 0, 0, 0, 0, 796, -132)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_5rw7x"]
+_data = {
+"points": PackedVector2Array(-157.86, -28.6055, 157.86, 28.6055, 3660, 238, 134.552, -25.4271, -134.552, 25.4271, 3672, 374, 127.136, 28.6055, -127.136, -28.6055, 3386, 373, -183.287, 31.7839, 183.287, -31.7839, 3391, 241, 0, 0, 0, 0, 3658, 238)
+}
+point_count = 5
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -384,27 +408,62 @@ player = NodePath("../../CharacterBody2D")
 [node name="MushroomEnemy2" parent="Scene Objects/Enemies group" instance=ExtResource("16_lkeih")]
 position = Vector2(976, 301)
 
-[node name="Bee" parent="Scene Objects/Enemies group" instance=ExtResource("18_doyau")]
-position = Vector2(2747, 135)
+[node name="Bee" type="Path2D" parent="Scene Objects/Enemies group"]
+position = Vector2(-45, 19)
+curve = SubResource("Curve2D_356hx")
 
-[node name="Bee2" parent="Scene Objects/Enemies group" instance=ExtResource("18_doyau")]
-position = Vector2(3276, 736)
+[node name="PathFollow2D" type="PathFollow2D" parent="Scene Objects/Enemies group/Bee"]
+position = Vector2(2658.59, 92.4441)
+rotation = -0.403829
+rotates = false
 
-[node name="Bee4" parent="Scene Objects/Enemies group" instance=ExtResource("18_doyau")]
-position = Vector2(3425, 311)
-side_sways = true
+[node name="Bee" parent="Scene Objects/Enemies group/Bee/PathFollow2D" instance=ExtResource("18_doyau")]
+rotation = 0.403829
 
-[node name="Bee3" parent="Scene Objects/Enemies group" instance=ExtResource("18_doyau")]
-position = Vector2(500, 275)
-side_sways = true
+[node name="Bee2" type="Path2D" parent="Scene Objects/Enemies group"]
+position = Vector2(-223, -70)
+scale = Vector2(1.07244, 1)
+curve = SubResource("Curve2D_k1mm4")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Scene Objects/Enemies group/Bee2"]
+position = Vector2(3363.49, 740)
+rotation = -2.99267
+rotates = false
+
+[node name="Bee2" parent="Scene Objects/Enemies group/Bee2/PathFollow2D" instance=ExtResource("18_doyau")]
+rotation = 2.99267
+scale = Vector2(0.932449, 1)
 
 [node name="Plant2" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("17_mtlhq")]
 position = Vector2(3420, -185)
 player = NodePath("../../CharacterBody2D")
 
-[node name="MushroomEnemy3" parent="Scene Objects/Enemies group" instance=ExtResource("16_lkeih")]
-use_parent_material = false
-position = Vector2(1149, -5)
+[node name="Bee3" type="Path2D" parent="Scene Objects/Enemies group"]
+position = Vector2(-99, -19)
+scale = Vector2(1.06216, 1)
+curve = SubResource("Curve2D_l283l")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Scene Objects/Enemies group/Bee3"]
+position = Vector2(796, -132)
+rotation = 0.422805
+rotates = false
+
+[node name="Bee3" parent="Scene Objects/Enemies group/Bee3/PathFollow2D" instance=ExtResource("18_doyau")]
+rotation = -0.422805
+scale = Vector2(0.94148, 1)
+
+[node name="Path2D" type="Path2D" parent="Scene Objects/Enemies group"]
+position = Vector2(-14, -18)
+curve = SubResource("Curve2D_5rw7x")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Scene Objects/Enemies group/Path2D"]
+position = Vector2(3660, 238)
+rotation = 0.179263
+rotates = false
+
+[node name="Bee4" parent="Scene Objects/Enemies group/Path2D/PathFollow2D" instance=ExtResource("18_doyau")]
+rotation = -0.179263
+scale = Vector2(1, 1)
 
 [node name="Traps group" type="Node2D" parent="Scene Objects"]
 

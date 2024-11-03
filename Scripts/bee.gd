@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 var taking_damage = false
-var player_spotted = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var speed : int = 65
 var path
@@ -15,19 +14,6 @@ func _ready():
 func _process(delta):
 	move_and_slide()
 
-func _on_player_detector_body_entered(body):
-	pass
-	#if body.name == "CharacterBody2D":
-		#player = body
-		#if player_spotted == false:
-			#$AnimationPlayer.play("rage")
-			#$Rage.play(0)
-			#await get_tree().create_timer(0.4).timeout
-			#$AnimationPlayer.play_backwards("rage")
-			#chase_position = global_position
-			#player_spotted = true
-			#player_spotted_timer()
-		
 func _on_damage_collision_body_entered(body):
 	if body.name == "CharacterBody2D":
 		var y_delta = get_node("DamageCollision").global_position.y - body.global_position.y
@@ -46,6 +32,4 @@ func _on_damage_collision_body_entered(body):
 		else:
 			body.take_damage(x_delta * 10, -320)
 
-func player_spotted_timer():
-	await get_tree().create_timer(randi_range(2.7, 3.7)).timeout
-	player_spotted = false
+

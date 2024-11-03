@@ -249,7 +249,7 @@ next_level = ExtResource("4_jikuh")
 chroma_chaos = ExtResource("5_gn656")
 shockwave = ExtResource("6_2ardi")
 arrow = ExtResource("7_ywjhf")
-FruitsLeftForArrowToShow = 1
+FruitsLeftForArrowToShow = 5
 sfx = ExtResource("8_sjqxt")
 
 [node name="finish" type="AudioStreamPlayer" parent="GameManager"]

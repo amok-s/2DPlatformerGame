@@ -283,9 +283,9 @@ shape = SubResource("RectangleShape2D_0oyot")
 [node name="PlayerDetector" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetector"]
-position = Vector2(0, -19)
-scale = Vector2(1, 3.868)
-polygon = PackedVector2Array(-14, 9.23467, -126, 80.6619, 137, 80.1449, 13, 9.23467)
+position = Vector2(0, -20.3747)
+scale = Vector2(1, 3.75526)
+polygon = PackedVector2Array(-14, 9.23467, -93, 62.4124, 99, 62.1461, 13, 9.23467)
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_44bbq")
