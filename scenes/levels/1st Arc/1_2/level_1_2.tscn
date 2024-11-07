@@ -463,7 +463,6 @@ rotates = false
 
 [node name="Bee4" parent="Scene Objects/Enemies group/Path2D/PathFollow2D" instance=ExtResource("18_doyau")]
 rotation = -0.179263
-scale = Vector2(1, 1)
 
 [node name="Traps group" type="Node2D" parent="Scene Objects"]
 

@@ -22,6 +22,7 @@ func _on_damage_collision_body_entered(body):
 		if y_delta > 30: #bee killed
 			taking_damage = true
 			Stats.bee_killed += 1
+			Stats.mobs_killed += 1
 			var bee_position = global_position
 			get_node("../%GameManager").spawn_sfx("dust_2", bee_position + Vector2(10, 0))
 			body.velocity.y = -550
