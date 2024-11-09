@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://b0iwi22pd1xua"]
+[gd_scene load_steps=69 format=3 uid="uid://b0iwi22pd1xua"]
 
 [ext_resource type="Script" path="res://scenes/levels/1st Arc/1_2/level_1_2.gd" id="1_c62k0"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
@@ -15,7 +15,9 @@
 [ext_resource type="Script" path="res://Scripts/camera_changes.gd" id="12_roao4"]
 [ext_resource type="Script" path="res://scenes/levels/1st Arc/1_2/Camera_1_2.gd" id="13_b6mji"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="13_csu2x"]
+[ext_resource type="Script" path="res://scenes/levels/1st Arc/1_2/Camera_02.gd" id="14_0obf3"]
 [ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="14_53yij"]
+[ext_resource type="Script" path="res://scenes/levels/1st Arc/1_2/Camera_03.gd" id="15_cc41t"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="15_xaqjn"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="16_lkeih"]
 [ext_resource type="Material" uid="uid://bw44tondqgsxm" path="res://shaders/monsters.tres" id="16_qrym6"]
@@ -53,7 +55,13 @@
 size = Vector2(42.7217, 79.049)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orkk6"]
-size = Vector2(653, 555)
+size = Vector2(681, 574)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4utw6"]
+size = Vector2(392, 408)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkk33"]
+size = Vector2(1333, 984)
 
 [sub_resource type="Curve" id="Curve_de16y"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -246,8 +254,22 @@ script = ExtResource("12_roao4")
 script = ExtResource("13_b6mji")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
-position = Vector2(274.5, 523.5)
+position = Vector2(288.5, 514)
 shape = SubResource("RectangleShape2D_orkk6")
+
+[node name="Camera_02" type="Area2D" parent="Scene Objects/CameraChanges"]
+script = ExtResource("14_0obf3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_02"]
+position = Vector2(2648, 153)
+shape = SubResource("RectangleShape2D_4utw6")
+
+[node name="Camera_03" type="Area2D" parent="Scene Objects/CameraChanges"]
+script = ExtResource("15_cc41t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_03"]
+position = Vector2(3556.5, 567)
+shape = SubResource("RectangleShape2D_xkk33")
 
 [node name="TileMap" type="TileMap" parent="Scene Objects"]
 texture_filter = 1

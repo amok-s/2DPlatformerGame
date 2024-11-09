@@ -221,6 +221,7 @@ rotation = 1.48562
 shape = SubResource("CapsuleShape2D_xbjv5")
 
 [node name="CameraChanges" type="Node2D" parent="Scene Objects"]
+visible = false
 script = ExtResource("12_rltq6")
 
 [node name="Camera_01" type="Area2D" parent="Scene Objects/CameraChanges"]
