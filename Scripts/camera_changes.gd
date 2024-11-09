@@ -2,9 +2,11 @@ extends Node2D
 
 var tweenZoom
 var tweenOffset 
+var originalZoom
 
 func _ready():
 	tweenZoom = get_tree().create_tween()
+	originalZoom = %Camera2D.zoom
 
 func cameraChangeZoom(zoomValue : Vector2, time : float = 3):
 	if tweenZoom.is_valid():
