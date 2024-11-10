@@ -29,7 +29,7 @@ func Enter():
 	sprite.show()
 	player.sides_input_blockage = false
 	player.jump_input_blockage = false
-
+	player.game_manager.spawn_text_sfx("start message", player.position, player.game_manager.fruits_amount)
 	pass 
 
 func Update(_delta:float):

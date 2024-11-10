@@ -1,0 +1,194 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck51w0lt64yir"]
+
+[ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="1_6gnwp"]
+[ext_resource type="Script" path="res://scenes/text_sfx.gd" id="1_6tott"]
+
+[sub_resource type="Animation" id="Animation_g14q4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClipRect/Labels:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ClipRect/Labels:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2f4xo"]
+resource_name = "bump"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClipRect/Labels:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(8, 25), Vector2(8, 34), Vector2(8, 17)]
+}
+
+[sub_resource type="Animation" id="Animation_5cjp1"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClipRect/Labels:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qc4jq"]
+resource_name = "move_up"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClipRect/Labels:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, 17), Vector2(8, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_0r5je"]
+resource_name = "slide_up"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClipRect/Labels:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, 43), Vector2(8, 11)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qdm6n"]
+_data = {
+"RESET": SubResource("Animation_g14q4"),
+"bump": SubResource("Animation_2f4xo"),
+"fade_out": SubResource("Animation_5cjp1"),
+"move_up": SubResource("Animation_qc4jq"),
+"slide_up": SubResource("Animation_0r5je")
+}
+
+[node name="text_sfx" type="Node2D"]
+modulate = Color(1, 1, 1, 0.709804)
+script = ExtResource("1_6tott")
+
+[node name="bg" type="ColorRect" parent="."]
+visible = false
+offset_left = -372.0
+offset_top = -373.0
+offset_right = 746.0
+offset_bottom = 286.0
+color = Color(0.72549, 0.458824, 0.686275, 1)
+
+[node name="ClipRect" type="ColorRect" parent="."]
+clip_contents = true
+offset_left = -8.0
+offset_top = -216.0
+offset_right = 427.0
+offset_bottom = 33.0
+color = Color(1, 1, 1, 0)
+
+[node name="Labels" type="Node2D" parent="ClipRect"]
+position = Vector2(8, 8)
+
+[node name="Bump" type="Node2D" parent="ClipRect/Labels"]
+visible = false
+position = Vector2(0, 171)
+
+[node name="ColorRect" type="ColorRect" parent="ClipRect/Labels/Bump"]
+offset_left = -2.0
+offset_right = 32.0
+offset_bottom = 24.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="ClipRect/Labels/Bump"]
+offset_left = 17.0
+offset_top = 4.0
+offset_right = 63.0
+offset_bottom = 28.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ClipRect/Labels/Bump"]
+offset_right = 81.0
+offset_bottom = 31.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_6gnwp")
+theme_override_font_sizes/font_size = 24
+text = "bump"
+
+[node name="FruitsLeft" type="Node2D" parent="ClipRect/Labels"]
+visible = false
+
+[node name="Label" type="Label" parent="ClipRect/Labels/FruitsLeft"]
+offset_top = 171.0
+offset_right = 81.0
+offset_bottom = 202.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_6gnwp")
+theme_override_font_sizes/font_size = 24
+text = "5 left"
+
+[node name="StartMessage" type="Node2D" parent="ClipRect/Labels"]
+
+[node name="Label" type="Label" parent="ClipRect/Labels/StartMessage"]
+offset_top = 171.0
+offset_right = 211.0
+offset_bottom = 202.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_6gnwp")
+theme_override_font_sizes/font_size = 23
+text = "collect 25 fruits"
+
+[node name="Pop" type="Node2D" parent="ClipRect/Labels"]
+visible = false
+
+[node name="Label" type="Label" parent="ClipRect/Labels/Pop"]
+offset_top = 179.0
+offset_right = 81.0
+offset_bottom = 210.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6gnwp")
+theme_override_font_sizes/font_size = 14
+text = "P O P"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qdm6n")
+}

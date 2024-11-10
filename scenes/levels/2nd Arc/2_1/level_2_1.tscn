@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dd4544bcjm1md"]
+[gd_scene load_steps=80 format=3 uid="uid://dd4544bcjm1md"]
 
 [ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_1/level_2_1.gd" id="1_skk1f"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_cdbrp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_s0kv7"]
 [ext_resource type="PackedScene" uid="uid://b12j70xyi7o37" path="res://scenes/sfxs.tscn" id="8_uakl7"]
 [ext_resource type="AudioStream" uid="uid://c31wo40iw47d0" path="res://assets/sounds/healpop-46004.mp3" id="9_af5wy"]
+[ext_resource type="PackedScene" uid="uid://ck51w0lt64yir" path="res://scenes/text_sfx.tscn" id="9_uu650"]
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="10_kbb7d"]
 [ext_resource type="Script" path="res://Scripts/ShadowAreas.gd" id="11_hr3ic"]
 [ext_resource type="Script" path="res://Scripts/camera_changes.gd" id="12_jljqe"]
@@ -223,6 +224,7 @@ shockwave = ExtResource("6_1vcbm")
 arrow = ExtResource("7_s0kv7")
 FruitsLeftForArrowToShow = 10
 sfx = ExtResource("8_uakl7")
+text_sfx = ExtResource("9_uu650")
 
 [node name="finish" type="AudioStreamPlayer" parent="GameManager"]
 stream = ExtResource("9_af5wy")

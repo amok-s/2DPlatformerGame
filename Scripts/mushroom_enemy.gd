@@ -45,6 +45,7 @@ func _on_area_2d_body_entered(body):
 			collision_shape_2d2.queue_free()
 			body.velocity.y = -550
 			%GameManager.spawn_sfx("kill", position + Vector2(0, -20))
+			%GameManager.spawn_text_sfx("bump", position)
 			bump_sound.play(0)
 			$StateMachine.force_change_state("TakingDamage")
 			Stats.mobs_killed += 1

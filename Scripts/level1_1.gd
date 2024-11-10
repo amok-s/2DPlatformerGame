@@ -1,6 +1,8 @@
 extends Node
 
 var lvlname : String = "lvl1_1"
+@export var show_text_sfx = true
+@export var fruits_left_to_show_sfx : int = 5
 
 func _ready():
 	GlobalLevelManager.startLevelMusic($BgMusic)

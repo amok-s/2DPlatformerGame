@@ -13,6 +13,7 @@ extends Node
 @export var arrow : PackedScene
 @export var FruitsLeftForArrowToShow : int
 @export var sfx : PackedScene
+@export var text_sfx : PackedScene
 
 var loadingScreen = "res://scenes/loading_screen.tscn"
 
@@ -174,3 +175,10 @@ func checkArc():
 		Stats.arc2_unlocked = true
 	if get_parent().lvlname == "lvl2_2":
 		Stats.arc3_unlocked = true
+
+func spawn_text_sfx(name, sfx_position : Vector2, extra = null):
+	if get_parent().show_text_sfx == true:
+		var b = text_sfx.instantiate()
+		b.position = sfx_position
+		add_child(b)
+		b.show_sfx(name, extra)

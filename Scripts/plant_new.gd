@@ -49,6 +49,7 @@ func shoot():
 	if scale_switch == true:
 		b.rotate(PI) 
 	get_parent().add_child(b)
+	%GameManager.spawn_text_sfx("pop", position)
 	spawn_projectile_sound.play(0)
 	sprite.animation = "idle"
 	wait_time = true

@@ -21,6 +21,9 @@ func _on_body_entered(body):
 		hide()
 		
 		game_manager.spawn_sfx("collect", position, 0, Vector2(3, 3))
+		if game_manager.get_parent().fruits_left_to_show_sfx > game_manager.fruits_amount - game_manager.fruits_count:
+			if game_manager.fruits_amount - game_manager.fruits_count - 1 != 0:
+				game_manager.spawn_text_sfx("fruits left", position, game_manager.fruits_amount - game_manager.fruits_count - 1)
 		game_manager.add_point()
 		game_manager.add_fruit()
 		
