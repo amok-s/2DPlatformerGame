@@ -1,6 +1,6 @@
 [gd_scene load_steps=58 format=3 uid="uid://bk2j6du6spg0y"]
 
-[ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_ckrt3"]
+[ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_ckrt3"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="2_f4u8j"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_td6sc"]
 [ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="3_xaqpy"]
@@ -49,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://b1twlhensmx0w" path="res://assets/Foliage/ferns - sprite - 12.png" id="39_3k853"]
 [ext_resource type="Texture2D" uid="uid://cekoedfbf6gh2" path="res://assets/Foliage/sprite - 13 .png" id="41_2bmvh"]
 [ext_resource type="Texture2D" uid="uid://cocydl2mmdhme" path="res://assets/Foliage/fern -sprite - 01.png" id="42_xh0rx"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ah6mr"]
 radius = 13.5093

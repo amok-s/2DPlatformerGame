@@ -52,7 +52,7 @@ func pop():
 	queue_free()
 
 func start_message(extra):
-	position += Vector2(-95, -5)
+	position += Vector2(-95, -65)
 	z_index = 5
 	$ClipRect/Labels/StartMessage/Label.text = "collect " + str(extra) + " fruits"
 	$AnimationPlayer.play_backwards("fade_out")
@@ -63,3 +63,4 @@ func start_message(extra):
 	await get_tree().create_timer(0.8).timeout
 	$AnimationPlayer.play("fade_out")
 	await get_tree().create_timer(0.4).timeout
+	queue_free()

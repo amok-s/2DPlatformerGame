@@ -32,6 +32,7 @@ func _ready():
 	fruits_amount = fruits_node.get_child_count()
 	pauseBreak(1)
 	Stats.lvl_unlock(get_parent().lvlname)
+	start_message()
 
 func add_point():
 	points += 1
@@ -182,3 +183,7 @@ func spawn_text_sfx(name, sfx_position : Vector2, extra = null):
 		b.position = sfx_position
 		add_child(b)
 		b.show_sfx(name, extra)
+
+func start_message():
+	await get_tree().create_timer(1.2).timeout
+	spawn_text_sfx("start message", player.position, fruits_amount)

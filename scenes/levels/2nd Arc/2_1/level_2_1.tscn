@@ -1,6 +1,6 @@
 [gd_scene load_steps=80 format=3 uid="uid://dd4544bcjm1md"]
 
-[ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_1/level_2_1.gd" id="1_skk1f"]
+[ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_cghab"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_cdbrp"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_ox8n3"]
 [ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="4_dlqhe"]
@@ -205,7 +205,10 @@ corner_radius_bottom_left = 8
 corner_detail = 1
 
 [node name="Level2_1" type="Node"]
-script = ExtResource("1_skk1f")
+script = ExtResource("1_cghab")
+lvlname = "lvl2_1"
+fruits_left_to_show_sfx = 9
+current_arc = 2
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -989,7 +992,6 @@ texture = ExtResource("51_capqr")
 expand_mode = 2
 
 [node name="Pause" parent="UI" instance=ExtResource("52_4u4wt")]
-visible = false
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]

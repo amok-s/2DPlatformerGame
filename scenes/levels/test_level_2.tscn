@@ -1,6 +1,6 @@
 [gd_scene load_steps=56 format=3 uid="uid://dbm4yield3fiq"]
 
-[ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_8w85p"]
+[ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_8w85p"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="2_ll6h0"]
 [ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="3_k3iud"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="4_bvnww"]

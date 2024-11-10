@@ -1,6 +1,6 @@
 [gd_scene load_steps=70 format=3 uid="uid://b0iwi22pd1xua"]
 
-[ext_resource type="Script" path="res://scenes/levels/1st Arc/1_2/level_1_2.gd" id="1_c62k0"]
+[ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_bsx3o"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_e5plh"]
 [ext_resource type="PackedScene" uid="uid://cqddarltj231" path="res://scenes/levels/2nd Arc/2_0/level_2_0.tscn" id="4_8n42r"]
@@ -183,7 +183,10 @@ corner_radius_bottom_left = 8
 corner_detail = 1
 
 [node name="Level1_2" type="Node"]
-script = ExtResource("1_c62k0")
+script = ExtResource("1_bsx3o")
+lvlname = "lvl1_2"
+current_arc = 1
+end_of_arc = true
 metadata/_edit_horizontal_guides_ = [-433.0, 1101.0]
 metadata/_edit_vertical_guides_ = [4120.0]
 
@@ -1012,9 +1015,6 @@ texture = ExtResource("32_0nc86")
 expand_mode = 2
 
 [node name="Pause" parent="UI" instance=ExtResource("48_8lic3")]
-
-[node name="text_sfx" parent="." instance=ExtResource("51_4tb6n")]
-position = Vector2(2124, 469)
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]

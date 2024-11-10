@@ -1,6 +1,6 @@
 [gd_scene load_steps=64 format=3 uid="uid://d1g6vkq72jyre"]
 
-[ext_resource type="Script" path="res://Scripts/level1_1.gd" id="1_gou5u"]
+[ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_gou5u"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_7wma1"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_nyp75"]
 [ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="4_rq508"]
