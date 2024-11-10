@@ -761,6 +761,7 @@ offset_top = 11.0
 offset_right = 218.0
 offset_bottom = 60.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pe8tn")
+metadata/_edit_use_anchors_ = true
 
 [node name="PointsLabel" type="Label" parent="UI/CoinsPanel"]
 unique_name_in_owner = true

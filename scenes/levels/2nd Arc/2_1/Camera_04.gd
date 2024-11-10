@@ -7,8 +7,8 @@ func _ready():
 
 func camEntered(body):
 	if body.name == "CharacterBody2D":
-		get_parent().cameraChangeZoom(Vector2(1.25, 1.25), 1.3)
-		get_parent().cameraChangeOffset(Vector2(-30, 80), 0.9)
+		get_parent().cameraChangeZoom(Vector2(1.1, 1.1), 1.1)
+		get_parent().cameraChangeOffset(Vector2(0, 100), 0.7)
 
 func camExited(body):
 	if body.name == "CharacterBody2D":

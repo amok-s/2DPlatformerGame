@@ -1,13 +1,14 @@
 extends Area2D
 
-var originalCameraZoom : Vector2 = Vector2(1.455, 1.455)
 
+func _ready():
+	connect("body_entered", camEntered)
+	connect("body_exited", camExited)
 
-func _on_body_entered(body):
+func camEntered(body):
 	if body.name == "CharacterBody2D":
-		$"..".cameraChangeZoom(Vector2(1.15, 1.15))
+		get_parent().cameraChangeZoom(Vector2(1.25, 1.25), 1.3)
 
-
-func _on_body_exited(body):
+func camExited(body):
 	if body.name == "CharacterBody2D":
-		$"..".cameraChangeZoom(originalCameraZoom)
+		get_parent().cameraChangeZoom(get_parent().originalZoom, 0.8)

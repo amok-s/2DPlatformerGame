@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://dd4544bcjm1md"]
+[gd_scene load_steps=79 format=3 uid="uid://dd4544bcjm1md"]
 
 [ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_1/level_2_1.gd" id="1_skk1f"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_cdbrp"]
@@ -15,7 +15,10 @@
 [ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_1/Camera_01.gd" id="13_4foee"]
 [ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_1/Camera_02.gd" id="14_t7f8t"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="15_ffmfu"]
+[ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_1/Camera_03.gd" id="15_hf3b3"]
+[ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_1/Camera_04.gd" id="16_sxtaw"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="16_xgten"]
+[ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_1/Camera_05.gd" id="17_0pfob"]
 [ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="17_tv1wh"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="18_r3k4j"]
 [ext_resource type="Material" uid="uid://bw44tondqgsxm" path="res://shaders/monsters.tres" id="19_d56u8"]
@@ -61,14 +64,26 @@ size = Vector2(119.207, 166.367)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4sk7y"]
 size = Vector2(267.687, 207.449)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xy5s3"]
-size = Vector2(846.25, 555)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3j37"]
+size = Vector2(503, 359)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tftww"]
-size = Vector2(469, 379)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt2u6"]
+size = Vector2(1114.5, 335.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg7pq"]
-size = Vector2(112.5, 93)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c1sw"]
+size = Vector2(521.5, 335.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilyou"]
+size = Vector2(421, 370)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwvem"]
+size = Vector2(354, 323.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3j8g"]
+size = Vector2(804, 209)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xru3"]
+size = Vector2(363, 234)
 
 [sub_resource type="Curve" id="Curve_avk8e"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -248,26 +263,52 @@ rotation = 0.877694
 shape = SubResource("RectangleShape2D_4sk7y")
 
 [node name="CameraChanges" type="Node2D" parent="Scene Objects"]
+visible = false
 script = ExtResource("12_jljqe")
 
 [node name="Camera_01" type="Area2D" parent="Scene Objects/CameraChanges"]
 script = ExtResource("13_4foee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
-position = Vector2(2791.13, 552)
-shape = SubResource("RectangleShape2D_xy5s3")
+position = Vector2(4375.5, 575.5)
+shape = SubResource("RectangleShape2D_f3j37")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
-position = Vector2(1164, 341)
-rotation = -0.175667
-shape = SubResource("RectangleShape2D_tftww")
+position = Vector2(3868.75, 412.75)
+shape = SubResource("RectangleShape2D_qt2u6")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
+position = Vector2(3945, 203)
+shape = SubResource("RectangleShape2D_2c1sw")
 
 [node name="Camera_02" type="Area2D" parent="Scene Objects/CameraChanges"]
 script = ExtResource("14_t7f8t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_02"]
-position = Vector2(3125.25, 294.5)
-shape = SubResource("RectangleShape2D_vg7pq")
+position = Vector2(3079.5, 203)
+shape = SubResource("RectangleShape2D_ilyou")
+
+[node name="Camera_03" type="Area2D" parent="Scene Objects/CameraChanges"]
+script = ExtResource("15_hf3b3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_03"]
+position = Vector2(2329, 185.75)
+shape = SubResource("RectangleShape2D_rwvem")
+
+[node name="Camera_04" type="Area2D" parent="Scene Objects/CameraChanges"]
+script = ExtResource("16_sxtaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_04"]
+position = Vector2(2791, 493.5)
+shape = SubResource("RectangleShape2D_g3j8g")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Camera_05" type="Area2D" parent="Scene Objects/CameraChanges"]
+script = ExtResource("17_0pfob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_05"]
+position = Vector2(1194.5, 257)
+shape = SubResource("RectangleShape2D_2xru3")
 
 [node name="ShinyDust" type="GPUParticles2D" parent="Scene Objects"]
 position = Vector2(3818, 214)
@@ -952,8 +993,4 @@ visible = false
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_entered"]
 [connection signal="body_exited" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_exited"]
-[connection signal="body_entered" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges/Camera_01" method="_on_body_entered"]
-[connection signal="body_exited" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges/Camera_01" method="_on_body_exited"]
-[connection signal="body_entered" from="Scene Objects/CameraChanges/Camera_02" to="Scene Objects/CameraChanges/Camera_02" method="_on_body_entered"]
-[connection signal="body_exited" from="Scene Objects/CameraChanges/Camera_02" to="Scene Objects/CameraChanges/Camera_02" method="_on_body_exited"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]

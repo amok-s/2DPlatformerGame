@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cqddarltj231"]
+[gd_scene load_steps=62 format=3 uid="uid://cqddarltj231"]
 
 [ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_0/level_2_0.gd" id="1_2kxrt"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_srrgp"]
@@ -88,51 +88,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0.5, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(2277, 277), Vector2(2277, 1)]
+"values": [Vector2(2572, 277), Vector2(2572, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ng24q"]
 _data = {
 "RESET": SubResource("Animation_5ewvi"),
 "moving": SubResource("Animation_n6if8")
-}
-
-[sub_resource type="Animation" id="Animation_idy5b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2700, 43)]
-}
-
-[sub_resource type="Animation" id="Animation_7h4xv"]
-resource_name = "moving"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 2.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(2700, 43), Vector2(2487, 43)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_re11d"]
-_data = {
-"RESET": SubResource("Animation_idy5b"),
-"moving": SubResource("Animation_7h4xv")
 }
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
@@ -303,9 +265,6 @@ drag_vertical_offset = -0.06
 modulate = Color(0.203797, 0.525339, 0.422003, 1)
 material = SubResource("ShaderMaterial_ka5c6")
 
-[node name="Collectable" parent="Scene Objects/Collectables group" instance=ExtResource("14_q26k6")]
-position = Vector2(380, 9)
-
 [node name="Collectable2" parent="Scene Objects/Collectables group" instance=ExtResource("14_q26k6")]
 position = Vector2(856, 9)
 
@@ -412,15 +371,6 @@ position = Vector2(2277, 277)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/MovingHead"]
 libraries = {
 "": SubResource("AnimationLibrary_ng24q")
-}
-autoplay = "moving"
-
-[node name="MovingHead2" parent="Scene Objects/Traps group" instance=ExtResource("18_wr4wi")]
-position = Vector2(2700, 43)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/MovingHead2"]
-libraries = {
-"": SubResource("AnimationLibrary_re11d")
 }
 autoplay = "moving"
 
