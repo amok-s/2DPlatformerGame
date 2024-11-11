@@ -22,11 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://6t81tuqsygiq" path="res://assets/OtherSprites/GUI.png" id="22_aa2s2"]
 [ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="23_fedd8"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="26_pye7x"]
-[ext_resource type="Texture2D" uid="uid://ubgoc5j03gll" path="res://assets/OtherSprites/offset.png" id="27_67oer"]
 [ext_resource type="Texture2D" uid="uid://de3ul1kce7ypb" path="res://assets/PineForestParallax/MorningLayer6.png" id="27_kirre"]
 [ext_resource type="Texture2D" uid="uid://c04gi11582b07" path="res://assets/Foliage/sprite - 03.png" id="27_neov2"]
 [ext_resource type="Texture2D" uid="uid://roax86tvee52" path="res://assets/Foliage/sprite - 19.png" id="27_ws2wh"]
 [ext_resource type="Texture2D" uid="uid://dqdq2msnvnnf4" path="res://assets/PineForestParallax/MorningLayer5.png" id="28_g37go"]
+[ext_resource type="Texture2D" uid="uid://cob1pi5a48cv4" path="res://assets/OtherSprites/2d_lights_and_shadows_neutral_point_light.webp" id="28_husu4"]
 [ext_resource type="Texture2D" uid="uid://d2ffkpbntf060" path="res://assets/Foliage/sprite - 08.png" id="28_p117q"]
 [ext_resource type="Texture2D" uid="uid://cyxy1djnmeqrf" path="res://assets/Foliage/sprite - 08 bright.png" id="29_mg4p7"]
 [ext_resource type="Texture2D" uid="uid://ufkeb2ct1p0u" path="res://assets/PineForestParallax/MorningLayer4.png" id="29_qsiow"]
@@ -66,8 +66,8 @@ distance = 148.771
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3t7p2"]
 shader = ExtResource("3_wjgd2")
-shader_parameter/strength = 1.0
-shader_parameter/offset_image = ExtResource("27_67oer")
+shader_parameter/strength = 0.7
+shader_parameter/offset_image = ExtResource("28_husu4")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe8tn"]
 bg_color = Color(0.94902, 0.392157, 0.419608, 0.301961)
@@ -87,6 +87,7 @@ script = ExtResource("1_p7ir1")
 lvlname = "lvl1_0"
 show_text_sfx = false
 current_arc = 1
+intro = true
 metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]
 
@@ -266,6 +267,20 @@ shape = SubResource("WorldBoundaryShape2D_kime1")
 [node name="ForestBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
 scroll_offset = Vector2(-357.774, -712.599)
 
+[node name="ChromaticAbberation" type="CanvasLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Scene Objects/WorldBoundary/ForestBackground/ChromaticAbberation"]
+modulate = Color(1, 1, 1, 0.54902)
+material = SubResource("ShaderMaterial_3t7p2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -112.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Sky" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
 motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(3200, 1800)
@@ -354,18 +369,6 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Scene Objects/WorldBoundary/ForestBackground"]
 color = Color(0.282353, 0.72549, 0.576471, 1)
-
-[node name="ChromaticAbberation" type="CanvasLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
-
-[node name="ColorRect" type="ColorRect" parent="Scene Objects/WorldBoundary/ForestBackground/ChromaticAbberation"]
-material = SubResource("ShaderMaterial_3t7p2")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -112.0
-offset_bottom = -63.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Foliage" type="Node2D" parent="Scene Objects"]
 modulate = Color(0.00784314, 0.054902, 0.0352941, 1)

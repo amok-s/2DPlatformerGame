@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cqddarltj231"]
+[gd_scene load_steps=65 format=3 uid="uid://cqddarltj231"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_wyk8f"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_srrgp"]
@@ -19,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="18_wgv6l"]
 [ext_resource type="PackedScene" uid="uid://c5xrvt2mhrrlh" path="res://scenes/enemies and traps/moving_head.tscn" id="18_wr4wi"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="19_icqy8"]
+[ext_resource type="Shader" path="res://shaders/chromatic_abberation.gdshader" id="20_5kc27"]
 [ext_resource type="Texture2D" uid="uid://de3ul1kce7ypb" path="res://assets/PineForestParallax/MorningLayer6.png" id="20_066c8"]
+[ext_resource type="Texture2D" uid="uid://cob1pi5a48cv4" path="res://assets/OtherSprites/2d_lights_and_shadows_neutral_point_light.webp" id="21_1v4tj"]
 [ext_resource type="Texture2D" uid="uid://dqdq2msnvnnf4" path="res://assets/PineForestParallax/MorningLayer5.png" id="21_c6841"]
 [ext_resource type="Texture2D" uid="uid://ufkeb2ct1p0u" path="res://assets/PineForestParallax/MorningLayer4.png" id="22_6rqyl"]
 [ext_resource type="Texture2D" uid="uid://daosphxj6dyv" path="res://assets/PineForestParallax/MorningLayer3.png" id="23_66yxt"]
@@ -99,6 +101,11 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qnpg"]
+shader = ExtResource("20_5kc27")
+shader_parameter/strength = 0.2
+shader_parameter/offset_image = ExtResource("21_1v4tj")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rq4e"]
 atlas = ExtResource("29_h4mle")
@@ -196,6 +203,7 @@ script = ExtResource("1_wyk8f")
 lvlname = "lvl2_0"
 show_text_sfx = false
 current_arc = 2
+intro = true
 metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]
 
@@ -387,6 +395,20 @@ shape = SubResource("WorldBoundaryShape2D_kime1")
 
 [node name="ForestBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
 scroll_offset = Vector2(69.84, 72.75)
+
+[node name="ChromaticAbberation" type="CanvasLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Scene Objects/WorldBoundary/ForestBackground/ChromaticAbberation"]
+modulate = Color(1, 1, 1, 0.54902)
+material = SubResource("ShaderMaterial_5qnpg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -112.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Sky" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
 modulate = Color(0.996078, 0.647059, 1, 1)
