@@ -45,7 +45,6 @@ func _on_patrol_area_body_entered(body):
 		player_detected = true
 		await get_tree().create_timer(0.2).timeout
 		$AnimationPlayer.play("lil_jump")
-		print(body.position.x - position.x)
 		if body.position.x - position.x > 0 && scale_switch == false:
 			scale.x = -2
 			scale_switch = true
@@ -63,3 +62,8 @@ func _on_tongue_attack_body_entered(body):
 	if (body.name == "CharacterBody2D"):
 		var x_delta = body.global_position.x - get_node("DamageCollision").global_position.x
 		body.take_damage(x_delta *4.5, -400)
+
+func mlem():
+	if get_tree():
+		await get_tree().create_timer(0.2).timeout
+		%GameManager.spawn_text_sfx("mlem", position)

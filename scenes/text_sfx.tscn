@@ -165,6 +165,7 @@ theme_override_font_sizes/font_size = 24
 text = "5 left"
 
 [node name="StartMessage" type="Node2D" parent="ClipRect/Labels"]
+visible = false
 
 [node name="Label" type="Label" parent="ClipRect/Labels/StartMessage"]
 offset_top = 171.0
@@ -186,7 +187,45 @@ offset_bottom = 210.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_6gnwp")
 theme_override_font_sizes/font_size = 14
-text = "P O P"
+text = "P O P !"
+
+[node name="Enraged" type="Node2D" parent="ClipRect/Labels"]
+visible = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ClipRect/Labels/Enraged"]
+offset_top = 117.0
+offset_right = 134.0
+offset_bottom = 176.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("1_6gnwp")
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = " 
+  [shake rate=20.0 level=5 connected=1][color=red]enraged!![/color]"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Mlem" type="Node2D" parent="ClipRect/Labels"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ClipRect/Labels/Mlem"]
+offset_top = 117.0
+offset_right = 134.0
+offset_bottom = 176.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("1_6gnwp")
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = " 
+[wave amp=40.0 freq=3
+.0 connected=1] m l e m ~"
+fit_content = true
+autowrap_mode = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

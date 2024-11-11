@@ -36,6 +36,7 @@ func attack():
 		sprite.play("attack")
 		await get_tree().create_timer(0.45).timeout
 		get_node("../../TongueAttack/AnimationPlayer").play("tongue_attack")
+		character.mlem()
 		await get_tree().create_timer(1.1).timeout
 		sprite.animation = "idle"
 		attack_timer()

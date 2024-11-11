@@ -18,6 +18,10 @@ func show_sfx(name, extra = null):
 			pop()
 		"start message":
 			start_message(extra)
+		"enraged":
+			enraged()
+		"mlem":
+			mlem()
 		_:
 			print("No sfx found")
 
@@ -52,7 +56,7 @@ func pop():
 	queue_free()
 
 func start_message(extra):
-	position += Vector2(-95, -65)
+	position += Vector2(-95, -95)
 	z_index = 5
 	$ClipRect/Labels/StartMessage/Label.text = "collect " + str(extra) + " fruits"
 	$AnimationPlayer.play_backwards("fade_out")
@@ -64,3 +68,22 @@ func start_message(extra):
 	$AnimationPlayer.play("fade_out")
 	await get_tree().create_timer(0.4).timeout
 	queue_free()
+	
+func enraged():
+	position += Vector2(randi_range(-35, 0), randi_range(-8, 2))
+	$ClipRect/Labels/Enraged.show()
+	$AnimationPlayer.play("bump")
+	await get_tree().create_timer(0.4).timeout
+	$AnimationPlayer.play("fade_out", 0.3)
+	await get_tree().create_timer(0.7).timeout
+	queue_free()
+
+func mlem():
+	position += Vector2(randi_range(-20, 5), -20)
+	$ClipRect/Labels/Mlem.show()
+	$AnimationPlayer.play("bump")
+	await get_tree().create_timer(0.2).timeout
+	$AnimationPlayer.play("fade_out", 0.3)
+	await get_tree().create_timer(0.7).timeout
+	queue_free()
+	

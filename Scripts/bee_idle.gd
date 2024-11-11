@@ -26,6 +26,7 @@ func _on_player_detector_body_entered(body):
 		bee.player = body
 		$"../../AnimationPlayer".play("rage")
 		$"../../Rage".play(0)
+		bee.get_node("../%GameManager").spawn_text_sfx("enraged", bee.global_position)
 		await get_tree().create_timer(0.4).timeout
 		$"../../AnimationPlayer".play_backwards("rage")
 		state_transition.emit(self, "Attack")
