@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://b0iwi22pd1xua"]
+[gd_scene load_steps=71 format=3 uid="uid://b0iwi22pd1xua"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_bsx3o"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
@@ -169,8 +169,12 @@ shader_parameter/color = Color(1, 0.9, 0.65, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe8tn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuyy8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tu7i"]
 bg_color = Color(0.94902, 0.392157, 0.419608, 0.301961)
+draw_center = false
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -200,7 +204,7 @@ bus = &"Music"
 unique_name_in_owner = true
 script = ExtResource("3_e5plh")
 player = NodePath("../Scene Objects/CharacterBody2D")
-hearts = [NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/CoinsPanel/HeartsPanel/HBoxContainer/Heart3")]
+hearts = [NodePath("../UI/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart3")]
 next_level = ExtResource("4_8n42r")
 chroma_chaos = ExtResource("5_ih6i4")
 shockwave = ExtResource("6_0n8l8")
@@ -943,18 +947,60 @@ offset_right = 3562.0
 offset_bottom = 537.0
 metadata/_edit_lock_ = true
 
-[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "game_manager")]
+[node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 script = ExtResource("30_im4mg")
-player = NodePath("../Scene Objects/CharacterBody2D")
-game_manager = NodePath("../GameManager")
+
+[node name="HeartsPanel" type="Panel" parent="UI"]
+offset_left = 931.0
+offset_top = 11.0
+offset_right = 1067.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nuyy8")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="UI/HeartsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 92.0
+offset_top = -25.5
+offset_right = 140.0
+offset_bottom = 132.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Heart" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 2
+texture = ExtResource("32_0nc86")
+expand_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 2
+texture = ExtResource("32_0nc86")
+expand_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 2
+texture = ExtResource("32_0nc86")
+expand_mode = 4
 
 [node name="CoinsPanel" type="Panel" parent="UI"]
+visible = false
 offset_left = 6.0
 offset_top = 11.0
 offset_right = 218.0
 offset_bottom = 60.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pe8tn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_2tu7i")
+metadata/_edit_use_anchors_ = true
 
 [node name="PointsLabel" type="Label" parent="UI/CoinsPanel"]
 unique_name_in_owner = true
@@ -973,46 +1019,6 @@ theme_override_fonts/font = ExtResource("31_lg4bx")
 theme_override_font_sizes/font_size = 45
 text = "Fruits: "
 vertical_alignment = 1
-
-[node name="HeartsPanel" type="Panel" parent="UI/CoinsPanel"]
-layout_mode = 0
-offset_left = 996.0
-offset_top = -5.0
-offset_right = 1132.0
-offset_bottom = 44.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_pe8tn")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/CoinsPanel/HeartsPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -18.5
-offset_right = 63.0
-offset_bottom = 18.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Heart" type="TextureRect" parent="UI/CoinsPanel/HeartsPanel/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("32_0nc86")
-expand_mode = 2
-
-[node name="Heart2" type="TextureRect" parent="UI/CoinsPanel/HeartsPanel/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("32_0nc86")
-expand_mode = 2
-
-[node name="Heart3" type="TextureRect" parent="UI/CoinsPanel/HeartsPanel/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("32_0nc86")
-expand_mode = 2
 
 [node name="Pause" parent="UI" instance=ExtResource("48_8lic3")]
 

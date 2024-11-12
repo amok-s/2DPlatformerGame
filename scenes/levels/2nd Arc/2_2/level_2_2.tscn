@@ -1,6 +1,6 @@
 [gd_scene load_steps=67 format=3 uid="uid://b7tk2f6r4um6t"]
 
-[ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_2/level_2_2.gd" id="1_xnjdx"]
+[ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_tbm4f"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_qftsg"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_2nfx4"]
 [ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="4_e2kv2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_c1peo"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_e823l"]
 [ext_resource type="PackedScene" uid="uid://b12j70xyi7o37" path="res://scenes/sfxs.tscn" id="8_g2dmq"]
+[ext_resource type="PackedScene" uid="uid://ck51w0lt64yir" path="res://scenes/text_sfx.tscn" id="9_5srpo"]
 [ext_resource type="AudioStream" uid="uid://c31wo40iw47d0" path="res://assets/sounds/healpop-46004.mp3" id="9_ubryk"]
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="10_enag0"]
 [ext_resource type="Script" path="res://Scripts/ShadowAreas.gd" id="11_iv5xl"]
@@ -17,7 +18,6 @@
 [ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="20_hkn3f"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="21_3hio0"]
 [ext_resource type="Material" uid="uid://bw44tondqgsxm" path="res://shaders/monsters.tres" id="22_q0kvg"]
-[ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/enemies and traps/chameleon.tscn" id="23_xdwjd"]
 [ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/enemies and traps/plant.tscn" id="24_u8vld"]
 [ext_resource type="PackedScene" uid="uid://dfbv5uh0yrmf1" path="res://scenes/enemies and traps/turtle.tscn" id="25_y3i7v"]
 [ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="26_hq117"]
@@ -177,8 +177,11 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 1
 
-[node name="Level2_1" type="Node"]
-script = ExtResource("1_xnjdx")
+[node name="Level2_2" type="Node"]
+script = ExtResource("1_tbm4f")
+lvlname = "lvl2_2"
+current_arc = 2
+end_of_arc = true
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -197,6 +200,7 @@ shockwave = ExtResource("6_c1peo")
 arrow = ExtResource("7_e823l")
 FruitsLeftForArrowToShow = 10
 sfx = ExtResource("8_g2dmq")
+text_sfx = ExtResource("9_5srpo")
 
 [node name="finish" type="AudioStreamPlayer" parent="GameManager"]
 stream = ExtResource("9_ubryk")
@@ -345,9 +349,6 @@ position = Vector2(-20, 394)
 [node name="Enemies group" type="Node2D" parent="Scene Objects"]
 modulate = Color(0.994, 0.81535, 0.856482, 1)
 material = ExtResource("22_q0kvg")
-
-[node name="Chameleon" parent="Scene Objects/Enemies group" instance=ExtResource("23_xdwjd")]
-position = Vector2(2814, 161)
 
 [node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("24_u8vld")]
 position = Vector2(34, 387)
@@ -798,11 +799,10 @@ offset_bottom = 299.0
 rotation = 0.668679
 metadata/_edit_lock_ = true
 
-[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "game_manager")]
+[node name="UI" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 script = ExtResource("54_rru6r")
-player = NodePath("")
-game_manager = NodePath("")
 
 [node name="CoinsPanel" type="Panel" parent="UI"]
 offset_left = 6.0

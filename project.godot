@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="La noche en el bosque"
-config/version="0.0.7"
+config/description="Taka tam gierka. Pls hire me, I'm very talented and cute"
+config/version="0.4.2"
 run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)

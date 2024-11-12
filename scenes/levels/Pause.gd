@@ -1,7 +1,7 @@
 extends Node
 @onready var pause_panel = $PausePanel
 @onready var bgMusic = $"../../BgMusic"
-@onready var ui = $"../CoinsPanel"
+@onready var ui = $"../HeartsPanel"
 @onready var player = $"../../Scene Objects/CharacterBody2D"
 @onready var death_count = $PausePanel/Node2D/DeathCount
 @onready var music_volume = $OptionsPanel/VBoxContainer/MusicVolume
@@ -74,7 +74,8 @@ func _on_restart_pressed():
 func unpause():
 	pause_panel.hide()
 	$CanvasLayer.hide()
-	ui.show()
+	if !get_parent().get_parent().intro:
+		ui.show()
 	var bgMusicVolume = bgMusic.volume_db
 	var tween = get_tree().create_tween()
 	tween.tween_property(bgMusic, "volume_db", bgMusicVolume + 12, 0.6)
