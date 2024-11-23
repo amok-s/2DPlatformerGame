@@ -13,6 +13,11 @@ func _ready():
 	GlobalLevelManager.endOfArc = end_of_arc
 	if intro == true:
 		$UI/CoinsPanel.hide()
+		
+
+func _process(delta):
+	if Input.is_action_just_pressed("restart"):
+		SceneTransition.level_restart()
 
 func _on_bg_music_finished():
 	GlobalLevelManager.music_time = 0
