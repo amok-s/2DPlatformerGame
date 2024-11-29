@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var game_manager = %GameManager
 @onready var footstep_audio : AudioStreamPlayer2D = get_node(NodePath("Footstep"))
+@onready var mud_footstep : AudioStreamPlayer2D = get_node(NodePath("MudFootstep"))
 
 
 
@@ -77,6 +78,10 @@ func _physics_process(delta):
 	
 	
 func playFootstepAudio():
-	footstep_audio.pitch_scale = randf_range(1.3, 2)
-	footstep_audio.play(0)
+	if $TerrainDetector.current_terrain != 1:
+		footstep_audio.pitch_scale = randf_range(1.3, 2)
+		footstep_audio.play(0)
+	if $TerrainDetector.current_terrain == 1:
+		mud_footstep.pitch_scale = randf_range(1.0, 2)
+		mud_footstep.play(0.1)
 	

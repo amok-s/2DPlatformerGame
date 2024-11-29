@@ -30,6 +30,7 @@ func _on_body_shape_entered(body_rid : RID, body : Node2D, body_shape_index : in
 		tile_map_collision(body, body_rid)
 	else:
 		change_terrain()
+		current_terrain = 0
 
 		
 		
