@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://brnrrjstww3s4"]
+[gd_scene load_steps=77 format=3 uid="uid://brnrrjstww3s4"]
 
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="1_jqxxa"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/main_character.gd" id="1_wmnck"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://ddk83bkx0rghe" path="res://assets/sounds/pick_up.mp3" id="12_32mua"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/FSM.gd" id="13_2y0p8"]
 [ext_resource type="Script" path="res://Scripts/main_character_sprite.gd" id="13_mb06h"]
+[ext_resource type="Script" path="res://assets/MainCharacter/scripts/terrain_detector.gd" id="14_tgyqu"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/movement_state.gd" id="15_veihb"]
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/taking_damage_state.gd" id="16_01nmg"]
 [ext_resource type="AudioStream" uid="uid://chcymqq1243fd" path="res://assets/sounds/footstep.mp3" id="16_c3vls"]
@@ -394,6 +395,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ao5ao"]
 size = Vector2(42, 60)
 
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_hnftl"]
+length = 47.0
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g500f"]
 lifetime_randomness = 0.43
 particle_flag_disable_z = true
@@ -461,6 +465,12 @@ script = ExtResource("13_mb06h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ao5ao")
+
+[node name="TerrainDetector" type="Area2D" parent="."]
+script = ExtResource("14_tgyqu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrainDetector"]
+shape = SubResource("SeparationRayShape2D_hnftl")
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_1k6s1")
@@ -537,3 +547,6 @@ fixed_fps = 12
 libraries = {
 "": SubResource("AnimationLibrary_1r6xb")
 }
+
+[connection signal="body_shape_entered" from="TerrainDetector" to="TerrainDetector" method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="TerrainDetector" to="TerrainDetector" method="_on_body_shape_exited"]

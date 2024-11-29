@@ -14,11 +14,13 @@ extends CharacterBody2D
 
 
 
-#var SPEED = 340.0
+
 var SPEED = 360.0
 const JUMP_VELOCITY = -840.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jump_count = 0
+var speed_modifier = 1
+var jump_modifier = 1
 
 var sides_input_blockage = false
 var jump_input_blockage = false
@@ -41,7 +43,6 @@ func outlineBlink():
 	$Sprite2D.outlineBlink()
 
 func _physics_process(delta):
-	#handling gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
@@ -56,10 +57,9 @@ func _physics_process(delta):
 	if is_on_floor():
 		jump_count = 0
 	
-
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and (jump_count < 2) and (jump_input_blockage == false):
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * jump_modifier
 		jump_sound.play(0)
 		jump_count += 1
 		if (jump_count == 2):
@@ -68,15 +68,13 @@ func _physics_process(delta):
 		
 	var direction = Input.get_axis("left", "right")
 	if direction and sides_input_blockage == false:
-		velocity.x = direction * SPEED
+		velocity.x = direction * SPEED * speed_modifier
 		if is_on_floor():
 			$"AnimationPlayers/FootstepAnimation".play("footsteps")
 	else:
 		velocity.x = move_toward(velocity.x, 0, 18 if not is_on_floor() else 50,)
 	
-		
-	#var isLeft = velocity.x < 0
-	#sprite.flip_h = isLeft
+	
 	
 func playFootstepAudio():
 	footstep_audio.pitch_scale = randf_range(1.3, 2)
