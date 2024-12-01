@@ -264,6 +264,7 @@ _data = {
 script = ExtResource("1_rm3x1")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_cdw4o")
 animation = &"idle"

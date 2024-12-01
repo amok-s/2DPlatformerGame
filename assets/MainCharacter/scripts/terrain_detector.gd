@@ -32,8 +32,6 @@ func _on_body_shape_entered(body_rid : RID, body : Node2D, body_shape_index : in
 		change_terrain()
 		current_terrain = 0
 
-		
-		
 func change_terrain(speed = 1, jump = 1):
 	$"..".speed_modifier = speed
 	await get_tree().create_timer(0.2).timeout

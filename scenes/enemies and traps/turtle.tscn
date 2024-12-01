@@ -487,6 +487,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_cpdrl")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_d5ifk")
 animation = &"spikes_in"
 autoplay = "idle"
