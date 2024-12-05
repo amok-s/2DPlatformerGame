@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://b7tk2f6r4um6t"]
+[gd_scene load_steps=75 format=3 uid="uid://b7tk2f6r4um6t"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_tbm4f"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_qftsg"]
@@ -14,8 +14,6 @@
 [ext_resource type="Script" path="res://Scripts/ShadowAreas.gd" id="11_iv5xl"]
 [ext_resource type="Script" path="res://Scripts/camera_changes.gd" id="12_e31hk"]
 [ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_2/Camera_01.gd" id="14_cyega"]
-[ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_2/Camera_02.gd" id="15_q1d00"]
-[ext_resource type="Script" path="res://scenes/levels/2nd Arc/2_2/Camera_03.gd" id="16_vdkdt"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="18_2mkja"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="19_o1r56"]
 [ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="20_hkn3f"]
@@ -68,12 +66,6 @@ size = Vector2(316.333, 98.3332)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tv5af"]
 size = Vector2(408.5, 270)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_itdet"]
-size = Vector2(902, 530)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ic01n"]
-size = Vector2(665, 445)
 
 [sub_resource type="Curve" id="Curve_avk8e"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -290,6 +282,22 @@ shader_parameter/color = Color(1, 0.176471, 0, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6eu6"]
+shader = ExtResource("53_6yhrg")
+shader_parameter/angle = 1.08
+shader_parameter/position = 0.295
+shader_parameter/spread = 0.349
+shader_parameter/cutoff = 0.203
+shader_parameter/falloff = 0.56
+shader_parameter/edge_fade = 0.176
+shader_parameter/speed = 2.0
+shader_parameter/ray1_density = 12.1
+shader_parameter/ray2_density = 32.0
+shader_parameter/ray2_intensity = 0.64
+shader_parameter/color = Color(1, 0.176471, 0, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5a8aw"]
 shader = ExtResource("53_6yhrg")
 shader_parameter/angle = 1.08
@@ -391,7 +399,6 @@ position = Vector2(-928.167, 117.5)
 shape = SubResource("RectangleShape2D_yr2g0")
 
 [node name="CameraChanges" type="Node2D" parent="Scene Objects"]
-visible = false
 script = ExtResource("12_e31hk")
 
 [node name="Camera_01" type="Area2D" parent="Scene Objects/CameraChanges"]
@@ -400,20 +407,6 @@ script = ExtResource("14_cyega")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
 position = Vector2(760.75, 239)
 shape = SubResource("RectangleShape2D_tv5af")
-
-[node name="Camera_02" type="Area2D" parent="Scene Objects/CameraChanges"]
-script = ExtResource("15_q1d00")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_02"]
-position = Vector2(1645, 516)
-shape = SubResource("RectangleShape2D_itdet")
-
-[node name="Camera_03" type="Area2D" parent="Scene Objects/CameraChanges"]
-script = ExtResource("16_vdkdt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_03"]
-position = Vector2(2902.5, 310.5)
-shape = SubResource("RectangleShape2D_ic01n")
 
 [node name="ShinyDust" type="GPUParticles2D" parent="Scene Objects"]
 position = Vector2(3695, 307)
@@ -519,9 +512,6 @@ position = Vector2(1821, 402)
 [node name="Collectable25" parent="Scene Objects/Collectables group" instance=ExtResource("21_3hio0")]
 position = Vector2(2161, 163)
 
-[node name="Collectable41" parent="Scene Objects/Collectables group" instance=ExtResource("21_3hio0")]
-position = Vector2(2161, 101)
-
 [node name="Collectable26" parent="Scene Objects/Collectables group" instance=ExtResource("21_3hio0")]
 position = Vector2(2729, 388)
 
@@ -585,9 +575,6 @@ position = Vector2(1115, 401)
 [node name="Collectable20" parent="Scene Objects/Collectables group" instance=ExtResource("21_3hio0")]
 position = Vector2(1270, 401)
 
-[node name="Collectable40" parent="Scene Objects/Collectables group" instance=ExtResource("21_3hio0")]
-position = Vector2(1466, 544)
-
 [node name="Enemies group" type="Node2D" parent="Scene Objects"]
 modulate = Color(0.994, 0.81535, 0.856482, 1)
 material = ExtResource("22_q0kvg")
@@ -630,6 +617,9 @@ position = Vector2(2371, 210)
 
 [node name="Traps group" type="Node2D" parent="Scene Objects"]
 modulate = Color(0.994, 0.81535, 0.856482, 1)
+
+[node name="spikes2" parent="Scene Objects/Traps group" instance=ExtResource("28_xfd4i")]
+position = Vector2(4395, 697)
 
 [node name="spikes6" parent="Scene Objects/Traps group" instance=ExtResource("28_xfd4i")]
 position = Vector2(1895, 506)
@@ -727,7 +717,7 @@ position = Vector2(555, 1024)
 script = ExtResource("33_anjwy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/WorldBoundary"]
-position = Vector2(-9, 389)
+position = Vector2(-9, 613)
 shape = SubResource("WorldBoundaryShape2D_kime1")
 
 [node name="ForestBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
@@ -825,49 +815,50 @@ metadata/_edit_lock_ = true
 color = Color(0.984314, 0.415686, 0.541176, 1)
 
 [node name="Foliage" type="Node2D" parent="Scene Objects"]
+visible = false
 modulate = Color(0.994, 0.81535, 0.856482, 1)
 top_level = true
 
-[node name="Sprite-05" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_8juk4")
-position = Vector2(-281, 690)
-scale = Vector2(3, 3)
-texture = ExtResource("43_48kgl")
-
 [node name="Sprite-11" type="Sprite2D" parent="Scene Objects/Foliage"]
 material = ExtResource("40_8juk4")
-position = Vector2(456, 254)
+position = Vector2(1300, 61)
 scale = Vector2(3, 3)
 texture = ExtResource("41_5fxlx")
 
-[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/Foliage"]
+[node name="Sprite-04" type="Sprite2D" parent="Scene Objects/Foliage"]
 material = ExtResource("40_8juk4")
-position = Vector2(888, 552)
+position = Vector2(1083, 216)
 scale = Vector2(3, 3)
 texture = ExtResource("42_drkor")
 
+[node name="Sprite-05" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_8juk4")
+position = Vector2(202, 256)
+scale = Vector2(3, 3)
+texture = ExtResource("43_48kgl")
+
 [node name="Sprite-10Grass" type="Sprite2D" parent="Scene Objects/Foliage"]
 material = ExtResource("40_8juk4")
-position = Vector2(947, 71)
+position = Vector2(1486, 167)
 scale = Vector2(3, 3)
 texture = ExtResource("44_yuust")
 
 [node name="Ferns-Sprite-13" type="Sprite2D" parent="Scene Objects/Foliage"]
 modulate = Color(0.945098, 0.733333, 0.141176, 1)
 material = ExtResource("40_8juk4")
-position = Vector2(1681, 544)
+position = Vector2(4173, 641)
 scale = Vector2(3, 3)
 texture = ExtResource("43_48kgl")
 
 [node name="Ferns-Sprite-14" type="Sprite2D" parent="Scene Objects/Foliage"]
 modulate = Color(0.945098, 0.733333, 0.141176, 1)
 material = ExtResource("40_8juk4")
-position = Vector2(1030, 382)
+position = Vector2(3835, 191)
 scale = Vector2(3, 3)
 texture = ExtResource("45_gl061")
 
 [node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Foliage"]
-position = Vector2(52, -79)
+position = Vector2(2475, 978)
 rotation = 3.14159
 scale = Vector2(3, 3)
 texture = ExtResource("46_javg2")
@@ -877,56 +868,49 @@ region_rect = Rect2(254, 2, 22, 142)
 [node name="Sprite-13" type="Sprite2D" parent="Scene Objects/Foliage"]
 modulate = Color(0.945098, 0.733333, 0.141176, 1)
 material = ExtResource("40_8juk4")
-position = Vector2(1519, 310)
+position = Vector2(3438, 551)
 scale = Vector2(3, 3)
 texture = ExtResource("47_ft0tf")
 
 [node name="Sprite-15" type="Sprite2D" parent="Scene Objects/Foliage"]
 modulate = Color(0.945098, 0.733333, 0.141176, 1)
 material = ExtResource("40_8juk4")
-position = Vector2(2182, 538)
+position = Vector2(3377, 204)
 scale = Vector2(3, 3)
 texture = ExtResource("48_6hpha")
 
 [node name="Sprite-16" type="Sprite2D" parent="Scene Objects/Foliage"]
 modulate = Color(0.945098, 0.733333, 0.141176, 1)
 material = ExtResource("40_8juk4")
-position = Vector2(2903, 735)
-scale = Vector2(3, 3)
-texture = ExtResource("49_u48l6")
-
-[node name="Sprite-19" type="Sprite2D" parent="Scene Objects/Foliage"]
-modulate = Color(0.945098, 0.733333, 0.141176, 1)
-material = ExtResource("40_8juk4")
-position = Vector2(1361, 686)
+position = Vector2(3035, 738)
 scale = Vector2(3, 3)
 texture = ExtResource("49_u48l6")
 
 [node name="Sprite-17" type="Sprite2D" parent="Scene Objects/Foliage"]
 modulate = Color(0.945098, 0.733333, 0.141176, 1)
 material = ExtResource("40_8juk4")
-position = Vector2(3530, 637)
+position = Vector2(2925, 158)
 scale = Vector2(3, 3)
 texture = ExtResource("50_24kqa")
 
 [node name="Sprite-18" type="Sprite2D" parent="Scene Objects/Foliage"]
 modulate = Color(0.945098, 0.733333, 0.141176, 1)
 material = ExtResource("40_8juk4")
-position = Vector2(2531, 744)
+position = Vector2(2651, 168)
 scale = Vector2(3, 3)
 texture = ExtResource("44_yuust")
 
 [node name="Sprite-20" type="Sprite2D" parent="Scene Objects/Foliage"]
 modulate = Color(0.945098, 0.733333, 0.141176, 1)
 material = ExtResource("40_8juk4")
-position = Vector2(2653, 247)
+position = Vector2(2366, 198)
 scale = Vector2(3, 3)
 texture = ExtResource("51_desu2")
 
 [node name="Sprite-21" type="Sprite2D" parent="Scene Objects/Foliage"]
 modulate = Color(0.945098, 0.733333, 0.141176, 1)
 material = ExtResource("40_8juk4")
-position = Vector2(-87, 595)
+position = Vector2(2693, 402)
 rotation = 3.14159
 scale = Vector2(3, 3)
 texture = ExtResource("52_h4hld")
@@ -934,7 +918,7 @@ texture = ExtResource("52_h4hld")
 [node name="Sprite-14" type="Sprite2D" parent="Scene Objects/Foliage"]
 modulate = Color(0.945098, 0.733333, 0.141176, 1)
 material = ExtResource("40_8juk4")
-position = Vector2(3664, 603)
+position = Vector2(3782, 507)
 scale = Vector2(3, 3)
 texture = ExtResource("52_h4hld")
 
@@ -1109,6 +1093,15 @@ offset_bottom = 205.0
 rotation = 0.668679
 metadata/_edit_lock_ = true
 
+[node name="ColorRect2" type="ColorRect" parent="Scene Objects/GodRays"]
+visible = false
+material = SubResource("ShaderMaterial_b6eu6")
+offset_left = 2293.0
+offset_top = -131.0
+offset_right = 4334.0
+offset_bottom = 1355.0
+rotation = -0.00595564
+
 [node name="ColorRect3" type="ColorRect" parent="Scene Objects/GodRays"]
 material = SubResource("ShaderMaterial_5a8aw")
 offset_left = 2155.0
@@ -1116,7 +1109,6 @@ offset_top = -227.0
 offset_right = 4196.0
 offset_bottom = 1259.0
 rotation = -0.00595564
-metadata/_edit_lock_ = true
 
 [node name="ColorRect4" type="ColorRect" parent="Scene Objects/GodRays"]
 material = SubResource("ShaderMaterial_kmya0")

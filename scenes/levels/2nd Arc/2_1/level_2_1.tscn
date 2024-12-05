@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_cghab"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_cdbrp"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_ox8n3"]
-[ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="4_dlqhe"]
+[ext_resource type="PackedScene" uid="uid://b7tk2f6r4um6t" path="res://scenes/levels/2nd Arc/2_2/level_2_2.tscn" id="4_prfu0"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_40fr5"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_1vcbm"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_s0kv7"]
@@ -225,7 +225,7 @@ unique_name_in_owner = true
 script = ExtResource("3_ox8n3")
 player = NodePath("../Scene Objects/CharacterBody2D")
 hearts = [NodePath("../UI/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart3")]
-next_level = ExtResource("4_dlqhe")
+next_level = ExtResource("4_prfu0")
 chroma_chaos = ExtResource("5_40fr5")
 shockwave = ExtResource("6_1vcbm")
 arrow = ExtResource("7_s0kv7")
@@ -575,7 +575,7 @@ position = Vector2(-9, 613)
 shape = SubResource("WorldBoundaryShape2D_kime1")
 
 [node name="ForestBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
-scroll_offset = Vector2(69.84, 72.75)
+scroll_offset = Vector2(699.855, -642.757)
 
 [node name="Sky" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
 modulate = Color(0.996078, 0.647059, 1, 1)
@@ -777,6 +777,7 @@ texture = ExtResource("47_mgul8")
 
 [node name="Vines" type="ParallaxBackground" parent="Scene Objects"]
 layer = 1
+scroll_offset = Vector2(699.855, -642.757)
 
 [node name="Further" type="ParallaxLayer" parent="Scene Objects/Vines"]
 motion_scale = Vector2(2, 1)
