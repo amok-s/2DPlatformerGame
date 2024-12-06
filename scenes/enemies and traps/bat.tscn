@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ur087dkmfswv"]
+[gd_scene load_steps=54 format=3 uid="uid://ur087dkmfswv"]
 
 [ext_resource type="Texture2D" uid="uid://dfqg8dnyeyk47" path="res://assets/Bat/Ceiling In (46x30).png" id="1_2wxxu"]
 [ext_resource type="Script" path="res://Scripts/bat.gd" id="1_fp01w"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" path="res://assets/MainCharacter/scripts/FSM.gd" id="7_3giup"]
 [ext_resource type="Script" path="res://assets/Bat/bat_sleeping.gd" id="8_4rr3t"]
 [ext_resource type="Script" path="res://assets/Bat/bat_flying.gd" id="9_dg8es"]
+[ext_resource type="Script" path="res://assets/Bat/bat_damage.gd" id="10_nk5ot"]
+[ext_resource type="AudioStream" uid="uid://ugwixtko8md8" path="res://assets/sounds/beetle-squark4-41449.mp3" id="11_i1qs5"]
+[ext_resource type="AudioStream" uid="uid://c7raxvu011onr" path="res://assets/sounds/bat_chirping.mp3" id="12_6hgvu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_twm7g"]
 atlas = ExtResource("1_2wxxu")
@@ -304,11 +307,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b6663"]
+size = Vector2(20, 21.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hmu8"]
 size = Vector2(30, 34)
 
 [node name="Bat" type="CharacterBody2D"]
-motion_mode = 1
 floor_block_on_wall = false
 script = ExtResource("1_fp01w")
 
@@ -317,6 +322,13 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_etuvt")
 animation = &"flying"
 autoplay = "idle"
+
+[node name="DamageCollision" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageCollision"]
+position = Vector2(0, -0.75)
+shape = SubResource("RectangleShape2D_b6663")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(1, -2)
@@ -337,3 +349,19 @@ script = ExtResource("8_4rr3t")
 
 [node name="Flying" type="Node" parent="StateMachine"]
 script = ExtResource("9_dg8es")
+
+[node name="Damage" type="Node" parent="StateMachine"]
+script = ExtResource("10_nk5ot")
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_i1qs5")
+volume_db = -5.0
+pitch_scale = 1.2
+
+[node name="Chirping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_6hgvu")
+volume_db = 10.0
+max_distance = 350.0
+attenuation = 0.535887
+
+[connection signal="body_entered" from="DamageCollision" to="." method="_on_damage_collision_body_entered"]

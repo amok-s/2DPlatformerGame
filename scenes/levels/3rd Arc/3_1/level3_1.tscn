@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://d1g6vkq72jyre"]
+[gd_scene load_steps=66 format=3 uid="uid://d1g6vkq72jyre"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_gou5u"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_7wma1"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://d1e35equn7een" path="res://scenes/enemies and traps/bee.tscn" id="19_nxues"]
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="20_kb074"]
 [ext_resource type="PackedScene" uid="uid://bwou04ab2t0gd" path="res://scenes/enemies and traps/moving_platform.tscn" id="21_dqyy2"]
+[ext_resource type="PackedScene" uid="uid://ur087dkmfswv" path="res://scenes/enemies and traps/bat.tscn" id="21_dxq3j"]
 [ext_resource type="PackedScene" uid="uid://4r0yhti5mlkd" path="res://scenes/enemies and traps/spiked_chain.tscn" id="22_n0xr7"]
 [ext_resource type="Texture2D" uid="uid://d2dde683iw6ak" path="res://assets/OtherSprites/Chain.png" id="23_dsxg1"]
 [ext_resource type="Script" path="res://Scripts/chained_Ball.gd" id="24_dnu53"]
@@ -278,10 +279,6 @@ position = Vector2(2764, 395)
 use_parent_material = true
 position = Vector2(1239, 359)
 
-[node name="Bee" parent="Scene Objects/Enemies group" instance=ExtResource("19_nxues")]
-use_parent_material = true
-position = Vector2(176, 514)
-
 [node name="Bee2" parent="Scene Objects/Enemies group" instance=ExtResource("19_nxues")]
 use_parent_material = true
 position = Vector2(2300, 543)
@@ -290,14 +287,31 @@ position = Vector2(2300, 543)
 use_parent_material = true
 position = Vector2(2405, 217)
 
+[node name="Bat" type="Node2D" parent="Scene Objects/Enemies group"]
+
+[node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat"]
+
+[node name="Marker2D" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
+position = Vector2(404, 511)
+
+[node name="Marker2D2" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
+position = Vector2(98, 531)
+
+[node name="Marker2D3" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
+position = Vector2(343, 421)
+
+[node name="Marker2D4" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
+position = Vector2(561, 470)
+
+[node name="Bat" parent="Scene Objects/Enemies group/Bat" node_paths=PackedStringArray("marker_node") instance=ExtResource("21_dxq3j")]
+position = Vector2(208, 401)
+marker_node = NodePath("../Markers")
+
 [node name="Traps group" type="Node2D" parent="Scene Objects"]
 modulate = Color(0.0980392, 0.0823529, 0.188235, 1)
 
 [node name="spikes2" parent="Scene Objects/Traps group" instance=ExtResource("20_kb074")]
 position = Vector2(202, 265)
-
-[node name="spikes3" parent="Scene Objects/Traps group" instance=ExtResource("20_kb074")]
-position = Vector2(346, 649)
 
 [node name="spikes4" parent="Scene Objects/Traps group" instance=ExtResource("20_kb074")]
 position = Vector2(2093, 313)
@@ -468,21 +482,27 @@ position = Vector2(-197, -152)
 
 [node name="Firefly" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(1876, 726)
+metadata/_edit_lock_ = true
 
 [node name="Firefly2" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(538, 384)
+metadata/_edit_lock_ = true
 
 [node name="Firefly3" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(821, 652)
+metadata/_edit_lock_ = true
 
 [node name="Firefly4" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(461, 723)
+metadata/_edit_lock_ = true
 
 [node name="Firefly5" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(2051, 304)
+metadata/_edit_lock_ = true
 
 [node name="Firefly6" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(2676, 360)
+metadata/_edit_lock_ = true
 
 [node name="WorldBoundary" type="Area2D" parent="Scene Objects"]
 position = Vector2(555, 1024)

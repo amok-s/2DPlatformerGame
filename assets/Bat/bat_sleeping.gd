@@ -6,9 +6,7 @@ class_name BatSleeping
 var player_spotted : bool = true
 
 func Enter():
-	print("Bat sleeping")
 	$"../../DetectionArea".connect("body_entered", BodySpotted)
-	#connect("body_exited", camExited)
 
 func Exit():
 	player_spotted = true
