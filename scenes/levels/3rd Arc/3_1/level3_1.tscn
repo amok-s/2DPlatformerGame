@@ -274,10 +274,6 @@ position = Vector2(1197, 159)
 [node name="MushroomEnemy4" parent="Scene Objects/Enemies group" instance=ExtResource("16_fbmpx")]
 position = Vector2(2764, 395)
 
-[node name="Chameleon" parent="Scene Objects/Enemies group" instance=ExtResource("17_meigv")]
-use_parent_material = true
-position = Vector2(791, 548)
-
 [node name="Turtle_2" parent="Scene Objects/Enemies group" instance=ExtResource("18_i2v4w")]
 use_parent_material = true
 position = Vector2(1239, 359)
@@ -471,7 +467,7 @@ position = Vector2(2800, 793)
 position = Vector2(-197, -152)
 
 [node name="Firefly" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
-position = Vector2(1388, 476)
+position = Vector2(1876, 726)
 
 [node name="Firefly2" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(538, 384)

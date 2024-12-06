@@ -23,4 +23,4 @@ func Exit():
 	
 func Update(_delta:float):
 	bee.move_and_slide()
-	bee.velocity.y += bee.gravity * _delta
+	bee.velocity.y += bee.gravity * 0.65 * _delta

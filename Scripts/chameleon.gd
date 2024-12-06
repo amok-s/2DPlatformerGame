@@ -35,6 +35,8 @@ func  player_entered(body):
 		$Death.play(0)
 		%GameManager.spawn_blink()
 		%GameManager.spawn_sfx("dust_2", position + Vector2(0, -15))
+		Stats.mobs_killed += 1
+		Stats.chameleon_killed += 1
 		await get_tree().create_timer(2).timeout
 		queue_free()
 	else:	

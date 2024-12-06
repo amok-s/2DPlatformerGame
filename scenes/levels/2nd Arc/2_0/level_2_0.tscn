@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cqddarltj231"]
+[gd_scene load_steps=80 format=3 uid="uid://cqddarltj231"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_wyk8f"]
 [ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_srrgp"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="12_8vjs2"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="13_ab0kh"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="14_q26k6"]
+[ext_resource type="Texture2D" uid="uid://c167fa6sw1j06" path="res://assets/Bat/Idle (46x30).png" id="16_gcsvg"]
 [ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/enemies and traps/chameleon.tscn" id="17_nbr64"]
 [ext_resource type="PackedScene" uid="uid://4r0yhti5mlkd" path="res://scenes/enemies and traps/spiked_chain.tscn" id="18_05257"]
 [ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="18_wgv6l"]
@@ -60,6 +61,98 @@ shader_parameter/bottomright = true
 shader_parameter/width = 1.0
 shader_parameter/color = Color(0.87451, 0.729412, 0.00784314, 0.733333)
 shader_parameter/inside = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxx3p"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(0, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cktfa"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(46, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw2nh"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(92, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuiev"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(138, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuly1"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(184, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7gaj"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(230, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1byii"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(276, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwqpj"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(322, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgta2"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(368, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ktpo"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(414, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr0f7"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(460, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cpsx"]
+atlas = ExtResource("16_gcsvg")
+region = Rect2(506, 0, 46, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ehups"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxx3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cktfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw2nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuiev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuly1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7gaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1byii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwqpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgta2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ktpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr0f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cpsx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_5ewvi"]
 length = 0.001
@@ -354,6 +447,13 @@ modulate = Color(0.00784314, 0.054902, 0.0352941, 1)
 
 [node name="Chameleon" parent="Scene Objects/Enemies group" instance=ExtResource("17_nbr64")]
 position = Vector2(4381, 162)
+
+[node name="Bat" type="AnimatedSprite2D" parent="Scene Objects/Enemies group"]
+position = Vector2(4118, 316)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ehups")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Traps group" type="Node2D" parent="Scene Objects"]
 modulate = Color(0.00784314, 0.054902, 0.0352941, 1)

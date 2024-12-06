@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b0iwi22pd1xua"]
+[gd_scene load_steps=85 format=3 uid="uid://b0iwi22pd1xua"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_bsx3o"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://dqdq2msnvnnf4" path="res://assets/PineForestParallax/MorningLayer5.png" id="23_ifnxc"]
 [ext_resource type="Texture2D" uid="uid://ufkeb2ct1p0u" path="res://assets/PineForestParallax/MorningLayer4.png" id="24_8kc5j"]
 [ext_resource type="Texture2D" uid="uid://daosphxj6dyv" path="res://assets/PineForestParallax/MorningLayer3.png" id="25_8ckbd"]
+[ext_resource type="Texture2D" uid="uid://c167fa6sw1j06" path="res://assets/Bat/Idle (46x30).png" id="25_ihe0p"]
 [ext_resource type="Texture2D" uid="uid://cfekmo3uqwtng" path="res://assets/PineForestParallax/MorningLayer2.png" id="26_c2mpy"]
 [ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="27_tm88m"]
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="28_612pb"]
@@ -107,6 +108,98 @@ _data = {
 "points": PackedVector2Array(-157.86, -28.6055, 157.86, 28.6055, 3660, 238, 134.552, -25.4271, -134.552, 25.4271, 3672, 374, 127.136, 28.6055, -127.136, -28.6055, 3386, 373, -183.287, 31.7839, 183.287, -31.7839, 3391, 241, 0, 0, 0, 0, 3658, 238)
 }
 point_count = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxx3p"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(0, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cktfa"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(46, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw2nh"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(92, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuiev"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(138, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vuly1"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(184, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7gaj"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(230, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1byii"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(276, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwqpj"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(322, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgta2"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(368, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ktpo"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(414, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr0f7"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(460, 0, 46, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cpsx"]
+atlas = ExtResource("25_ihe0p")
+region = Rect2(506, 0, 46, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pywbb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxx3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cktfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yw2nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuiev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vuly1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7gaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1byii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwqpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgta2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ktpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr0f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cpsx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
@@ -494,6 +587,13 @@ rotates = false
 
 [node name="Bee4" parent="Scene Objects/Enemies group/Path2D/PathFollow2D" instance=ExtResource("18_doyau")]
 rotation = -0.179263
+
+[node name="Bat" type="AnimatedSprite2D" parent="Scene Objects/Enemies group"]
+position = Vector2(2287, 650)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pywbb")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Traps group" type="Node2D" parent="Scene Objects"]
 
