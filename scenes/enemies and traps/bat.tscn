@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://ur087dkmfswv"]
+[gd_scene load_steps=55 format=3 uid="uid://ur087dkmfswv"]
 
 [ext_resource type="Texture2D" uid="uid://dfqg8dnyeyk47" path="res://assets/Bat/Ceiling In (46x30).png" id="1_2wxxu"]
 [ext_resource type="Script" path="res://Scripts/bat.gd" id="1_fp01w"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://assets/Bat/bat_damage.gd" id="10_nk5ot"]
 [ext_resource type="AudioStream" uid="uid://ugwixtko8md8" path="res://assets/sounds/beetle-squark4-41449.mp3" id="11_i1qs5"]
 [ext_resource type="AudioStream" uid="uid://c7raxvu011onr" path="res://assets/sounds/bat_chirping.mp3" id="12_6hgvu"]
+[ext_resource type="AudioStream" uid="uid://8w8d8qiv13b8" path="res://assets/sounds/bump.mp3" id="13_nu6qr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_twm7g"]
 atlas = ExtResource("1_2wxxu")
@@ -243,7 +244,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"flying",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -322,6 +323,7 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_etuvt")
 animation = &"flying"
 autoplay = "idle"
+frame_progress = 0.142359
 
 [node name="DamageCollision" type="Area2D" parent="."]
 scale = Vector2(2, 2)
@@ -363,5 +365,10 @@ stream = ExtResource("12_6hgvu")
 volume_db = 10.0
 max_distance = 350.0
 attenuation = 0.535887
+
+[node name="Waking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_nu6qr")
+volume_db = -12.0
+pitch_scale = 3.0
 
 [connection signal="body_entered" from="DamageCollision" to="." method="_on_damage_collision_body_entered"]

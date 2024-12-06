@@ -98,12 +98,10 @@ func darkness_change():
 		darkness = false
 
 func pulsating():
-	print("pulsating")
 	for n in 8:
 		if pulses and get_tree():
 			pulses_tween = get_tree().create_tween()
 			var time = randf_range(0.2, 0.7)
 			pulses_tween.tween_property($BiggerLight, "texture_scale", $BiggerLight.texture_scale - 0.1 if $BiggerLight.texture_scale == bigger_light_scale else bigger_light_scale, time)
-			print("puls: " + str(n))
 			await get_tree().create_timer(time).timeout
 	

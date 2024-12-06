@@ -14,6 +14,7 @@ func Enter():
 	marker_node = $"../..".marker_node
 	sprite.play("ceiling_out")
 	await get_tree().create_timer(1.3).timeout
+	$"../../Waking".play(0)
 	sprite.play("flying")
 	if marker_node:
 		positions = marker_node.get_children()
@@ -27,7 +28,7 @@ func Exit():
 	
 func Update(_delta:float):
 	if direction:
-		bat.velocity = direction * 310
+		bat.velocity = direction * 270
 	if current_position:
 		if bat.global_position.distance_to(current_position.position) < 10:
 			get_next_position()

@@ -22,6 +22,8 @@ func show_sfx(name, extra = null):
 			enraged()
 		"mlem":
 			mlem()
+		"sleeping":
+			sleeping()
 		_:
 			print("No sfx found")
 
@@ -86,4 +88,21 @@ func mlem():
 	$AnimationPlayer.play("fade_out", 0.3)
 	await get_tree().create_timer(0.7).timeout
 	queue_free()
-	
+
+func sleeping():
+	var rand_pos = randi_range(0, 4)
+	match rand_pos:
+		0:
+			position += Vector2(10, 70)
+		1:
+			position += Vector2(25, 50)
+		2:
+			position += Vector2(-30, 70)
+		3:
+			position += Vector2(20, 75)
+		4:
+			position += Vector2(25, 30)
+	$ClipRect/Labels/Sleeping.show()
+	$AnimationPlayer.play("sleeping")
+	await get_tree().create_timer(3).timeout
+	queue_free()

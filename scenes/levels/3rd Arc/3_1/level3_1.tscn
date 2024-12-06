@@ -241,7 +241,7 @@ layer_0/tile_data = PackedInt32Array(458752, 458752, 1, 524288, 458752, 2, 45875
 
 [node name="CharacterBody2D" parent="Scene Objects" instance=ExtResource("12_7qvlj")]
 modulate = Color(0.133333, 0.12549, 0.290196, 1)
-position = Vector2(809, 408)
+position = Vector2(137, 655)
 
 [node name="Camera2D" type="Camera2D" parent="Scene Objects/CharacterBody2D"]
 unique_name_in_owner = true
@@ -304,7 +304,7 @@ position = Vector2(343, 421)
 position = Vector2(561, 470)
 
 [node name="Bat" parent="Scene Objects/Enemies group/Bat" node_paths=PackedStringArray("marker_node") instance=ExtResource("21_dxq3j")]
-position = Vector2(208, 401)
+position = Vector2(278, 394)
 marker_node = NodePath("../Markers")
 
 [node name="Traps group" type="Node2D" parent="Scene Objects"]

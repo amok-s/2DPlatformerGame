@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck51w0lt64yir"]
+[gd_scene load_steps=10 format=3 uid="uid://ck51w0lt64yir"]
 
 [ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="1_6gnwp"]
 [ext_resource type="Script" path="res://scenes/text_sfx.gd" id="1_6tott"]
@@ -28,6 +28,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ClipRect/Labels/Sleeping/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
 }
 
 [sub_resource type="Animation" id="Animation_2f4xo"]
@@ -93,12 +105,29 @@ tracks/0/keys = {
 "values": [Vector2(8, 43), Vector2(8, 11)]
 }
 
+[sub_resource type="Animation" id="Animation_jv2wi"]
+resource_name = "sleeping"
+length = 2.7895
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClipRect/Labels/Sleeping/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["z", "z z", "z z z", "z z z .", "z z z . .", "z z z . . ."]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qdm6n"]
 _data = {
 "RESET": SubResource("Animation_g14q4"),
 "bump": SubResource("Animation_2f4xo"),
 "fade_out": SubResource("Animation_5cjp1"),
 "move_up": SubResource("Animation_qc4jq"),
+"sleeping": SubResource("Animation_jv2wi"),
 "slide_up": SubResource("Animation_0r5je")
 }
 
@@ -209,6 +238,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Mlem" type="Node2D" parent="ClipRect/Labels"]
+visible = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ClipRect/Labels/Mlem"]
 offset_top = 117.0
@@ -226,6 +256,17 @@ text = "
 .0 connected=1] m l e m ~"
 fit_content = true
 autowrap_mode = 0
+
+[node name="Sleeping" type="Node2D" parent="ClipRect/Labels"]
+
+[node name="Label" type="Label" parent="ClipRect/Labels/Sleeping"]
+offset_top = 166.0
+offset_right = 81.0
+offset_bottom = 197.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("1_6gnwp")
+theme_override_font_sizes/font_size = 17
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
