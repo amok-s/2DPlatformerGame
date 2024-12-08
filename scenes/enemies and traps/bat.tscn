@@ -244,7 +244,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"flying",
-"speed": 8.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -311,10 +311,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b6663"]
 size = Vector2(20, 21.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hmu8"]
-size = Vector2(30, 34)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nmnus"]
+size = Vector2(36, 37)
 
 [node name="Bat" type="CharacterBody2D"]
+motion_mode = 1
 floor_block_on_wall = false
 script = ExtResource("1_fp01w")
 
@@ -333,14 +334,14 @@ position = Vector2(0, -0.75)
 shape = SubResource("RectangleShape2D_b6663")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(1, -2)
-shape = SubResource("RectangleShape2D_7hmu8")
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_nmnus")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionArea"]
 position = Vector2(-76, -36)
-polygon = PackedVector2Array(168, 39, -15, 39, -129, 234, 267, 234)
+polygon = PackedVector2Array(142, 36, 7, 36, -81, 197, 222, 197)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("7_3giup")

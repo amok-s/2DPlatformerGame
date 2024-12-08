@@ -1201,7 +1201,6 @@ text = "Fruits: "
 vertical_alignment = 1
 
 [node name="Pause" parent="UI" instance=ExtResource("57_qdhip")]
-visible = false
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]

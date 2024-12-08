@@ -89,22 +89,6 @@ tracks/0/keys = {
 "values": [Vector2(8, 17), Vector2(8, 2)]
 }
 
-[sub_resource type="Animation" id="Animation_0r5je"]
-resource_name = "slide_up"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ClipRect/Labels:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(8, 43), Vector2(8, 11)]
-}
-
 [sub_resource type="Animation" id="Animation_jv2wi"]
 resource_name = "sleeping"
 length = 2.7895
@@ -119,6 +103,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["z", "z z", "z z z", "z z z .", "z z z . .", "z z z . . ."]
+}
+
+[sub_resource type="Animation" id="Animation_0r5je"]
+resource_name = "slide_up"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ClipRect/Labels:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, 43), Vector2(8, 11)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qdm6n"]
