@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://d1g6vkq72jyre"]
+[gd_scene load_steps=75 format=3 uid="uid://d1g6vkq72jyre"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_gou5u"]
 [ext_resource type="AudioStream" uid="uid://c2o6ixyw58pvo" path="res://assets/sounds/ambient-dream-16671.mp3" id="2_3r8o2"]
@@ -13,8 +13,11 @@
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="10_40dai"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="11_wjxmd"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="12_7qvlj"]
+[ext_resource type="Script" path="res://Scripts/camera_changes.gd" id="12_48sco"]
 [ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="13_1ulv8"]
+[ext_resource type="Script" path="res://scenes/levels/3rd Arc/3_1/Camera_01.gd" id="13_sldnm"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="14_5pugc"]
+[ext_resource type="Script" path="res://scenes/levels/3rd Arc/3_1/Camera_02.gd" id="14_5q8j8"]
 [ext_resource type="Material" uid="uid://cv6hb88ldq3br" path="res://shaders/monsters_night.tres" id="15_6pgo3"]
 [ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/enemies and traps/chameleon.tscn" id="17_meigv"]
 [ext_resource type="PackedScene" uid="uid://ur087dkmfswv" path="res://scenes/enemies and traps/bat.tscn" id="19_ckw66"]
@@ -73,6 +76,12 @@ scale_min = 4.0
 scale_max = 5.0
 scale_curve = SubResource("CurveTexture_c28h7")
 color = Color(0.996078, 0.984314, 0.839216, 0.74902)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx7vr"]
+size = Vector2(546.5, 406)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elbiv"]
+size = Vector2(478, 259)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ah6mr"]
 radius = 13.5093
@@ -189,18 +198,6 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
 distance = 148.771
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v3auy"]
-polygon = PackedVector2Array(2771, 417, 5546, 421, 5508, -382, 2760, -421)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_avvef"]
-polygon = PackedVector2Array(2756, -169, 2822, 84, 3142, 111, 3425, 135, 3425, -141, 3233, -141, 3233, -334, 3426, -333, 3427, -382, 3377, -382, 3377, -427, 3327, -427, 3326, -475, 2945, -475, 2945, -523, 2852, -523, 2852, -427, 2756, -427)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_r080r"]
-polygon = PackedVector2Array(2771, 417, 5544, 423, 5544, 131, 2793, 94)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sjern"]
-polygon = PackedVector2Array(4339, 333, 4435, 333, 4435, 189, 4339, 189)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hesg"]
 shader = ExtResource("47_xg6po")
 shader_parameter/angle = -0.155
@@ -275,8 +272,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -584.0
-offset_top = -97.0
-offset_right = 2616.0
+offset_top = -582.0
+offset_right = 4044.0
 offset_bottom = 1395.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -290,9 +287,26 @@ lifetime = 2.4
 preprocess = 0.2
 visibility_rect = Rect2(-282.095, -165.54, 1200, 900)
 
+[node name="CameraChanges" type="Node2D" parent="Scene Objects"]
+script = ExtResource("12_48sco")
+
+[node name="Camera_01" type="Area2D" parent="Scene Objects/CameraChanges"]
+script = ExtResource("13_sldnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
+position = Vector2(355.25, 319)
+shape = SubResource("RectangleShape2D_vx7vr")
+
+[node name="Camera_02" type="Area2D" parent="Scene Objects/CameraChanges"]
+script = ExtResource("14_5q8j8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_02"]
+position = Vector2(3945, 533.5)
+shape = SubResource("RectangleShape2D_elbiv")
+
 [node name="TileMap" type="TileMap" parent="Scene Objects"]
-modulate = Color(0.0980392, 0.0823529, 0.188235, 1)
-self_modulate = Color(0.215686, 0.282353, 0.705882, 1)
+modulate = Color(0.180392, 0.156863, 0.317647, 1)
+self_modulate = Color(0.402125, 0.421366, 0.841238, 1)
 texture_filter = 1
 rotation = -1.20768e-05
 scale = Vector2(3, 3)
@@ -394,6 +408,12 @@ position = Vector2(3342, 491)
 
 [node name="Collectable_32" parent="Scene Objects/Collectables group" instance=ExtResource("14_5pugc")]
 position = Vector2(3903, 538)
+
+[node name="Collectable_44" parent="Scene Objects/Collectables group" instance=ExtResource("14_5pugc")]
+position = Vector2(4105, 480)
+
+[node name="Collectable_45" parent="Scene Objects/Collectables group" instance=ExtResource("14_5pugc")]
+position = Vector2(4105, 561)
 
 [node name="Collectable_33" parent="Scene Objects/Collectables group" instance=ExtResource("14_5pugc")]
 position = Vector2(3854, 538)
@@ -679,42 +699,55 @@ position = Vector2(-197, -152)
 
 [node name="Firefly" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(1156, 351)
+metadata/_edit_lock_ = true
 
 [node name="Firefly3" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(550, 385)
+metadata/_edit_lock_ = true
 
 [node name="Firefly4" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(808, 492)
+metadata/_edit_lock_ = true
 
 [node name="Firefly17" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(400, 734)
+metadata/_edit_lock_ = true
 
 [node name="Firefly18" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(755, 811)
+metadata/_edit_lock_ = true
 
 [node name="Firefly19" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(1033, 692)
+metadata/_edit_lock_ = true
 
 [node name="Firefly20" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(1258, 886)
+metadata/_edit_lock_ = true
 
 [node name="Firefly21" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(1554, 802)
+metadata/_edit_lock_ = true
 
 [node name="Firefly2" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(1676, 331)
+metadata/_edit_lock_ = true
 
 [node name="Firefly22" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(2042, 475)
+metadata/_edit_lock_ = true
 
 [node name="Firefly23" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(2258, 542)
+metadata/_edit_lock_ = true
 
 [node name="Firefly24" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(1382, 491)
+metadata/_edit_lock_ = true
 
 [node name="Firefly25" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(1966, 102)
+metadata/_edit_lock_ = true
 
 [node name="Firefly5" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(2382, 338)
@@ -722,48 +755,63 @@ metadata/_edit_lock_ = true
 
 [node name="Firefly6" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(1984, 719)
+metadata/_edit_lock_ = true
 
 [node name="Firefly7" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(2248, 860)
+metadata/_edit_lock_ = true
 
 [node name="Firefly26" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(2558, 938)
+metadata/_edit_lock_ = true
 
 [node name="Firefly8" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(2690, 500)
+metadata/_edit_lock_ = true
 
 [node name="Firefly9" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(3141, 432)
+metadata/_edit_lock_ = true
 
 [node name="Firefly10" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(3595, 663)
+metadata/_edit_lock_ = true
 
 [node name="Firefly11" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(3850, 307)
+metadata/_edit_lock_ = true
 
 [node name="Firefly29" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(4020, 661)
+metadata/_edit_lock_ = true
 
 [node name="Firefly12" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(4420, 469)
+metadata/_edit_lock_ = true
 
 [node name="Firefly13" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(4073, 973)
+metadata/_edit_lock_ = true
 
 [node name="Firefly14" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(3677, 1100)
+metadata/_edit_lock_ = true
 
 [node name="Firefly15" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(3470, 952)
+metadata/_edit_lock_ = true
 
 [node name="Firefly16" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(2961, 861)
+metadata/_edit_lock_ = true
 
 [node name="Firefly27" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(3205, 1124)
+metadata/_edit_lock_ = true
 
 [node name="Firefly28" parent="Scene Objects/Fireflies" instance=ExtResource("27_t4jmj")]
 position = Vector2(4384, 844)
+metadata/_edit_lock_ = true
 
 [node name="WorldBoundary" type="Area2D" parent="Scene Objects"]
 position = Vector2(555, 945)
@@ -862,7 +910,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Ground" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
-light_mask = 5
+light_mask = 21
 position = Vector2(0, 44)
 motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(1656, 0)
@@ -1232,9 +1280,9 @@ region_rect = Rect2(108, 5, 81, 91)
 color = Color(0.0980392, 0.0823529, 0.188235, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Scene Objects"]
-visible = false
 position = Vector2(-1244, -128)
 rotation = -0.221657
+editor_only = true
 color = Color(0.705882, 0.996078, 0.92549, 1)
 energy = 2.8
 range_item_cull_mask = 0
@@ -1242,28 +1290,6 @@ shadow_enabled = true
 shadow_color = Color(0.12549, 0, 0.184314, 0.105882)
 shadow_filter = 1
 height = 1.0
-
-[node name="LightOccluders" type="Node" parent="Scene Objects"]
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Scene Objects/LightOccluders"]
-visible = false
-position = Vector2(-942, -419)
-occluder = SubResource("OccluderPolygon2D_v3auy")
-
-[node name="LightOccluder2D4" type="LightOccluder2D" parent="Scene Objects/LightOccluders"]
-visible = false
-position = Vector2(-1553, 718)
-occluder = SubResource("OccluderPolygon2D_avvef")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Scene Objects/LightOccluders"]
-visible = false
-position = Vector2(-4536, -423)
-occluder = SubResource("OccluderPolygon2D_r080r")
-
-[node name="LightOccluder2D3" type="LightOccluder2D" parent="Scene Objects/LightOccluders"]
-visible = false
-position = Vector2(-3235, -429)
-occluder = SubResource("OccluderPolygon2D_sjern")
 
 [node name="GodRays" type="Node2D" parent="Scene Objects"]
 position = Vector2(-1244, -128)
@@ -1279,6 +1305,7 @@ metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "game_manager", "hearts_panel")]
 layer = 2
+visible = false
 script = ExtResource("48_d5kxg")
 player = NodePath("../Scene Objects/CharacterBody2D")
 game_manager = NodePath("../GameManager")
