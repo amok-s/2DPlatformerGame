@@ -13,5 +13,5 @@ shader_parameter/topright = true
 shader_parameter/bottomleft = true
 shader_parameter/bottomright = true
 shader_parameter/width = 1.0
-shader_parameter/color = Color(0.117647, 0.227451, 0.0627451, 0.584314)
+shader_parameter/color = Color(0.176471, 0.321569, 0.101961, 0.239216)
 shader_parameter/inside = false

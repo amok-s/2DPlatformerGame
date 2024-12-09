@@ -388,11 +388,13 @@ _data = {
 }
 
 [node name="Chameleon" type="CharacterBody2D"]
+use_parent_material = true
 position = Vector2(0, -1)
 scale = Vector2(2, 2)
 script = ExtResource("1_8wuvf")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
 position = Vector2(-18, -8.09)
 sprite_frames = SubResource("SpriteFrames_jckjg")
 animation = &"idle"

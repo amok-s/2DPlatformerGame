@@ -315,11 +315,13 @@ size = Vector2(20, 21.5)
 size = Vector2(36, 37)
 
 [node name="Bat" type="CharacterBody2D"]
+use_parent_material = true
 motion_mode = 1
 floor_block_on_wall = false
 script = ExtResource("1_fp01w")
 
 [node name="sprite" type="AnimatedSprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_etuvt")
 animation = &"flying"
