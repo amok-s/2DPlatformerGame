@@ -365,8 +365,8 @@ pitch_scale = 1.2
 
 [node name="Chirping" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_6hgvu")
-volume_db = 10.0
-max_distance = 350.0
+volume_db = 15.0
+max_distance = 450.0
 attenuation = 0.535887
 
 [node name="Waking" type="AudioStreamPlayer2D" parent="."]

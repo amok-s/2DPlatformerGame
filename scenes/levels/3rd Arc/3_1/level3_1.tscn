@@ -910,7 +910,7 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Ground" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
-light_mask = 21
+light_mask = 53
 position = Vector2(0, 44)
 motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(1656, 0)

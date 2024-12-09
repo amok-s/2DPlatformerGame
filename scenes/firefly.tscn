@@ -9,7 +9,6 @@ scale = Vector2(1.5, 1.5)
 script = ExtResource("1_mgdpp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(0.807843, 0.992157, 0, 1)
 light_mask = 32
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
