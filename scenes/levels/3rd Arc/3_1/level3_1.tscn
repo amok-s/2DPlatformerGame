@@ -234,6 +234,8 @@ corner_detail = 1
 [node name="Level3_1" type="Node"]
 script = ExtResource("1_gou5u")
 lvlname = "lvl3_1"
+fruits_left_to_show_sfx = 15
+current_arc = 3
 metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]
 
@@ -306,7 +308,7 @@ shape = SubResource("RectangleShape2D_elbiv")
 
 [node name="TileMap" type="TileMap" parent="Scene Objects"]
 modulate = Color(0.180392, 0.156863, 0.317647, 1)
-self_modulate = Color(0.402125, 0.421366, 0.841238, 1)
+self_modulate = Color(0.403922, 0.419608, 0.843137, 1)
 texture_filter = 1
 rotation = -1.20768e-05
 scale = Vector2(3, 3)

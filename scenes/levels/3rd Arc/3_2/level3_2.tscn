@@ -1,0 +1,1244 @@
+[gd_scene load_steps=71 format=3 uid="uid://di2kg2jr0hbbd"]
+
+[ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_aitpp"]
+[ext_resource type="AudioStream" uid="uid://c2o6ixyw58pvo" path="res://assets/sounds/ambient-dream-16671.mp3" id="2_7ts6u"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_5k2gm"]
+[ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="4_fus62"]
+[ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_36jbb"]
+[ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_qwepb"]
+[ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_yxq1l"]
+[ext_resource type="PackedScene" uid="uid://b12j70xyi7o37" path="res://scenes/sfxs.tscn" id="8_oxgoh"]
+[ext_resource type="PackedScene" uid="uid://ck51w0lt64yir" path="res://scenes/text_sfx.tscn" id="9_e3ght"]
+[ext_resource type="AudioStream" uid="uid://c31wo40iw47d0" path="res://assets/sounds/healpop-46004.mp3" id="10_ofoos"]
+[ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="11_qc4r4"]
+[ext_resource type="Script" path="res://Scripts/camera_changes.gd" id="12_evc8t"]
+[ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="15_eoadr"]
+[ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="16_rcyvw"]
+[ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="17_vx2wo"]
+[ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="18_vdwu7"]
+[ext_resource type="Material" uid="uid://cv6hb88ldq3br" path="res://shaders/monsters_night.tres" id="19_8jvdr"]
+[ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/enemies and traps/chameleon.tscn" id="20_8j3up"]
+[ext_resource type="PackedScene" uid="uid://ur087dkmfswv" path="res://scenes/enemies and traps/bat.tscn" id="21_ptqxe"]
+[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="22_dqxc2"]
+[ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="23_kinvl"]
+[ext_resource type="PackedScene" uid="uid://4r0yhti5mlkd" path="res://scenes/enemies and traps/spiked_chain.tscn" id="24_g1iee"]
+[ext_resource type="Texture2D" uid="uid://d2dde683iw6ak" path="res://assets/OtherSprites/Chain.png" id="25_dmgct"]
+[ext_resource type="Script" path="res://Scripts/chained_Ball.gd" id="26_jdhrr"]
+[ext_resource type="Texture2D" uid="uid://chwtc2jvgdefa" path="res://assets/OtherSprites/Spiked Ball.png" id="27_i7k7x"]
+[ext_resource type="PackedScene" uid="uid://deitxtunqmwtm" path="res://scenes/enemies and traps/false_block.tscn" id="28_74dwr"]
+[ext_resource type="Script" path="res://Scripts/PathFollow2D.gd" id="29_l8mkr"]
+[ext_resource type="PackedScene" uid="uid://dhqh54pydfiyr" path="res://scenes/enemies and traps/spike_head.tscn" id="30_uvgc0"]
+[ext_resource type="PackedScene" uid="uid://c5xrvt2mhrrlh" path="res://scenes/enemies and traps/moving_head.tscn" id="31_l8vc1"]
+[ext_resource type="PackedScene" uid="uid://b413hec62pqeb" path="res://scenes/firefly.tscn" id="32_u5rcl"]
+[ext_resource type="Script" path="res://Scripts/fall_area.gd" id="33_7bppg"]
+[ext_resource type="Texture2D" uid="uid://de3ul1kce7ypb" path="res://assets/PineForestParallax/MorningLayer6.png" id="34_wl0bn"]
+[ext_resource type="Texture2D" uid="uid://dqdq2msnvnnf4" path="res://assets/PineForestParallax/MorningLayer5.png" id="35_i531c"]
+[ext_resource type="Texture2D" uid="uid://ufkeb2ct1p0u" path="res://assets/PineForestParallax/MorningLayer4.png" id="36_61ubu"]
+[ext_resource type="Texture2D" uid="uid://daosphxj6dyv" path="res://assets/PineForestParallax/MorningLayer3.png" id="37_hbyjg"]
+[ext_resource type="Texture2D" uid="uid://cfekmo3uqwtng" path="res://assets/PineForestParallax/MorningLayer2.png" id="38_rlvru"]
+[ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="39_v3s83"]
+[ext_resource type="Material" uid="uid://cjdh5qqujvcrr" path="res://shaders/foliage.tres" id="40_xif3o"]
+[ext_resource type="Texture2D" uid="uid://dli1oxbx3syj6" path="res://assets/Foliage/sprite - 09 bright.png" id="41_uyxep"]
+[ext_resource type="Texture2D" uid="uid://d2ffkpbntf060" path="res://assets/Foliage/sprite - 08.png" id="42_w3i8q"]
+[ext_resource type="Texture2D" uid="uid://cahkt83wqnvye" path="res://assets/Foliage/sprite - 11.png" id="43_vsdgu"]
+[ext_resource type="Texture2D" uid="uid://c04gi11582b07" path="res://assets/Foliage/sprite - 03.png" id="44_4sy3q"]
+[ext_resource type="Texture2D" uid="uid://bldtbax0rwxw0" path="res://assets/Foliage/sprite - 10 grass.png" id="45_573f7"]
+[ext_resource type="Texture2D" uid="uid://cyxy1djnmeqrf" path="res://assets/Foliage/sprite - 08 bright.png" id="46_02efe"]
+[ext_resource type="Texture2D" uid="uid://roax86tvee52" path="res://assets/Foliage/sprite - 19.png" id="47_p83y8"]
+[ext_resource type="Texture2D" uid="uid://b1twlhensmx0w" path="res://assets/Foliage/ferns - sprite - 12.png" id="48_1paht"]
+[ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="49_k2gun"]
+[ext_resource type="Texture2D" uid="uid://cekoedfbf6gh2" path="res://assets/Foliage/sprite - 13 .png" id="50_wcp4w"]
+[ext_resource type="Texture2D" uid="uid://cocydl2mmdhme" path="res://assets/Foliage/fern -sprite - 01.png" id="51_um44y"]
+[ext_resource type="Shader" path="res://shaders/god_rays.gdshader" id="52_5ckul"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="53_c4axu"]
+[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="54_7pseb"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="55_am12k"]
+[ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="56_atjta"]
+
+[sub_resource type="Curve" id="Curve_rlaer"]
+_data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_c28h7"]
+curve = SubResource("Curve_rlaer")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2ixpp"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 300, 1)
+spread = 106.291
+initial_velocity_min = 20.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 2, 0)
+scale_min = 4.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_c28h7")
+color = Color(0.996078, 0.984314, 0.839216, 0.74902)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ah6mr"]
+radius = 13.5093
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t25u1"]
+radius = 18.5068
+
+[sub_resource type="Animation" id="Animation_ghdqe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_67lt4"]
+resource_name = "motion"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.6, 2.9),
+"transitions": PackedFloat32Array(1, 2.73208, 1, 2.82843),
+"update": 0,
+"values": [-5.0824, -1.34041, -1.34041, -5.0824]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.282743, 0.42237, 2.96531, 2.96531]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exmyc"]
+_data = {
+"RESET": SubResource("Animation_ghdqe"),
+"motion": SubResource("Animation_67lt4")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_ujtf7"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 9, -122.5, 0, 0, 0, 0, -114, -122.5, 0, 0, 0, 0, -115.5, 89, 0, 0, 0, 0, 10, 89, 0, 0, 0, 0, 9, -122.5)
+}
+point_count = 5
+
+[sub_resource type="Animation" id="Animation_812h7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4105, 553)]
+}
+
+[sub_resource type="Animation" id="Animation_uby7a"]
+resource_name = "moving"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4105, 553), Vector2(4105, 941)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jj3h"]
+_data = {
+"RESET": SubResource("Animation_812h7"),
+"moving": SubResource("Animation_uby7a")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
+distance = 148.771
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hesg"]
+shader = ExtResource("52_5ckul")
+shader_parameter/angle = -0.155
+shader_parameter/position = -0.105
+shader_parameter/spread = 0.904
+shader_parameter/cutoff = 0.203
+shader_parameter/falloff = 0.472
+shader_parameter/edge_fade = 0.176
+shader_parameter/speed = 2.0
+shader_parameter/ray1_density = 12.0
+shader_parameter/ray2_density = 32.0
+shader_parameter/ray2_intensity = 0.64
+shader_parameter/color = Color(1, 0.843137, 0.929412, 0.8)
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw2tw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgkpc"]
+bg_color = Color(0.94902, 0.392157, 0.419608, 0.301961)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[node name="Level3_2" type="Node"]
+script = ExtResource("1_aitpp")
+lvlname = "lvl3_2"
+current_arc = 3
+end_of_arc = true
+metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
+metadata/_edit_vertical_guides_ = [3167.0]
+
+[node name="BgMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("2_7ts6u")
+volume_db = -25.0
+bus = &"Music"
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "hearts")]
+unique_name_in_owner = true
+script = ExtResource("3_5k2gm")
+player = NodePath("../Scene Objects/CharacterBody2D")
+hearts = [NodePath("../UI/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart3")]
+next_level = ExtResource("4_fus62")
+chroma_chaos = ExtResource("5_36jbb")
+shockwave = ExtResource("6_qwepb")
+arrow = ExtResource("7_yxq1l")
+FruitsLeftForArrowToShow = 10
+sfx = ExtResource("8_oxgoh")
+text_sfx = ExtResource("9_e3ght")
+
+[node name="finish" type="AudioStreamPlayer" parent="GameManager"]
+stream = ExtResource("10_ofoos")
+volume_db = -4.0
+
+[node name="Healed" type="AudioStreamPlayer" parent="GameManager"]
+stream = ExtResource("11_qc4r4")
+
+[node name="Scene Objects" type="Node" parent="."]
+
+[node name="Blink" type="ColorRect" parent="Scene Objects"]
+visible = false
+light_mask = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -584.0
+offset_top = -582.0
+offset_right = 4044.0
+offset_bottom = 1395.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.882353, 0.129412, 0.65098, 0.207843)
+
+[node name="ShinyDust" type="GPUParticles2D" parent="Scene Objects"]
+visible = false
+position = Vector2(1337, 2)
+amount = 45
+process_material = SubResource("ParticleProcessMaterial_2ixpp")
+lifetime = 2.4
+preprocess = 0.2
+visibility_rect = Rect2(-282.095, -165.54, 1200, 900)
+
+[node name="CameraChanges" type="Node2D" parent="Scene Objects"]
+script = ExtResource("12_evc8t")
+
+[node name="TileMap" type="TileMap" parent="Scene Objects"]
+modulate = Color(0.180392, 0.156863, 0.317647, 1)
+self_modulate = Color(0.403922, 0.419608, 0.843137, 1)
+texture_filter = 1
+rotation = -1.20768e-05
+scale = Vector2(3, 3)
+tile_set = ExtResource("15_eoadr")
+format = 2
+
+[node name="CharacterBody2D" parent="Scene Objects" instance=ExtResource("16_rcyvw")]
+modulate = Color(0.133333, 0.12549, 0.290196, 1)
+position = Vector2(1554, 98)
+
+[node name="Camera2D" type="Camera2D" parent="Scene Objects/CharacterBody2D"]
+unique_name_in_owner = true
+position = Vector2(-1, 0)
+zoom = Vector2(1.455, 1.455)
+limit_left = 52
+limit_top = -186
+limit_right = 4352
+limit_bottom = 1202
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.17
+drag_vertical_offset = -0.06
+
+[node name="Collectables group" type="Node2D" parent="Scene Objects"]
+modulate = Color(0.111717, 0.227334, 0.153522, 1)
+material = ExtResource("17_vx2wo")
+
+[node name="Collectable_1" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
+position = Vector2(1357, 142)
+
+[node name="Enemies group" type="Node2D" parent="Scene Objects"]
+visible = false
+modulate = Color(0.0980392, 0.0823529, 0.188235, 1)
+material = ExtResource("19_8jvdr")
+
+[node name="Chameleon2" parent="Scene Objects/Enemies group" instance=ExtResource("20_8j3up")]
+position = Vector2(2321, 779)
+
+[node name="Bat" type="Node2D" parent="Scene Objects/Enemies group"]
+use_parent_material = true
+position = Vector2(409, -99)
+
+[node name="Mob" parent="Scene Objects/Enemies group/Bat" node_paths=PackedStringArray("marker_node") instance=ExtResource("21_ptqxe")]
+position = Vector2(738, 30)
+marker_node = NodePath("../Markers")
+
+[node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat"]
+
+[node name="Marker2D" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
+position = Vector2(1230, 174)
+
+[node name="Marker2D2" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
+position = Vector2(1063, -21)
+
+[node name="Marker2D3" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
+position = Vector2(1141, 202)
+
+[node name="Marker2D4" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
+position = Vector2(1295, 36)
+
+[node name="Bat2" type="Node2D" parent="Scene Objects/Enemies group"]
+use_parent_material = true
+
+[node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat2"]
+
+[node name="Marker2D" type="Marker2D" parent="Scene Objects/Enemies group/Bat2/Markers"]
+position = Vector2(892, 744)
+
+[node name="Marker2D2" type="Marker2D" parent="Scene Objects/Enemies group/Bat2/Markers"]
+position = Vector2(806, 554)
+
+[node name="Marker2D3" type="Marker2D" parent="Scene Objects/Enemies group/Bat2/Markers"]
+position = Vector2(1027, 616)
+
+[node name="Bat" parent="Scene Objects/Enemies group/Bat2" node_paths=PackedStringArray("marker_node") instance=ExtResource("21_ptqxe")]
+position = Vector2(938, 506)
+marker_node = NodePath("../Markers")
+
+[node name="MushroomEnemy" parent="Scene Objects/Enemies group" instance=ExtResource("22_dqxc2")]
+position = Vector2(592, 776)
+
+[node name="MushroomEnemy2" parent="Scene Objects/Enemies group" instance=ExtResource("22_dqxc2")]
+position = Vector2(2900, 417)
+
+[node name="MushroomEnemy3" parent="Scene Objects/Enemies group" instance=ExtResource("22_dqxc2")]
+position = Vector2(3708, 930)
+
+[node name="Bat3" type="Node2D" parent="Scene Objects/Enemies group"]
+use_parent_material = true
+
+[node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat3"]
+
+[node name="Marker2D" type="Marker2D" parent="Scene Objects/Enemies group/Bat3/Markers"]
+position = Vector2(3218, 890)
+
+[node name="Marker2D2" type="Marker2D" parent="Scene Objects/Enemies group/Bat3/Markers"]
+position = Vector2(3027, 745)
+
+[node name="Marker2D3" type="Marker2D" parent="Scene Objects/Enemies group/Bat3/Markers"]
+position = Vector2(3305, 715)
+
+[node name="Bat" parent="Scene Objects/Enemies group/Bat3" node_paths=PackedStringArray("marker_node") instance=ExtResource("21_ptqxe")]
+position = Vector2(3135, 697)
+marker_node = NodePath("../Markers")
+
+[node name="Traps group" type="Node2D" parent="Scene Objects"]
+visible = false
+modulate = Color(0.0980392, 0.0823529, 0.188235, 1)
+
+[node name="spikes_1" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(1228, 265)
+
+[node name="spikes_5" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(651, 362)
+
+[node name="spikes_6" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(315, 745)
+
+[node name="spikes_7" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(1416, 841)
+
+[node name="spikes_8" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(892, 841)
+
+[node name="spikes_2" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(1275, 265)
+
+[node name="spikes_3" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(1800, 268)
+
+[node name="spikes_10" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(1720, 408)
+rotation = -3.14159
+
+[node name="spikes_4" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(2041, 458)
+
+[node name="spikes_9" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(2282, 458)
+
+[node name="spikes_12" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(3529, 987)
+
+[node name="spikes_13" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(2714, 890)
+
+[node name="spikes_11" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(3479, 359)
+rotation = 3.14159
+
+[node name="spikes_14" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+position = Vector2(3035, 648)
+rotation = 3.14159
+
+[node name="Chained_Ball" parent="Scene Objects/Traps group" instance=ExtResource("24_g1iee")]
+position = Vector2(737, 58)
+
+[node name="Chained_Ball2" type="Sprite2D" parent="Scene Objects/Traps group"]
+editor_description = "- each segment y = 13
+- ball y = 22"
+position = Vector2(2325, 8)
+scale = Vector2(2, 2)
+texture = ExtResource("25_dmgct")
+script = ExtResource("26_jdhrr")
+
+[node name="segment" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball2"]
+position = Vector2(0, 13)
+texture = ExtResource("25_dmgct")
+
+[node name="segment2" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball2"]
+position = Vector2(0, 26)
+texture = ExtResource("25_dmgct")
+
+[node name="segment3" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball2"]
+position = Vector2(0, 39)
+texture = ExtResource("25_dmgct")
+
+[node name="segment4" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball2"]
+position = Vector2(0, 52)
+texture = ExtResource("25_dmgct")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Scene Objects/Traps group/Chained_Ball2"]
+position = Vector2(0, 74)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball2/StaticBody2D"]
+texture = ExtResource("27_i7k7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball2/StaticBody2D"]
+shape = SubResource("CircleShape2D_ah6mr")
+
+[node name="Area2D" type="Area2D" parent="Scene Objects/Traps group/Chained_Ball2/StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball2/StaticBody2D/Area2D"]
+shape = SubResource("CircleShape2D_t25u1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/Chained_Ball2"]
+libraries = {
+"": SubResource("AnimationLibrary_exmyc")
+}
+autoplay = "motion"
+
+[node name="FalseBlock_1" parent="Scene Objects/Traps group" instance=ExtResource("28_74dwr")]
+position = Vector2(2361, 506)
+
+[node name="FalseBlock_5" parent="Scene Objects/Traps group" instance=ExtResource("28_74dwr")]
+position = Vector2(2432, 506)
+
+[node name="SpikeHead" type="Path2D" parent="Scene Objects/Traps group"]
+position = Vector2(545, 411)
+scale = Vector2(2, 2)
+curve = SubResource("Curve2D_ujtf7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Scene Objects/Traps group/SpikeHead"]
+position = Vector2(9, -122.5)
+rotates = false
+script = ExtResource("29_l8mkr")
+speed = 140.0
+
+[node name="Mob" parent="Scene Objects/Traps group/SpikeHead/PathFollow2D" instance=ExtResource("30_uvgc0")]
+scale = Vector2(1, 1)
+
+[node name="SpikeHead2" type="Path2D" parent="Scene Objects/Traps group"]
+position = Vector2(545, 411)
+scale = Vector2(2, 2)
+curve = SubResource("Curve2D_ujtf7")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Scene Objects/Traps group/SpikeHead2"]
+position = Vector2(-114.375, 89.0137)
+progress = 335.754
+rotates = false
+script = ExtResource("29_l8mkr")
+speed = 140.0
+
+[node name="Mob" parent="Scene Objects/Traps group/SpikeHead2/PathFollow2D" instance=ExtResource("30_uvgc0")]
+scale = Vector2(1, 1)
+
+[node name="FalseBlock" parent="Scene Objects/Traps group" instance=ExtResource("28_74dwr")]
+position = Vector2(1128, 889)
+
+[node name="FalseBlock2" parent="Scene Objects/Traps group" instance=ExtResource("28_74dwr")]
+position = Vector2(1176, 889)
+
+[node name="FalseBlock3" parent="Scene Objects/Traps group" instance=ExtResource("28_74dwr")]
+position = Vector2(1224, 889)
+
+[node name="MovingHead" parent="Scene Objects/Traps group" instance=ExtResource("31_l8vc1")]
+position = Vector2(4105, 553)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/MovingHead"]
+libraries = {
+"": SubResource("AnimationLibrary_2jj3h")
+}
+autoplay = "moving"
+
+[node name="Fireflies" type="Node2D" parent="Scene Objects"]
+visible = false
+position = Vector2(-197, -152)
+
+[node name="Firefly" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(1156, 351)
+metadata/_edit_lock_ = true
+
+[node name="Firefly3" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(550, 385)
+metadata/_edit_lock_ = true
+
+[node name="Firefly4" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(808, 492)
+metadata/_edit_lock_ = true
+
+[node name="Firefly17" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(400, 734)
+metadata/_edit_lock_ = true
+
+[node name="Firefly18" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(755, 811)
+metadata/_edit_lock_ = true
+
+[node name="Firefly19" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(1033, 692)
+metadata/_edit_lock_ = true
+
+[node name="Firefly20" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(1258, 886)
+metadata/_edit_lock_ = true
+
+[node name="Firefly21" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(1554, 802)
+metadata/_edit_lock_ = true
+
+[node name="Firefly2" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(1676, 331)
+metadata/_edit_lock_ = true
+
+[node name="Firefly22" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(2042, 475)
+metadata/_edit_lock_ = true
+
+[node name="Firefly23" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(2258, 542)
+metadata/_edit_lock_ = true
+
+[node name="Firefly24" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(1382, 491)
+metadata/_edit_lock_ = true
+
+[node name="Firefly25" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(1966, 102)
+metadata/_edit_lock_ = true
+
+[node name="Firefly5" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(2382, 338)
+metadata/_edit_lock_ = true
+
+[node name="Firefly6" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(1984, 719)
+metadata/_edit_lock_ = true
+
+[node name="Firefly7" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(2248, 860)
+metadata/_edit_lock_ = true
+
+[node name="Firefly26" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(2558, 938)
+metadata/_edit_lock_ = true
+
+[node name="Firefly8" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(2690, 500)
+metadata/_edit_lock_ = true
+
+[node name="Firefly9" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(3141, 432)
+metadata/_edit_lock_ = true
+
+[node name="Firefly10" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(3595, 663)
+metadata/_edit_lock_ = true
+
+[node name="Firefly11" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(3850, 307)
+metadata/_edit_lock_ = true
+
+[node name="Firefly29" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(4020, 661)
+metadata/_edit_lock_ = true
+
+[node name="Firefly12" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(4420, 469)
+metadata/_edit_lock_ = true
+
+[node name="Firefly13" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(4073, 973)
+metadata/_edit_lock_ = true
+
+[node name="Firefly14" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(3677, 1100)
+metadata/_edit_lock_ = true
+
+[node name="Firefly15" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(3470, 952)
+metadata/_edit_lock_ = true
+
+[node name="Firefly16" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(2961, 861)
+metadata/_edit_lock_ = true
+
+[node name="Firefly27" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(3205, 1124)
+metadata/_edit_lock_ = true
+
+[node name="Firefly28" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+position = Vector2(4384, 844)
+metadata/_edit_lock_ = true
+
+[node name="WorldBoundary" type="Area2D" parent="Scene Objects"]
+position = Vector2(555, 945)
+script = ExtResource("33_7bppg")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/WorldBoundary"]
+position = Vector2(-9, 402)
+shape = SubResource("WorldBoundaryShape2D_kime1")
+
+[node name="ForestBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
+scroll_offset = Vector2(69.84, 72.75)
+
+[node name="Sky" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+modulate = Color(0.0862745, 0.109804, 0.27451, 1)
+light_mask = 0
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(3200, 1800)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Sky"]
+position = Vector2(-135, -117)
+texture = ExtResource("34_wl0bn")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Back" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+light_mask = 5
+position = Vector2(-106, -65)
+motion_scale = Vector2(0.1, 0.3)
+motion_mirroring = Vector2(1600, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Back"]
+modulate = Color(0.133333, 0.0352941, 0.247059, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("35_i531c")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="BackMiddle" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+light_mask = 5
+position = Vector2(-106, -65)
+motion_scale = Vector2(0.3, 0.5)
+motion_mirroring = Vector2(1600, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/BackMiddle"]
+modulate = Color(0.168627, 0.0235294, 0.239216, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("36_61ubu")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Middle" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+light_mask = 5
+position = Vector2(-106, -65)
+motion_scale = Vector2(0.5, 0.7)
+motion_mirroring = Vector2(1600, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Middle"]
+modulate = Color(0.137255, 0.0235294, 0.254902, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("37_hbyjg")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="MiddleFront" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+light_mask = 5
+position = Vector2(-106, -47)
+motion_scale = Vector2(0.7, 0.8)
+motion_mirroring = Vector2(1600, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/MiddleFront"]
+modulate = Color(0.0431373, 0.00392157, 0.0980392, 1)
+light_mask = 21
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("38_rlvru")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Front" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+light_mask = 21
+position = Vector2(-106, -47)
+motion_scale = Vector2(0.8, 0.9)
+motion_mirroring = Vector2(1600, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Front"]
+modulate = Color(0.313726, 0, 0.368627, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("39_v3s83")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Ground" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
+light_mask = 53
+position = Vector2(0, 44)
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(1656, 0)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Scene Objects/WorldBoundary/ForestBackground/Ground"]
+offset_left = -491.0
+offset_top = 788.0
+offset_right = 1686.0
+offset_bottom = 1706.0
+color = Color(0.00784314, 0, 0.0235294, 1)
+metadata/_edit_lock_ = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Scene Objects/WorldBoundary/ForestBackground"]
+visible = false
+color = Color(0.156863, 0.372549, 0.364706, 1)
+
+[node name="Foliage" type="Node2D" parent="Scene Objects"]
+visible = false
+modulate = Color(0.0980392, 0.0823529, 0.188235, 1)
+top_level = true
+
+[node name="Sprite-09Bright" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(1693, 174)
+scale = Vector2(3, 3)
+texture = ExtResource("41_uyxep")
+
+[node name="Sprite-09Bright3" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(128, 365)
+scale = Vector2(3, 3)
+texture = ExtResource("41_uyxep")
+
+[node name="Sprite-09Bright2" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(3096, 413)
+scale = Vector2(3, 3)
+texture = ExtResource("41_uyxep")
+
+[node name="Sprite-08" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(3419, 482)
+scale = Vector2(3, 3)
+texture = ExtResource("42_w3i8q")
+
+[node name="Sprite-11" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(1483, 206)
+scale = Vector2(3, 3)
+texture = ExtResource("43_vsdgu")
+
+[node name="Sprite-03" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(819, 265)
+scale = Vector2(3, 3)
+texture = ExtResource("44_4sy3q")
+
+[node name="Sprite-04" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(2521, 361)
+scale = Vector2(3, 3)
+texture = ExtResource("44_4sy3q")
+
+[node name="Sprite-10Grass" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(1041, 840)
+scale = Vector2(3, 3)
+texture = ExtResource("45_573f7")
+
+[node name="Sprite-10Grass2" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(367, 790)
+scale = Vector2(3, 3)
+texture = ExtResource("45_573f7")
+
+[node name="Sprite-08Bright" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(1713, 528)
+scale = Vector2(3, 3)
+texture = ExtResource("46_02efe")
+
+[node name="Sprite-19" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(1341, 809)
+scale = Vector2(3, 3)
+texture = ExtResource("47_p83y8")
+
+[node name="Ferns-Sprite-12" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(3724, 545)
+scale = Vector2(3, 3)
+texture = ExtResource("48_1paht")
+
+[node name="Ferns-Sprite-13" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(2774, 882)
+scale = Vector2(3, 3)
+texture = ExtResource("48_1paht")
+
+[node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Foliage"]
+position = Vector2(3823, 882)
+rotation = 3.14159
+scale = Vector2(3, 3)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(254, 2, 22, 142)
+
+[node name="Sprite-13" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(2774, 454)
+scale = Vector2(3, 3)
+texture = ExtResource("50_wcp4w")
+
+[node name="Fern-sprite-01" type="Sprite2D" parent="Scene Objects/Foliage"]
+material = ExtResource("40_xif3o")
+position = Vector2(3631, 918)
+scale = Vector2(3, 3)
+texture = ExtResource("51_um44y")
+
+[node name="Vines" type="ParallaxBackground" parent="Scene Objects"]
+layer = 1
+visible = false
+
+[node name="Further" type="ParallaxLayer" parent="Scene Objects/Vines"]
+motion_scale = Vector2(2, 1)
+
+[node name="Node2D2" type="Node2D" parent="Scene Objects/Vines/Further"]
+position = Vector2(307, -6)
+
+[node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D2"]
+position = Vector2(0, -329)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D2"]
+position = Vector2(0, 116)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D2"]
+position = Vector2(0, 561)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D2"]
+position = Vector2(0, 1006)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="Node2D" type="Node2D" parent="Scene Objects/Vines/Further"]
+position = Vector2(1320, 4)
+
+[node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D"]
+position = Vector2(0, -329)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D"]
+position = Vector2(0, 116)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D"]
+position = Vector2(0, 561)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D"]
+position = Vector2(0, 1006)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="Node2D3" type="Node2D" parent="Scene Objects/Vines/Further"]
+position = Vector2(3577, 30)
+
+[node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D3"]
+position = Vector2(0, -329)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D3"]
+position = Vector2(0, 116)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D3"]
+position = Vector2(0, 561)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D3"]
+position = Vector2(0, 1006)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="Node2D5" type="Node2D" parent="Scene Objects/Vines/Further"]
+position = Vector2(4327, 30)
+
+[node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D5"]
+position = Vector2(0, -329)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D5"]
+position = Vector2(0, 116)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D5"]
+position = Vector2(0, 561)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D5"]
+position = Vector2(0, 1006)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="Node2D6" type="Node2D" parent="Scene Objects/Vines/Further"]
+position = Vector2(7257, 30)
+
+[node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D6"]
+position = Vector2(0, -329)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D6"]
+position = Vector2(0, 116)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D6"]
+position = Vector2(0, 561)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D6"]
+position = Vector2(0, 1006)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="Closer" type="ParallaxLayer" parent="Scene Objects/Vines"]
+motion_scale = Vector2(2.3, 1)
+
+[node name="Node2D5" type="Node2D" parent="Scene Objects/Vines/Closer"]
+position = Vector2(6717, 30)
+
+[node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D5"]
+position = Vector2(0, -329)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D5"]
+position = Vector2(0, 116)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D5"]
+position = Vector2(0, 561)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D5"]
+position = Vector2(0, 1006)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="Node2D4" type="Node2D" parent="Scene Objects/Vines/Closer"]
+position = Vector2(3554, 121)
+
+[node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D4"]
+position = Vector2(0, -329)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D4"]
+position = Vector2(0, 116)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D4"]
+position = Vector2(0, 561)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D4"]
+position = Vector2(0, 1006)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(204, 52, 16, 92)
+
+[node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Closer"]
+position = Vector2(2077, 1010)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(108, 5, 81, 91)
+
+[node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Closer"]
+position = Vector2(4687, 965)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(108, 5, 81, 91)
+
+[node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Closer"]
+position = Vector2(7412, 1131)
+scale = Vector2(5, 5)
+texture = ExtResource("49_k2gun")
+region_enabled = true
+region_rect = Rect2(108, 5, 81, 91)
+
+[node name="CanvasModulate2" type="CanvasModulate" parent="Scene Objects/Vines"]
+visible = false
+color = Color(0.0980392, 0.0823529, 0.188235, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Scene Objects"]
+position = Vector2(-1244, -128)
+rotation = -0.221657
+editor_only = true
+color = Color(0.705882, 0.996078, 0.92549, 1)
+energy = 2.8
+range_item_cull_mask = 0
+shadow_enabled = true
+shadow_color = Color(0.12549, 0, 0.184314, 0.105882)
+shadow_filter = 1
+height = 1.0
+
+[node name="GodRays" type="Node2D" parent="Scene Objects"]
+visible = false
+position = Vector2(-1244, -128)
+
+[node name="ColorRect2" type="ColorRect" parent="Scene Objects/GodRays"]
+light_mask = 0
+material = SubResource("ShaderMaterial_2hesg")
+offset_left = 1824.0
+offset_top = -1038.0
+offset_right = 3618.0
+offset_bottom = 411.0
+metadata/_edit_lock_ = true
+
+[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "game_manager", "hearts_panel")]
+layer = 2
+visible = false
+script = ExtResource("53_c4axu")
+player = NodePath("../Scene Objects/CharacterBody2D")
+game_manager = NodePath("../GameManager")
+hearts_panel = NodePath("HeartsPanel")
+
+[node name="HeartsPanel" type="Panel" parent="UI"]
+offset_left = 931.0
+offset_top = 11.0
+offset_right = 1067.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uw2tw")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="UI/HeartsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 92.0
+offset_top = -25.5
+offset_right = 140.0
+offset_bottom = 132.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Heart" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 2
+texture = ExtResource("54_7pseb")
+expand_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 2
+texture = ExtResource("54_7pseb")
+expand_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
+texture_filter = 1
+use_parent_material = true
+layout_mode = 2
+texture = ExtResource("54_7pseb")
+expand_mode = 4
+
+[node name="CoinsPanel" type="Panel" parent="UI"]
+visible = false
+offset_left = 6.0
+offset_top = 11.0
+offset_right = 218.0
+offset_bottom = 60.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rgkpc")
+metadata/_edit_use_anchors_ = true
+
+[node name="PointsLabel" type="Label" parent="UI/CoinsPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_right = -7.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("55_am12k")
+theme_override_font_sizes/font_size = 45
+text = "Fruits: "
+vertical_alignment = 1
+
+[node name="Pause" parent="UI" instance=ExtResource("56_atjta")]
+
+[connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
+[connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
+[connection signal="body_entered" from="Scene Objects/Traps group/Chained_Ball2/StaticBody2D/Area2D" to="Scene Objects/Traps group/Chained_Ball2" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]

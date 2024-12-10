@@ -12,6 +12,7 @@ var center : Vector2
 
 @onready var title_text = $TitleBox/TitleText
 @onready var v_box_container = $Menu/MenuBox/MainMenu
+var inputs : Array[String]
 
 func godot_bug_fix(text):
 	text = text.c_escape()
@@ -38,7 +39,9 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("escape"):
 		esc_pressed()
-	
+		
+
+
 
 func _on_menu_music_finished():
 	menu_music.play(0.3)
@@ -102,5 +105,23 @@ func esc_pressed():
 	$Menu/MenuBox.show()
 	$Menu/MenuBox/MainMenu/Play.grab_focus()
 
+func konami_code(action):
+	if inputs.size() < 8:
+		inputs.push_front(action)
+	if inputs.size() == 8:
+		inputs.remove_at(7)
+		inputs.push_front(action)
+		if inputs == ["right", "left", "right", "left", "down", "down", "up", "up"]:
+			$Unlock.play(0)
+			$Menu/LevelSelection.unlock_all_levels()
+func _unhandled_input(event):
+	if event.is_action("left") and event.is_released():
+		konami_code("left")
+	if event.is_action("right") and event.is_released():
+		konami_code("right")
+	if event.is_action("ui_up") and event.is_released():
+		konami_code("up")
+	if event.is_action("ui_down") and event.is_released():
+		konami_code("down")
 
 

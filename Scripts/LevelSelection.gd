@@ -96,3 +96,12 @@ func _on_lvl_2_1_pressed():
 		GlobalLevelManager.nextLevelPath = "res://scenes/levels/2nd Arc/2_1/level_2_1.tscn"
 		var loadingScreen = load("res://scenes/loading_screen.tscn")
 		get_tree().change_scene_to_packed(loadingScreen)
+
+func unlock_all_levels():
+	for level in levels:
+		level.disabled = false
+		Stats.levels_unlocked.append(level.name)
+	levels_unlock()
+	Stats.arc2_unlocked = true
+	Stats.arc3_unlocked = true
+	arc_unlock()
