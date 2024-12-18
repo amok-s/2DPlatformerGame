@@ -1,0 +1,140 @@
+[gd_scene load_steps=13 format=3 uid="uid://dmy8162llp5lw"]
+
+[ext_resource type="Script" path="res://Scripts/fire.gd" id="1_jiosq"]
+[ext_resource type="Texture2D" uid="uid://b45rg3f3ca2yd" path="res://assets/OtherSprites/Green Effect and Bullet 16x16.png" id="1_rpyxe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p21vv"]
+atlas = ExtResource("1_rpyxe")
+region = Rect2(160, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wocq7"]
+atlas = ExtResource("1_rpyxe")
+region = Rect2(176, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svmn1"]
+atlas = ExtResource("1_rpyxe")
+region = Rect2(192, 160, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i724g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p21vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wocq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svmn1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs14d"]
+size = Vector2(11.3333, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0nksh"]
+size = Vector2(24, 26.5)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lt08c"]
+load_path = "res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-384adf59b68eb4fdc99fae69bb0b5040.ctex"
+
+[sub_resource type="Animation" id="Animation_8no3o"]
+resource_name = "flickering"
+length = 0.8165
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lights:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(5, 0), Vector2(0, 0), Vector2(-6, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dovso"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lights:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b3ru8"]
+_data = {
+"RESET": SubResource("Animation_dovso"),
+"flickering": SubResource("Animation_8no3o")
+}
+
+[node name="Fire" type="StaticBody2D"]
+script = ExtResource("1_jiosq")
+
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+light_mask = 64
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_i724g")
+autoplay = "default"
+frame_progress = 0.969101
+
+[node name="Damage" type="Area2D" parent="."]
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_fs14d")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 34.25)
+shape = SubResource("RectangleShape2D_0nksh")
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="InnerLight" type="PointLight2D" parent="Lights"]
+light_mask = 0
+position = Vector2(-1, 27)
+scale = Vector2(0.546875, 0.546875)
+color = Color(0.4, 1, 0.372549, 1)
+energy = 2.5
+range_z_min = -1949
+range_layer_min = -100
+range_item_cull_mask = 64
+shadow_color = Color(0.0588235, 0.0588235, 0.0588235, 0.156863)
+texture = SubResource("CompressedTexture2D_lt08c")
+texture_scale = 0.3
+height = 25.0
+metadata/_edit_lock_ = true
+
+[node name="Mask - 1" type="PointLight2D" parent="Lights"]
+light_mask = 0
+position = Vector2(-1, 27)
+scale = Vector2(3.51562, 3.51563)
+color = Color(0.215686, 0.694118, 0, 1)
+energy = 15.0
+range_z_min = -1949
+range_layer_min = -100
+shadow_color = Color(0.0588235, 0.0588235, 0.0588235, 0.156863)
+texture = SubResource("CompressedTexture2D_lt08c")
+texture_scale = 0.3
+height = 25.0
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b3ru8")
+}
+autoplay = "flickering"
+
+[connection signal="body_entered" from="Damage" to="." method="_on_damage_body_entered"]

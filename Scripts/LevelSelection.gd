@@ -100,7 +100,7 @@ func _on_lvl_2_1_pressed():
 func unlock_all_levels():
 	for level in levels:
 		level.disabled = false
-		Stats.levels_unlocked.append(level.name)
+		Stats.lvl_unlock(level.name)
 	levels_unlock()
 	Stats.arc2_unlocked = true
 	Stats.arc3_unlocked = true

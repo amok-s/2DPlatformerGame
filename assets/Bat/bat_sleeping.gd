@@ -17,7 +17,6 @@ func Exit():
 func Update(_delta:float):
 	if !sleep_sfx:
 		sleep_sfx = true
-		print("show sleep sfx")
 		spawn_sleeping_sfx()
 	
 func BodySpotted(body):
