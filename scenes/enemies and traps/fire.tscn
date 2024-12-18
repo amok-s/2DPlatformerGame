@@ -1,7 +1,27 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmy8162llp5lw"]
+[gd_scene load_steps=16 format=3 uid="uid://dmy8162llp5lw"]
 
 [ext_resource type="Script" path="res://Scripts/fire.gd" id="1_jiosq"]
 [ext_resource type="Texture2D" uid="uid://b45rg3f3ca2yd" path="res://assets/OtherSprites/Green Effect and Bullet 16x16.png" id="1_rpyxe"]
+
+[sub_resource type="Curve" id="Curve_q3clw"]
+_data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_c28h7"]
+curve = SubResource("Curve_q3clw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7o162"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(45, 50, 1)
+spread = 106.291
+initial_velocity_min = 5.0
+initial_velocity_max = 13.0
+gravity = Vector3(0, 2, 0)
+scale_min = 4.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_c28h7")
+color = Color(0.996078, 0.984314, 0.839216, 0.74902)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p21vv"]
 atlas = ExtResource("1_rpyxe")
@@ -41,6 +61,21 @@ size = Vector2(24, 26.5)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lt08c"]
 load_path = "res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-384adf59b68eb4fdc99fae69bb0b5040.ctex"
 
+[sub_resource type="Animation" id="Animation_dovso"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lights:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_8no3o"]
 resource_name = "flickering"
 length = 0.8165
@@ -58,21 +93,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(5, 0), Vector2(0, 0), Vector2(-6, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_dovso"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Lights:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b3ru8"]
 _data = {
 "RESET": SubResource("Animation_dovso"),
@@ -81,6 +101,17 @@ _data = {
 
 [node name="Fire" type="StaticBody2D"]
 script = ExtResource("1_jiosq")
+
+[node name="ShinyDust" type="GPUParticles2D" parent="."]
+position = Vector2(-1, -61)
+scale = Vector2(3, 3)
+amount = 14
+process_material = SubResource("ParticleProcessMaterial_7o162")
+lifetime = 1.9
+preprocess = 0.2
+speed_scale = 0.6
+visibility_rect = Rect2(-600, -400, 1200, 900)
+trail_enabled = true
 
 [node name="Fire" type="AnimatedSprite2D" parent="."]
 light_mask = 64
