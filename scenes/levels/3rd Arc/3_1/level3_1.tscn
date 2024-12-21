@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_gou5u"]
 [ext_resource type="AudioStream" uid="uid://c2o6ixyw58pvo" path="res://assets/sounds/ambient-dream-16671.mp3" id="2_3r8o2"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_nyp75"]
-[ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="4_rq508"]
+[ext_resource type="PackedScene" uid="uid://di2kg2jr0hbbd" path="res://scenes/levels/3rd Arc/3_2/level3_2.tscn" id="4_7xrog"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_43yw1"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_snquq"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_3d8qm"]
@@ -250,7 +250,7 @@ unique_name_in_owner = true
 script = ExtResource("3_nyp75")
 player = NodePath("../Scene Objects/CharacterBody2D")
 hearts = [NodePath("../UI/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart3")]
-next_level = ExtResource("4_rq508")
+next_level = ExtResource("4_7xrog")
 chroma_chaos = ExtResource("5_43yw1")
 shockwave = ExtResource("6_snquq")
 arrow = ExtResource("7_3d8qm")
@@ -1307,7 +1307,6 @@ metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "game_manager", "hearts_panel")]
 layer = 2
-visible = false
 script = ExtResource("48_d5kxg")
 player = NodePath("../Scene Objects/CharacterBody2D")
 game_manager = NodePath("../GameManager")
@@ -1356,7 +1355,6 @@ texture = ExtResource("50_etc53")
 expand_mode = 4
 
 [node name="CoinsPanel" type="Panel" parent="UI"]
-visible = false
 offset_left = 6.0
 offset_top = 11.0
 offset_right = 218.0

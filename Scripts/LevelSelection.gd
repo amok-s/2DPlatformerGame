@@ -97,6 +97,38 @@ func _on_lvl_2_1_pressed():
 		var loadingScreen = load("res://scenes/loading_screen.tscn")
 		get_tree().change_scene_to_packed(loadingScreen)
 
+func _on_lvl_2_2_pressed():
+	tap_sound.play(0)
+	if (tap_sound.finished):
+		GlobalLevelManager.currentArc = 2
+		GlobalLevelManager.nextLevelPath = "res://scenes/levels/2nd Arc/2_2/level_2_2.tscn"
+		var loadingScreen = load("res://scenes/loading_screen.tscn")
+		get_tree().change_scene_to_packed(loadingScreen)
+
+func _on_lvl_3_0_pressed():
+	tap_sound.play(0)
+	if (tap_sound.finished):
+		GlobalLevelManager.currentArc = 3
+		GlobalLevelManager.nextLevelPath = "res://scenes/levels/3rd Arc/3_0/level_3_0.tscn"
+		var loadingScreen = load("res://scenes/loading_screen.tscn")
+		get_tree().change_scene_to_packed(loadingScreen)
+
+func _on_lvl_3_1_pressed():
+	tap_sound.play(0)
+	if (tap_sound.finished):
+		GlobalLevelManager.currentArc = 3
+		GlobalLevelManager.nextLevelPath = "res://scenes/levels/3rd Arc/3_1/level_3_1.tscn"
+		var loadingScreen = load("res://scenes/loading_screen.tscn")
+		get_tree().change_scene_to_packed(loadingScreen)
+
+func _on_lvl_3_2_pressed():
+	tap_sound.play(0)
+	if (tap_sound.finished):
+		GlobalLevelManager.currentArc = 3
+		GlobalLevelManager.nextLevelPath = "res://scenes/levels/3rd Arc/3_2/level_3_2.tscn"
+		var loadingScreen = load("res://scenes/loading_screen.tscn")
+		get_tree().change_scene_to_packed(loadingScreen)
+
 func unlock_all_levels():
 	for level in levels:
 		level.disabled = false
@@ -105,3 +137,12 @@ func unlock_all_levels():
 	Stats.arc2_unlocked = true
 	Stats.arc3_unlocked = true
 	arc_unlock()
+
+
+
+
+
+
+
+
+

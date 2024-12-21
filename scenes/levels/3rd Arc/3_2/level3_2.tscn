@@ -211,7 +211,7 @@ corner_detail = 1
 [node name="Level3_2" type="Node"]
 script = ExtResource("1_aitpp")
 lvlname = "lvl3_2"
-fruits_left_to_show_sfx = 13
+fruits_left_to_show_sfx = 15
 current_arc = 3
 end_of_arc = true
 metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
@@ -1366,7 +1366,6 @@ position = Vector2(1464, 240)
 
 [node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "game_manager", "hearts_panel")]
 layer = 2
-visible = false
 script = ExtResource("53_c4axu")
 player = NodePath("../Scene Objects/CharacterBody2D")
 game_manager = NodePath("../GameManager")
