@@ -55,7 +55,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rqj4i"]
 size = Vector2(34, 33)
 
-[node name="MovingHead" type="CharacterBody2D"]
+[node name="MovingHead" type="AnimatableBody2D"]
 scale = Vector2(2, 2)
 script = ExtResource("1_6cu3w")
 

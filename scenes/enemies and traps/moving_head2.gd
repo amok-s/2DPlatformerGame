@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends AnimatableBody2D
 
 func _ready():
 	$Sprite.animation = "idle"
