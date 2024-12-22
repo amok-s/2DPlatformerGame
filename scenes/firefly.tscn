@@ -9,7 +9,8 @@ scale = Vector2(1.5, 1.5)
 script = ExtResource("1_mgdpp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-light_mask = 32
+self_modulate = Color(0.337255, 0.337255, 0.337255, 1)
+light_mask = 2048
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_eu2x6")
@@ -39,7 +40,7 @@ color = Color(0.933333, 0.933333, 0, 1)
 energy = 5.47
 range_z_min = -1949
 range_layer_min = -100
-range_item_cull_mask = 33
+range_item_cull_mask = 2081
 shadow_color = Color(0.0588235, 0.0588235, 0.0588235, 0.156863)
 texture = ExtResource("2_lnidy")
 texture_scale = 0.3

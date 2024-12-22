@@ -19,7 +19,7 @@ var bigger_light_scale
 
 var pulses_tween
 
-var range = randi_range(16, 27)
+var fly_range = randi_range(16, 27)
 var await_time
 
 func _ready():
@@ -30,7 +30,7 @@ func _ready():
 	current_pos = get_global_position()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if flying:
 		randomize_direction()
 		fly()
@@ -41,10 +41,10 @@ func _process(delta):
 		pulses_tween.kill()
 func randomize_direction():
 	flying = false
-	random_point = Vector2(randi_range(-range, range), randi_range(-range, range))
+	random_point = Vector2(randi_range(-fly_range, fly_range), randi_range(-fly_range, fly_range))
 	if (random_point + current_pos).distance_to(initial_pos) > flying_range:
 		while (random_point + current_pos).distance_to(initial_pos) > flying_range:
-			random_point = Vector2(randi_range(-range, range), randi_range(-range, range))
+			random_point = Vector2(randi_range(-fly_range, fly_range), randi_range(-fly_range, fly_range))
 	wander_time = randf_range(0.7, 1.3)
 
 func fly():

@@ -468,6 +468,7 @@ position = Vector2(3770, -88)
 position = Vector2(4270, 396)
 
 [node name="Bat" type="Node2D" parent="Scene Objects/Enemies group"]
+use_parent_material = true
 
 [node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat"]
 
@@ -485,6 +486,7 @@ position = Vector2(3115, 602)
 marker_node = NodePath("../Markers")
 
 [node name="Bat2" type="Node2D" parent="Scene Objects/Enemies group"]
+use_parent_material = true
 position = Vector2(-1118, -864)
 
 [node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat2"]
@@ -503,6 +505,7 @@ position = Vector2(3115, 602)
 marker_node = NodePath("../Markers")
 
 [node name="Bat3" type="Node2D" parent="Scene Objects/Enemies group"]
+use_parent_material = true
 position = Vector2(-2309, -576)
 
 [node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat3"]
@@ -531,6 +534,7 @@ position = Vector2(1064, 532)
 player = NodePath("../../CharacterBody2D")
 
 [node name="Turtle" parent="Scene Objects/Enemies group" instance=ExtResource("21_61dkk")]
+use_parent_material = true
 position = Vector2(2853, 782)
 
 [node name="Traps group" type="Node2D" parent="Scene Objects"]

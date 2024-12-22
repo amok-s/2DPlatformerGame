@@ -1,8 +1,6 @@
 extends Area2D
 
 var originalColour
-func _ready():
-	var enemies = get_node("../Enemies group").get_children(false)
  
 func _on_body_entered(body):
 	if body.name != "TileMap":

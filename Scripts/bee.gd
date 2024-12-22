@@ -11,7 +11,7 @@ func _ready():
 	if get_parent().name == "PathFollow2D":
 		path = get_parent()
 
-func _process(delta):
+func _process(_delta):
 	move_and_slide()
 
 func _on_damage_collision_body_entered(body):

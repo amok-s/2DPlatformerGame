@@ -10,7 +10,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if get_parent().velocity.x < 0 and scale_switch == false:
 		scale.x = -scale.x
 		collision_shape.scale.x = -collision_shape.scale.x

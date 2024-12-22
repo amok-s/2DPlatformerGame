@@ -4,7 +4,7 @@ func _ready():
 	$Sprite.animation = "idle"
 	$BlinkTimer.start(2)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if $BlinkTimer.is_stopped():
 		blink_timer()
 	
