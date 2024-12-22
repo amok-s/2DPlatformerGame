@@ -114,8 +114,7 @@ func konami_code(action):
 	if inputs == ["right", "left", "right", "left", "down", "down", "up", "up"]:
 		$Unlock.play(0)
 		$Menu/LevelSelection.unlock_all_levels()
-	print(inputs)
-	print(inputs.size())
+		
 func _unhandled_input(event):
 	if event.is_action("left") and event.is_released():
 		konami_code("left")

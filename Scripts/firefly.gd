@@ -57,7 +57,8 @@ func fly():
 	tween.tween_callback(flying_bool_change)
 	
 func flying_bool_change():
-	await get_tree().create_timer(randf_range(0, 0.12)).timeout
+	if get_tree():
+		await get_tree().create_timer(randf_range(0, 0.12)).timeout
 	flying = true
 	
 func light_pulses():
@@ -86,7 +87,8 @@ func light_bool_change():
 	if !darkness:
 		pulses = true
 		pulsating()
-	await get_tree().create_timer(await_time).timeout
+	if get_tree():
+		await get_tree().create_timer(await_time).timeout
 	light = true
 	if !darkness:
 		pulses = false
