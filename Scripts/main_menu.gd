@@ -108,12 +108,14 @@ func esc_pressed():
 func konami_code(action):
 	if inputs.size() < 8:
 		inputs.push_front(action)
-	if inputs.size() == 8:
+	elif inputs.size() == 8:
 		inputs.remove_at(7)
 		inputs.push_front(action)
-		if inputs == ["right", "left", "right", "left", "down", "down", "up", "up"]:
-			$Unlock.play(0)
-			$Menu/LevelSelection.unlock_all_levels()
+	if inputs == ["right", "left", "right", "left", "down", "down", "up", "up"]:
+		$Unlock.play(0)
+		$Menu/LevelSelection.unlock_all_levels()
+	print(inputs)
+	print(inputs.size())
 func _unhandled_input(event):
 	if event.is_action("left") and event.is_released():
 		konami_code("left")
