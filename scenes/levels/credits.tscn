@@ -1,74 +1,66 @@
-[gd_scene load_steps=79 format=3 uid="uid://di2kg2jr0hbbd"]
+[gd_scene load_steps=70 format=3 uid="uid://cg8i52mq34yga"]
 
-[ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_aitpp"]
-[ext_resource type="AudioStream" uid="uid://c2o6ixyw58pvo" path="res://assets/sounds/ambient-dream-16671.mp3" id="2_7ts6u"]
-[ext_resource type="PackedScene" uid="uid://hjsn053tjil6" path="res://scenes/owl_noises.tscn" id="2_gxf0m"]
-[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_5k2gm"]
-[ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="4_fus62"]
-[ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_36jbb"]
-[ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_qwepb"]
-[ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_yxq1l"]
-[ext_resource type="PackedScene" uid="uid://b12j70xyi7o37" path="res://scenes/sfxs.tscn" id="8_oxgoh"]
-[ext_resource type="PackedScene" uid="uid://ck51w0lt64yir" path="res://scenes/text_sfx.tscn" id="9_e3ght"]
-[ext_resource type="AudioStream" uid="uid://c31wo40iw47d0" path="res://assets/sounds/healpop-46004.mp3" id="10_ofoos"]
-[ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="11_qc4r4"]
-[ext_resource type="Script" path="res://Scripts/camera_changes.gd" id="12_evc8t"]
-[ext_resource type="Script" path="res://scenes/levels/3rd Arc/3_2/Camera_01.gd" id="13_87h6j"]
-[ext_resource type="Script" path="res://scenes/levels/3rd Arc/3_2/Camera_02.gd" id="14_cunoy"]
-[ext_resource type="Script" path="res://scenes/levels/3rd Arc/3_2/Cmaera_03.gd" id="15_2m7xv"]
-[ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="15_eoadr"]
-[ext_resource type="Script" path="res://scenes/levels/3rd Arc/3_2/Camera_04.gd" id="16_cplh0"]
-[ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="16_rcyvw"]
-[ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="17_vx2wo"]
-[ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="18_vdwu7"]
-[ext_resource type="Material" uid="uid://cv6hb88ldq3br" path="res://shaders/monsters_night.tres" id="19_8jvdr"]
-[ext_resource type="PackedScene" uid="uid://ur087dkmfswv" path="res://scenes/enemies and traps/bat.tscn" id="19_qshrm"]
-[ext_resource type="PackedScene" uid="uid://cit07k07hqplf" path="res://scenes/enemies and traps/plant.tscn" id="20_frkpk"]
-[ext_resource type="PackedScene" uid="uid://dfbv5uh0yrmf1" path="res://scenes/enemies and traps/turtle.tscn" id="21_61dkk"]
-[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="22_dqxc2"]
-[ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="23_kinvl"]
-[ext_resource type="Texture2D" uid="uid://d2dde683iw6ak" path="res://assets/OtherSprites/Chain.png" id="25_dmgct"]
-[ext_resource type="Script" path="res://Scripts/chained_Ball.gd" id="26_jdhrr"]
-[ext_resource type="Texture2D" uid="uid://chwtc2jvgdefa" path="res://assets/OtherSprites/Spiked Ball.png" id="27_i7k7x"]
-[ext_resource type="PackedScene" uid="uid://deitxtunqmwtm" path="res://scenes/enemies and traps/false_block.tscn" id="28_74dwr"]
-[ext_resource type="Script" path="res://Scripts/PathFollow2D.gd" id="29_l8mkr"]
-[ext_resource type="PackedScene" uid="uid://dmy8162llp5lw" path="res://scenes/enemies and traps/fire.tscn" id="29_r5yhc"]
-[ext_resource type="PackedScene" uid="uid://dhqh54pydfiyr" path="res://scenes/enemies and traps/spike_head.tscn" id="30_uvgc0"]
-[ext_resource type="PackedScene" uid="uid://b413hec62pqeb" path="res://scenes/firefly.tscn" id="32_u5rcl"]
-[ext_resource type="Script" path="res://Scripts/fall_area.gd" id="33_7bppg"]
-[ext_resource type="Texture2D" uid="uid://de3ul1kce7ypb" path="res://assets/PineForestParallax/MorningLayer6.png" id="34_wl0bn"]
-[ext_resource type="Texture2D" uid="uid://dqdq2msnvnnf4" path="res://assets/PineForestParallax/MorningLayer5.png" id="35_i531c"]
-[ext_resource type="Texture2D" uid="uid://ufkeb2ct1p0u" path="res://assets/PineForestParallax/MorningLayer4.png" id="36_61ubu"]
-[ext_resource type="Texture2D" uid="uid://daosphxj6dyv" path="res://assets/PineForestParallax/MorningLayer3.png" id="37_hbyjg"]
-[ext_resource type="Texture2D" uid="uid://cfekmo3uqwtng" path="res://assets/PineForestParallax/MorningLayer2.png" id="38_rlvru"]
-[ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="39_v3s83"]
-[ext_resource type="Material" uid="uid://cjdh5qqujvcrr" path="res://shaders/foliage.tres" id="40_xif3o"]
-[ext_resource type="Texture2D" uid="uid://dli1oxbx3syj6" path="res://assets/Foliage/sprite - 09 bright.png" id="41_uyxep"]
-[ext_resource type="Texture2D" uid="uid://d2ffkpbntf060" path="res://assets/Foliage/sprite - 08.png" id="42_w3i8q"]
-[ext_resource type="Texture2D" uid="uid://cahkt83wqnvye" path="res://assets/Foliage/sprite - 11.png" id="43_vsdgu"]
-[ext_resource type="Texture2D" uid="uid://c04gi11582b07" path="res://assets/Foliage/sprite - 03.png" id="44_4sy3q"]
-[ext_resource type="Texture2D" uid="uid://bldtbax0rwxw0" path="res://assets/Foliage/sprite - 10 grass.png" id="45_573f7"]
-[ext_resource type="Texture2D" uid="uid://cyxy1djnmeqrf" path="res://assets/Foliage/sprite - 08 bright.png" id="46_02efe"]
-[ext_resource type="Texture2D" uid="uid://roax86tvee52" path="res://assets/Foliage/sprite - 19.png" id="47_p83y8"]
-[ext_resource type="Texture2D" uid="uid://b1twlhensmx0w" path="res://assets/Foliage/ferns - sprite - 12.png" id="48_1paht"]
-[ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="49_k2gun"]
-[ext_resource type="Texture2D" uid="uid://cekoedfbf6gh2" path="res://assets/Foliage/sprite - 13 .png" id="50_wcp4w"]
-[ext_resource type="Texture2D" uid="uid://cocydl2mmdhme" path="res://assets/Foliage/fern -sprite - 01.png" id="51_um44y"]
-[ext_resource type="Shader" path="res://shaders/god_rays.gdshader" id="52_5ckul"]
-[ext_resource type="Script" path="res://Scripts/ui.gd" id="53_c4axu"]
-[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="54_7pseb"]
-[ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/enemies and traps/chameleon.tscn" id="54_h0u72"]
-[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="55_am12k"]
-[ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="56_atjta"]
+[ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_7kfas"]
+[ext_resource type="AudioStream" uid="uid://ygvhxbugcxjg" path="res://assets/Music/Haruko - Wizards Wonderland.mp3" id="2_dxikj"]
+[ext_resource type="Shader" path="res://shaders/scroll.gdshader" id="3_r7f4e"]
+[ext_resource type="Texture2D" uid="uid://vm5v7memeeej" path="res://assets/OtherSprites/Pink.png" id="4_j63vk"]
+[ext_resource type="Texture2D" uid="uid://cfekmo3uqwtng" path="res://assets/PineForestParallax/MorningLayer2.png" id="5_hlxwn"]
+[ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="6_qgdvd"]
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="7_hma58"]
+[ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="8_uns1v"]
+[ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="9_470ub"]
+[ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="10_d338b"]
+[ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="11_1hlql"]
+[ext_resource type="PackedScene" uid="uid://b12j70xyi7o37" path="res://scenes/sfxs.tscn" id="12_8nd8w"]
+[ext_resource type="PackedScene" uid="uid://ck51w0lt64yir" path="res://scenes/text_sfx.tscn" id="13_ki4c7"]
+[ext_resource type="AudioStream" uid="uid://c31wo40iw47d0" path="res://assets/sounds/healpop-46004.mp3" id="14_245db"]
+[ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="15_sx105"]
+[ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="16_7wn5w"]
+[ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="17_s7v3y"]
+[ext_resource type="Material" uid="uid://cqcni6n4vc56y" path="res://shaders/collectables.tres" id="18_223jm"]
+[ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="19_ugbjd"]
+[ext_resource type="Material" uid="uid://cv6hb88ldq3br" path="res://shaders/monsters_night.tres" id="20_udro6"]
+[ext_resource type="PackedScene" uid="uid://tsl01q3acwmc" path="res://scenes/enemies and traps/mushroom_enemy.tscn" id="21_7rorq"]
+[ext_resource type="PackedScene" uid="uid://1xltmv55jant" path="res://scenes/enemies and traps/spikes_2.tscn" id="22_xfu48"]
+[ext_resource type="Texture2D" uid="uid://d2dde683iw6ak" path="res://assets/OtherSprites/Chain.png" id="23_0sp28"]
+[ext_resource type="Script" path="res://Scripts/chained_Ball.gd" id="24_6judk"]
+[ext_resource type="Texture2D" uid="uid://chwtc2jvgdefa" path="res://assets/OtherSprites/Spiked Ball.png" id="25_hyj8c"]
+[ext_resource type="PackedScene" uid="uid://deitxtunqmwtm" path="res://scenes/enemies and traps/false_block.tscn" id="26_wb63l"]
+[ext_resource type="Script" path="res://Scripts/PathFollow2D.gd" id="27_3x2a2"]
+[ext_resource type="PackedScene" uid="uid://dhqh54pydfiyr" path="res://scenes/enemies and traps/spike_head.tscn" id="28_p036e"]
+[ext_resource type="PackedScene" uid="uid://b413hec62pqeb" path="res://scenes/firefly.tscn" id="29_pg4dc"]
+[ext_resource type="Script" path="res://Scripts/fall_area.gd" id="30_0xc0e"]
+[ext_resource type="Texture2D" uid="uid://de3ul1kce7ypb" path="res://assets/PineForestParallax/MorningLayer6.png" id="31_stpl7"]
+[ext_resource type="Texture2D" uid="uid://dqdq2msnvnnf4" path="res://assets/PineForestParallax/MorningLayer5.png" id="32_cd70q"]
+[ext_resource type="Texture2D" uid="uid://ufkeb2ct1p0u" path="res://assets/PineForestParallax/MorningLayer4.png" id="33_sn6cv"]
+[ext_resource type="Texture2D" uid="uid://daosphxj6dyv" path="res://assets/PineForestParallax/MorningLayer3.png" id="34_ivopd"]
+[ext_resource type="Material" uid="uid://cjdh5qqujvcrr" path="res://shaders/foliage.tres" id="35_ldxjh"]
+[ext_resource type="Texture2D" uid="uid://dli1oxbx3syj6" path="res://assets/Foliage/sprite - 09 bright.png" id="36_vgw2v"]
+[ext_resource type="Texture2D" uid="uid://d2ffkpbntf060" path="res://assets/Foliage/sprite - 08.png" id="37_mohf2"]
+[ext_resource type="Texture2D" uid="uid://cahkt83wqnvye" path="res://assets/Foliage/sprite - 11.png" id="38_pw4n2"]
+[ext_resource type="Texture2D" uid="uid://c04gi11582b07" path="res://assets/Foliage/sprite - 03.png" id="39_7xoba"]
+[ext_resource type="Texture2D" uid="uid://bldtbax0rwxw0" path="res://assets/Foliage/sprite - 10 grass.png" id="40_k1pbd"]
+[ext_resource type="Texture2D" uid="uid://cyxy1djnmeqrf" path="res://assets/Foliage/sprite - 08 bright.png" id="41_x2bka"]
+[ext_resource type="Texture2D" uid="uid://roax86tvee52" path="res://assets/Foliage/sprite - 19.png" id="42_tfmn3"]
+[ext_resource type="Texture2D" uid="uid://b1twlhensmx0w" path="res://assets/Foliage/ferns - sprite - 12.png" id="43_y5221"]
+[ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="44_xmlcd"]
+[ext_resource type="Texture2D" uid="uid://cekoedfbf6gh2" path="res://assets/Foliage/sprite - 13 .png" id="45_bq2kk"]
+[ext_resource type="Texture2D" uid="uid://cocydl2mmdhme" path="res://assets/Foliage/fern -sprite - 01.png" id="46_drigg"]
+[ext_resource type="Shader" path="res://shaders/god_rays.gdshader" id="47_jtw0i"]
+[ext_resource type="PackedScene" uid="uid://dmy8162llp5lw" path="res://scenes/enemies and traps/fire.tscn" id="48_jdvdq"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="49_rqv6p"]
+[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="50_lk2ix"]
+[ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="51_6emme"]
+[ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="52_qr36e"]
 
-[sub_resource type="Curve" id="Curve_rlaer"]
+[sub_resource type="Curve" id="Curve_h8bsv"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_v8fi1"]
-curve = SubResource("Curve_rlaer")
+[sub_resource type="CurveTexture" id="CurveTexture_2o7pa"]
+curve = SubResource("Curve_h8bsv")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2ixpp"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3brfi"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(500, 300, 1)
@@ -78,25 +70,13 @@ initial_velocity_max = 20.0
 gravity = Vector3(0, 2, 0)
 scale_min = 4.0
 scale_max = 5.0
-scale_curve = SubResource("CurveTexture_v8fi1")
+scale_curve = SubResource("CurveTexture_2o7pa")
 color = Color(0.996078, 0.984314, 0.839216, 0.74902)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cljr"]
-size = Vector2(558, 377)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a3qo"]
-size = Vector2(984, 327.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_frr5o"]
-size = Vector2(432, 356.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0itpi"]
-size = Vector2(927, 503)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ah6mr"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qv0yi"]
 radius = 13.5093
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t25u1"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xubo7"]
 radius = 18.5068
 
 [sub_resource type="Animation" id="Animation_ghdqe"]
@@ -161,23 +141,23 @@ _data = {
 "motion": SubResource("Animation_67lt4")
 }
 
-[sub_resource type="Curve2D" id="Curve2D_ujtf7"]
+[sub_resource type="Curve2D" id="Curve2D_wm5io"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 9, -122.5, 0, 0, 0, 0, -91, -122.5, 0, 0, 0, 0, -91.5, -1, 0, 0, 0, 0, 14, -1, 0, 0, 0, 0, 12.53, -112.78, 0, 0, 0, 0, 9, -122.5)
 }
 point_count = 6
 
-[sub_resource type="Curve2D" id="Curve2D_62djw"]
+[sub_resource type="Curve2D" id="Curve2D_3sdkw"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 9, -99.5, 0, 0, 0, 0, 9, 16.5, 0, 0, 0, 0, 9, -99.5)
 }
 point_count = 3
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kime1"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5nr27"]
 distance = 148.771
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v58vs"]
-shader = ExtResource("52_5ckul")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dvwjf"]
+shader = ExtResource("47_jtw0i")
 shader_parameter/angle = 0.115
 shader_parameter/position = -0.105
 shader_parameter/spread = 0.904
@@ -192,10 +172,10 @@ shader_parameter/color = Color(1, 0.843137, 0.929412, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw2tw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd26c"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgkpc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gid1f"]
 bg_color = Color(0.94902, 0.392157, 0.419608, 0.301961)
 draw_center = false
 border_width_left = 3
@@ -209,42 +189,51 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 1
 
-[node name="Level3_2" type="Node"]
-script = ExtResource("1_aitpp")
-lvlname = "lvl3_2"
-fruits_left_to_show_sfx = 15
-current_arc = 3
-end_of_arc = true
-metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
-metadata/_edit_vertical_guides_ = [3167.0]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mrace"]
+shader = ExtResource("3_r7f4e")
+shader_parameter/x_axis_modifier = -1.0
+shader_parameter/y_axis_modifier = -0.1
 
-[node name="OwlNoises" parent="." instance=ExtResource("2_gxf0m")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ycv6y"]
+shader = ExtResource("3_r7f4e")
+shader_parameter/x_axis_modifier = 0.01
+shader_parameter/y_axis_modifier = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nk0m8"]
+shader = ExtResource("3_r7f4e")
+shader_parameter/x_axis_modifier = 0.005
+shader_parameter/y_axis_modifier = 0.0
+
+[node name="Credits" type="Node"]
+script = ExtResource("1_7kfas")
+lvlname = "credits"
+fruits_left_to_show_sfx = 0
+current_arc = 1
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("2_7ts6u")
-volume_db = -25.0
+stream = ExtResource("2_dxikj")
 bus = &"Music"
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "hearts")]
 unique_name_in_owner = true
-script = ExtResource("3_5k2gm")
+script = ExtResource("7_hma58")
 player = NodePath("../Scene Objects/CharacterBody2D")
 hearts = [NodePath("../UI/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart3")]
-next_level = ExtResource("4_fus62")
-chroma_chaos = ExtResource("5_36jbb")
-shockwave = ExtResource("6_qwepb")
-arrow = ExtResource("7_yxq1l")
+next_level = ExtResource("8_uns1v")
+chroma_chaos = ExtResource("9_470ub")
+shockwave = ExtResource("10_d338b")
+arrow = ExtResource("11_1hlql")
 FruitsLeftForArrowToShow = 10
-sfx = ExtResource("8_oxgoh")
-text_sfx = ExtResource("9_e3ght")
+sfx = ExtResource("12_8nd8w")
+text_sfx = ExtResource("13_ki4c7")
 
 [node name="finish" type="AudioStreamPlayer" parent="GameManager"]
-stream = ExtResource("10_ofoos")
+stream = ExtResource("14_245db")
 volume_db = -4.0
 
 [node name="Healed" type="AudioStreamPlayer" parent="GameManager"]
-stream = ExtResource("11_qc4r4")
+stream = ExtResource("15_sx105")
 
 [node name="Scene Objects" type="Node" parent="."]
 
@@ -265,64 +254,26 @@ color = Color(0.882353, 0.129412, 0.65098, 0.207843)
 [node name="ShinyDust" type="GPUParticles2D" parent="Scene Objects"]
 position = Vector2(4315, 228)
 amount = 45
-process_material = SubResource("ParticleProcessMaterial_2ixpp")
+process_material = SubResource("ParticleProcessMaterial_3brfi")
 lifetime = 2.4
 preprocess = 0.2
 visibility_rect = Rect2(-700, -550, 1200, 900)
 
-[node name="CameraChanges" type="Node2D" parent="Scene Objects"]
-script = ExtResource("12_evc8t")
-
-[node name="Camera_01" type="Area2D" parent="Scene Objects/CameraChanges"]
-script = ExtResource("13_87h6j")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_01"]
-position = Vector2(2243, 657.5)
-shape = SubResource("RectangleShape2D_2cljr")
-
-[node name="Camera_02" type="Area2D" parent="Scene Objects/CameraChanges"]
-script = ExtResource("14_cunoy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_02"]
-position = Vector2(1231, 198.75)
-shape = SubResource("RectangleShape2D_0a3qo")
-
-[node name="Camera_03" type="Area2D" parent="Scene Objects/CameraChanges"]
-script = ExtResource("15_2m7xv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_03"]
-position = Vector2(2047, -159.75)
-shape = SubResource("RectangleShape2D_frr5o")
-
-[node name="Camera_04" type="Area2D" parent="Scene Objects/CameraChanges"]
-script = ExtResource("16_cplh0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_04"]
-position = Vector2(4164.5, 319.5)
-shape = SubResource("RectangleShape2D_0itpi")
-
 [node name="TileMap" type="TileMap" parent="Scene Objects"]
-modulate = Color(0.180392, 0.156863, 0.317647, 1)
-self_modulate = Color(0.403922, 0.419608, 0.843137, 1)
 texture_filter = 1
 rotation = -0.000171508
 scale = Vector2(3, 3)
-tile_set = ExtResource("15_eoadr")
+tile_set = ExtResource("16_7wn5w")
 format = 2
 layer_0/tile_data = PackedInt32Array(1048614, 65537, 0, 1114150, 65537, 1, 1179686, 65537, 1, 917543, 393216, 0, 983079, 393216, 1, 1048615, 65537, 1, 1114151, 65537, 1, 1179687, 65537, 1, 917544, 458752, 0, 983080, 458752, 1, 1048616, 458752, 1, 1114152, 65537, 1, 1179688, 65537, 1, 917545, 458752, 0, 983081, 458752, 0, 1048617, 458752, 1, 1114153, 458752, 1, 1179689, 458752, 1, 983082, 458752, 0, 1048618, 524288, 1, 1114154, 524288, 1, 1179690, 524288, 1, 1114162, 458752, 0, 1179698, 393216, 1, 1048627, 393216, 0, 1114163, 458752, 0, 1179699, 458752, 1, 1048628, 458752, 0, 1114164, 458752, 0, 1179700, 458752, 1, 1048629, 458752, 0, 1114165, 458752, 0, 1179701, 458752, 1, 1114166, 458752, 0, 1179702, 589824, 0, 1114167, 458752, 0, 1179703, 655360, 0, 1114168, 458752, 0, 1179704, 458752, 1, 1114169, 458752, 0, 1179705, 458752, 1, 1114170, 458752, 0, 1179706, 458752, 1, 1114171, 458752, 0, 1179707, 458752, 1, 1114172, 458752, 0, 1114173, 458752, 0, 1179709, 458752, 0, 1114174, 524288, 0, 1179710, 458752, 0, 1179711, 458752, 0, 589888, 393216, 0, 655424, 393216, 1, 1179712, 458752, 0, 589889, 458752, 0, 655425, 458752, 1, 1179713, 458752, 0, 589890, 458752, 0, 655426, 458752, 1, 1179714, 458752, 0, 720963, 458752, 1, 786499, 393216, 1, 852035, 393216, 1, 917571, 458752, 0, 983107, 393216, 1, 1048643, 393216, 1, 1114179, 393216, 1, 1179715, 524288, 0, 983108, 458752, 1, 1048644, 589824, 0, 1114180, 589824, 1, 1245222, 458752, 2, 1245223, 458752, 2, 1245224, 458752, 2, 1245225, 458752, 2, 1245226, 524288, 2, 1245234, 393216, 2, 1245235, 458752, 1, 1245236, 458752, 1, 1245237, 458752, 1, 1245238, 589824, 1, 1245240, 458752, 1, 1245241, 458752, 1, 1245242, 458752, 1, 1245243, 589824, 0, 1179708, 458752, 1, 1245245, 458752, 1, 1245246, 458752, 1, 1245247, 458752, 1, 720960, 393216, 2, 1245248, 458752, 1, 720961, 458752, 2, 1245249, 458752, 1, 720962, 458752, 2, 1245250, 458752, 1, 1245251, 458752, 1, 1179716, 458752, 1, 262170, 65536, 5, 262171, 131072, 5, 196634, 65536, 4, 196635, 131072, 4, -65513, 917504, 0, -65514, 851968, 0, -65515, 851968, 0, -131051, 524288, 0, -131052, 458752, 0, -131053, 458752, 0, -131054, 458752, 0, -131055, 458752, 0, -65519, 458752, 2, -65518, 458752, 2, -65517, 458752, 1, -65516, 786432, 0, 21, 524288, 2, 20, 458752, 2, 19, 393216, 2, -65520, 458752, 0, -524265, 393216, 1, -458729, 393216, 1, -393193, 393216, 1, -589800, 458752, 0, -524264, 458752, 1, -458728, 589824, 0, -393192, 589824, 1, -589799, 458752, 0, -524263, 458752, 1, -458727, 655360, 0, -393191, 655360, 1, -589798, 458752, 1, -524262, 458752, 1, -458726, 458752, 1, -393190, 458752, 1, -589797, 458752, 1, -524261, 458752, 1, -458725, 458752, 0, -393189, 458752, 1, -589796, 458752, 1, -524260, 458752, 1, -458724, 458752, 0, -589795, 524288, 1, -524259, 524288, 1, -458723, 524288, 1, -327657, 393216, 2, -327656, 458752, 2, -327655, 458752, 2, -327654, 458752, 2, -327653, 524288, 2, -393188, 458752, 2, -393187, 524288, 2, 30, 458752, 0, 31, 458752, 0, 32, 458752, 0, -65503, 458752, 0, 33, 458752, 1, -65502, 458752, 0, 34, 458752, 1, -65501, 458752, 0, 35, 458752, 1, -65500, 458752, 0, 36, 458752, 1, -65499, 458752, 0, 37, 458752, 1, 65568, 458752, 2, 65567, 458752, 2, 65569, 458752, 2, 65570, 458752, 2, 65566, 393216, 2, 65571, 458752, 1, 38, 458752, 1, -65498, 458752, 0, 589891, 458752, 0, 655427, 458752, 1, 655428, 458752, 1, 655429, 458752, 1, 589894, 589824, 0, 589893, 458752, 1, 589892, 458752, 0, 655430, 589824, 1, 720964, 458752, 1, 786500, 458752, 1, 852036, 458752, 1, 917572, 458752, 0, 786501, 458752, 1, 720965, 458752, 1, 852037, 458752, 1, 917573, 458752, 1, 983109, 458752, 1, 720966, 458752, 1, 720967, 458752, 1, 720968, 458752, 1, 786502, 458752, 1, 786503, 458752, 1, 786504, 458752, 1, 786505, 458752, 2, 720969, 458752, 1, 655432, 458752, 1, 655431, 655360, 1, 589895, 655360, 0, 524359, 458752, 0, 524360, 458752, 0, 589896, 458752, 1, 589897, 524288, 1, 589898, 458752, 0, 589899, 458752, 0, 655433, 524288, 1, 655434, 458752, 1, 655435, 458752, 1, 655436, 458752, 1, 589900, 458752, 0, 524358, 458752, 0, 524357, 458752, 0, 720970, 458752, 1, 786506, 458752, 2, 720971, 458752, 1, 720972, 458752, 1, 720973, 458752, 1, 786507, 458752, 2, 786508, 458752, 2, 786509, 458752, 2, 655437, 458752, 1, -65504, 458752, 0, -65497, 458752, 0, 39, 458752, 0, 65575, 458752, 1, 65574, 655360, 0, 65573, 589824, 0, 65576, 524288, 1, 40, 524288, 0, 65572, 458752, 1, 131107, 393216, 1, 131108, 458752, 1, 131109, 589824, 1, 131110, 655360, 1, 131111, 458752, 1, 131112, 524288, 1, 196652, 786432, 0, 196653, 851968, 0, 196648, 524288, 2, 196647, 458752, 2, 196646, 458752, 2, 196645, 458752, 2, 196654, 917504, 0, 131118, 458752, 2, 65581, 393216, 1, 131117, 393216, 2, 65583, 458752, 1, 65582, 458752, 1, 45, 458752, 0, 46, 458752, 0, 47, 458752, 0, 48, 458752, 0, 65584, 524288, 2, 131119, 524288, 2, -589790, 393216, 1, -589789, 458752, 1, -655326, 393216, 1, -655325, 458752, 1, -655324, 458752, 1, -655323, 458752, 1, -655322, 458752, 1, -655321, 458752, 1, -655320, 458752, 1, -589785, 458752, 1, -589786, 458752, 1, -589787, 458752, 1, -589788, 458752, 1, -589784, 589824, 0, -589783, 655360, 0, -589782, 458752, 1, -655319, 458752, 0, -524254, 393216, 2, -524253, 458752, 1, -524252, 458752, 0, -524251, 458752, 0, -524250, 458752, 1, -524249, 458752, 1, -524248, 589824, 1, -524247, 655360, 1, -524246, 458752, 1, -524245, 458752, 1, -524244, 458752, 1, -589780, 458752, 1, -589781, 458752, 1, -655316, 458752, 0, -589779, 458752, 1, -589778, 458752, 1, -655315, 458752, 0, -655314, 458752, 0, -655313, 458752, 0, -655312, 458752, 0, -589776, 655360, 0, -589777, 589824, 0, -524243, 458752, 1, -524242, 458752, 1, -524241, 589824, 1, -524240, 655360, 1, -524239, 458752, 0, -589775, 458752, 1, -655311, 458752, 0, -524238, 458752, 0, -524237, 458752, 0, -458717, 393216, 2, -458716, 458752, 2, -458715, 458752, 2, -458714, 458752, 2, -458713, 458752, 2, -458712, 458752, 2, -458711, 458752, 2, -458710, 458752, 2, -458709, 458752, 2, -458708, 458752, 2, -458707, 458752, 2, -458706, 458752, 1, -458705, 458752, 1, -458704, 458752, 1, -458703, 458752, 1, -458702, 458752, 1, -458701, 524288, 1, -589774, 458752, 0, 52, 786432, 0, 53, 851968, 0, 54, 917504, 0, 65596, 393216, 2, 60, 393216, 0, 61, 458752, 0, 65597, 458752, 2, 62, 458752, 0, 63, 458752, 0, 65599, 458752, 1, 65598, 458752, 1, 131134, 393216, 1, 131135, 458752, 0, 589901, 458752, 0, 589902, 458752, 0, 655438, 589824, 0, 655439, 655360, 0, 720974, 589824, 1, 786510, 458752, 2, 786511, 458752, 2, 720975, 655360, 1, 852040, 524288, 2, 852039, 458752, 2, 852038, 458752, 1, 917574, 524288, 1, 983110, 524288, 1, 1048645, 655360, 0, 1114181, 655360, 1, 1179717, 458752, 1, 1048646, 524288, 1, -393170, 393216, 2, -393169, 458752, 2, -393168, 458752, 2, -393167, 458752, 2, -393166, 458752, 2, -393165, 524288, 2, 983093, 786432, 9, 196670, 393216, 2, 196671, 524288, 2, 64, 524288, 0, 65600, 524288, 2, 65601, 1179648, 1, 65602, 1179648, 1, 65603, 1179648, 1, 65604, 1179648, 1, 65605, 1179648, 1, 524356, 458752, 0, 458824, 786432, 9, 458821, 786432, 9, 524361, 524288, 0, 655440, 458752, 0, 720976, 458752, 1, 786512, 458752, 2, 589903, 458752, 0, 655441, 458752, 0, 720977, 458752, 1, 786513, 458752, 2, 786514, 458752, 2, 786515, 458752, 2, 720979, 458752, 1, 720978, 458752, 1, 655442, 458752, 0, 655443, 458752, 0, 655444, 458752, 0, 655445, 458752, 0, 589904, 458752, 0, 589910, 393216, 0, 655446, 458752, 0, 720982, 458752, 1, 720981, 458752, 1, 720980, 458752, 1, 786516, 458752, 2, 786517, 458752, 2, 786518, 458752, 2, 720983, 458752, 1, 655447, 458752, 0, 589911, 458752, 0, 589912, 458752, 0, 655448, 458752, 1, 786519, 458752, 2, 786520, 458752, 2, 786521, 524288, 2, 655449, 458752, 1, 655450, 458752, 1, 720986, 458752, 2, 720985, 458752, 1, 720984, 458752, 1, 655451, 458752, 1, 589915, 458752, 0, 589916, 458752, 0, 589917, 458752, 1, 589914, 458752, 0, 589913, 458752, 0, 655452, 458752, 1, 720988, 458752, 0, 720987, 458752, 2, 720989, 458752, 0, 655453, 458752, 1, 655454, 524288, 1, 589918, 524288, 1, 524382, 524288, 0, 524381, 458752, 0, 524306, 524288, 1, 589842, 524288, 2, 786450, 458752, 0, 851986, 458752, 1, 786451, 458752, 0, 851987, 458752, 1, 917523, 458752, 2, 786452, 458752, 0, 851988, 458752, 1, 917524, 458752, 2, 786453, 458752, 0, 851989, 458752, 1, 917525, 458752, 1, 786454, 458752, 0, 851990, 458752, 1, 917526, 458752, 1, 786455, 458752, 0, 851991, 458752, 0, 917527, 458752, 1, 786456, 524288, 0, 851992, 458752, 0, 917528, 458752, 1, 851993, 458752, 0, 917529, 458752, 1, 983065, 458752, 2, 851994, 458752, 0, 917530, 458752, 1, 983066, 524288, 2, 851995, 458752, 0, 917531, 458752, 1, 851996, 458752, 0, 917532, 524288, 2, 524302, 393216, 0, 589838, 393216, 1, 655374, 393216, 1, 720910, 393216, 1, 786446, 393216, 1, 851982, 393216, 2, 458767, 393216, 0, 524303, 458752, 0, 589839, 458752, 1, 655375, 458752, 0, 720911, 458752, 1, 786447, 458752, 1, 851983, 458752, 1, 917519, 393216, 2, 458768, 458752, 0, 524304, 458752, 1, 589840, 458752, 1, 655376, 458752, 0, 720912, 524288, 1, 786448, 458752, 0, 851984, 458752, 1, 917520, 458752, 2, 458769, 458752, 0, 524305, 458752, 1, 589841, 458752, 2, 786449, 458752, 0, 851985, 458752, 1, 917521, 458752, 2, 458770, 458752, 0, 917522, 458752, 2, 983061, 393216, 2, 983062, 458752, 2, 983063, 458752, 2, 983064, 458752, 2, 1114143, 393216, 0, 1048608, 1, 0, 1114144, 1, 1, 1179680, 458752, 1, 1048609, 65537, 0, 1114145, 65537, 1, 1179681, 65537, 1, 1245217, 458752, 2, 1048610, 65537, 0, 1048611, 65537, 0, 1048612, 65537, 0, 1048613, 65537, 0, 1114149, 65537, 1, 1114148, 65537, 1, 1114147, 65537, 1, 1114146, 65537, 1, 1179682, 65537, 1, 1179683, 65537, 1, 1179684, 65537, 1, 1179685, 65537, 1, 524355, 458752, 0, -393186, 1179648, 1, -393184, 1179648, 1, -393185, 1179648, 1, -655331, 524288, 1, -655332, 458752, 1, -655333, 458752, 1, -655334, 458752, 0, -655335, 458752, 0, -655336, 458752, 0, -589801, 393216, 0, -720869, 458752, 1, -720868, 458752, 1, -720867, 458752, 1, -720866, 458752, 2, -720865, 524288, 2, -720870, 393216, 1, -786406, 393216, 0, -786405, 458752, 0, -786404, 458752, 1, -786403, 458752, 1, -786402, 458752, 1, -786401, 458752, 1, -786400, 524288, 2, -786398, 393216, 1, -786397, 458752, 1, -720861, 458752, 1, -720862, 393216, 1, -720860, 589824, 1, -720859, 655360, 1, -720858, 524288, 1, -786394, 524288, 1, -786395, 655360, 0, -786396, 589824, 0, -851941, 393216, 1, -851940, 458752, 1, -851939, 458752, 1, -851938, 458752, 1, -851936, 524288, 1, -851932, 458752, 0, -851931, 458752, 1, -851930, 524288, 1, -851937, 458752, 1, -786393, 458752, 0, -786392, 458752, 0, -786391, 524288, 0, -720856, 458752, 1, -720857, 458752, 1, -720855, 524288, 1, -655318, 458752, 0, -655317, 458752, 0, 720928, 524288, 2, 655392, 524288, 1, 589856, 524288, 1, 524320, 458752, 1, 458784, 458752, 0, 393248, 393216, 1, 393249, 458752, 1, 327713, 458752, 0, 327712, 393216, 0, 720927, 393216, 2, 655391, 393216, 1, 589855, 458752, 1, 524319, 458752, 1, 524318, 458752, 1, 589854, 458752, 2, 589853, 393216, 2, 524317, 393216, 1, 393250, 589824, 0, 393251, 655360, 0, 393252, 524288, 1, 327716, 524288, 1, 262180, 524288, 1, 196644, 458752, 1, 327715, 458752, 1, 262179, 458752, 1, 196643, 393216, 1, 327714, 458752, 1, 262178, 458752, 0, 458783, 458752, 0, 458782, 458752, 0, 458781, 458752, 0, 458785, 458752, 0, 524321, 458752, 2, 458786, 589824, 1, 458787, 655360, 1, 458788, 524288, 1, 524324, 524288, 2, 524323, 458752, 2, 524322, 458752, 2, -917477, 393216, 0, -917476, 458752, 0, -917475, 458752, 0, -917474, 458752, 0, -917473, 458752, 0, -917472, 458752, 0, -917468, 458752, 0, -917467, 458752, 0, -917466, 524288, 0, -851933, 458752, 0, -851934, 393216, 0, 65609, 393216, 2, 73, 393216, 0, 74, 458752, 0, 75, 458752, 0, 76, 458752, 1, 65611, 458752, 2, 65610, 458752, 2, 65612, 458752, 2, 65613, 458752, 1, 65614, 589824, 1, 78, 589824, 0, 77, 458752, 1, -65461, 458752, 0, -65460, 458752, 0, 79, 655360, 0, -65456, 458752, 0, 80, 458752, 0, 81, 524288, 0, 65617, 524288, 1, 65616, 458752, 1, 65615, 655360, 1, -65459, 458752, 0, -65458, 458752, 0, -65457, 458752, 0, 131149, 393216, 2, 131150, 458752, 2, 131151, 458752, 2, 131152, 458752, 2, 131153, 524288, 2, 1245218, 458752, 2, 1245219, 458752, 2, 1245220, 458752, 2, 1245221, 458752, 2, 1245244, 655360, 0, 1310771, 393216, 1, 1310772, 458752, 1, 1310773, 458752, 1, 1310774, 458752, 1, 1310775, 458752, 1, 1310776, 458752, 1, 1310777, 458752, 1, 1310778, 458752, 1, 1310779, 589824, 1, 1310780, 655360, 1, 1310781, 458752, 1, 1310782, 458752, 1, 1310783, 458752, 1, 1310784, 458752, 1, 1310785, 458752, 1, 1310786, 458752, 1, 1310787, 458752, 1, 1245252, 458752, 1, 1245253, 524288, 1, 1114182, 524288, 1, 1179718, 524288, 2, 1048630, 524288, 0, 1376307, 393216, 1, 1376308, 458752, 1, 1376309, 458752, 1, 1376310, 458752, 1, 1376311, 458752, 1, 1376312, 458752, 1, 1376313, 458752, 1, 1376314, 458752, 1, 1376315, 458752, 1, 1376316, 458752, 1, 1376317, 458752, 1, 1376318, 458752, 1, 1376319, 458752, 1, 1376320, 458752, 1, 1376321, 458752, 1, 1376322, 458752, 1, 1376323, 458752, 1, 1376324, 458752, 1, 1310788, 458752, 1, 1310789, 524288, 2, 1245239, 655360, 1, 720990, 458752, 0, 720991, 458752, 0, 1179679, 393216, 2, 1245216, 393216, 2, 196633, 0, 4, 262169, 0, 5, 327705, 0, 6, 327706, 65536, 6, 327707, 131072, 6, 196649, 1179648, 1, 196650, 1179648, 1, 196651, 1179648, 1, 524325, 1179648, 1, 524326, 1179648, 1, 524327, 1245184, 1, 393246, 786432, 9)
 
-[node name="CharacterBody2D" parent="Scene Objects" instance=ExtResource("16_rcyvw")]
-modulate = Color(0.133333, 0.12549, 0.290196, 1)
-position = Vector2(2722, 658)
+[node name="CharacterBody2D" parent="Scene Objects" instance=ExtResource("17_s7v3y")]
+position = Vector2(825, 247)
 
 [node name="Camera2D" type="Camera2D" parent="Scene Objects/CharacterBody2D"]
 unique_name_in_owner = true
 position = Vector2(-1, 0)
-zoom = Vector2(1.455, 1.455)
-limit_left = 590
-limit_top = -640
-limit_right = 4663
-limit_bottom = 1041
+zoom = Vector2(1.2, 1.2)
 position_smoothing_enabled = true
 position_smoothing_speed = 6.0
 drag_horizontal_enabled = true
@@ -331,260 +282,61 @@ drag_horizontal_offset = 0.17
 drag_vertical_offset = -0.06
 
 [node name="Collectables group" type="Node2D" parent="Scene Objects"]
-modulate = Color(0.111717, 0.227334, 0.153522, 1)
-material = ExtResource("17_vx2wo")
+material = ExtResource("18_223jm")
 
-[node name="Collectable_2" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
+[node name="Collectable_2" parent="Scene Objects/Collectables group" instance=ExtResource("19_ugbjd")]
 position = Vector2(3186, 699)
 
-[node name="Collectable_3" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(3186, 811)
-
-[node name="Collectable_40" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(2955, 648)
-
-[node name="Collectable_9" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(2225, 705)
-
-[node name="Collectable_10" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(2225, 618)
-
-[node name="Collectable_33" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(2225, 527)
-
-[node name="Collectable_11" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(2478, 727)
-
-[node name="Collectable_12" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(1978, 629)
-
-[node name="Collectable_13" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(1910, 629)
-
-[node name="Collectable_14" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(1575, 729)
-
-[node name="Collectable_15" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(1311, 587)
-
-[node name="Collectable_16" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(1311, 520)
-
-[node name="Collectable_17" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(960, 538)
-
-[node name="Collectable_20" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(893, 538)
-
-[node name="Collectable_18" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(872, 298)
-
-[node name="Collectable_39" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(1583, 138)
-
-[node name="Collectable_21" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(927, -223)
-
-[node name="Collectable_23" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(1491, -46)
-
-[node name="Collectable_24" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(2020, 101)
-
-[node name="Collectable_25" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(2099, 101)
-
-[node name="Collectable_26" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(1481, -334)
-
-[node name="Collectable_27" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(1481, -425)
-
-[node name="Collectable_28" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(2261, -50)
-
-[node name="Collectable_29" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(2698, 77)
-
-[node name="Collectable_30" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(2792, 77)
-
-[node name="Collectable_31" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(3050, -56)
-
-[node name="Collectable_41" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(3547, -56)
-
-[node name="Collectable_32" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(3050, -147)
-
-[node name="Collectable_22" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(927, -286)
-
-[node name="Collectable_42" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(927, -348)
-
-[node name="Collectable_19" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(783, 298)
-
-[node name="Collectable_4" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(3407, 342)
-
-[node name="Collectable_5" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(3407, 264)
-
-[node name="Collectable_6" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(3407, 181)
-
-[node name="Collectable_7" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(3407, -48)
-
-[node name="Collectable_34" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(4020, 437)
-
-[node name="Collectable_35" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(4089, 437)
-
-[node name="Collectable_36" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(4506, 329)
-
-[node name="Collectable_37" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(4506, 242)
-
-[node name="Collectable_38" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(4506, 163)
-
-[node name="Collectable_8" parent="Scene Objects/Collectables group" instance=ExtResource("18_vdwu7")]
-position = Vector2(3407, 32)
-
 [node name="Enemies group" type="Node2D" parent="Scene Objects"]
-modulate = Color(0.0980392, 0.0823529, 0.188235, 1)
-material = ExtResource("19_8jvdr")
+material = ExtResource("20_udro6")
 
-[node name="MushroomEnemy2" parent="Scene Objects/Enemies group" instance=ExtResource("22_dqxc2")]
+[node name="MushroomEnemy2" parent="Scene Objects/Enemies group" instance=ExtResource("21_7rorq")]
 position = Vector2(1690, -92)
 
-[node name="MushroomEnemy3" parent="Scene Objects/Enemies group" instance=ExtResource("22_dqxc2")]
-position = Vector2(3770, -88)
-
-[node name="MushroomEnemy4" parent="Scene Objects/Enemies group" instance=ExtResource("22_dqxc2")]
-position = Vector2(4270, 396)
-
-[node name="Bat" type="Node2D" parent="Scene Objects/Enemies group"]
-use_parent_material = true
-
-[node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat"]
-
-[node name="Marker2D" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
-position = Vector2(2965, 687)
-
-[node name="Marker2D2" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
-position = Vector2(3122, 796)
-
-[node name="Marker2D3" type="Marker2D" parent="Scene Objects/Enemies group/Bat/Markers"]
-position = Vector2(3121, 639)
-
-[node name="Mob" parent="Scene Objects/Enemies group/Bat" node_paths=PackedStringArray("marker_node") instance=ExtResource("19_qshrm")]
-position = Vector2(3115, 602)
-marker_node = NodePath("../Markers")
-
-[node name="Bat2" type="Node2D" parent="Scene Objects/Enemies group"]
-use_parent_material = true
-position = Vector2(-1118, -864)
-
-[node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat2"]
-
-[node name="Marker2D" type="Marker2D" parent="Scene Objects/Enemies group/Bat2/Markers"]
-position = Vector2(1888, -171)
-
-[node name="Marker2D2" type="Marker2D" parent="Scene Objects/Enemies group/Bat2/Markers"]
-position = Vector2(2045, -62)
-
-[node name="Marker2D3" type="Marker2D" parent="Scene Objects/Enemies group/Bat2/Markers"]
-position = Vector2(2044, -219)
-
-[node name="Mob" parent="Scene Objects/Enemies group/Bat2" node_paths=PackedStringArray("marker_node") instance=ExtResource("19_qshrm")]
-position = Vector2(3115, 602)
-marker_node = NodePath("../Markers")
-
-[node name="Bat3" type="Node2D" parent="Scene Objects/Enemies group"]
-use_parent_material = true
-position = Vector2(-2309, -576)
-
-[node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat3"]
-
-[node name="Marker2D" type="Marker2D" parent="Scene Objects/Enemies group/Bat3/Markers"]
-position = Vector2(724, 88)
-
-[node name="Marker2D2" type="Marker2D" parent="Scene Objects/Enemies group/Bat3/Markers"]
-position = Vector2(760, 195)
-
-[node name="Marker2D3" type="Marker2D" parent="Scene Objects/Enemies group/Bat3/Markers"]
-position = Vector2(833, 83)
-
-[node name="Marker2D4" type="Marker2D" parent="Scene Objects/Enemies group/Bat3/Markers"]
-position = Vector2(904, 154)
-
-[node name="Mob" parent="Scene Objects/Enemies group/Bat3" node_paths=PackedStringArray("marker_node") instance=ExtResource("19_qshrm")]
-position = Vector2(3115, 602)
-marker_node = NodePath("../Markers")
-
-[node name="Chameleon" parent="Scene Objects/Enemies group" instance=ExtResource("54_h0u72")]
-position = Vector2(3674, 398)
-
-[node name="Plant" parent="Scene Objects/Enemies group" node_paths=PackedStringArray("player") instance=ExtResource("20_frkpk")]
-position = Vector2(1064, 532)
-player = NodePath("../../CharacterBody2D")
-
-[node name="Turtle" parent="Scene Objects/Enemies group" instance=ExtResource("21_61dkk")]
-use_parent_material = true
-position = Vector2(2853, 782)
-
 [node name="Traps group" type="Node2D" parent="Scene Objects"]
-modulate = Color(0.0980392, 0.0823529, 0.188235, 1)
 
-[node name="spikes_1" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_1" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(3056, 842)
 
-[node name="spikes_8" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_8" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(3100, 409)
 
-[node name="spikes_12" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_12" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(3920, 457)
 
-[node name="spikes_11" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_11" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(3913, -21)
 
-[node name="spikes_2" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_2" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(2920, -21)
 
-[node name="spikes_3" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_3" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(2425, 793)
 
-[node name="spikes_9" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_9" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(2041, 696)
 
-[node name="spikes_4" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_4" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(1513, 793)
 
-[node name="spikes_5" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_5" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(1227, 601)
 
-[node name="spikes_14" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_14" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(1319, 311)
 rotation = 3.14159
 
-[node name="spikes_13" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_13" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(1658, 168)
 
-[node name="spikes_10" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_10" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(1559, -506)
 rotation = 3.14159
 
-[node name="spikes_6" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_6" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(929, -117)
 
-[node name="spikes_7" parent="Scene Objects/Traps group" instance=ExtResource("23_kinvl")]
+[node name="spikes_7" parent="Scene Objects/Traps group" instance=ExtResource("22_xfu48")]
 position = Vector2(1945, -23)
 
 [node name="Chained_Ball2" type="Sprite2D" parent="Scene Objects/Traps group"]
@@ -592,38 +344,38 @@ editor_description = "- each segment y = 13
 - ball y = 22"
 position = Vector2(1296, -176)
 scale = Vector2(2, 2)
-texture = ExtResource("25_dmgct")
-script = ExtResource("26_jdhrr")
+texture = ExtResource("23_0sp28")
+script = ExtResource("24_6judk")
 
 [node name="segment" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball2"]
 position = Vector2(0, 13)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment2" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball2"]
 position = Vector2(0, 26)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment3" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball2"]
 position = Vector2(0, 39)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment4" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball2"]
 position = Vector2(0, 52)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Scene Objects/Traps group/Chained_Ball2"]
 position = Vector2(0, 74)
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball2/StaticBody2D"]
-texture = ExtResource("27_i7k7x")
+texture = ExtResource("25_hyj8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball2/StaticBody2D"]
-shape = SubResource("CircleShape2D_ah6mr")
+shape = SubResource("CircleShape2D_qv0yi")
 
 [node name="Area2D" type="Area2D" parent="Scene Objects/Traps group/Chained_Ball2/StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball2/StaticBody2D/Area2D"]
-shape = SubResource("CircleShape2D_t25u1")
+shape = SubResource("CircleShape2D_xubo7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/Chained_Ball2"]
 libraries = {
@@ -636,38 +388,38 @@ editor_description = "- each segment y = 13
 - ball y = 22"
 position = Vector2(1296, -176)
 scale = Vector2(2, 2)
-texture = ExtResource("25_dmgct")
-script = ExtResource("26_jdhrr")
+texture = ExtResource("23_0sp28")
+script = ExtResource("24_6judk")
 
 [node name="segment" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3"]
 position = Vector2(0, 13)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment2" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3"]
 position = Vector2(0, 26)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment3" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3"]
 position = Vector2(0, 39)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment4" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3"]
 position = Vector2(0, 52)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Scene Objects/Traps group/Chained_Ball3"]
 position = Vector2(0, 74)
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball3/StaticBody2D"]
-texture = ExtResource("27_i7k7x")
+texture = ExtResource("25_hyj8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball3/StaticBody2D"]
-shape = SubResource("CircleShape2D_ah6mr")
+shape = SubResource("CircleShape2D_qv0yi")
 
 [node name="Area2D" type="Area2D" parent="Scene Objects/Traps group/Chained_Ball3/StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball3/StaticBody2D/Area2D"]
-shape = SubResource("CircleShape2D_t25u1")
+shape = SubResource("CircleShape2D_xubo7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/Chained_Ball3"]
 libraries = {
@@ -680,38 +432,38 @@ editor_description = "- each segment y = 13
 - ball y = 22"
 position = Vector2(2417, -228)
 scale = Vector2(2, 2)
-texture = ExtResource("25_dmgct")
-script = ExtResource("26_jdhrr")
+texture = ExtResource("23_0sp28")
+script = ExtResource("24_6judk")
 
 [node name="segment" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball4"]
 position = Vector2(0, 13)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment2" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball4"]
 position = Vector2(0, 26)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment3" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball4"]
 position = Vector2(0, 39)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment4" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball4"]
 position = Vector2(0, 52)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Scene Objects/Traps group/Chained_Ball4"]
 position = Vector2(0, 74)
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball4/StaticBody2D"]
-texture = ExtResource("27_i7k7x")
+texture = ExtResource("25_hyj8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball4/StaticBody2D"]
-shape = SubResource("CircleShape2D_ah6mr")
+shape = SubResource("CircleShape2D_qv0yi")
 
 [node name="Area2D" type="Area2D" parent="Scene Objects/Traps group/Chained_Ball4/StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball4/StaticBody2D/Area2D"]
-shape = SubResource("CircleShape2D_t25u1")
+shape = SubResource("CircleShape2D_xubo7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/Chained_Ball4"]
 libraries = {
@@ -724,38 +476,38 @@ editor_description = "- each segment y = 13
 - ball y = 22"
 position = Vector2(2417, -228)
 scale = Vector2(2, 2)
-texture = ExtResource("25_dmgct")
-script = ExtResource("26_jdhrr")
+texture = ExtResource("23_0sp28")
+script = ExtResource("24_6judk")
 
 [node name="segment" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball5"]
 position = Vector2(0, 13)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment2" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball5"]
 position = Vector2(0, 26)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment3" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball5"]
 position = Vector2(0, 39)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="segment4" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball5"]
 position = Vector2(0, 52)
-texture = ExtResource("25_dmgct")
+texture = ExtResource("23_0sp28")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Scene Objects/Traps group/Chained_Ball5"]
 position = Vector2(0, 74)
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/Traps group/Chained_Ball5/StaticBody2D"]
-texture = ExtResource("27_i7k7x")
+texture = ExtResource("25_hyj8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball5/StaticBody2D"]
-shape = SubResource("CircleShape2D_ah6mr")
+shape = SubResource("CircleShape2D_qv0yi")
 
 [node name="Area2D" type="Area2D" parent="Scene Objects/Traps group/Chained_Ball5/StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/Traps group/Chained_Ball5/StaticBody2D/Area2D"]
-shape = SubResource("CircleShape2D_t25u1")
+shape = SubResource("CircleShape2D_xubo7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scene Objects/Traps group/Chained_Ball5"]
 libraries = {
@@ -763,176 +515,87 @@ libraries = {
 }
 autoplay = "motion"
 
-[node name="FalseBlock_1" parent="Scene Objects/Traps group" instance=ExtResource("28_74dwr")]
+[node name="FalseBlock_1" parent="Scene Objects/Traps group" instance=ExtResource("26_wb63l")]
 position = Vector2(2027, 25)
 
-[node name="FalseBlock_5" parent="Scene Objects/Traps group" instance=ExtResource("28_74dwr")]
+[node name="FalseBlock_5" parent="Scene Objects/Traps group" instance=ExtResource("26_wb63l")]
 position = Vector2(2098, 25)
 
-[node name="FalseBlock_7" parent="Scene Objects/Traps group" instance=ExtResource("28_74dwr")]
+[node name="FalseBlock_7" parent="Scene Objects/Traps group" instance=ExtResource("26_wb63l")]
 position = Vector2(2701, 160)
 
-[node name="FalseBlock_10" parent="Scene Objects/Traps group" instance=ExtResource("28_74dwr")]
+[node name="FalseBlock_10" parent="Scene Objects/Traps group" instance=ExtResource("26_wb63l")]
 position = Vector2(2227, 792)
 
-[node name="FalseBlock_8" parent="Scene Objects/Traps group" instance=ExtResource("28_74dwr")]
+[node name="FalseBlock_8" parent="Scene Objects/Traps group" instance=ExtResource("26_wb63l")]
 position = Vector2(2794, 160)
 
 [node name="SpikeHead" type="Path2D" parent="Scene Objects/Traps group"]
 position = Vector2(996, -158)
 scale = Vector2(2, 2)
-curve = SubResource("Curve2D_ujtf7")
+curve = SubResource("Curve2D_wm5io")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Scene Objects/Traps group/SpikeHead"]
 position = Vector2(9, -122.5)
 rotates = false
-script = ExtResource("29_l8mkr")
+script = ExtResource("27_3x2a2")
 speed = 140.0
 opposite_direction = true
 
-[node name="Mob" parent="Scene Objects/Traps group/SpikeHead/PathFollow2D" instance=ExtResource("30_uvgc0")]
+[node name="Mob" parent="Scene Objects/Traps group/SpikeHead/PathFollow2D" instance=ExtResource("28_p036e")]
 scale = Vector2(1, 1)
 
 [node name="SpikeHead5" type="Path2D" parent="Scene Objects/Traps group"]
 position = Vector2(1641, 690)
 scale = Vector2(2, 2)
-curve = SubResource("Curve2D_62djw")
+curve = SubResource("Curve2D_3sdkw")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Scene Objects/Traps group/SpikeHead5"]
 position = Vector2(9, -6.48249)
 progress = 139.0
 rotates = false
-script = ExtResource("29_l8mkr")
+script = ExtResource("27_3x2a2")
 speed = 140.0
 opposite_direction = true
 
-[node name="Mob" parent="Scene Objects/Traps group/SpikeHead5/PathFollow2D" instance=ExtResource("30_uvgc0")]
+[node name="Mob" parent="Scene Objects/Traps group/SpikeHead5/PathFollow2D" instance=ExtResource("28_p036e")]
 scale = Vector2(1, 1)
 
 [node name="SpikeHead6" type="Path2D" parent="Scene Objects/Traps group"]
 position = Vector2(1759, 690)
 scale = Vector2(2, 2)
-curve = SubResource("Curve2D_62djw")
+curve = SubResource("Curve2D_3sdkw")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Scene Objects/Traps group/SpikeHead6"]
 position = Vector2(9, -99.5)
 rotates = false
-script = ExtResource("29_l8mkr")
+script = ExtResource("27_3x2a2")
 speed = 140.0
 opposite_direction = true
 
-[node name="Mob" parent="Scene Objects/Traps group/SpikeHead6/PathFollow2D" instance=ExtResource("30_uvgc0")]
+[node name="Mob" parent="Scene Objects/Traps group/SpikeHead6/PathFollow2D" instance=ExtResource("28_p036e")]
 scale = Vector2(1, 1)
 
 [node name="Fireflies" type="Node2D" parent="Scene Objects"]
 position = Vector2(-197, -152)
 
-[node name="Firefly" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
+[node name="Firefly" parent="Scene Objects/Fireflies" instance=ExtResource("29_pg4dc")]
 position = Vector2(3415, 858)
-metadata/_edit_lock_ = true
-
-[node name="Firefly3" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(3051, 1013)
-metadata/_edit_lock_ = true
-
-[node name="Firefly4" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(3179, 516)
-metadata/_edit_lock_ = true
-
-[node name="Firefly17" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(2466, 820)
-metadata/_edit_lock_ = true
-
-[node name="Firefly18" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(2130, 718)
-metadata/_edit_lock_ = true
-
-[node name="Firefly19" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(1839, 617)
-metadata/_edit_lock_ = true
-
-[node name="Firefly20" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(1672, 883)
-metadata/_edit_lock_ = true
-
-[node name="Firefly21" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(1493, 687)
-metadata/_edit_lock_ = true
-
-[node name="Firefly23" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(918, 387)
-metadata/_edit_lock_ = true
-
-[node name="Firefly24" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(1235, 224)
-metadata/_edit_lock_ = true
-
-[node name="Firefly25" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(1571, 51)
-metadata/_edit_lock_ = true
-
-[node name="Firefly5" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(1210, -78)
-metadata/_edit_lock_ = true
-
-[node name="Firefly7" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(2120, 89)
-metadata/_edit_lock_ = true
-
-[node name="Firefly26" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(2465, -79)
-metadata/_edit_lock_ = true
-
-[node name="Firefly8" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(2888, 142)
-metadata/_edit_lock_ = true
-
-[node name="Firefly10" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(3376, 190)
-metadata/_edit_lock_ = true
-
-[node name="Firefly29" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(4097, 148)
-metadata/_edit_lock_ = true
-
-[node name="Firefly12" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(3891, 362)
-metadata/_edit_lock_ = true
-
-[node name="Firefly13" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(4092, 562)
-metadata/_edit_lock_ = true
-
-[node name="Firefly14" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(4665, 358)
-metadata/_edit_lock_ = true
-
-[node name="Firefly15" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(2576, 405)
-metadata/_edit_lock_ = true
-
-[node name="Firefly16" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(764, -14)
-metadata/_edit_lock_ = true
-
-[node name="Firefly28" parent="Scene Objects/Fireflies" instance=ExtResource("32_u5rcl")]
-position = Vector2(2120, 422)
 metadata/_edit_lock_ = true
 
 [node name="WorldBoundary" type="Area2D" parent="Scene Objects"]
 position = Vector2(555, 945)
-script = ExtResource("33_7bppg")
+script = ExtResource("30_0xc0e")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/WorldBoundary"]
 position = Vector2(-9, 402)
-shape = SubResource("WorldBoundaryShape2D_kime1")
+shape = SubResource("WorldBoundaryShape2D_5nr27")
 
 [node name="ForestBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
 scroll_offset = Vector2(69.84, 72.75)
 
 [node name="Sky" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
-modulate = Color(0.0862745, 0.109804, 0.27451, 1)
 light_mask = 128
 motion_scale = Vector2(0, 1)
 motion_mirroring = Vector2(3200, 1800)
@@ -940,7 +603,7 @@ metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Sky"]
 position = Vector2(-135, -117)
-texture = ExtResource("34_wl0bn")
+texture = ExtResource("31_stpl7")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -952,9 +615,8 @@ motion_mirroring = Vector2(1600, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Back"]
-modulate = Color(0.133333, 0.0352941, 0.247059, 1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("35_i531c")
+texture = ExtResource("32_cd70q")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -966,9 +628,8 @@ motion_mirroring = Vector2(1600, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/BackMiddle"]
-modulate = Color(0.168627, 0.0235294, 0.239216, 1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("36_61ubu")
+texture = ExtResource("33_sn6cv")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -980,9 +641,8 @@ motion_mirroring = Vector2(1600, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Middle"]
-modulate = Color(0.137255, 0.0235294, 0.254902, 1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("37_hbyjg")
+texture = ExtResource("34_ivopd")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -994,10 +654,9 @@ motion_mirroring = Vector2(1600, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/MiddleFront"]
-modulate = Color(0.0431373, 0.00392157, 0.0980392, 1)
 light_mask = 21
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("38_rlvru")
+texture = ExtResource("5_hlxwn")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -1009,9 +668,8 @@ motion_mirroring = Vector2(1600, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene Objects/WorldBoundary/ForestBackground/Front"]
-self_modulate = Color(0.313726, 0, 0.368627, 1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("39_v3s83")
+texture = ExtResource("6_qgdvd")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -1023,6 +681,7 @@ motion_mirroring = Vector2(1656, 0)
 metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Scene Objects/WorldBoundary/ForestBackground/Ground"]
+visible = false
 offset_left = -491.0
 offset_top = 788.0
 offset_right = 1686.0
@@ -1035,120 +694,119 @@ visible = false
 color = Color(0.156863, 0.372549, 0.364706, 1)
 
 [node name="Foliage" type="Node2D" parent="Scene Objects"]
-modulate = Color(0.0980392, 0.0823529, 0.188235, 1)
 top_level = true
 
 [node name="Sprite-09Bright" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(784, -116)
 scale = Vector2(3, 3)
-texture = ExtResource("41_uyxep")
+texture = ExtResource("36_vgw2v")
 
 [node name="Sprite-09Bright3" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(3181, 641)
 rotation = 3.14159
 scale = Vector2(3, 3)
-texture = ExtResource("41_uyxep")
+texture = ExtResource("36_vgw2v")
 
 [node name="Sprite-09Bright4" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(2157, -219)
 rotation = 3.14159
 scale = Vector2(3, 3)
-texture = ExtResource("41_uyxep")
+texture = ExtResource("36_vgw2v")
 
 [node name="Sprite-09Bright2" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(3822, 364)
 scale = Vector2(3, 3)
-texture = ExtResource("41_uyxep")
+texture = ExtResource("36_vgw2v")
 
 [node name="Sprite-08" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(4056, 431)
 scale = Vector2(3, 3)
-texture = ExtResource("42_w3i8q")
+texture = ExtResource("37_mohf2")
 
 [node name="Sprite-11" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(3169, 829)
 scale = Vector2(3, 3)
-texture = ExtResource("43_vsdgu")
+texture = ExtResource("38_pw4n2")
 
 [node name="Sprite-03" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(4542, 360)
 scale = Vector2(3, 3)
-texture = ExtResource("44_4sy3q")
+texture = ExtResource("39_7xoba")
 
 [node name="Sprite-04" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(2920, 791)
 scale = Vector2(3, 3)
-texture = ExtResource("44_4sy3q")
+texture = ExtResource("39_7xoba")
 
 [node name="Sprite-10Grass" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(3830, -72)
 scale = Vector2(3, 3)
-texture = ExtResource("45_573f7")
+texture = ExtResource("40_k1pbd")
 
 [node name="Sprite-10Grass2" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(3024, -26)
 scale = Vector2(3, 3)
-texture = ExtResource("45_573f7")
+texture = ExtResource("40_k1pbd")
 
 [node name="Sprite-08Bright" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(685, 333)
 scale = Vector2(3, 3)
-texture = ExtResource("46_02efe")
+texture = ExtResource("41_x2bka")
 
 [node name="Sprite-19" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(1824, -101)
 scale = Vector2(3, 3)
-texture = ExtResource("47_p83y8")
+texture = ExtResource("42_tfmn3")
 
 [node name="Ferns-Sprite-12" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(4411, 401)
 scale = Vector2(3, 3)
-texture = ExtResource("48_1paht")
+texture = ExtResource("43_y5221")
 
 [node name="Ferns-Sprite-13" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(902, 543)
 scale = Vector2(3, 3)
-texture = ExtResource("48_1paht")
+texture = ExtResource("43_y5221")
 
 [node name="Ferns-Sprite-14" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(3637, -82)
 scale = Vector2(3, 3)
-texture = ExtResource("48_1paht")
+texture = ExtResource("43_y5221")
 
 [node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Foliage"]
 position = Vector2(2917, 305)
 rotation = 3.14159
 scale = Vector2(3, 3)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(254, 2, 22, 142)
 
 [node name="Sprite-13" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(1602, -75)
 scale = Vector2(3, 3)
-texture = ExtResource("50_wcp4w")
+texture = ExtResource("45_bq2kk")
 
 [node name="Fern-sprite-01" type="Sprite2D" parent="Scene Objects/Foliage"]
-material = ExtResource("40_xif3o")
+material = ExtResource("35_ldxjh")
 position = Vector2(1583, 198)
 scale = Vector2(3, 3)
-texture = ExtResource("51_um44y")
+texture = ExtResource("46_drigg")
 
 [node name="Vines" type="ParallaxBackground" parent="Scene Objects"]
 layer = 1
@@ -1162,28 +820,28 @@ position = Vector2(2163, -16)
 [node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D2"]
 position = Vector2(0, -329)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D2"]
 position = Vector2(0, 116)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D2"]
 position = Vector2(0, 561)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D2"]
 position = Vector2(0, 1006)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
@@ -1193,28 +851,28 @@ position = Vector2(4030, -113)
 [node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D"]
 position = Vector2(0, -329)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D"]
 position = Vector2(0, 116)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D"]
 position = Vector2(0, 561)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D"]
 position = Vector2(0, 1006)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
@@ -1224,28 +882,28 @@ position = Vector2(5508, 30)
 [node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D3"]
 position = Vector2(0, -329)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D3"]
 position = Vector2(0, 116)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D3"]
 position = Vector2(0, 561)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D3"]
 position = Vector2(0, 1006)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
@@ -1255,28 +913,28 @@ position = Vector2(7554, -174)
 [node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D5"]
 position = Vector2(0, -329)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D5"]
 position = Vector2(0, 116)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D5"]
 position = Vector2(0, 561)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Further/Node2D5"]
 position = Vector2(0, 1006)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
@@ -1286,7 +944,7 @@ motion_scale = Vector2(2.3, 1)
 [node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Closer"]
 position = Vector2(4680, 975)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(108, 5, 81, 91)
 
@@ -1296,58 +954,47 @@ position = Vector2(1699, -96)
 [node name="NatureTiles4" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D5"]
 position = Vector2(0, -329)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D5"]
 position = Vector2(0, 116)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D5"]
 position = Vector2(0, 561)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles3" type="Sprite2D" parent="Scene Objects/Vines/Closer/Node2D5"]
 position = Vector2(0, 1006)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(204, 52, 16, 92)
 
 [node name="NatureTiles2" type="Sprite2D" parent="Scene Objects/Vines/Closer"]
 position = Vector2(9337, 546)
 scale = Vector2(5, 5)
-texture = ExtResource("49_k2gun")
+texture = ExtResource("44_xmlcd")
 region_enabled = true
 region_rect = Rect2(108, 5, 81, 91)
 
 [node name="CanvasModulate2" type="CanvasModulate" parent="Scene Objects/Vines"]
 color = Color(0.0980392, 0.0823529, 0.188235, 1)
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Scene Objects"]
-position = Vector2(-1244, -128)
-rotation = -0.221657
-editor_only = true
-energy = 7.07
-range_item_cull_mask = 0
-shadow_enabled = true
-shadow_color = Color(0.12549, 0, 0.184314, 0.105882)
-shadow_filter = 1
-height = 1.0
-
 [node name="GodRays" type="Node2D" parent="Scene Objects"]
 position = Vector2(-1244, -128)
 
 [node name="ColorRect2" type="ColorRect" parent="Scene Objects/GodRays"]
 light_mask = 0
-material = SubResource("ShaderMaterial_v58vs")
+material = SubResource("ShaderMaterial_dvwjf")
 offset_left = 5079.0
 offset_top = -835.0
 offset_right = 6873.0
@@ -1355,35 +1002,33 @@ offset_bottom = 614.0
 
 [node name="Bonfires" type="Node2D" parent="Scene Objects"]
 
-[node name="Fire" parent="Scene Objects/Bonfires" instance=ExtResource("29_r5yhc")]
+[node name="Fire" parent="Scene Objects/Bonfires" instance=ExtResource("48_jdvdq")]
 z_index = -1
 position = Vector2(2569, 672)
 
-[node name="Fire2" parent="Scene Objects/Bonfires" instance=ExtResource("29_r5yhc")]
+[node name="Fire2" parent="Scene Objects/Bonfires" instance=ExtResource("48_jdvdq")]
 z_index = -1
 position = Vector2(3336, 292)
 
-[node name="Fire3" parent="Scene Objects/Bonfires" instance=ExtResource("29_r5yhc")]
+[node name="Fire3" parent="Scene Objects/Bonfires" instance=ExtResource("48_jdvdq")]
 z_index = -1
 position = Vector2(3480, 288)
 
-[node name="Fire4" parent="Scene Objects/Bonfires" instance=ExtResource("29_r5yhc")]
+[node name="Fire4" parent="Scene Objects/Bonfires" instance=ExtResource("48_jdvdq")]
 z_index = -1
 position = Vector2(1464, 240)
 
-[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "game_manager", "hearts_panel")]
+[node name="UI" type="CanvasLayer" parent="."]
 layer = 2
-script = ExtResource("53_c4axu")
-player = NodePath("../Scene Objects/CharacterBody2D")
-game_manager = NodePath("../GameManager")
-hearts_panel = NodePath("HeartsPanel")
+visible = false
+script = ExtResource("49_rqv6p")
 
 [node name="HeartsPanel" type="Panel" parent="UI"]
 offset_left = 931.0
 offset_top = 11.0
 offset_right = 1067.0
 offset_bottom = 60.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_uw2tw")
+theme_override_styles/panel = SubResource("StyleBoxFlat_hd26c")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="UI/HeartsPanel"]
 layout_mode = 1
@@ -1403,21 +1048,21 @@ grow_vertical = 2
 texture_filter = 1
 use_parent_material = true
 layout_mode = 2
-texture = ExtResource("54_7pseb")
+texture = ExtResource("50_lk2ix")
 expand_mode = 4
 
 [node name="Heart2" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
 texture_filter = 1
 use_parent_material = true
 layout_mode = 2
-texture = ExtResource("54_7pseb")
+texture = ExtResource("50_lk2ix")
 expand_mode = 4
 
 [node name="Heart3" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
 texture_filter = 1
 use_parent_material = true
 layout_mode = 2
-texture = ExtResource("54_7pseb")
+texture = ExtResource("50_lk2ix")
 expand_mode = 4
 
 [node name="CoinsPanel" type="Panel" parent="UI"]
@@ -1426,7 +1071,7 @@ offset_left = 6.0
 offset_top = 11.0
 offset_right = 218.0
 offset_bottom = 60.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rgkpc")
+theme_override_styles/panel = SubResource("StyleBoxFlat_gid1f")
 metadata/_edit_use_anchors_ = true
 
 [node name="PointsLabel" type="Label" parent="UI/CoinsPanel"]
@@ -1442,14 +1087,72 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("55_am12k")
+theme_override_fonts/font = ExtResource("51_6emme")
 theme_override_font_sizes/font_size = 45
 text = "Fruits: "
 vertical_alignment = 1
 
-[node name="Pause" parent="UI" instance=ExtResource("56_atjta")]
+[node name="Pause" parent="UI" instance=ExtResource("52_qr36e")]
 
-[connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="Background"]
+modulate = Color(0.827451, 0.52549, 0.815686, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_mrace")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -29.0
+offset_right = 55.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j63vk")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ForestBg" type="TextureRect" parent="Background"]
+modulate = Color(1, 0.376471, 1, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_ycv6y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = 92.0
+offset_right = 1955.0
+offset_bottom = 1244.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_hlxwn")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="ForestBg2" type="TextureRect" parent="Background"]
+modulate = Color(1, 0.376471, 1, 1)
+texture_filter = 1
+material = SubResource("ShaderMaterial_nk0m8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = 170.0
+offset_right = 2010.0
+offset_bottom = 1322.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_qgdvd")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/Traps group/Chained_Ball2/StaticBody2D/Area2D" to="Scene Objects/Traps group/Chained_Ball2" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Scene Objects/Traps group/Chained_Ball3/StaticBody2D/Area2D" to="Scene Objects/Traps group/Chained_Ball3" method="_on_area_2d_body_entered"]
