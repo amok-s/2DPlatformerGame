@@ -1,7 +1,8 @@
-[gd_scene load_steps=78 format=3 uid="uid://di2kg2jr0hbbd"]
+[gd_scene load_steps=79 format=3 uid="uid://di2kg2jr0hbbd"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_aitpp"]
 [ext_resource type="AudioStream" uid="uid://c2o6ixyw58pvo" path="res://assets/sounds/ambient-dream-16671.mp3" id="2_7ts6u"]
+[ext_resource type="PackedScene" uid="uid://hjsn053tjil6" path="res://scenes/owl_noises.tscn" id="2_gxf0m"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_5k2gm"]
 [ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="4_fus62"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_36jbb"]
@@ -216,6 +217,8 @@ current_arc = 3
 end_of_arc = true
 metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]
+
+[node name="OwlNoises" parent="." instance=ExtResource("2_gxf0m")]
 
 [node name="BgMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3

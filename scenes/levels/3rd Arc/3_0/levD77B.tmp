@@ -105,6 +105,7 @@ lvlname = "lvl3_0"
 show_text_sfx = false
 fruits_left_to_show_sfx = 5
 current_arc = 3
+end_of_arc = null
 intro = true
 metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]

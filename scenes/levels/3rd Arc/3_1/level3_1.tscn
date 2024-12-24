@@ -1,7 +1,8 @@
-[gd_scene load_steps=75 format=3 uid="uid://d1g6vkq72jyre"]
+[gd_scene load_steps=76 format=3 uid="uid://d1g6vkq72jyre"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_gou5u"]
 [ext_resource type="AudioStream" uid="uid://c2o6ixyw58pvo" path="res://assets/sounds/ambient-dream-16671.mp3" id="2_3r8o2"]
+[ext_resource type="PackedScene" uid="uid://hjsn053tjil6" path="res://scenes/owl_noises.tscn" id="3_ftnfk"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_nyp75"]
 [ext_resource type="PackedScene" uid="uid://di2kg2jr0hbbd" path="res://scenes/levels/3rd Arc/3_2/level3_2.tscn" id="4_7xrog"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_43yw1"]
@@ -244,6 +245,8 @@ process_mode = 3
 stream = ExtResource("2_3r8o2")
 volume_db = -25.0
 bus = &"Music"
+
+[node name="OwlNoises" parent="." instance=ExtResource("3_ftnfk")]
 
 [node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("player", "hearts")]
 unique_name_in_owner = true
