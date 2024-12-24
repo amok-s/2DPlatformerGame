@@ -810,7 +810,6 @@ region_rect = Rect2(108, 5, 81, 91)
 color = Color(0.690196, 0, 0.670588, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 position = Vector2(-1244, -128)
 rotation = -0.221657
 editor_only = true
@@ -896,6 +895,7 @@ text = "Fruits: "
 vertical_alignment = 1
 
 [node name="Pause" parent="UI" instance=ExtResource("44_6pqf7")]
+visible = false
 
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
 [connection signal="body_entered" from="Scene Objects/WorldBoundary" to="Scene Objects/WorldBoundary" method="_on_body_entered"]

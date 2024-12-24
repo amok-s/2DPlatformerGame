@@ -28,7 +28,7 @@ func Exit():
 	
 func Update(_delta:float):
 	if direction:
-		bat.velocity = direction * 270
+		bat.velocity = (direction - bat.global_position).normalized() * 270
 	if current_position:
 		if bat.global_position.distance_to(current_position.position) < 10:
 			get_next_position()
@@ -44,7 +44,9 @@ func get_next_position():
 	if temp_positions.is_empty():
 		get_positions()
 	current_position = temp_positions.pop_front()
-	direction = bat.to_local(current_position.position).normalized()
+	direction = current_position.global_position
 
 func replay_chirping():
 	$"../../Chirping".play(0)
+	$"../../Chirping".connect("finished", replay_chirping)
+

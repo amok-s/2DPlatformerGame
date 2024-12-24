@@ -374,4 +374,6 @@ stream = ExtResource("13_nu6qr")
 volume_db = -12.0
 pitch_scale = 3.0
 
+[node name="FlyingTime" type="Timer" parent="."]
+
 [connection signal="body_entered" from="DamageCollision" to="." method="_on_damage_collision_body_entered"]
