@@ -64,6 +64,7 @@ func _on_area_2d_body_entered(body):
 			wait_time = false
 			%GameManager.spawn_blink()
 			%GameManager.spawn_sfx("kill", position + Vector2(0, -25))
+			Stats.plants_killed += 1
 			collision_shape_2d.queue_free()
 			area_2d.queue_free()
 			body.velocity.y = -450

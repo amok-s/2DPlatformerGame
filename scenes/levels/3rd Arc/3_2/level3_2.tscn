@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://c2o6ixyw58pvo" path="res://assets/sounds/ambient-dream-16671.mp3" id="2_7ts6u"]
 [ext_resource type="PackedScene" uid="uid://hjsn053tjil6" path="res://scenes/owl_noises.tscn" id="2_gxf0m"]
 [ext_resource type="Script" path="res://Scripts/game_manager.gd" id="3_5k2gm"]
-[ext_resource type="PackedScene" uid="uid://3kqxe67swqec" path="res://scenes/main_menu.tscn" id="4_fus62"]
+[ext_resource type="PackedScene" uid="uid://bvg3w8xmnoosk" path="res://scenes/levels/Credits/credits_2.tscn" id="5_0gpnx"]
 [ext_resource type="PackedScene" uid="uid://drxixdixet3ak" path="res://scenes/chroma_chaos.tscn" id="5_36jbb"]
 [ext_resource type="PackedScene" uid="uid://ddubbhm0iinsw" path="res://scenes/shockwave.tscn" id="6_qwepb"]
 [ext_resource type="PackedScene" uid="uid://d3jdc3iu34hpr" path="res://scenes/arrow.tscn" id="7_yxq1l"]
@@ -231,7 +231,7 @@ unique_name_in_owner = true
 script = ExtResource("3_5k2gm")
 player = NodePath("../Scene Objects/CharacterBody2D")
 hearts = [NodePath("../UI/HeartsPanel/HBoxContainer/Heart"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart2"), NodePath("../UI/HeartsPanel/HBoxContainer/Heart3")]
-next_level = ExtResource("4_fus62")
+next_level = ExtResource("5_0gpnx")
 chroma_chaos = ExtResource("5_36jbb")
 shockwave = ExtResource("6_qwepb")
 arrow = ExtResource("7_yxq1l")
@@ -929,7 +929,7 @@ position = Vector2(-9, 402)
 shape = SubResource("WorldBoundaryShape2D_kime1")
 
 [node name="ForestBackground" type="ParallaxBackground" parent="Scene Objects/WorldBoundary"]
-scroll_offset = Vector2(69.84, 72.75)
+scroll_offset = Vector2(1934.26, 362.729)
 
 [node name="Sky" type="ParallaxLayer" parent="Scene Objects/WorldBoundary/ForestBackground"]
 modulate = Color(0.0862745, 0.109804, 0.27451, 1)
@@ -1152,6 +1152,7 @@ texture = ExtResource("51_um44y")
 
 [node name="Vines" type="ParallaxBackground" parent="Scene Objects"]
 layer = 1
+scroll_offset = Vector2(1934.26, 362.729)
 
 [node name="Further" type="ParallaxLayer" parent="Scene Objects/Vines"]
 motion_scale = Vector2(2, 1)

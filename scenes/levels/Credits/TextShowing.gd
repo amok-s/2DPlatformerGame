@@ -221,6 +221,7 @@ func SceneryChange():
 
 func Credits():
 	$"../CameraChanges".cameraChangeZoom(Vector2(1, 1), 2.4)
+	await get_tree().create_timer(1.5).timeout
 	await SceneryChange()
 	
 	var text = text_group.get_node("A6_Credits")
@@ -292,7 +293,10 @@ func _on_area_01_body_entered(body):
 func _on_area_02_body_entered(body):
 	if !A2_trigger and body.name == "CharacterBody2D":
 		A2_trigger = true
-		%Camera2D.limit_left = 246
+		%Camera2D.limit_left = 0
+		var tween = get_tree().create_tween()
+		tween.tween_property(%Camera2D, "limit_left", 246, 5)
+		tween.set_ease(Tween.EASE_IN_OUT)
 		await get_tree().create_timer(2).timeout
 		await DeathCount()
 		await FruitsCount()
