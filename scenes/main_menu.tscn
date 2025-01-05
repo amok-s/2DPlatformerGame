@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://3kqxe67swqec"]
+[gd_scene load_steps=50 format=3 uid="uid://3kqxe67swqec"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1md1s"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="2_dvh2t"]
@@ -28,6 +28,8 @@
 [ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="21_ck7jc"]
 [ext_resource type="Theme" uid="uid://dqynmk80512hb" path="res://assets/UI/levels_box.tres" id="21_is8a3"]
 [ext_resource type="Script" path="res://Scripts/StatsBox.gd" id="23_kpss0"]
+[ext_resource type="Script" path="res://Scripts/quit_menu.gd" id="28_yjt55"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="29_skww3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifu7e"]
 shader = ExtResource("3_w0qj5")
@@ -145,6 +147,12 @@ region_rect = Rect2(0, 385, 64, 62)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lbxg"]
 bg_color = Color(0, 0, 0, 0.360784)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6w3fs"]
+shader = ExtResource("29_skww3")
+shader_parameter/outerRadius = 1.337
+shader_parameter/MainAlpha = 0.421
+shader_parameter/vignette_color = null
 
 [node name="MainMenuScreen" type="Node"]
 script = ExtResource("1_1md1s")
@@ -740,6 +748,52 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 14
 text = "mobs killed:"
 
+[node name="Quit" type="Control" parent="Menu"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("28_yjt55")
+
+[node name="Panel" type="Panel" parent="Menu/Quit"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 228.0
+offset_right = 541.0
+offset_bottom = 344.0
+scale = Vector2(2, 2)
+theme = ExtResource("11_e0m1u")
+
+[node name="Label" type="Label" parent="Menu/Quit/Panel"]
+offset_left = 52.5
+offset_top = 20.0
+offset_right = 162.5
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+text = "Are you sure?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Quit/Panel"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 55.0
+offset_right = 187.0
+offset_bottom = 99.0
+theme_override_constants/separation = 20
+
+[node name="Yes" type="Button" parent="Menu/Quit/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="No" type="Button" parent="Menu/Quit/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No
+"
+
 [node name="Footer" type="Panel" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
@@ -752,6 +806,7 @@ offset_bottom = 29.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_3lbxg")
+metadata/_edit_lock_ = true
 
 [node name="TitleBox" type="Panel" parent="."]
 layout_direction = 1
@@ -792,6 +847,17 @@ bosque"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="Vignette" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Vignette"]
+material = SubResource("ShaderMaterial_6w3fs")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="finished" from="MenuMusic" to="." method="_on_menu_music_finished"]
 [connection signal="pressed" from="Menu/MenuBox/MainMenu/Play" to="." method="_on_play_button_pressed"]
@@ -812,3 +878,5 @@ vertical_alignment = 2
 [connection signal="toggled" from="Menu/OptionsMenu/Options/VBoxContainer/FullScreen" to="Menu/OptionsMenu/Options" method="_on_full_screen_toggled"]
 [connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/HBoxContainer/Default" to="Menu/OptionsMenu/Options" method="_on_default_pressed"]
 [connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Menu/Quit/Panel/HBoxContainer/Yes" to="Menu/Quit" method="_on_yes_pressed"]
+[connection signal="pressed" from="Menu/Quit/Panel/HBoxContainer/No" to="Menu/Quit" method="_on_no_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bvg3w8xmnoosk"]
+[gd_scene load_steps=71 format=3 uid="uid://bvg3w8xmnoosk"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_ytnak"]
 [ext_resource type="AudioStream" uid="uid://snko6mjxlu2r" path="res://assets/Music/Auriel's Ascension.mp3" id="2_tklqr"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="44_p4hjl"]
 [ext_resource type="Shader" path="res://shaders/god_rays.gdshader" id="44_qhv28"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="45_3io7r"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="46_cfje8"]
 [ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="46_h6ool"]
 
 [sub_resource type="Curve" id="Curve_hagio"]
@@ -192,6 +193,12 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 corner_detail = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vxnb"]
+shader = ExtResource("46_cfje8")
+shader_parameter/outerRadius = 2.539
+shader_parameter/MainAlpha = 0.656
+shader_parameter/vignette_color = Color(0.501961, 0.156863, 0.243137, 1)
 
 [node name="Level4_0" type="Node"]
 script = ExtResource("1_ytnak")
@@ -1461,6 +1468,16 @@ vertical_alignment = 1
 visible = false
 
 [node name="Credits" type="Node" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_8vxnb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]

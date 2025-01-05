@@ -13,6 +13,7 @@ var center : Vector2
 @onready var title_text = $TitleBox/TitleText
 @onready var v_box_container = $Menu/MenuBox/MainMenu
 var inputs : Array[String]
+var can_esc : bool = true
 
 func godot_bug_fix(text):
 	text = text.c_escape()
@@ -37,7 +38,7 @@ func _process(delta):
 	
 	tween.tween_property(bg_elements, "position", offset, 1.0)
 	
-	if Input.is_action_just_pressed("escape"):
+	if Input.is_action_just_pressed("escape") and can_esc:
 		esc_pressed()
 		
 
@@ -61,7 +62,7 @@ func _on_play_button_pressed():
 
 
 func _on_quit_pressed():
-	get_tree().quit() 
+	quit_menu()
 
 func _on_options_pressed():
 	tap_sound.play(0)
@@ -125,4 +126,10 @@ func _unhandled_input(event):
 	if event.is_action("ui_down") and event.is_released():
 		konami_code("down")
 
-
+func quit_menu():
+	tap_sound.play(0)
+	$Menu/MenuBox.hide()
+	$TitleBox.hide()
+	$Menu/Quit.show()
+	$Menu/Quit/Panel/HBoxContainer/Yes.grab_focus()
+	
