@@ -766,6 +766,7 @@ scale = Vector2(2, 2)
 theme = ExtResource("11_e0m1u")
 
 [node name="Label" type="Label" parent="Menu/Quit/Panel"]
+layout_mode = 0
 offset_left = 52.5
 offset_top = 20.0
 offset_right = 162.5

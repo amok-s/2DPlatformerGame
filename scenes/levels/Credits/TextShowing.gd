@@ -265,9 +265,13 @@ func Credits():
 	await get_tree().create_timer(5).timeout
 	
 func Finish():
+	var vignette = $"../../Vignette/ColorRect".get_material()
 	var tween = get_tree().create_tween()
-	tween.tween_property($"../Black", "color", Color(0, 0, 0), 8)
-	await get_tree().create_timer(5).timeout
+	tween.tween_property(vignette, "shader_parameter/outerRadius", 0, 6)
+	var tween_2 = get_tree().create_tween()
+	tween_2.tween_property(vignette, "shader_parameter/MainAlpha", 1, 5)
+	
+	await get_tree().create_timer(7).timeout
 	
 	var newScene = ResourceLoader.load_threaded_get(%GameManager.next_level.resource_path)
 	SceneTransition.change_scene(newScene)
