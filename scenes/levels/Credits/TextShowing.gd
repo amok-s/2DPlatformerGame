@@ -38,6 +38,7 @@ func modulate_tween(node, time : float, color):
 func _ready():
 	for child in text_group.get_children(): 
 		child.hide()
+		
 
 func _process(delta):
 	pass
@@ -47,8 +48,10 @@ func DeathCount():
 	for child in text.get_children():
 		child.hide()
 		text.show()
-	
-	text.get_node("DeathCount").append_text("you only died [wave amp=50.0 freq=5.0 connected=1][color=magenta]%s times...[/color][/wave]" % [Stats.global_deaths])
+	if Stats.global_deaths == 0:
+		text.get_node("DeathCount").append_text("you [wave amp=50.0 freq=5.0 connected=1][color=magenta]never died![/color][/wave]")
+	else:
+		text.get_node("DeathCount").append_text("you only died [wave amp=50.0 freq=5.0 connected=1][color=magenta]%s times...[/color][/wave]" % [Stats.global_deaths])
 
 	
 	fade_tween(text.get_node("OpeningText"), 0.7)
@@ -91,21 +94,20 @@ func MobCount():
 	for child in text.get_children():
 		child.hide()
 		text.show()
-	
-	text.get_node("MobCount").append_text("you killed [shake rate=20.0 level=5 connected=1][color=magenta]%s mobs...[/color][/shake]" % [Stats.mobs_killed])
-	text.get_node("Mushroom").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s mushrooms...[/color][/shake]" % [Stats.mushroom_killed])
-	text.get_node("Chameleon").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s chameleons...[/color][/shake]" % [Stats.chameleon_killed])
-	text.get_node("Plant").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s plants...[/color][/shake]" % [Stats.plants_killed])
-	text.get_node("Bee").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s bees...[/color][/shake]" % [Stats.bee_killed])
-	text.get_node("Bat").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s bats...[/color][/shake]" % [Stats.bat_killed])
-	text.get_node("Turtle").append_text("bounced on [wave amp=50.0 freq=5.0 connected=1][color=magenta]%s turtles...[/color][/wave]" % [Stats.turtle_bounced])
 
 
+
+	#opening line and mob count
+	if Stats.mobs_killed == 0:
+		text.get_node("OpeningText").text = "and what's great..."
+		text.get_node("MobCount").append_text("you [shake rate=20.0 level=5 connected=1][color=magenta]didn't kill [/color][/shake] any mobs")
+	else:
+		text.get_node("MobCount").append_text("you killed [shake rate=20.0 level=5 connected=1][color=magenta]%s mobs...[/color][/shake]" % [Stats.mobs_killed])
 	fade_tween(text.get_node("OpeningText"), 0.7)
 	offset_tween(text.get_node("OpeningText"), 1, Vector2(0, - 40))
 	await get_tree().create_timer(1.4).timeout
 	fade_tween(text.get_node("OpeningText"), 0.7, false)
-	
+
 	await get_tree().create_timer(0.5).timeout
 	fade_tween(text.get_node("MobCount"), 0.7)
 	offset_tween(text.get_node("MobCount"), 1, Vector2(0, - 40))
@@ -113,27 +115,63 @@ func MobCount():
 	fade_tween(text.get_node("MobCount"), 0.7, false)
 	
 	await get_tree().create_timer(0.9).timeout
-	fade_tween(text.get_node("Including"), 0.7)
-	offset_tween(text.get_node("Including"), 1, Vector2(0, - 40))
-	await get_tree().create_timer(2).timeout
-	fade_tween(text.get_node("Including"), 0.7, false)
 	
-	await get_tree().create_timer(0.9).timeout
-	fade_tween(text.get_node("Mushroom"), 0.7)
-	offset_tween(text.get_node("Mushroom"), 1, Vector2(0, - 40))
-	await get_tree().create_timer(0.6).timeout
-	fade_tween(text.get_node("Bee"), 0.7)
-	offset_tween(text.get_node("Bee"), 1, Vector2(0, - 40))
-	await get_tree().create_timer(0.4).timeout
-	fade_tween(text.get_node("Chameleon"), 0.7)
-	offset_tween(text.get_node("Chameleon"), 1, Vector2(0, - 40))
-	await get_tree().create_timer(0.6).timeout
-	fade_tween(text.get_node("Plant"), 0.7)
-	offset_tween(text.get_node("Plant"), 1, Vector2(0, - 40))
-	await get_tree().create_timer(0.8).timeout
-	fade_tween(text.get_node("Bat"), 0.7)
-	offset_tween(text.get_node("Bat"), 1, Vector2(0, - 40))
-	await get_tree().create_timer(1.4).timeout
+	if Stats.mobs_killed > 0 :
+		fade_tween(text.get_node("Including"), 0.7)
+		offset_tween(text.get_node("Including"), 1, Vector2(0, - 40))
+		await get_tree().create_timer(2).timeout
+		fade_tween(text.get_node("Including"), 0.7, false)
+		await get_tree().create_timer(0.9).timeout
+	
+	#mushrooms
+	if Stats.mushroom_killed > 0:
+		if Stats.mushroom_killed == 1:
+			text.get_node("Mushroom").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s mushroom...[/color][/shake]" % [Stats.mushroom_killed])
+		else:
+			text.get_node("Mushroom").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s mushrooms...[/color][/shake]" % [Stats.mushroom_killed])
+		fade_tween(text.get_node("Mushroom"), 0.7)
+		offset_tween(text.get_node("Mushroom"), 1, Vector2(0, - 40))
+		await get_tree().create_timer(0.6).timeout
+
+	#bees
+	if Stats.bee_killed > 0:
+		if Stats.bee_killed == 1:
+			text.get_node("Bee").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s bee...[/color][/shake]" % [Stats.bee_killed])
+		else:
+			text.get_node("Bee").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s bees...[/color][/shake]" % [Stats.bee_killed])
+		fade_tween(text.get_node("Bee"), 0.7)
+		offset_tween(text.get_node("Bee"), 1, Vector2(0, - 40))
+		await get_tree().create_timer(0.4).timeout
+
+	#chameleons
+	if Stats.chameleon_killed > 0:
+		if Stats.chameleon_killed == 1:
+			text.get_node("Chameleon").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s chameleon...[/color][/shake]" % [Stats.chameleon_killed])
+		else:
+			text.get_node("Chameleon").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s chameleons...[/color][/shake]" % [Stats.chameleon_killed])
+		fade_tween(text.get_node("Chameleon"), 0.7)
+		offset_tween(text.get_node("Chameleon"), 1, Vector2(0, - 40))
+		await get_tree().create_timer(0.6).timeout
+
+	#plants
+	if Stats.plants_killed > 0:
+		if Stats.plants_killed == 1:
+			text.get_node("Plant").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s plant...[/color][/shake]" % [Stats.plants_killed])
+		else:
+			text.get_node("Plant").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s plants...[/color][/shake]" % [Stats.plants_killed])
+		fade_tween(text.get_node("Plant"), 0.7)
+		offset_tween(text.get_node("Plant"), 1, Vector2(0, - 40))
+		await get_tree().create_timer(0.8).timeout
+
+	#bats
+	if Stats.bat_killed > 0:
+		if Stats.bat_killed == 1:
+			text.get_node("Bat").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s bat...[/color][/shake]" % [Stats.bat_killed])
+		else:
+			text.get_node("Bat").append_text("[shake rate=20.0 level=5 connected=1][color=magenta]%s bats...[/color][/shake]" % [Stats.bat_killed])
+		fade_tween(text.get_node("Bat"), 0.7)
+		offset_tween(text.get_node("Bat"), 1, Vector2(0, - 40))
+		await get_tree().create_timer(1.4).timeout
 	
 	fade_tween(text.get_node("Bat"), 0.7, false)
 	fade_tween(text.get_node("Plant"), 0.7, false)
@@ -141,23 +179,26 @@ func MobCount():
 	fade_tween(text.get_node("Bee"), 0.7, false)
 	fade_tween(text.get_node("Mushroom"), 0.7, false)
 	
-	await get_tree().create_timer(1.3).timeout
-	fade_tween(text.get_node("Also"), 0.7)
-	offset_tween(text.get_node("Also"), 1, Vector2(0, - 40))
-	await get_tree().create_timer(1.5).timeout
-	fade_tween(text.get_node("Also"), 0.7, false)
-	
-	await get_tree().create_timer(1.2).timeout
-	fade_tween(text.get_node("Turtle"), 0.7)
-	offset_tween(text.get_node("Turtle"), 1, Vector2(0, - 40))
-	await get_tree().create_timer(1.5).timeout
-	fade_tween(text.get_node("Turtle"), 0.7, false)
-	
-	await get_tree().create_timer(1.5).timeout
-	fade_tween(text.get_node("NotBad"), 0.7)
-	offset_tween(text.get_node("NotBad"), 1, Vector2(0, - 40))
-	await get_tree().create_timer(1.5).timeout
-	fade_tween(text.get_node("NotBad"), 0.7, false)
+	#turtle bounces
+	if Stats.turtle_bounced > 0:
+		text.get_node("Turtle").append_text("bounced on [wave amp=50.0 freq=5.0 connected=1][color=magenta]%s turtles...[/color][/wave]" % [Stats.turtle_bounced])
+		await get_tree().create_timer(1.3).timeout
+		fade_tween(text.get_node("Also"), 0.7)
+		offset_tween(text.get_node("Also"), 1, Vector2(0, - 40))
+		await get_tree().create_timer(1.5).timeout
+		fade_tween(text.get_node("Also"), 0.7, false)
+		
+		await get_tree().create_timer(1.2).timeout
+		fade_tween(text.get_node("Turtle"), 0.7)
+		offset_tween(text.get_node("Turtle"), 1, Vector2(0, - 40))
+		await get_tree().create_timer(1.5).timeout
+		fade_tween(text.get_node("Turtle"), 0.7, false)
+		
+		await get_tree().create_timer(1.5).timeout
+		fade_tween(text.get_node("NotBad"), 0.7)
+		offset_tween(text.get_node("NotBad"), 1, Vector2(0, - 40))
+		await get_tree().create_timer(1.5).timeout
+		fade_tween(text.get_node("NotBad"), 0.7, false)
 
 func FinishText():
 	var text = text_group.get_node("A5_Finish")
