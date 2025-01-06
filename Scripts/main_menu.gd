@@ -22,6 +22,9 @@ func godot_bug_fix(text):
 	return text
 
 func _ready():
+	$Vignette/ColorRect.show()
+	var vignette = $Vignette/ColorRect.get_material()
+	
 	GlobalLevelManager.music_time = 0
 	menu_music.play(0.5)
 	center = Vector2(10, 20)
@@ -29,6 +32,9 @@ func _ready():
 	title_text.text = godot_bug_fix(title_text.text)
 	for i in v_box_container.get_children():
 		i.text = godot_bug_fix(i.text)
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(vignette, "shader_parameter/outerRadius", 1.481, 2)
 
 
 func _process(delta):
@@ -100,6 +106,7 @@ func esc_pressed():
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			$Menu/OptionsMenu/Options/VBoxContainer/FullScreen.button_pressed = false
 		
+	$Menu/Quit.hide()
 	$Menu/OptionsMenu.hide()
 	$Menu/LevelSelection.hide()
 	$TitleBox.show()

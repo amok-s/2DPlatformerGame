@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bvg3w8xmnoosk"]
+[gd_scene load_steps=76 format=3 uid="uid://bvg3w8xmnoosk"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_ytnak"]
 [ext_resource type="AudioStream" uid="uid://snko6mjxlu2r" path="res://assets/Music/Auriel's Ascension.mp3" id="2_tklqr"]
@@ -12,12 +12,14 @@
 [ext_resource type="AudioStream" uid="uid://cswepxn7em1h8" path="res://assets/sounds/080245_sfx-magic-84935.mp3" id="10_gb8r4"]
 [ext_resource type="Script" path="res://scenes/levels/Credits/TextShowing.gd" id="11_2copn"]
 [ext_resource type="TileSet" uid="uid://olai71bktxcp" path="res://scenes/levels/tile_map.tres" id="11_dpage"]
+[ext_resource type="Script" path="res://Scripts/ShadowAreas.gd" id="11_ji2h3"]
 [ext_resource type="Script" path="res://Scripts/camera_changes.gd" id="11_vdpyi"]
 [ext_resource type="PackedScene" uid="uid://brnrrjstww3s4" path="res://scenes/main_character.tscn" id="12_f1skt"]
 [ext_resource type="Script" path="res://scenes/levels/Credits/Camera_01.gd" id="12_ncepw"]
 [ext_resource type="Shader" path="res://shaders/outline.gdshader" id="13_0t7bi"]
 [ext_resource type="Script" path="res://scenes/levels/Credits/Camera_02.gd" id="13_4wfm5"]
 [ext_resource type="PackedScene" uid="uid://bgofhyubxfncd" path="res://scenes/collectable.tscn" id="14_amo4x"]
+[ext_resource type="Script" path="res://scenes/levels/Credits/Camera_03.gd" id="14_fu03e"]
 [ext_resource type="Script" path="res://Scripts/fall_area.gd" id="19_m23mg"]
 [ext_resource type="Shader" path="res://shaders/chromatic_abberation.gdshader" id="20_uj8dm"]
 [ext_resource type="Texture2D" uid="uid://cob1pi5a48cv4" path="res://assets/OtherSprites/2d_lights_and_shadows_neutral_point_light.webp" id="21_sgmtn"]
@@ -46,6 +48,12 @@
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="45_3io7r"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="46_cfje8"]
 [ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="46_h6ool"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdkbb"]
+size = Vector2(217, 121.333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnqlb"]
+size = Vector2(124.666, 79.3333)
 
 [sub_resource type="Curve" id="Curve_hagio"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -92,6 +100,9 @@ size = Vector2(875, 433)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5d7of"]
 size = Vector2(417, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7iytc"]
+size = Vector2(256, 143)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px5w7"]
 size = Vector2(344, 93.5)
@@ -250,6 +261,19 @@ grow_horizontal = 0
 grow_vertical = 0
 color = Color(0, 0.866667, 0.87451, 0.286275)
 
+[node name="ShadowAreas" type="Area2D" parent="Scene Objects"]
+position = Vector2(2776, 299)
+scale = Vector2(3, 3)
+script = ExtResource("11_ji2h3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/ShadowAreas"]
+position = Vector2(-1307.5, -88.3333)
+shape = SubResource("RectangleShape2D_kdkbb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Scene Objects/ShadowAreas"]
+position = Vector2(-1039.67, -76.6667)
+shape = SubResource("RectangleShape2D_hnqlb")
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Scene Objects"]
 position = Vector2(-1027, -543)
 amount = 45
@@ -283,6 +307,13 @@ script = ExtResource("13_4wfm5")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_02"]
 position = Vector2(714.5, 327.5)
 shape = SubResource("RectangleShape2D_5d7of")
+
+[node name="Camera_03" type="Area2D" parent="Scene Objects/CameraChanges"]
+script = ExtResource("14_fu03e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_03"]
+position = Vector2(-983, 123.5)
+shape = SubResource("RectangleShape2D_7iytc")
 
 [node name="TextShowing" type="Node2D" parent="Scene Objects"]
 script = ExtResource("11_2copn")
@@ -1019,15 +1050,15 @@ scroll_active = false
 visible = false
 
 [node name="Head" type="Label" parent="Scene Objects/Vines/Further/Text/A6_Credits/Assets"]
-offset_left = -2.0
+offset_left = -48.0
 offset_top = 45.0
-offset_right = 334.0
+offset_right = 288.0
 offset_bottom = 73.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("41_gs1tk")
 theme_override_font_sizes/font_size = 28
-text = "assets used"
+text = "free assets used"
 metadata/_edit_use_anchors_ = true
 
 [node name="Asset1" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits/Assets"]
@@ -1040,7 +1071,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "asset1 by [color=gold]Arkadiusz 'amok'"
+text = "mobs, tiles, player by [color=gold]Pixel Frog"
 fit_content = true
 scroll_active = false
 
@@ -1054,7 +1085,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "asset 2 by [color=gold]Arkadiusz 'amok'"
+text = "plants by [color=gold]SirCatlsCat"
 fit_content = true
 scroll_active = false
 
@@ -1068,7 +1099,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "asset 3 by [color=gold]Arkadiusz 'amok'"
+text = "font by [color=gold]Mounir Tohami"
 fit_content = true
 scroll_active = false
 
@@ -1082,7 +1113,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "asset 4 by [color=gold]Arkadiusz 'amok'"
+text = "vines by [color=gold]Xenophero"
 fit_content = true
 scroll_active = false
 
@@ -1096,7 +1127,21 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "asset 5 by [color=gold]Arkadiusz 'amok'"
+text = "UI deco and most sfx by [color=gold]BDragon1727"
+fit_content = true
+scroll_active = false
+
+[node name="Asset6" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits/Assets"]
+offset_left = -134.0
+offset_top = 320.0
+offset_right = 440.0
+offset_bottom = 354.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("41_gs1tk")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "forest background by [color=gold]LazyTeaStudios"
 fit_content = true
 scroll_active = false
 
@@ -1125,7 +1170,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "Arc I : [color=gold]Haruko - xxx"
+text = "Arc I : [color=gold]Haruko - Joie de Vivre"
 fit_content = true
 scroll_active = false
 
@@ -1139,7 +1184,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "Arc I : [color=gold]Haruko - xxx"
+text = "Arc II : [color=gold]Haruko - Wizard's Wonderland"
 fit_content = true
 scroll_active = false
 
@@ -1153,21 +1198,35 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "Arc I : [color=gold]Haruko - xxx"
+text = "Arc III : [color=gold] pixabay"
 fit_content = true
 scroll_active = false
 
-[node name="Asset4" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits/Audio"]
+[node name="Asset5" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits/Audio"]
 offset_left = -134.0
-offset_top = 230.0
-offset_right = 440.0
-offset_bottom = 264.0
+offset_top = 227.0
+offset_right = 506.0
+offset_bottom = 261.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "audio effects: [color=gold]Haruko - xxx"
+text = "credits : [color=gold] Jeremy Soule - Auriel's Ascension"
+fit_content = true
+scroll_active = false
+
+[node name="Asset4" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits/Audio"]
+offset_left = -134.0
+offset_top = 272.0
+offset_right = 440.0
+offset_bottom = 306.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("41_gs1tk")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "audio effects: [color=gold]pixabay"
 fit_content = true
 scroll_active = false
 
@@ -1175,15 +1234,15 @@ scroll_active = false
 visible = false
 
 [node name="Head" type="Label" parent="Scene Objects/Vines/Further/Text/A6_Credits/Tutorials"]
-offset_left = -94.0
+offset_left = -107.0
 offset_top = 45.0
-offset_right = 242.0
+offset_right = 229.0
 offset_bottom = 73.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("41_gs1tk")
 theme_override_font_sizes/font_size = 28
-text = "tutorials and resources"
+text = "tutorials used made by"
 metadata/_edit_use_anchors_ = true
 
 [node name="Asset1" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits/Tutorials"]
@@ -1196,7 +1255,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "Arc I : [color=gold]Haruko - xxx"
+text = "[color=gold]Coco Code"
 fit_content = true
 scroll_active = false
 
@@ -1210,7 +1269,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "Arc I : [color=gold]Haruko - xxx"
+text = "[color=gold]AJ08Coder"
 fit_content = true
 scroll_active = false
 
@@ -1224,7 +1283,7 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "Arc I : [color=gold]Haruko - xxx"
+text = "[color=gold]codernunk"
 fit_content = true
 scroll_active = false
 
@@ -1238,11 +1297,55 @@ theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("41_gs1tk")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "audio effects: [color=gold]Haruko - xxx"
+text = "[color=gold]wizz"
+fit_content = true
+scroll_active = false
+
+[node name="Support" type="Node2D" parent="Scene Objects/Vines/Further/Text/A6_Credits"]
+visible = false
+
+[node name="Head" type="Label" parent="Scene Objects/Vines/Further/Text/A6_Credits/Support"]
+offset_left = -107.0
+offset_top = 45.0
+offset_right = 229.0
+offset_bottom = 73.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("41_gs1tk")
+theme_override_font_sizes/font_size = 28
+text = "with help and support of"
+metadata/_edit_use_anchors_ = true
+
+[node name="Asset1" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits/Support"]
+offset_left = -134.0
+offset_top = 98.0
+offset_right = 440.0
+offset_bottom = 132.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("41_gs1tk")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=gold]Kaozmarine"
+fit_content = true
+scroll_active = false
+
+[node name="Asset2" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits/Support"]
+offset_left = -134.0
+offset_top = 143.0
+offset_right = 440.0
+offset_bottom = 177.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("41_gs1tk")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=gold]AlexTheCat"
 fit_content = true
 scroll_active = false
 
 [node name="Thanks" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits"]
+visible = false
 offset_left = -182.0
 offset_top = 45.0
 offset_right = 410.0
@@ -1473,6 +1576,8 @@ metadata/_edit_lock_ = true
 
 [connection signal="finished" from="BgMusic" to="." method="_on_bg_music_finished"]
 [connection signal="finished" from="GameManager/finish" to="GameManager" method="_on_finish_finished"]
+[connection signal="body_entered" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_entered"]
+[connection signal="body_exited" from="Scene Objects/ShadowAreas" to="Scene Objects/ShadowAreas" method="_on_body_exited"]
 [connection signal="body_entered" from="Scene Objects/CameraChanges/Camera_01" to="Scene Objects/CameraChanges/Camera_01" method="_on_body_entered"]
 [connection signal="body_entered" from="Scene Objects/CameraChanges/Camera_02" to="Scene Objects/CameraChanges/Camera_02" method="_on_body_entered"]
 [connection signal="body_entered" from="Scene Objects/TextShowing/Area_01" to="Scene Objects/TextShowing" method="_on_area_01_body_entered"]

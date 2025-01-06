@@ -256,8 +256,14 @@ func Credits():
 	fade_tween(text.get_node("Tutorials"), 0.7)
 	offset_tween(text.get_node("Tutorials"), 1, Vector2(0, - 40))
 	await get_tree().create_timer(5).timeout
-	fade_tween(text.get_node("Logo"), 0.7, false)
 	fade_tween(text.get_node("Tutorials"), 0.7, false)
+	await get_tree().create_timer(0.5).timeout
+	
+	fade_tween(text.get_node("Support"), 0.7)
+	offset_tween(text.get_node("Support"), 1, Vector2(0, - 40))
+	await get_tree().create_timer(5).timeout
+	fade_tween(text.get_node("Logo"), 0.7, false)
+	fade_tween(text.get_node("Support"), 0.7, false)
 	await get_tree().create_timer(0.5).timeout
 	
 	fade_tween(text.get_node("Thanks"), 0.7)

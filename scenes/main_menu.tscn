@@ -150,9 +150,9 @@ bg_color = Color(0, 0, 0, 0.360784)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6w3fs"]
 shader = ExtResource("29_skww3")
-shader_parameter/outerRadius = 1.337
-shader_parameter/MainAlpha = 0.421
-shader_parameter/vignette_color = null
+shader_parameter/outerRadius = 0.0
+shader_parameter/MainAlpha = 0.152
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
 [node name="MainMenuScreen" type="Node"]
 script = ExtResource("1_1md1s")
@@ -170,7 +170,7 @@ position_smoothing_enabled = true
 [node name="Background" type="Node" parent="."]
 
 [node name="Background" type="TextureRect" parent="Background"]
-modulate = Color(1, 0.611765, 1, 0.403922)
+modulate = Color(0.0156863, 0.866667, 0.858824, 0.403922)
 texture_filter = 1
 material = SubResource("ShaderMaterial_ifu7e")
 anchors_preset = 15
@@ -207,7 +207,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="ForestBg2" type="TextureRect" parent="Background"]
-modulate = Color(1, 0.376471, 1, 1)
+modulate = Color(0.427451, 0.819608, 0, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_t5am4")
 anchors_preset = 15
@@ -238,6 +238,7 @@ bus = &"Music"
 stream = ExtResource("9_c5oe2")
 
 [node name="bg_elements" type="Control" parent="."]
+modulate = Color(0.964706, 1, 0.854902, 1)
 layout_mode = 3
 anchors_preset = 0
 metadata/_edit_lock_ = true
@@ -851,6 +852,7 @@ vertical_alignment = 2
 [node name="Vignette" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="Vignette"]
+visible = false
 material = SubResource("ShaderMaterial_6w3fs")
 anchors_preset = 15
 anchor_right = 1.0
