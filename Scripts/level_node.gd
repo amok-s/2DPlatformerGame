@@ -13,6 +13,7 @@ func _ready():
 	GlobalLevelManager.endOfArc = end_of_arc
 	if intro == true:
 		$UI/CoinsPanel.hide()
+		$UI/HeartsPanel.hide()
 		
 
 func _process(delta):

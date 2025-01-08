@@ -28,7 +28,6 @@ func _process(_delta):
 	death_count.text = "today's death count : " + str(GlobalLevelManager.death_count)
 	
 	if esc_pressed and $PausePanel.is_visible_in_tree() and !$OptionsPanel.is_visible_in_tree():
-		print("dupa")
 		unpause()
 
 	if esc_pressed and $OptionsPanel.is_visible_in_tree():

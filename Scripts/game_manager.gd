@@ -57,11 +57,13 @@ func decrease_health():
 		get_node("../UI").ui_shake(0.2,5)
 	for h in 3:
 		if (h < lives):
-			hearts[h].show()
+			hearts[h].play("full")
 		else:
-			hearts[h].hide()
+			hearts[h].play("broken")
 	if (lives == 0) and !cant_die:
 		GlobalLevelManager.pausable = false
+		$"../UI/HeartsPanel".hide()
+		$"../UI/CoinsPanel".hide()
 		var tween = get_tree().create_tween()
 		tween.tween_property(%Camera2D, "zoom", Vector2(2.2, 2.6), 0.8).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 		await get_tree().create_timer(0.75).timeout
@@ -73,9 +75,9 @@ func add_health():
 		$Healed.play(0)
 	for h in 3:
 		if (h < lives):
-			hearts[h].show()
+			hearts[h].play("full")
 		else:
-			hearts[h].hide()
+			hearts[h].play("broken")
 
 func finish_level():
 	GlobalLevelManager.pausable = false

@@ -1,142 +1,122 @@
-[gd_scene load_steps=5 format=3 uid="uid://hpgg3s8vbcvf"]
+[gd_scene load_steps=11 format=3 uid="uid://hpgg3s8vbcvf"]
 
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_7at14"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="1_mqcfg"]
-[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="2_ia66i"]
-[ext_resource type="Script" path="res://scenes/levels/Pause.gd" id="3_8se7q"]
+[ext_resource type="Texture2D" uid="uid://0k3ec60vpom8" path="res://assets/UI/broken_heart.png" id="2_dywt1"]
+[ext_resource type="Texture2D" uid="uid://dx7x367ui8t37" path="res://assets/UI/full_heart.png" id="3_lyyo5"]
+[ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="5_vkabk"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7koad"]
+region_rect = Rect2(0, 0, 640, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_co04n"]
-bg_color = Color(0.94902, 0.392157, 0.419608, 0.301961)
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqsbj"]
+atlas = ExtResource("2_dywt1")
+region = Rect2(0, 0, 15, 14)
 
-[node name="UI" type="CanvasLayer"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0iio"]
+atlas = ExtResource("3_lyyo5")
+region = Rect2(0, 0, 15, 14)
 
-[node name="CoinsPanel" type="Panel" parent="."]
-offset_left = 6.0
-offset_top = 11.0
-offset_right = 158.0
-offset_bottom = 60.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_co04n")
+[sub_resource type="SpriteFrames" id="SpriteFrames_40htw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqsbj")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0iio")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
 
-[node name="PointsLabel" type="Label" parent="CoinsPanel"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_right = -7.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("1_mqcfg")
-theme_override_font_sizes/font_size = 45
-text = "Points:"
-vertical_alignment = 1
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pknak"]
+
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("player", "game_manager")]
+layer = 2
+script = ExtResource("1_7at14")
+player = NodePath("")
+game_manager = NodePath("")
 
 [node name="HeartsPanel" type="Panel" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -160.0
-offset_top = 10.0
-offset_right = -8.0
-offset_bottom = 58.0
+offset_left = -225.0
+offset_top = 14.0
+offset_right = -19.0
+offset_bottom = 63.0
 grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_7koad")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HeartsPanel"]
+use_parent_material = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -70.0
-offset_top = -22.0
-offset_right = 70.0
-offset_bottom = 22.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Heart" type="TextureRect" parent="HeartsPanel/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("2_ia66i")
-expand_mode = 2
-
-[node name="Heart2" type="TextureRect" parent="HeartsPanel/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("2_ia66i")
-expand_mode = 2
-
-[node name="Heart3" type="TextureRect" parent="HeartsPanel/HBoxContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("2_ia66i")
-expand_mode = 2
-
-[node name="Pause" type="Node" parent="."]
-script = ExtResource("3_8se7q")
-
-[node name="PausePanel" type="Panel" parent="Pause"]
-unique_name_in_owner = true
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 9
 
-[node name="Label" type="Label" parent="Pause/PausePanel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -173.0
-offset_top = 40.0
-offset_right = 173.0
-offset_bottom = 123.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_mqcfg")
-theme_override_font_sizes/font_size = 76
-text = "GAME PAUSED"
+[node name="Heart" type="AnimatedSprite2D" parent="HeartsPanel/HBoxContainer"]
+use_parent_material = true
+position = Vector2(170, 24)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_40htw")
+animation = &"full"
+autoplay = "full"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause/PausePanel"]
+[node name="Heart2" type="AnimatedSprite2D" parent="HeartsPanel/HBoxContainer"]
+use_parent_material = true
+position = Vector2(103, 24)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_40htw")
+animation = &"broken"
+autoplay = "full"
+
+[node name="Heart3" type="AnimatedSprite2D" parent="HeartsPanel/HBoxContainer"]
+use_parent_material = true
+position = Vector2(32, 24)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_40htw")
+animation = &"full"
+autoplay = "full"
+
+[node name="CoinsPanel" type="Panel" parent="."]
+offset_left = 47.0
+offset_top = 25.0
+offset_right = 294.0
+offset_bottom = 62.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pknak")
+
+[node name="PointsLabel" type="Label" parent="CoinsPanel"]
+unique_name_in_owner = true
+use_parent_material = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -223.5
-offset_top = -82.0
-offset_right = 223.5
-offset_bottom = 153.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -19.0
+offset_right = -40.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 25
-alignment = 1
-
-[node name="Resume" type="Button" parent="Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
+theme_override_colors/font_color = Color(0.698039, 0.713726, 0.403922, 1)
+theme_override_colors/font_outline_color = Color(0.266667, 0.156863, 0.231373, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_mqcfg")
-theme_override_font_sizes/font_size = 67
-text = "resume"
+theme_override_font_sizes/font_size = 53
+text = "Fruits: "
+vertical_alignment = 1
 
-[node name="MainMenu" type="Button" parent="Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_mqcfg")
-theme_override_font_sizes/font_size = 67
-text = "back to main menu"
-
-[connection signal="pressed" from="Pause/PausePanel/VBoxContainer/Resume" to="Pause" method="_on_resume_pressed"]
-[connection signal="pressed" from="Pause/PausePanel/VBoxContainer/MainMenu" to="Pause" method="_on_main_menu_pressed"]
+[node name="Pause" parent="." instance=ExtResource("5_vkabk")]

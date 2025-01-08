@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://di2kg2jr0hbbd"]
+[gd_scene load_steps=83 format=3 uid="uid://di2kg2jr0hbbd"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_aitpp"]
 [ext_resource type="AudioStream" uid="uid://c2o6ixyw58pvo" path="res://assets/sounds/ambient-dream-16671.mp3" id="2_7ts6u"]
@@ -56,10 +56,11 @@
 [ext_resource type="Texture2D" uid="uid://cocydl2mmdhme" path="res://assets/Foliage/fern -sprite - 01.png" id="51_um44y"]
 [ext_resource type="Shader" path="res://shaders/god_rays.gdshader" id="52_5ckul"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="53_c4axu"]
-[ext_resource type="Texture2D" uid="uid://cntt433po72tv" path="res://assets/OtherSprites/heart.png" id="54_7pseb"]
 [ext_resource type="PackedScene" uid="uid://cuylnt1vnra5r" path="res://scenes/enemies and traps/chameleon.tscn" id="54_h0u72"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="55_am12k"]
 [ext_resource type="PackedScene" uid="uid://cx5eqhjjdi1b" path="res://scenes/pause.tscn" id="56_atjta"]
+[ext_resource type="Texture2D" uid="uid://0k3ec60vpom8" path="res://assets/UI/broken_heart.png" id="58_myx75"]
+[ext_resource type="Texture2D" uid="uid://dx7x367ui8t37" path="res://assets/UI/full_heart.png" id="59_828rq"]
 
 [sub_resource type="Curve" id="Curve_rlaer"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -192,22 +193,37 @@ shader_parameter/color = Color(1, 0.843137, 0.929412, 0.8)
 shader_parameter/hdr = false
 shader_parameter/seed = 5.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw2tw"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rbhwv"]
+region_rect = Rect2(0, 0, 640, 512)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgkpc"]
-bg_color = Color(0.94902, 0.392157, 0.419608, 0.301961)
-draw_center = false
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-corner_detail = 1
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqsbj"]
+atlas = ExtResource("58_myx75")
+region = Rect2(0, 0, 15, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0iio"]
+atlas = ExtResource("59_828rq")
+region = Rect2(0, 0, 15, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tb63t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqsbj")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0iio")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53vib"]
 
 [node name="Level3_2" type="Node"]
 script = ExtResource("1_aitpp")
@@ -1372,79 +1388,82 @@ position = Vector2(3480, 288)
 z_index = -1
 position = Vector2(1464, 240)
 
-[node name="UI" type="CanvasLayer" parent="." node_paths=PackedStringArray("player", "game_manager", "hearts_panel")]
+[node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 script = ExtResource("53_c4axu")
-player = NodePath("../Scene Objects/CharacterBody2D")
-game_manager = NodePath("../GameManager")
-hearts_panel = NodePath("HeartsPanel")
 
 [node name="HeartsPanel" type="Panel" parent="UI"]
-offset_left = 931.0
-offset_top = 11.0
-offset_right = 1067.0
-offset_bottom = 60.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_uw2tw")
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_top = 14.0
+offset_right = -19.0
+offset_bottom = 63.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_rbhwv")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="UI/HeartsPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 92.0
-offset_top = -25.5
-offset_right = 140.0
-offset_bottom = 132.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Heart" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
-texture_filter = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HeartsPanel"]
 use_parent_material = true
-layout_mode = 2
-texture = ExtResource("54_7pseb")
-expand_mode = 4
-
-[node name="Heart2" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
-texture_filter = 1
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("54_7pseb")
-expand_mode = 4
-
-[node name="Heart3" type="TextureRect" parent="UI/HeartsPanel/HBoxContainer"]
-texture_filter = 1
-use_parent_material = true
-layout_mode = 2
-texture = ExtResource("54_7pseb")
-expand_mode = 4
-
-[node name="CoinsPanel" type="Panel" parent="UI"]
-visible = false
-offset_left = 6.0
-offset_top = 11.0
-offset_right = 218.0
-offset_bottom = 60.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rgkpc")
-metadata/_edit_use_anchors_ = true
-
-[node name="PointsLabel" type="Label" parent="UI/CoinsPanel"]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 7.0
-offset_right = -7.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/separation = 9
+
+[node name="Heart" type="AnimatedSprite2D" parent="UI/HeartsPanel/HBoxContainer"]
+use_parent_material = true
+position = Vector2(170, 24)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_tb63t")
+animation = &"full"
+autoplay = "full"
+
+[node name="Heart2" type="AnimatedSprite2D" parent="UI/HeartsPanel/HBoxContainer"]
+use_parent_material = true
+position = Vector2(103, 24)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_tb63t")
+animation = &"broken"
+autoplay = "full"
+
+[node name="Heart3" type="AnimatedSprite2D" parent="UI/HeartsPanel/HBoxContainer"]
+use_parent_material = true
+position = Vector2(32, 24)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_tb63t")
+animation = &"full"
+autoplay = "full"
+
+[node name="CoinsPanel" type="Panel" parent="UI"]
+offset_left = 47.0
+offset_top = 25.0
+offset_right = 294.0
+offset_bottom = 62.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_53vib")
+
+[node name="PointsLabel" type="Label" parent="UI/CoinsPanel"]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -19.0
+offset_right = -40.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.698039, 0.713726, 0.403922, 1)
+theme_override_colors/font_outline_color = Color(0.266667, 0.156863, 0.231373, 1)
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("55_am12k")
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 53
 text = "Fruits: "
 vertical_alignment = 1
 
