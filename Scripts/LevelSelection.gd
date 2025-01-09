@@ -5,6 +5,7 @@ extends Panel
 var levels = []
 
 func _ready():
+	SaveSystem.load_game()
 	var nodes = get_children()
 	for node in nodes:
 		for level in node.get_child(3).get_children():

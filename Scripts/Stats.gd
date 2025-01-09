@@ -21,9 +21,7 @@ var current_options = {"master volume" : 0, "music volume": 0, "full screen" : f
 
 
 func lvl_unlock(lvl_name):
-	if levels_unlocked.is_empty():
-		levels_unlocked.append(lvl_name)
-	elif !levels_unlocked.has(lvl_name):
+	if !levels_unlocked.has(lvl_name):
 		levels_unlocked.append(lvl_name)
 	else:
 		pass

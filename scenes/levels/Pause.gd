@@ -57,6 +57,7 @@ func _on_main_menu_pressed():
 	playTapSound()
 	await get_tree().create_timer(0.25).timeout
 	get_tree().paused = false
+	SaveSystem.save_game()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 

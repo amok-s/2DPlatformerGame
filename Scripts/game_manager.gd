@@ -32,6 +32,7 @@ func _ready():
 	fruits_amount = fruits_node.get_child_count()
 	pauseBreak(1)
 	Stats.lvl_unlock(get_parent().lvlname)
+	SaveSystem.save_game()
 	start_message()
 
 func add_point():
