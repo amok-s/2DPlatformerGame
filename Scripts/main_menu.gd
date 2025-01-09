@@ -26,9 +26,9 @@ func _ready():
 	var vignette = $Vignette/ColorRect.get_material()
 	
 	GlobalLevelManager.music_time = 0
-	menu_music.play(0.5)
+	menu_music.play(0.55)
 	center = Vector2(10, 20)
-	
+	$Footer/Version.append_text("ver: [color=lawn_green][font_size=22]%s" % [ProjectSettings.get_setting("application/config/version")])
 	title_text.text = godot_bug_fix(title_text.text)
 	for i in v_box_container.get_children():
 		i.text = godot_bug_fix(i.text)
@@ -89,6 +89,7 @@ func _on_back_pressed():
 		Stats.current_options["music volume"] = music_volume.value
 		Stats.current_options["master volume"] = master_volume.value
 		Stats.current_options["full screen"] = $Menu/OptionsMenu/Options/VBoxContainer/FullScreen.button_pressed
+		SaveSystem.save_config()
 		$Menu/MenuBox/MainMenu/Play.grab_focus()
 
 func esc_pressed():

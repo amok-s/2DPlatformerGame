@@ -6,6 +6,7 @@ extends Panel
 
 
 func _ready():
+	SaveSystem.load_config()
 	music_volume.value = AudioServer.get_bus_volume_db(1)
 	master_volume.value = AudioServer.get_bus_volume_db(0)
 	if DisplayServer.window_get_mode() == 0:

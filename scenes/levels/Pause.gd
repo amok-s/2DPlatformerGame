@@ -121,6 +121,7 @@ func _on_back_pressed():
 	var bgMusicVolume = bgMusic.volume_db
 	var tween = get_tree().create_tween()
 	tween.tween_property(bgMusic, "volume_db", bgMusicVolume - 12, 0.6)
+	SaveSystem.save_config()
 	$PausePanel/VBoxContainer/Options.grab_focus()
 
 

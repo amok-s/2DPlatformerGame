@@ -3,13 +3,6 @@ extends Node
 var levels : Array[String]
 var settings
 
-func _process(delta):
-	if Input.is_action_just_pressed("save"):
-		save_config()
-		
-	if Input.is_action_just_pressed("load"):
-		load_config()
-
 func save():
 	var save_dict = {
 	"fruits" : Stats.fruits_eaten,

@@ -12,8 +12,8 @@ config_version=5
 
 config/name="La noche en el bosque"
 config/description="Taka tam gierka. Pls hire me, I'm very talented and cute"
-config/version="0.4.2"
-run/main_scene="res://scenes/main_menu.tscn"
+config/version="0.8"
+run/main_scene="res://scenes/splash_screen.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Foret_saves"
 config/features=PackedStringArray("4.2", "Mobile")
