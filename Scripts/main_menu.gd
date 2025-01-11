@@ -24,17 +24,16 @@ func godot_bug_fix(text):
 func _ready():
 	$Vignette/ColorRect.show()
 	var vignette = $Vignette/ColorRect.get_material()
+	#vignette.set_shader_parameter("outerRadius", 0)
+	var tween = get_tree().create_tween()
+	tween.tween_property(vignette, "shader_parameter/outerRadius", 1.481, 2)
 	
 	GlobalLevelManager.music_time = 0
 	menu_music.play(0.55)
 	center = Vector2(10, 20)
 	$Footer/Version.append_text("ver: [color=lawn_green][font_size=22]%s" % [ProjectSettings.get_setting("application/config/version")])
-	title_text.text = godot_bug_fix(title_text.text)
-	for i in v_box_container.get_children():
-		i.text = godot_bug_fix(i.text)
 	
-	var tween = get_tree().create_tween()
-	tween.tween_property(vignette, "shader_parameter/outerRadius", 1.481, 2)
+	
 
 
 func _process(delta):
@@ -74,7 +73,7 @@ func _on_options_pressed():
 	tap_sound.play(0)
 	if (tap_sound.finished):
 		$Menu/MenuBox.hide()
-		$TitleBox.hide()
+		$Menu/Logo.hide()
 		$Menu/OptionsMenu.show()
 		$Menu/OptionsMenu/Options/VBoxContainer/MasterVolume.grab_focus()
 
@@ -82,7 +81,7 @@ func _on_back_pressed():
 	tap_sound.play(0)
 	if (tap_sound.finished):
 		$Menu/MenuBox.show()
-		$TitleBox.show()
+		$Menu/Logo.show()
 		$Menu/OptionsMenu.hide()
 		music_volume.value = AudioServer.get_bus_volume_db(1)
 		master_volume.value = AudioServer.get_bus_volume_db(0)
@@ -110,7 +109,8 @@ func esc_pressed():
 	$Menu/Quit.hide()
 	$Menu/OptionsMenu.hide()
 	$Menu/LevelSelection.hide()
-	$TitleBox.show()
+	$Menu/OptionsMenu/AreYouSure.hide()
+	$Menu/Logo.show()
 	$Menu/MenuBox.show()
 	$Menu/MenuBox/MainMenu/Play.grab_focus()
 
@@ -137,7 +137,7 @@ func _unhandled_input(event):
 func quit_menu():
 	tap_sound.play(0)
 	$Menu/MenuBox.hide()
-	$TitleBox.hide()
+	$Menu/Logo.hide()
 	$Menu/Quit.show()
 	$Menu/Quit/Panel/HBoxContainer/Yes.grab_focus()
 	

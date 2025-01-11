@@ -5,6 +5,7 @@ extends Panel
 @onready var full_screen = $VBoxContainer/FullScreen
 
 
+
 func _ready():
 	SaveSystem.load_config()
 	music_volume.value = AudioServer.get_bus_volume_db(1)
@@ -39,3 +40,8 @@ func _on_full_screen_toggled(toggled_on):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_reset_progress_pressed():
+	$"../AreYouSure".show()
+	$"../AreYouSure".reset_progress()

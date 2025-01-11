@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://bvg3w8xmnoosk"]
+[gd_scene load_steps=82 format=3 uid="uid://bvg3w8xmnoosk"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_ytnak"]
 [ext_resource type="AudioStream" uid="uid://snko6mjxlu2r" path="res://assets/Music/Auriel's Ascension.mp3" id="2_tklqr"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://cahkt83wqnvye" path="res://assets/Foliage/sprite - 11.png" id="36_xiapa"]
 [ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="41_gs1tk"]
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="42_8ndd8"]
+[ext_resource type="Texture2D" uid="uid://dwbqrym5b53qo" path="res://assets/UI/logo.png" id="43_hcyiq"]
 [ext_resource type="Script" path="res://Scripts/ui.gd" id="43_xcnfq"]
 [ext_resource type="Shader" path="res://shaders/god_rays.gdshader" id="44_qhv28"]
 [ext_resource type="FontFile" uid="uid://b5q27on0ikd0e" path="res://assets/UI/Jersey10-Regular.ttf" id="45_3io7r"]
@@ -1036,21 +1037,15 @@ fit_content = true
 scroll_active = false
 
 [node name="A6_Credits" type="Node2D" parent="Scene Objects/Vines/Further/Text"]
+visible = false
 position = Vector2(786, 451)
 
-[node name="Logo" type="Label" parent="Scene Objects/Vines/Further/Text/A6_Credits"]
-offset_left = -38.0
-offset_top = -52.0
-offset_right = 298.0
-offset_bottom = 36.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("41_gs1tk")
-theme_override_font_sizes/font_size = 65
-text = "FORÊT"
+[node name="Logo" type="Sprite2D" parent="Scene Objects/Vines/Further/Text/A6_Credits"]
+position = Vector2(108, -32)
+scale = Vector2(2, 2)
+texture = ExtResource("43_hcyiq")
 
 [node name="Author" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits"]
-visible = false
 offset_left = -154.0
 offset_top = 45.0
 offset_right = 420.0
@@ -1505,6 +1500,7 @@ metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 script = ExtResource("43_xcnfq")
 
 [node name="HeartsPanel" type="Panel" parent="UI"]

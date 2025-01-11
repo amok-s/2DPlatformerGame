@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://3kqxe67swqec"]
+[gd_scene load_steps=51 format=3 uid="uid://3kqxe67swqec"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1md1s"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="2_dvh2t"]
@@ -18,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://d8tq8h6apfpn" path="res://assets/UI/Border All 4.png" id="12_lhdqb"]
 [ext_resource type="Material" uid="uid://cjdh5qqujvcrr" path="res://shaders/foliage.tres" id="13_sd77c"]
 [ext_resource type="Texture2D" uid="uid://dli1oxbx3syj6" path="res://assets/Foliage/sprite - 09 bright.png" id="14_abiig"]
-[ext_resource type="Theme" uid="uid://4g0i8j3taa3i" path="res://assets/UI/title_box.tres" id="16_hluqq"]
 [ext_resource type="Script" path="res://Scripts/button_focus.gd" id="18_h14l1"]
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="18_n5as5"]
 [ext_resource type="Script" path="res://Scripts/LevelSelection.gd" id="19_aidgm"]
@@ -29,7 +28,9 @@
 [ext_resource type="Theme" uid="uid://dqynmk80512hb" path="res://assets/UI/levels_box.tres" id="21_is8a3"]
 [ext_resource type="Script" path="res://Scripts/StatsBox.gd" id="23_kpss0"]
 [ext_resource type="Script" path="res://Scripts/quit_menu.gd" id="28_yjt55"]
+[ext_resource type="Script" path="res://Scripts/reset_progress.gd" id="29_gw7k8"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="29_skww3"]
+[ext_resource type="Texture2D" uid="uid://dwbqrym5b53qo" path="res://assets/UI/logo.png" id="33_4p3q7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifu7e"]
 shader = ExtResource("3_w0qj5")
@@ -170,7 +171,7 @@ position_smoothing_enabled = true
 [node name="Background" type="Node" parent="."]
 
 [node name="Background" type="TextureRect" parent="Background"]
-modulate = Color(0.0156863, 0.866667, 0.858824, 0.403922)
+modulate = Color(0.0862745, 0.980392, 0.972549, 0.403922)
 texture_filter = 1
 material = SubResource("ShaderMaterial_ifu7e")
 anchors_preset = 15
@@ -188,7 +189,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="ForestBg" type="TextureRect" parent="Background"]
-modulate = Color(1, 0.376471, 1, 1)
+modulate = Color(1, 0.611765, 0.992157, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_hm8cw")
 anchors_preset = 15
@@ -207,7 +208,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="ForestBg2" type="TextureRect" parent="Background"]
-modulate = Color(0.427451, 0.819608, 0, 1)
+modulate = Color(0.505882, 0.960784, 0, 1)
 texture_filter = 1
 material = SubResource("ShaderMaterial_t5am4")
 anchors_preset = 15
@@ -255,7 +256,7 @@ texture_filter = 1
 scale = Vector2(2, 2)
 tile_set = ExtResource("7_7cu5i")
 format = 2
-layer_0/tile_data = PackedInt32Array(786462, 393216, 0, 851998, 393216, 1, 917534, 393216, 2, 786463, 458752, 0, 851999, 458752, 1, 917535, 458752, 2, 786464, 524288, 0, 852000, 524288, 1, 917536, 851968, 1, 983072, 851968, 2, 917537, 917504, 1, 983073, 917504, 2, 720919, 786432, 1, 720920, 1114112, 1, 720921, 1179648, 1, 720922, 1179648, 1, 720923, 1179648, 1, 720924, 1179648, 1, 720925, 1245184, 1, 720926, 786432, 1, 524294, 393216, 1, 589830, 393216, 2, 655366, 524288, 1, 720902, 524288, 2, 393223, 458752, 0, 458759, 589824, 0, 524295, 589824, 1, 589831, 458752, 2, 393224, 458752, 0, 458760, 655360, 0, 524296, 655360, 1, 589832, 458752, 2, 393225, 524288, 0, 458761, 524288, 1, 524297, 524288, 1, 589833, 524288, 2, 524293, 393216, 0, 589829, 393216, 1, 655365, 393216, 1, 720901, 393216, 2, 393222, 393216, 0, 458758, 393216, 1, 1114114, 1114112, 9)
+layer_0/tile_data = PackedInt32Array(786462, 393216, 0, 851998, 393216, 1, 917534, 393216, 2, 786463, 458752, 0, 851999, 458752, 1, 917535, 458752, 2, 786464, 524288, 0, 852000, 524288, 1, 917536, 851968, 1, 983072, 851968, 2, 917537, 917504, 1, 983073, 917504, 2, 720919, 786432, 1, 720920, 1114112, 1, 720921, 1179648, 1, 720922, 1179648, 1, 720923, 1179648, 1, 720924, 1179648, 1, 720925, 1245184, 1, 720926, 786432, 1, 524294, 393216, 1, 589830, 393216, 2, 655366, 524288, 1, 720902, 524288, 2, 393223, 458752, 0, 458759, 589824, 0, 524295, 589824, 1, 589831, 458752, 2, 393224, 458752, 0, 458760, 655360, 0, 524296, 655360, 1, 589832, 458752, 2, 393225, 524288, 0, 458761, 524288, 1, 524297, 524288, 1, 589833, 524288, 2, 524293, 393216, 0, 589829, 393216, 1, 655365, 393216, 1, 720901, 393216, 2, 393222, 393216, 0, 458758, 393216, 1)
 
 [node name="MushroomEnemy" parent="bg_elements" instance=ExtResource("9_wy3pa")]
 position = Vector2(915, 324)
@@ -295,6 +296,13 @@ region_rect = Rect2(204, 52, 16, 92)
 
 [node name="Menu" type="Node2D" parent="."]
 texture_filter = 1
+position = Vector2(0, -55)
+
+[node name="Logo" type="Sprite2D" parent="Menu"]
+texture_filter = 1
+position = Vector2(531, 168)
+scale = Vector2(2, 2)
+texture = ExtResource("33_4p3q7")
 
 [node name="MenuBox" type="Panel" parent="Menu"]
 offset_left = 429.0
@@ -588,15 +596,16 @@ alignment = 0
 visible = false
 layout_mode = 3
 anchors_preset = 0
+offset_top = 64.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 104.0
 
 [node name="Options" type="Panel" parent="Menu/OptionsMenu"]
 layout_mode = 0
 offset_left = 364.0
 offset_top = 48.0
 offset_right = 597.0
-offset_bottom = 313.0
+offset_bottom = 395.0
 scale = Vector2(1.5, 1.5)
 theme = ExtResource("19_kmfwg")
 script = ExtResource("20_ddmb5")
@@ -667,6 +676,19 @@ size_flags_vertical = 4
 mouse_filter = 2
 theme_override_font_sizes/font_size = 19
 text = "full screen"
+
+[node name="ResetProgress" type="Button" parent="Menu/OptionsMenu/Options/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_font_sizes/font_size = 19
+text = "reset progress"
+
+[node name="HSeparator3" type="HSeparator" parent="Menu/OptionsMenu/Options/VBoxContainer"]
+modulate = Color(0.796078, 1, 0.454902, 1)
+layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu/OptionsMenu/Options/VBoxContainer"]
 layout_mode = 2
@@ -750,6 +772,85 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 14
 text = "mobs killed:"
 
+[node name="AreYouSure" type="Control" parent="Menu/OptionsMenu"]
+visible = false
+layout_mode = 1
+anchor_left = 1.4671
+anchor_top = 0.897695
+anchor_right = 1.4671
+anchor_bottom = 0.897695
+offset_left = -69.6838
+offset_top = -101.908
+offset_right = 125.316
+offset_bottom = -101.908
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("29_gw7k8")
+
+[node name="ColorRect" type="ColorRect" parent="Menu/OptionsMenu/AreYouSure"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_top = -104.0
+offset_right = 1158.0
+offset_bottom = 765.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.462745)
+
+[node name="Panel" type="Panel" parent="Menu/OptionsMenu/AreYouSure"]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 228.0
+offset_right = 555.0
+offset_bottom = 354.0
+scale = Vector2(2, 2)
+theme = ExtResource("11_e0m1u")
+
+[node name="Label" type="Label" parent="Menu/OptionsMenu/AreYouSure/Panel"]
+layout_mode = 0
+offset_left = 84.5
+offset_top = 14.5
+offset_right = 194.5
+offset_bottom = 30.5
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+text = "Are you sure?"
+
+[node name="Label2" type="Label" parent="Menu/OptionsMenu/AreYouSure/Panel"]
+layout_mode = 0
+offset_left = 23.5
+offset_top = 38.5
+offset_right = 275.5
+offset_bottom = 54.5
+theme_override_colors/font_color = Color(0.796078, 1, 0.454902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 14
+text = "(this will delete ALL your data)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/OptionsMenu/AreYouSure/Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 70.0
+offset_right = 210.0
+offset_bottom = 114.0
+theme_override_constants/separation = 20
+
+[node name="Yes" type="Button" parent="Menu/OptionsMenu/AreYouSure/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Yes"
+
+[node name="No" type="Button" parent="Menu/OptionsMenu/AreYouSure/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "No
+"
+
 [node name="Quit" type="Control" parent="Menu"]
 visible = false
 layout_mode = 3
@@ -812,7 +913,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_3lbxg")
 metadata/_edit_lock_ = true
 
 [node name="Author" type="RichTextLabel" parent="Footer"]
-modulate = Color(0.568973, 0.568973, 0.568973, 1)
+layout_mode = 0
 offset_left = 670.0
 offset_top = 7.0
 offset_right = 1036.0
@@ -827,7 +928,6 @@ fit_content = true
 scroll_active = false
 
 [node name="Version" type="RichTextLabel" parent="Footer"]
-modulate = Color(0.568973, 0.568973, 0.568973, 1)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -844,45 +944,6 @@ theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
-
-[node name="TitleBox" type="Panel" parent="."]
-layout_direction = 1
-anchors_preset = -1
-anchor_left = 0.307292
-anchor_top = 0.0740741
-anchor_right = 0.621528
-anchor_bottom = 0.401235
-offset_right = -181.0
-offset_bottom = -106.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme = ExtResource("16_hluqq")
-
-[node name="TitleText" type="Label" parent="TitleBox"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.909804, 1, 0.454902, 1)
-theme_override_colors/font_shadow_color = Color(0.462745, 1, 0.85098, 0.541176)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = -4
-theme_override_constants/shadow_offset_y = 4
-theme_override_constants/outline_size = 8
-theme_override_constants/shadow_outline_size = 0
-theme_override_constants/line_spacing = -13
-theme_override_fonts/font = ExtResource("5_qhanw")
-theme_override_font_sizes/font_size = 41
-text = "la noche
-en el 
-bosque"
-horizontal_alignment = 1
-vertical_alignment = 2
 
 [node name="Vignette" type="CanvasLayer" parent="."]
 
@@ -914,7 +975,10 @@ metadata/_edit_lock_ = true
 [connection signal="value_changed" from="Menu/OptionsMenu/Options/VBoxContainer/MusicVolume" to="Menu/OptionsMenu/Options" method="_on_music_volume_value_changed"]
 [connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/FullScreen" to="Menu/OptionsMenu/Options" method="_on_full_screen_pressed"]
 [connection signal="toggled" from="Menu/OptionsMenu/Options/VBoxContainer/FullScreen" to="Menu/OptionsMenu/Options" method="_on_full_screen_toggled"]
+[connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/ResetProgress" to="Menu/OptionsMenu/Options" method="_on_reset_progress_pressed"]
 [connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/HBoxContainer/Default" to="Menu/OptionsMenu/Options" method="_on_default_pressed"]
 [connection signal="pressed" from="Menu/OptionsMenu/Options/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Menu/OptionsMenu/AreYouSure/Panel/HBoxContainer/Yes" to="Menu/OptionsMenu/AreYouSure" method="_on_yes_pressed"]
+[connection signal="pressed" from="Menu/OptionsMenu/AreYouSure/Panel/HBoxContainer/No" to="Menu/OptionsMenu/AreYouSure" method="_on_no_pressed"]
 [connection signal="pressed" from="Menu/Quit/Panel/HBoxContainer/Yes" to="Menu/Quit" method="_on_yes_pressed"]
 [connection signal="pressed" from="Menu/Quit/Panel/HBoxContainer/No" to="Menu/Quit" method="_on_no_pressed"]

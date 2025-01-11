@@ -19,5 +19,5 @@ func _on_no_pressed():
 	$"../../TapSound".play(0)
 	hide()
 	$"../MenuBox".show()
-	$"../../TitleBox".show()
+	$"../Logo".show()
 	$"../MenuBox/MainMenu/Play".grab_focus()

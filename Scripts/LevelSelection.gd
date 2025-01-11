@@ -19,6 +19,13 @@ func _process(delta):
 func level_selection():
 	var last_level = Stats.levels_unlocked.back()
 	for level in levels:
+		if last_level == "credits":
+			$Arc1.show()
+			$Arc2.hide()
+			$Arc3.hide()
+			$Arc1/Levels/lvl1_0.grab_focus()
+			print("dupa")
+			return
 		if last_level == level.name:
 			level.get_parent().get_parent().show()
 			level.grab_focus()

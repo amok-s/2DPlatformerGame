@@ -86,3 +86,12 @@ func load_config():
 		
 		var master_volume = settings["master volume"]
 		AudioServer.set_bus_volume_db(0, master_volume)
+
+func delete_progress():
+	if !FileAccess.file_exists("user://savegame.save"):
+		print("file does not exists")
+		return
+	
+	else:
+		DirAccess.remove_absolute("user://savegame.save")
+		return
