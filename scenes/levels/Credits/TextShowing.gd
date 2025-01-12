@@ -51,7 +51,10 @@ func DeathCount():
 	if Stats.global_deaths == 0:
 		text.get_node("DeathCount").append_text("you [wave amp=50.0 freq=5.0 connected=1][color=magenta]never died![/color][/wave]")
 	else:
-		text.get_node("DeathCount").append_text("you only died [wave amp=50.0 freq=5.0 connected=1][color=magenta]%s times...[/color][/wave]" % [Stats.global_deaths])
+		if Stats.global_deaths == 1:
+			text.get_node("DeathCount").append_text("you died only [wave amp=50.0 freq=5.0 connected=1][color=magenta]%s time...[/color][/wave]" % [Stats.global_deaths])
+		else:
+			text.get_node("DeathCount").append_text("you only died [wave amp=50.0 freq=5.0 connected=1][color=magenta]%s times...[/color][/wave]" % [Stats.global_deaths])
 
 	
 	fade_tween(text.get_node("OpeningText"), 0.7)
@@ -181,7 +184,10 @@ func MobCount():
 	
 	#turtle bounces
 	if Stats.turtle_bounced > 0:
-		text.get_node("Turtle").append_text("bounced on [wave amp=50.0 freq=5.0 connected=1][color=magenta]%s turtles...[/color][/wave]" % [Stats.turtle_bounced])
+		if Stats.turtle_bounced == 1:
+			text.get_node("Turtle").append_text("bounced on [wave amp=50.0 freq=5.0 connected=1][color=magenta]%s turtle...[/color][/wave]" % [Stats.turtle_bounced])
+		else:
+			text.get_node("Turtle").append_text("bounced on [wave amp=50.0 freq=5.0 connected=1][color=magenta]%s turtles...[/color][/wave]" % [Stats.turtle_bounced])
 		await get_tree().create_timer(1.3).timeout
 		fade_tween(text.get_node("Also"), 0.7)
 		offset_tween(text.get_node("Also"), 1, Vector2(0, - 40))
@@ -245,6 +251,18 @@ func SceneryChange():
 	modulate_tween(bg.get_node("Back"), 0.7, Color(0.996, 0.529, 1.6))
 	modulate_tween(bg.get_node("BackMiddle"), 0.7, Color(1, 0.714, 1.8))
 	
+	var tile_map_tween = get_tree().create_tween()
+	tile_map_tween.tween_property($"../TileMap", "modulate", Color(0.984, 0.604, 0.702), 1.5)
+	tile_map_tween.set_ease(Tween.EASE_IN_OUT)
+	
+	var foliage_tween = get_tree().create_tween()
+	foliage_tween.tween_property($"../Foliage", "modulate", Color(0.992, 0.816, 0.855), 1.8)
+	foliage_tween.set_ease(Tween.EASE_IN_OUT)
+	
+	var vines_tween = get_tree().create_tween()
+	vines_tween.tween_property($"../Vines/Further2", "modulate", Color(0.741, 0.149, 0.361), 1.4)
+	vines_tween.set_ease(Tween.EASE_IN_OUT)
+	
 	await get_tree().create_timer(0.8).timeout
 	
 	var dust = $"../ShinyDust"
@@ -298,13 +316,13 @@ func Credits():
 	offset_tween(text.get_node("Tutorials"), 1, Vector2(0, - 40))
 	await get_tree().create_timer(5).timeout
 	fade_tween(text.get_node("Tutorials"), 0.7, false)
-	await get_tree().create_timer(0.5).timeout
+	#await get_tree().create_timer(0.5).timeout
 	
-	fade_tween(text.get_node("Support"), 0.7)
-	offset_tween(text.get_node("Support"), 1, Vector2(0, - 40))
-	await get_tree().create_timer(5).timeout
+	#fade_tween(text.get_node("Support"), 0.7)
+	#offset_tween(text.get_node("Support"), 1, Vector2(0, - 40))
+	#await get_tree().create_timer(5).timeout
 	fade_tween(text.get_node("Logo"), 0.7, false)
-	fade_tween(text.get_node("Support"), 0.7, false)
+	#fade_tween(text.get_node("Support"), 0.7, false)
 	await get_tree().create_timer(0.5).timeout
 	
 	fade_tween(text.get_node("Thanks"), 0.7)

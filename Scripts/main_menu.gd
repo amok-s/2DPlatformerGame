@@ -22,6 +22,7 @@ func godot_bug_fix(text):
 	return text
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	$Vignette/ColorRect.show()
 	var vignette = $Vignette/ColorRect.get_material()
 	#vignette.set_shader_parameter("outerRadius", 0)
