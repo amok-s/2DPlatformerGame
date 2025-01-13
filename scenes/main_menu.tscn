@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://3kqxe67swqec"]
+[gd_scene load_steps=53 format=3 uid="uid://3kqxe67swqec"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_1md1s"]
 [ext_resource type="Script" path="res://Scripts/camera_movement.gd" id="2_dvh2t"]
@@ -30,6 +30,8 @@
 [ext_resource type="Script" path="res://Scripts/quit_menu.gd" id="28_yjt55"]
 [ext_resource type="Script" path="res://Scripts/reset_progress.gd" id="29_gw7k8"]
 [ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="29_skww3"]
+[ext_resource type="Script" path="res://Scripts/credits.gd" id="31_mrymw"]
+[ext_resource type="PackedScene" uid="uid://cbqde1b4haqmo" path="res://scenes/credits_node.tscn" id="32_hn01j"]
 [ext_resource type="Texture2D" uid="uid://dwbqrym5b53qo" path="res://assets/UI/logo.png" id="33_4p3q7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ifu7e"]
@@ -898,6 +900,24 @@ size_flags_horizontal = 3
 text = "No
 "
 
+[node name="Credits" type="Control" parent="Menu"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("31_mrymw")
+credits_node = ExtResource("32_hn01j")
+
+[node name="Panel" type="Panel" parent="Menu/Credits"]
+layout_mode = 0
+offset_left = 282.0
+offset_top = 107.0
+offset_right = 580.0
+offset_bottom = 340.0
+scale = Vector2(2, 2)
+theme = ExtResource("11_e0m1u")
+
 [node name="Footer" type="Panel" parent="."]
 anchors_preset = 12
 anchor_top = 1.0
@@ -914,16 +934,16 @@ metadata/_edit_lock_ = true
 
 [node name="Author" type="RichTextLabel" parent="Footer"]
 layout_mode = 0
-offset_left = 670.0
+offset_left = 936.0
 offset_top = 7.0
-offset_right = 1036.0
+offset_right = 1302.0
 offset_bottom = 41.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/normal_font = ExtResource("21_ck7jc")
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
-text = "made by [color=lawn_green][font_size=22]Arkadiusz 'amok' Stanek"
+text = "by [color=lawn_green][font_size=22]amok-s"
 fit_content = true
 scroll_active = false
 
@@ -961,6 +981,7 @@ metadata/_edit_lock_ = true
 [connection signal="finished" from="MenuMusic" to="." method="_on_menu_music_finished"]
 [connection signal="pressed" from="Menu/MenuBox/MainMenu/Play" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="Menu/MenuBox/MainMenu/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Menu/MenuBox/MainMenu/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Menu/MenuBox/MainMenu/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Menu/LevelSelection/Arc1/Levels/lvl1_0" to="Menu/LevelSelection" method="_on_lvl_1_0_pressed"]
 [connection signal="pressed" from="Menu/LevelSelection/Arc1/Levels/lvl1_1" to="Menu/LevelSelection" method="_on_lvl_1_1_pressed"]

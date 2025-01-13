@@ -1,0 +1,326 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbqde1b4haqmo"]
+
+[ext_resource type="Script" path="res://scenes/credits_scene.gd" id="1_3y4r0"]
+[ext_resource type="Texture2D" uid="uid://dwbqrym5b53qo" path="res://assets/UI/logo.png" id="1_8qtw5"]
+[ext_resource type="FontFile" uid="uid://cyyew61h6skjj" path="res://assets/UI/MinimalPixel v2.ttf" id="2_ll1h1"]
+
+[node name="Text" type="Node2D"]
+position = Vector2(469, 222)
+script = ExtResource("1_3y4r0")
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(108, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("1_8qtw5")
+
+[node name="Author" type="RichTextLabel" parent="."]
+offset_left = -154.0
+offset_top = 93.0
+offset_right = 420.0
+offset_bottom = 127.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "made by [color=lawn_green][font_size=34]Arkadiusz 'amok' Stanek"
+fit_content = true
+scroll_active = false
+
+[node name="Assets" type="Node2D" parent="."]
+position = Vector2(-20, -85)
+
+[node name="Head" type="Label" parent="Assets"]
+offset_left = 4.0
+offset_top = 45.0
+offset_right = 340.0
+offset_bottom = 73.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_ll1h1")
+theme_override_font_sizes/font_size = 28
+text = "free assets used"
+metadata/_edit_use_anchors_ = true
+
+[node name="Asset1" type="RichTextLabel" parent="Assets"]
+offset_left = -134.0
+offset_top = 116.0
+offset_right = 440.0
+offset_bottom = 150.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "mobs, tiles, player by [color=gold]Pixel Frog"
+fit_content = true
+scroll_active = false
+
+[node name="Asset2" type="RichTextLabel" parent="Assets"]
+offset_left = -134.0
+offset_top = 161.0
+offset_right = 440.0
+offset_bottom = 195.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "plants by [color=gold]SirCatlsCat"
+fit_content = true
+scroll_active = false
+
+[node name="Asset3" type="RichTextLabel" parent="Assets"]
+offset_left = -134.0
+offset_top = 204.0
+offset_right = 440.0
+offset_bottom = 238.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "font by [color=gold]Mounir Tohami"
+fit_content = true
+scroll_active = false
+
+[node name="Asset4" type="RichTextLabel" parent="Assets"]
+offset_left = -134.0
+offset_top = 249.0
+offset_right = 440.0
+offset_bottom = 283.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "vines by [color=gold]Xenophero"
+fit_content = true
+scroll_active = false
+
+[node name="Asset5" type="RichTextLabel" parent="Assets"]
+offset_left = -134.0
+offset_top = 294.0
+offset_right = 440.0
+offset_bottom = 328.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "UI deco and most sfx by [color=gold]BDragon1727"
+fit_content = true
+scroll_active = false
+
+[node name="Asset6" type="RichTextLabel" parent="Assets"]
+offset_left = -134.0
+offset_top = 338.0
+offset_right = 440.0
+offset_bottom = 372.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "forest background by [color=gold]LazyTeaStudios"
+fit_content = true
+scroll_active = false
+
+[node name="Audio" type="Node2D" parent="."]
+position = Vector2(-21, -66)
+
+[node name="Head" type="Label" parent="Audio"]
+offset_left = 31.0
+offset_top = 25.0
+offset_right = 367.0
+offset_bottom = 53.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_ll1h1")
+theme_override_font_sizes/font_size = 28
+text = "music & audio"
+metadata/_edit_use_anchors_ = true
+
+[node name="Asset1" type="RichTextLabel" parent="Audio"]
+offset_left = -134.0
+offset_top = 98.0
+offset_right = 440.0
+offset_bottom = 132.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Arc I : [color=gold]Haruko - Joie de Vivre"
+fit_content = true
+scroll_active = false
+
+[node name="Asset2" type="RichTextLabel" parent="Audio"]
+offset_left = -134.0
+offset_top = 143.0
+offset_right = 440.0
+offset_bottom = 177.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Arc II : [color=gold]Haruko - Wizard's Wonderland"
+fit_content = true
+scroll_active = false
+
+[node name="Asset3" type="RichTextLabel" parent="Audio"]
+offset_left = -134.0
+offset_top = 185.0
+offset_right = 440.0
+offset_bottom = 219.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Arc III : [color=gold] pixabay"
+fit_content = true
+scroll_active = false
+
+[node name="Asset5" type="RichTextLabel" parent="Audio"]
+offset_left = -134.0
+offset_top = 227.0
+offset_right = 506.0
+offset_bottom = 261.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "last level: [color=gold] Jeremy Soule - "
+fit_content = true
+scroll_active = false
+
+[node name="Asset6" type="RichTextLabel" parent="Audio"]
+offset_left = 21.0
+offset_top = 268.0
+offset_right = 661.0
+offset_bottom = 302.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=gold] Auriel's Ascension"
+fit_content = true
+scroll_active = false
+
+[node name="Asset4" type="RichTextLabel" parent="Audio"]
+offset_left = -134.0
+offset_top = 313.0
+offset_right = 440.0
+offset_bottom = 347.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "audio effects: [color=gold]pixabay"
+fit_content = true
+scroll_active = false
+
+[node name="Tutorials" type="Node2D" parent="."]
+position = Vector2(0, -68)
+
+[node name="Head" type="Label" parent="Tutorials"]
+offset_left = -47.0
+offset_top = 24.0
+offset_right = 289.0
+offset_bottom = 52.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_ll1h1")
+theme_override_font_sizes/font_size = 28
+text = "tutorials used made by"
+metadata/_edit_use_anchors_ = true
+
+[node name="Asset1" type="RichTextLabel" parent="Tutorials"]
+offset_left = -134.0
+offset_top = 98.0
+offset_right = 440.0
+offset_bottom = 132.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=gold]Coco Code"
+fit_content = true
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Asset2" type="RichTextLabel" parent="Tutorials"]
+offset_left = -134.0
+offset_top = 143.0
+offset_right = 440.0
+offset_bottom = 177.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=gold]AJ08Coder"
+fit_content = true
+scroll_active = false
+
+[node name="Asset3" type="RichTextLabel" parent="Tutorials"]
+offset_left = -134.0
+offset_top = 185.0
+offset_right = 440.0
+offset_bottom = 219.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=gold]codernunk"
+fit_content = true
+scroll_active = false
+
+[node name="Asset4" type="RichTextLabel" parent="Tutorials"]
+offset_left = -134.0
+offset_top = 230.0
+offset_right = 440.0
+offset_bottom = 264.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=gold]Gwizz"
+fit_content = true
+scroll_active = false
+
+[node name="Asset5" type="RichTextLabel" parent="Tutorials"]
+offset_left = -134.0
+offset_top = 275.0
+offset_right = 440.0
+offset_bottom = 309.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=gold]Godotneers"
+fit_content = true
+scroll_active = false
+
+[node name="Asset6" type="RichTextLabel" parent="Tutorials"]
+offset_left = -134.0
+offset_top = 312.0
+offset_right = 440.0
+offset_bottom = 346.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_ll1h1")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=gold]bitbrain"
+fit_content = true
+scroll_active = false

@@ -230,7 +230,6 @@ script = ExtResource("1_aitpp")
 lvlname = "lvl3_2"
 fruits_left_to_show_sfx = 15
 current_arc = 3
-end_of_arc = true
 metadata/_edit_horizontal_guides_ = [1415.0, 1201.0]
 metadata/_edit_vertical_guides_ = [3167.0]
 

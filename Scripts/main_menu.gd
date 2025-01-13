@@ -114,6 +114,10 @@ func esc_pressed():
 	$Menu/Logo.show()
 	$Menu/MenuBox.show()
 	$Menu/MenuBox/MainMenu/Play.grab_focus()
+	
+	if $Menu/Credits.is_visible_in_tree():
+		$Menu/Credits.hide()
+		$Menu/Credits.end_credits()
 
 func konami_code(action):
 	if inputs.size() < 8:
@@ -142,3 +146,9 @@ func quit_menu():
 	$Menu/Quit.show()
 	$Menu/Quit/Panel/HBoxContainer/Yes.grab_focus()
 	
+
+func _on_credits_pressed():
+	$Menu/MenuBox.hide()
+	$Menu/Logo.hide()
+	$Menu/Credits.show()
+	$Menu/Credits.show_credits()

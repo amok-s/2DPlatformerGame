@@ -1060,7 +1060,6 @@ fit_content = true
 scroll_active = false
 
 [node name="Assets" type="Node2D" parent="Scene Objects/Vines/Further/Text/A6_Credits"]
-visible = false
 
 [node name="Head" type="Label" parent="Scene Objects/Vines/Further/Text/A6_Credits/Assets"]
 offset_left = -48.0
@@ -1159,7 +1158,6 @@ fit_content = true
 scroll_active = false
 
 [node name="Audio" type="Node2D" parent="Scene Objects/Vines/Further/Text/A6_Credits"]
-visible = false
 
 [node name="Head" type="Label" parent="Scene Objects/Vines/Further/Text/A6_Credits/Audio"]
 offset_left = -2.0
@@ -1244,7 +1242,6 @@ fit_content = true
 scroll_active = false
 
 [node name="Tutorials" type="Node2D" parent="Scene Objects/Vines/Further/Text/A6_Credits"]
-visible = false
 
 [node name="Head" type="Label" parent="Scene Objects/Vines/Further/Text/A6_Credits/Tutorials"]
 offset_left = -107.0
@@ -1343,7 +1340,6 @@ fit_content = true
 scroll_active = false
 
 [node name="Support" type="Node2D" parent="Scene Objects/Vines/Further/Text/A6_Credits"]
-visible = false
 
 [node name="Head" type="Label" parent="Scene Objects/Vines/Further/Text/A6_Credits/Support"]
 offset_left = -107.0
@@ -1386,7 +1382,6 @@ fit_content = true
 scroll_active = false
 
 [node name="Thanks" type="RichTextLabel" parent="Scene Objects/Vines/Further/Text/A6_Credits"]
-visible = false
 offset_left = -182.0
 offset_top = 45.0
 offset_right = 410.0
