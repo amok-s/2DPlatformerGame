@@ -21,7 +21,7 @@ func _ready():
 		counter += 1
 	target = current_fruit.position
 
-func _process(delta):
+func _process(_delta):
 	if fruit_count < game_manager.fruits_count:
 		queue_free()
 	look_at(target + Vector2(-25, 75))

@@ -38,10 +38,7 @@ func modulate_tween(node, time : float, color):
 func _ready():
 	for child in text_group.get_children(): 
 		child.hide()
-		
 
-func _process(delta):
-	pass
 
 func DeathCount():
 	var text = text_group.get_node("A2_DeathCount")

@@ -13,7 +13,7 @@ var initial_pos : Vector2
 func _ready():
 	initial_pos = global_position
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	
 	#managing sprite orientation
 	if velocity.x > 0 && !scale_switch:

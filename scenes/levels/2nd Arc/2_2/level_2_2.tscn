@@ -74,7 +74,7 @@ size = Vector2(408.5, 270)
 size = Vector2(902, 530)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ic01n"]
-size = Vector2(665, 445)
+size = Vector2(410, 238)
 
 [sub_resource type="Curve" id="Curve_avk8e"]
 _data = [Vector2(0.0207337, 0), 0.0, 0.0, 0, 0, Vector2(0.261563, 1), 0.0, 0.0, 0, 0, Vector2(0.77193, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -407,7 +407,6 @@ position = Vector2(-928.167, 117.5)
 shape = SubResource("RectangleShape2D_yr2g0")
 
 [node name="CameraChanges" type="Node2D" parent="Scene Objects"]
-visible = false
 script = ExtResource("12_e31hk")
 
 [node name="Camera_01" type="Area2D" parent="Scene Objects/CameraChanges"]
@@ -428,7 +427,7 @@ shape = SubResource("RectangleShape2D_itdet")
 script = ExtResource("16_vdkdt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene Objects/CameraChanges/Camera_03"]
-position = Vector2(2902.5, 310.5)
+position = Vector2(2864, 414)
 shape = SubResource("RectangleShape2D_ic01n")
 
 [node name="ShinyDust" type="GPUParticles2D" parent="Scene Objects"]

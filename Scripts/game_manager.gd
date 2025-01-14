@@ -122,7 +122,6 @@ func spawn_shockwave():
 	var offset = (player.position - camera.get_screen_center_position()) * camera.zoom / Vector2(get_window().size)
 	var player_center = Vector2(0.5, 0.5) + offset
 	player_center.x = (1.8 * player_center.x - 0.4)
-	#b.position = camera.get_screen_center_position() * camera.zoom / Vector2(get_window().size)
 	b.get_child(0).get_material().set_shader_parameter("center", player_center)
 	get_parent().add_child(b)
 	await get_tree().create_timer(0.8).timeout
@@ -146,13 +145,13 @@ func spawn_blink():
 	await get_tree().create_timer(0.02).timeout
 	blink.hide()
 
-func spawn_sfx(name, sfx_position : Vector2, rotation = 0, scale = Vector2(4,4)):
+func spawn_sfx(sfx_name, sfx_position : Vector2, rotation = 0, scale = Vector2(4,4)):
 	var b = sfx.instantiate()
 	b.position = sfx_position
 	b.rotation_degrees = rotation
 	b.scale = scale
 	add_child(b)
-	b.play_animation(name)
+	b.play_animation(sfx_name)
 
 func player_dead():
 	GlobalLevelManager.death_count += 1
@@ -165,9 +164,9 @@ func player_dead():
 	else:
 		return
 
-func showOutline(item):
-	var shader = preload("res://shaders/outline.gdshader")
-	pass
+#func showOutline(_item):
+	#var shader = preload("res://shaders/outline.gdshader")
+	#pass
 
 func pauseBreak(time):
 	GlobalLevelManager.pausable = false
@@ -180,12 +179,12 @@ func checkArc():
 	if get_parent().lvlname == "lvl2_2":
 		Stats.arc3_unlocked = true
 
-func spawn_text_sfx(name, sfx_position : Vector2, extra = null):
+func spawn_text_sfx(sfx_name, sfx_position : Vector2, extra = null):
 	if get_parent().show_text_sfx == true:
 		var b = text_sfx.instantiate()
 		b.position = sfx_position
 		add_child(b)
-		b.show_sfx(name, extra)
+		b.show_sfx(sfx_name, extra)
 
 func start_message():
 	await get_tree().create_timer(1.2).timeout

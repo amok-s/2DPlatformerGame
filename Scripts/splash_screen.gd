@@ -7,7 +7,7 @@ func _ready():
 	SaveSystem.load_config()
 	ResourceLoader.load_threaded_request(target.resource_path)
 	
-func _process(delta):
+func _process(_delta):
 	sceneLoadStatus = ResourceLoader.load_threaded_get_status(target.resource_path)
 	if sceneLoadStatus == ResourceLoader.THREAD_LOAD_LOADED:
 		var newScene = ResourceLoader.load_threaded_get(target.resource_path)

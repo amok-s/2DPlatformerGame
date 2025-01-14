@@ -4,13 +4,11 @@ var hooting_time = false
 @onready var timer = $"../../Timer"
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	timer.wait_time = randf_range(2, 8)
 	timer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if hooting_time:
 		hooting_time = false
 		hoot()

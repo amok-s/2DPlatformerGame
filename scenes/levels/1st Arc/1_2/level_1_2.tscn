@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://b0iwi22pd1xua"]
+[gd_scene load_steps=90 format=3 uid="uid://b0iwi22pd1xua"]
 
 [ext_resource type="Script" path="res://Scripts/level_node.gd" id="1_bsx3o"]
 [ext_resource type="AudioStream" uid="uid://8viaeyptfqrd" path="res://assets/Music/Haruko - Joie de Vivre.mp3" id="2_cnu3s"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://daosphxj6dyv" path="res://assets/PineForestParallax/MorningLayer3.png" id="25_8ckbd"]
 [ext_resource type="Texture2D" uid="uid://c167fa6sw1j06" path="res://assets/Bat/Idle (46x30).png" id="25_ihe0p"]
 [ext_resource type="Texture2D" uid="uid://cfekmo3uqwtng" path="res://assets/PineForestParallax/MorningLayer2.png" id="26_c2mpy"]
+[ext_resource type="PackedScene" uid="uid://ur087dkmfswv" path="res://scenes/enemies and traps/bat.tscn" id="26_mls8l"]
 [ext_resource type="Texture2D" uid="uid://baw5tjki5scus" path="res://assets/PineForestParallax/MorningLayer1.png" id="27_tm88m"]
 [ext_resource type="Texture2D" uid="uid://cmd0cas3vrkfk" path="res://assets/Foliage/NatureTiles.png" id="28_612pb"]
 [ext_resource type="Material" uid="uid://cjdh5qqujvcrr" path="res://shaders/foliage.tres" id="28_v11e0"]
@@ -605,11 +606,30 @@ rotates = false
 rotation = -0.179263
 
 [node name="Bat" type="AnimatedSprite2D" parent="Scene Objects/Enemies group"]
+visible = false
 position = Vector2(2287, 650)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_pywbb")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="Bat3" type="Node2D" parent="Scene Objects/Enemies group"]
+position = Vector2(-841, -47)
+
+[node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat3"]
+
+[node name="Marker2D" type="Marker2D" parent="Scene Objects/Enemies group/Bat3/Markers"]
+position = Vector2(2321, 863)
+
+[node name="Marker2D2" type="Marker2D" parent="Scene Objects/Enemies group/Bat3/Markers"]
+position = Vector2(2130, 718)
+
+[node name="Marker2D3" type="Marker2D" parent="Scene Objects/Enemies group/Bat3/Markers"]
+position = Vector2(2408, 688)
+
+[node name="Bat" parent="Scene Objects/Enemies group/Bat3" node_paths=PackedStringArray("marker_node") instance=ExtResource("26_mls8l")]
+position = Vector2(3135, 697)
+marker_node = NodePath("../Markers")
 
 [node name="Traps group" type="Node2D" parent="Scene Objects"]
 

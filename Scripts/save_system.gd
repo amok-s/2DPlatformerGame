@@ -37,7 +37,7 @@ func load_game():
 	while save_game.get_position() < save_game.get_length():
 		var json_string = save_game.get_line()
 		var json = JSON.new()
-		var parse_result = json.parse(json_string)
+		var _parse_result = json.parse(json_string)
 		var node_data = json.get_data()
 		for item in node_data["levels unlocked"]:
 			levels.append(item)
@@ -70,7 +70,7 @@ func load_config():
 	while saved_config.get_position() < saved_config.get_length():
 		var json_string = saved_config.get_line()
 		var json = JSON.new()
-		var parse_result = json.parse(json_string)
+		var _parse_result = json.parse(json_string)
 		var node_data = json.get_data()
 		settings = node_data
 		print(settings)

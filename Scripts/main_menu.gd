@@ -10,7 +10,6 @@ extends Node
 var center : Vector2 
 @onready var background = $Background
 
-@onready var title_text = $TitleBox/TitleText
 @onready var v_box_container = $Menu/MenuBox/MainMenu
 var inputs : Array[String]
 var can_esc : bool = true
@@ -37,7 +36,7 @@ func _ready():
 	
 
 
-func _process(delta):
+func _process(_delta):
 	var tween = bg_elements.create_tween()
 	
 	var offset = center - bg_elements.get_global_mouse_position() * 0.05
@@ -148,6 +147,7 @@ func quit_menu():
 	
 
 func _on_credits_pressed():
+	tap_sound.play(0)
 	$Menu/MenuBox.hide()
 	$Menu/Logo.hide()
 	$Menu/Credits.show()

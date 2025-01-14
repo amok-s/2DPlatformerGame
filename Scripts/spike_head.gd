@@ -11,9 +11,11 @@ func _on_damage_area_body_entered(body):
 
 func blinkTimer():
 	play("blink")
-	animation_finished.connect(idle)
+	await animation_finished
+	idle()
+	
 
 func idle():
 	animation = "idle"
-	await get_tree().create_timer(randf_range(1.3, 2)).timeout
+	await get_tree().create_timer(randf_range(1.3, 3)).timeout
 	blinkTimer()

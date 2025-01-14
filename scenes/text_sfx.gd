@@ -1,15 +1,12 @@
 extends Node2D
 
-@onready var game_manager = %GameManager
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	var children = $ClipRect/Labels.get_children()
 	for child in children:
 		child.hide()
 
-func show_sfx(name, extra = null):
-	match name:
+func show_sfx(sfx_name, extra = null):
+	match sfx_name:
 		"bump":
 			bump()
 		"fruits left":

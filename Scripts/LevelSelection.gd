@@ -13,7 +13,7 @@ func _ready():
 	levels_unlock()
 	arc_unlock()
 	
-func _process(delta):
+func _process(_delta):
 	selection_menu_logic()
 
 func level_selection():

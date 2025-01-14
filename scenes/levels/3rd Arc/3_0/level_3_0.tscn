@@ -278,25 +278,6 @@ position = Vector2(986, -31)
 position = Vector2(754, -166)
 marker_node = NodePath("../Markers")
 
-[node name="Bat4" type="Node2D" parent="Scene Objects/Enemies group"]
-use_parent_material = true
-position = Vector2(-1166, -46)
-
-[node name="Markers" type="Node" parent="Scene Objects/Enemies group/Bat4"]
-
-[node name="Marker2D" type="Marker2D" parent="Scene Objects/Enemies group/Bat4/Markers"]
-position = Vector2(-395, 19)
-
-[node name="Marker2D2" type="Marker2D" parent="Scene Objects/Enemies group/Bat4/Markers"]
-position = Vector2(-586, -126)
-
-[node name="Marker2D3" type="Marker2D" parent="Scene Objects/Enemies group/Bat4/Markers"]
-position = Vector2(-308, -156)
-
-[node name="Bat" parent="Scene Objects/Enemies group/Bat4" node_paths=PackedStringArray("marker_node") instance=ExtResource("16_3ct3d")]
-position = Vector2(754, -166)
-marker_node = NodePath("../Markers")
-
 [node name="SpikeHead" type="Path2D" parent="Scene Objects/Enemies group"]
 position = Vector2(2578, 346)
 scale = Vector2(2, 2)

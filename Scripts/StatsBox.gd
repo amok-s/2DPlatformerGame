@@ -6,7 +6,7 @@ extends Panel
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	deaths_label.text = "total deaths: " + str(Stats.global_deaths)
 	fruits_label.text = "fruits eaten: " + str(Stats.fruits_eaten)
 	mob_label.text = "mobs killed: " + str(Stats.mobs_killed)
