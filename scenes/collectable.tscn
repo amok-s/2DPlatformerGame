@@ -1076,7 +1076,7 @@ shape = SubResource("CircleShape2D_cn2fq")
 
 [node name="PickUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_55e3t")
-volume_db = -3.0
+volume_db = -6.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

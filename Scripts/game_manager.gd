@@ -164,10 +164,6 @@ func player_dead():
 	else:
 		return
 
-#func showOutline(_item):
-	#var shader = preload("res://shaders/outline.gdshader")
-	#pass
-
 func pauseBreak(time):
 	GlobalLevelManager.pausable = false
 	await get_tree().create_timer(time).timeout

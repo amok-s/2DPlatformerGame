@@ -28,6 +28,7 @@ func _on_body_entered(body):
 		game_manager.add_fruit()
 		
 		if (game_manager.fruits_count != game_manager.fruits_amount):
+			pick_up.pitch_scale = randf_range(0.98, 1.02)
 			pick_up.play(0)
 		
 		collision_shape_2d.queue_free()
