@@ -10,16 +10,18 @@ config_version=5
 
 [application]
 
-config/name="La noche en el bosque"
+config/name="Forêt"
 config/description="Taka tam gierka. Pls hire me, I'm very talented and cute"
-config/version="0.8"
+config/version="1.0"
 run/main_scene="res://scenes/splash_screen.tscn"
 config/use_custom_user_dir=true
-config/custom_user_dir_name="Foret_saves"
+config/custom_user_dir_name="Foret"
 config/features=PackedStringArray("4.2", "Mobile")
 boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
+boot_splash/show_image=false
 boot_splash/use_filter=false
 config/icon="res://assets/game_icon.png"
+config/windows_native_icon="res://assets/game_icon.ico"
 
 [autoload]
 
@@ -27,6 +29,7 @@ GlobalLevelManager="*res://Scripts/global_level_manager.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
 Stats="*res://Scripts/Stats.gd"
 SaveSystem="*res://Scripts/save_system.gd"
+Screenshot="*res://Scripts/screenshot.gd"
 
 [display]
 
@@ -116,14 +119,9 @@ restart={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":114,"echo":false,"script":null)
 ]
 }
-save={
+screenshot={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"echo":false,"script":null)
-]
-}
-load={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":76,"key_label":0,"unicode":108,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194343,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 

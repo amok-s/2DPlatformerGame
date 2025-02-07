@@ -339,8 +339,7 @@ theme_override_font_sizes/font_size = 17
 theme_override_styles/hover = ExtResource("12_kudce")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_cfr3d")
 theme_override_styles/focus = ExtResource("12_kudce")
-text = "Play
-"
+text = "Play"
 script = ExtResource("18_h14l1")
 
 [node name="Options" type="Button" parent="Menu/MenuBox/MainMenu"]
@@ -358,8 +357,7 @@ size_flags_vertical = 4
 mouse_filter = 2
 theme = ExtResource("11_e0m1u")
 theme_override_font_sizes/font_size = 15
-text = "Credits
-"
+text = "Credits"
 
 [node name="Quit" type="Button" parent="Menu/MenuBox/MainMenu"]
 layout_mode = 2
