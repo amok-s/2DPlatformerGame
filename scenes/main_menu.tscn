@@ -895,8 +895,7 @@ text = "Yes"
 [node name="No" type="Button" parent="Menu/Quit/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "No
-"
+text = "No"
 
 [node name="Credits" type="Control" parent="Menu"]
 visible = false

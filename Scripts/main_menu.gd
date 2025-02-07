@@ -144,7 +144,7 @@ func quit_menu():
 	$Menu/Logo.hide()
 	$Menu/Quit.show()
 	$Menu/Quit/Panel/HBoxContainer/Yes.grab_focus()
-	
+
 
 func _on_credits_pressed():
 	tap_sound.play(0)
